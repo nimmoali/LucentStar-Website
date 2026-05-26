@@ -836,34 +836,120 @@
   }
 
   /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 36px 48px;
+  /* FOOTER */
+  .site-footer {
+    background: #0B0F1A;
+    padding: 56px 48px 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  .site-footer-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 48px;
+    padding-bottom: 48px;
+  }
+  .site-footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .site-footer-mark {
+    width: 40px;
+    height: 40px;
+    background: #0D1220;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .site-footer-wordmark {
+    font-size: 14px;
+    line-height: 1;
+  }
+  .site-footer-wordmark .wm-lucent { font-weight: 800; color: #ffffff; }
+  .site-footer-wordmark .wm-star   { font-weight: 800; color: #00E676; }
+  .site-footer-wordmark .wm-ai     { font-weight: 300; color: #94A3B8; }
+  .site-footer-cols {
+    display: flex;
+    gap: 56px;
+  }
+  .site-footer-col h4 {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #64748B;
+    margin: 0 0 14px;
+  }
+  .site-footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .site-footer-col ul li a {
+    font-size: 13px;
+    color: #64748B;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .site-footer-col ul li a:hover { color: #00E676; }
+  .site-footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 18px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
   }
-
-  .footer-brand {
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .footer-brand span { color: var(--green); font-weight: 600; }
-
-  .footer-links {
+  .site-footer-bottom-links {
     display: flex;
-    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
   }
-
-  .footer-links a {
-    font-size: 13px;
-    color: var(--muted);
+  .site-footer-bottom-links a {
+    font-size: 11px;
+    color: #64748B;
     text-decoration: none;
-    transition: color 0.2s;
+    padding: 0 12px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    line-height: 1;
+    transition: color 0.15s;
+  }
+  .site-footer-bottom-links a:first-child { padding-left: 0; }
+  .site-footer-bottom-links a:last-child { border-right: none; }
+  .site-footer-bottom-links a:hover { color: #00E676; }
+  .site-footer-copy {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #64748B;
+  }
+  .site-footer-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #00E676;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .site-footer { padding: 40px 20px 0; }
+    .site-footer-main { flex-direction: column; gap: 32px; }
+    .site-footer-cols { flex-wrap: wrap; gap: 32px; }
+    .site-footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
   }
 
-  .footer-links a:hover { color: var(--white); }
+  /* legacy footer override — hidden */
+  footer { display: none; }
 
   /* ANIMATIONS */
   @keyframes fadeUp {
@@ -1276,16 +1362,65 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-brand">
-    <span>LucentSignal</span> by Lucent Star AI · hello@lucentstar.ai
+<footer></footer>
+
+<div class="site-footer">
+  <div class="site-footer-main">
+    <div class="site-footer-brand">
+      <div class="site-footer-mark">
+        <svg width="26" height="26" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/>
+        </svg>
+      </div>
+      <div class="site-footer-wordmark">
+        <span class="wm-lucent">Lucent</span><span class="wm-star">Star</span> <span class="wm-ai">AI</span>
+      </div>
+    </div>
+    <div class="site-footer-cols">
+      <div class="site-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">LucentSignal</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="https://signalapp.lucentstar.ai/register">Start for free</a></li>
+          <li><a href="https://signalapp.lucentstar.ai/login">Sign in</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Acceptable Use</a></li>
+          <li><a href="#">AI Transparency</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Subprocessors</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="mailto:hello@lucentstar.ai">Privacy</a>
-    <a href="mailto:hello@lucentstar.ai">Terms</a>
-    <a href="https://signalapp.lucentstar.ai/register">App</a>
+  <div class="site-footer-bottom">
+    <div class="site-footer-bottom-links">
+      <a href="#">Privacy</a>
+      <a href="#">Cookies</a>
+      <a href="#">Terms</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Cookie settings</a>
+    </div>
+    <div class="site-footer-copy">
+      <span class="site-footer-dot"></span>
+      <span>© 2026 LucentStar AI Ltd · Registered in England and Wales</span>
+    </div>
   </div>
-</footer>
+</div>
 
 <script>
   function showDemo(style, btn) {
