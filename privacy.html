@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy · LucentStar AI</title>
+  <meta name="robots" content="noindex">
+  <style>
+  :root { --bg: #0A0F1E; --surface: #0D1220; --border: rgba(255,255,255,0.08); --text: #CBD5E1; --heading: #F8FAFC; --green: #00E676; --muted: #64748B; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Nav */
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(10,15,30,0.95); backdrop-filter: blur(8px); z-index: 100; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-mark { width: 32px; height: 32px; background: var(--green); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .nav-logo-text { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+  .nav-logo-text span { color: var(--green); }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-cta { background: var(--green); color: #000; font-weight: 600; font-size: 14px; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
+  .nav-cta:hover { background: #00ff88; text-decoration: none; }
+
+  /* Legal content */
+  .legal-wrap { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; flex: 1; }
+  .legal-wrap h1 { font-size: 2rem; font-weight: 800; color: var(--heading); letter-spacing: -0.5px; margin-bottom: 8px; line-height: 1.2; }
+  .legal-wrap h2 { font-size: 1.15rem; font-weight: 700; color: var(--heading); margin: 36px 0 10px; }
+  .legal-wrap h3 { font-size: 1rem; font-weight: 600; color: var(--heading); margin: 24px 0 8px; }
+  .legal-wrap p { margin-bottom: 14px; font-size: 0.95rem; color: var(--text); }
+  .legal-meta { color: var(--muted); font-size: 0.875rem; margin-bottom: 6px; }
+  .legal-divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  .legal-back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 0.875rem; margin-bottom: 40px; text-decoration: none; }
+  .legal-back:hover { color: var(--green); text-decoration: none; }
+
+  /* Footer (reused from main site) */
+  .site-footer { background: var(--surface); border-top: 1px solid var(--border); padding: 56px 40px 0; }
+  .site-footer-main { display: flex; gap: 64px; max-width: 1100px; margin: 0 auto 40px; }
+  .site-footer-brand { display: flex; flex-direction: column; gap: 14px; min-width: 160px; }
+  .site-footer-mark { width: 40px; height: 40px; background: var(--bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+  .site-footer-wordmark { font-size: 15px; font-weight: 700; letter-spacing: -0.2px; }
+  .site-footer-wordmark .wm-lucent { font-weight: 800; color: #ffffff; }
+  .site-footer-wordmark .wm-star   { font-weight: 800; color: #00E676; }
+  .site-footer-wordmark .wm-ai     { font-weight: 300; color: #94A3B8; }
+  .site-footer-cols { display: flex; gap: 48px; flex: 1; }
+  .site-footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .site-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .site-footer-col ul li a { font-size: 14px; color: #94A3B8; text-decoration: none; }
+  .site-footer-col ul li a:hover { color: var(--green); }
+  .site-footer-bottom { max-width: 1100px; margin: 0 auto; padding: 24px 0 28px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .site-footer-bottom-links { display: flex; gap: 0; flex-wrap: wrap; }
+  .site-footer-bottom-links a { font-size: 13px; color: var(--muted); text-decoration: none; padding: 0 12px; border-right: 1px solid var(--border); }
+  .site-footer-bottom-links a:first-child { padding-left: 0; }
+  .site-footer-bottom-links a:last-child { border-right: none; }
+  .site-footer-bottom-links a:hover { color: var(--green); }
+  .site-footer-copy { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .site-footer-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; }
+
+  @media (max-width: 680px) {
+    nav { padding: 14px 20px; }
+    .legal-wrap { padding: 40px 20px 60px; }
+    .legal-wrap h1 { font-size: 1.6rem; }
+    .site-footer { padding: 40px 20px 0; }
+    .site-footer-main { flex-direction: column; gap: 32px; }
+    .site-footer-cols { flex-wrap: wrap; gap: 32px; }
+    .site-footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg width="18" height="18" viewBox="0 0 56 56" fill="none">
+        <path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Lucent<span>Signal</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="https://signalapp.lucentstar.ai/register" class="nav-cta">Try it free →</a>
+  </div>
+</nav>
+
+<div class="legal-wrap">
+  <a href="/" class="legal-back">← Back to home</a>
+  <h1>Privacy Policy</h1>
+<p class="legal-meta">Last updated: 6 May 2026</p>
+<p class="legal-meta">Applies to: lucentstar.ai and the LucentSignal application</p>
+<p>This Privacy Policy explains how LucentStar AI collects, uses, stores, and protects your personal data when you visit our website at lucentstar.ai or use the LucentSignal platform. It applies to both our marketing website and our authenticated SaaS application.</p>
+<h2>1. Who We Are</h2>
+<p>LucentStar AI is the data controller responsible for your personal data. We are a UK-based digital software and AI services business, the operator of lucentstar.ai and the LucentSignal content generation platform.</p>
+<p>Trading name</p>
+<p>LucentStar AI</p>
+<p>Company number</p>
+<p>[COMPANY REGISTRATION NUMBER — TO BE CONFIRMED]</p>
+<p>Registered address</p>
+<p>[REGISTERED ADDRESS — TO BE CONFIRMED ON COMPANY FORMATION]</p>
+<p>Email</p>
+<p>hello@lucentstar.ai</p>
+<p>Telephone</p>
+<p>[TELEPHONE NUMBER — TO BE CONFIRMED]</p>
+<p>Company registration details will be updated on this page once LucentStar AI Limited is formally incorporated. In the interim, hello@lucentstar.ai is the primary point of contact for all data protection enquiries.</p>
+<h2>2. What Data We Collect</h2>
+<h2>2.1 Data you provide directly (website)</h2>
+<p>Name and contact details (email address, phone number, postal address)</p>
+<p>Business name and job title</p>
+<p>Messages or enquiries submitted via contact forms</p>
+<p>Information provided when signing up to our mailing list</p>
+<p>Any other information you choose to share with us</p>
+<h2>2.2 Data you provide when creating a LucentSignal account</h2>
+<p>Full name and email address (used for authentication and communications)</p>
+<p>Password (stored as a one-way bcrypt hash — we never store your password in plain text)</p>
+<p>Marketing communications preference (opt-in, recorded at registration)</p>
+<h2>2.3 Data you create inside the LucentSignal application</h2>
+<p>Post content you draft, generate, save, schedule, or export</p>
+<p>Ghost writing profile data (your professional identity, tone preferences, audience details)</p>
+<p>Brand voice files you upload (.txt or .md format)</p>
+<p>Prompts and topics you submit to the content generation system</p>
+<p>Content calendar entries and scheduled dates</p>
+<h2>2.4 Data collected automatically</h2>
+<p>IP address and device information</p>
+<p>Browser type and version</p>
+<p>Pages visited and time spent on the site</p>
+<p>Referring website or search terms used to find us</p>
+<p>Session identifiers (stored in our PostgreSQL database via secure session cookies)</p>
+<p>Application usage data (post generation counts, plan status, subscription events)</p>
+<p>Cookie and tracking data (see our Cookie Policy)</p>
+<h2>2.5 Billing and subscription data</h2>
+<p>Subscription plan and status (Free, Creator, or Pro)</p>
+<p>Stripe customer identifier and subscription identifier</p>
+<p>Payment event history (subscription created, upgraded, downgraded, payment failed, payment recovered)</p>
+<p>We do not store your full payment card details. All payment processing is handled by Stripe. We receive only a customer reference and event notifications from Stripe.</p>
+<h2>3. How We Use Your Data</h2>
+<p>We process your personal data for the following purposes:</p>
+<p>To respond to your enquiries and provide customer support</p>
+<p>To create and manage your LucentSignal user account</p>
+<p>To authenticate you and maintain secure sessions</p>
+<p>To generate AI-powered content on your behalf using your submitted prompts</p>
+<p>To enforce your subscription plan entitlements (post limits, feature access)</p>
+<p>To process subscription payments and manage billing events via Stripe</p>
+<p>To send transactional emails (account confirmation, password reset, usage alerts, billing notifications)</p>
+<p>To send marketing communications where you have given consent</p>
+<p>To improve our website, application, and user experience</p>
+<p>To comply with our legal obligations</p>
+<p>To prevent fraud and maintain security</p>
+<h2>4. AI Processing — How Your Prompts Are Used</h2>
+<p>LucentSignal uses the Claude API, operated by Anthropic PBC, to generate content on your behalf. When you submit a topic, ghost writing profile, or brand voice instruction to the generator, that input is transmitted to Anthropic&#x27;s API for processing.</p>
+<p>You should be aware that:</p>
+<p>Your prompts and generation inputs are sent to Anthropic as part of the API call</p>
+<p>Anthropic processes these inputs in accordance with its own privacy policy and API usage policies, available at anthropic.com/privacy</p>
+<p>LucentStar AI does not use your content to train AI models</p>
+<p>Anthropic&#x27;s data processing terms apply to the processing of your inputs at the model level</p>
+<p>AI-generated outputs may contain inaccuracies or errors — you are responsible for reviewing content before publishing</p>
+<p>We recommend you do not include sensitive personal data or confidential information in the content prompts you submit to the generator.</p>
+<h2>5. Legal Basis for Processing</h2>
+<p>Under UK GDPR, we rely on the following legal bases:</p>
+<p>Contract</p>
+<p>Processing necessary to provide the LucentSignal service under your subscription agreement, including account management, content generation, billing, and quota enforcement.</p>
+<p>Legitimate interests</p>
+<p>Processing for our business purposes where these do not override your rights — including security monitoring, fraud prevention, application performance, and service improvement.</p>
+<p>Consent</p>
+<p>Where you have given clear consent — specifically, for marketing emails (opt-in at registration or via account preferences).</p>
+<p>Legal obligation</p>
+<p>Where we are required to process or retain data to comply with applicable law, including financial records.</p>
+<h2>6. Marketing Communications</h2>
+<p>We will only send you marketing emails if you have opted in to receive them at registration or subsequently via your account settings. You can unsubscribe at any time by clicking the unsubscribe link in any email or by updating your preferences in the LucentSignal account page. We do not pass your contact details to third parties for marketing purposes.</p>
+<h2>7. Our Data Processors (Subprocessors)</h2>
+<p>We use the following third-party processors to operate LucentStar AI and LucentSignal. All processors are required to process your data securely and in accordance with applicable data protection law.</p>
+<p>Anthropic PBC</p>
+<p>AI content generation. Receives prompt inputs submitted to the LucentSignal generator. USA (Standard Contractual Clauses).</p>
+<p>Stripe Inc.</p>
+<p>Subscription billing and payment processing. Receives billing-related data and payment events. USA (Standard Contractual Clauses / UK Addendum).</p>
+<p>Resend Inc.</p>
+<p>Transactional and marketing email delivery. Receives name and email address for sending. USA (Standard Contractual Clauses).</p>
+<p>Railway Corporation</p>
+<p>Application hosting and managed PostgreSQL database. Stores all application data including user accounts, posts, and sessions. USA (Standard Contractual Clauses).</p>
+<p>We maintain a current list of subprocessors at lucentstar.ai/legal/subprocessors. We will provide reasonable notice of any material changes to our subprocessor list.</p>
+<h2>8. International Transfers</h2>
+<p>Some of our processors are based outside the UK (see Section 7). Where we transfer personal data internationally, we ensure appropriate safeguards are in place. For transfers to the USA, we rely on Standard Contractual Clauses approved by the UK ICO (or equivalent international data transfer agreements), supplemented where necessary by transfer impact assessments.</p>
+<h2>9. Data Retention</h2>
+<p>We retain your personal data only for as long as necessary for the purposes described in this policy, or as required by law.</p>
+<p>Active account data (profile, posts, ghost profile, brand voice)</p>
+<p>Retained for the duration of your account and for 90 days following account closure, then deleted.</p>
+<p>Session data</p>
+<p>Deleted on logout or after 7 days of inactivity.</p>
+<p>Billing and financial records</p>
+<p>7 years from the date of the relevant transaction (legal obligation).</p>
+<p>Marketing consent records</p>
+<p>Retained until you withdraw consent.</p>
+<p>Password reset tokens</p>
+<p>Deleted immediately after use or after 1 hour if unused.</p>
+<p>Enquiry and contact form data</p>
+<p>2 years from the date of last contact.</p>
+<p>Website analytics data</p>
+<p>26 months (in line with ICO guidance).</p>
+<h2>10. Your Rights</h2>
+<p>Under UK GDPR, you have the following rights:</p>
+<p>Right of access: to request a copy of the personal data we hold about you</p>
+<p>Right to rectification: to ask us to correct inaccurate or incomplete data</p>
+<p>Right to erasure: to ask us to delete your data in certain circumstances</p>
+<p>Right to restriction: to ask us to limit how we use your data</p>
+<p>Right to data portability: to receive your data in a structured, machine-readable format — you can export your saved posts from the LucentSignal dashboard at any time</p>
+<p>Right to object: to object to processing based on legitimate interests or for direct marketing</p>
+<p>Rights related to automated decision-making: to not be subject to solely automated decisions that significantly affect you</p>
+<p>To exercise any of these rights, please contact us at hello@lucentstar.ai. We will respond within one calendar month. You also have the right to lodge a complaint with the Information Commissioner&#x27;s Office (ICO) at www.ico.org.uk or by calling 0303 123 1113.</p>
+<h2>11. Account Deletion and Data Erasure</h2>
+<p>You may request deletion of your LucentSignal account and associated personal data at any time by contacting hello@lucentstar.ai with the subject line &quot;Account deletion request&quot;. We will process your request within 30 days.</p>
+<p>On account deletion, we will:</p>
+<p>Delete your account credentials, ghost writing profile, brand voice data, and all saved posts</p>
+<p>Cancel any active subscription via Stripe</p>
+<p>Retain billing and financial records for the legally required 7-year period</p>
+<p>Retain anonymised usage statistics that cannot be linked back to you</p>
+<p>A self-service account deletion option within the LucentSignal account settings page is planned for a future release.</p>
+<h2>12. Security</h2>
+<p>We take the following measures to protect your personal data:</p>
+<p>Passwords are hashed using bcrypt with a high cost factor — we never store passwords in plain text</p>
+<p>Sessions are stored server-side in a PostgreSQL database with secure, HTTP-only, same-site cookies</p>
+<p>Session IDs are rotated on login and registration to prevent session fixation attacks</p>
+<p>Password reset invalidates all active sessions for your account</p>
+<p>All data transmission uses HTTPS/TLS encryption</p>
+<p>Access to production systems is restricted to authorised personnel only</p>
+<p>No data transmission over the internet is completely secure, and we cannot guarantee the absolute security of data you send to us. Please notify us immediately at hello@lucentstar.ai if you suspect any unauthorised access to your account.</p>
+<h2>13. Cookies</h2>
+<p>Our website and application use cookies. For full details, please see our Cookie Policy at lucentstar.ai/cookie-policy. The LucentSignal application uses strictly necessary session cookies only and does not require cookie consent from authenticated users.</p>
+<h2>14. EU Users and Representative</h2>
+<p>LucentSignal is accessible to users in the European Union. At the current stage of the business, we do not have a formally appointed EU representative under Article 27 of the EU GDPR. If you are an EU-based user with a data protection query, please contact us at hello@lucentstar.ai. We will update this section on appointment of an EU representative.</p>
+<h2>15. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. Any material changes will be communicated to registered users by email. Changes will also be posted on this page with a revised effective date. This policy was last updated on 6 May 2026.</p>
+<h2>16. Contact Us</h2>
+<p>For any queries relating to this Privacy Policy or your personal data, please contact:</p>
+<p>Email</p>
+<p>hello@lucentstar.ai</p>
+<p>Address</p>
+<p>[REGISTERED ADDRESS — TO BE CONFIRMED ON COMPANY FORMATION]</p>
+<p>Telephone</p>
+<p>[TELEPHONE NUMBER — TO BE CONFIRMED]</p>
+</div>
+
+<div class="site-footer">
+  <div class="site-footer-main">
+    <div class="site-footer-brand">
+      <div class="site-footer-mark">
+        <svg width="26" height="26" viewBox="0 0 56 56" fill="none">
+          <path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/>
+        </svg>
+      </div>
+      <div class="site-footer-wordmark">
+        <span class="wm-lucent">Lucent</span><span class="wm-star">Star</span> <span class="wm-ai">AI</span>
+      </div>
+    </div>
+    <div class="site-footer-cols">
+      <div class="site-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="https://signalapp.lucentstar.ai">LucentSignal</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="https://signalapp.lucentstar.ai/register">Start for free</a></li>
+          <li><a href="https://signalapp.lucentstar.ai/login">Sign in</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/cookie-policy">Cookie Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/acceptable-use">Acceptable Use</a></li>
+          <li><a href="/ai-transparency">AI Transparency</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="mailto:hello@lucentstar.ai">Contact</a></li>
+          <li><a href="/subprocessors">Subprocessors</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <div class="site-footer-bottom-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookie-policy">Cookies</a>
+      <a href="/terms">Terms</a>
+      <a href="/accessibility">Accessibility</a>
+      <a href="/cookie-settings">Cookie settings</a>
+    </div>
+    <div class="site-footer-copy">
+      <span class="site-footer-dot"></span>
+      <span>© 2026 LucentStar AI Ltd · Registered in England and Wales</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
