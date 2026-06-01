@@ -986,9 +986,9 @@
 
   .ghostwriter-objection { padding-top: 80px; padding-bottom: 80px; border-bottom: 1px solid var(--border); }
 
-  .gw-subhead { font-size: 20px; color: var(--muted); line-height: 1.6; margin: 16px 0 0; max-width: 600px; }
+  .gw-subhead { font-size: 20px; color: rgba(255,255,255,0.72); line-height: 1.6; margin: 16px 0 0; max-width: 600px; }
 
-  .gw-mechanism { font-size: 17px; color: var(--white); font-weight: 600; line-height: 1.7; margin: 28px 0 48px; letter-spacing: -0.2px; }
+  .gw-mechanism { font-size: 17px; color: #E8EAF0; font-weight: 600; line-height: 1.7; margin: 28px 0 48px; letter-spacing: -0.2px; }
 
   .gw-comparison { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 0; align-items: start; margin-bottom: 28px; }
 
@@ -1035,7 +1035,7 @@
 
   .scoring-section { padding-top: 80px; padding-bottom: 80px; border-top: 1px solid var(--border); }
   .scoring-intro { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.75; margin: 16px 0 8px; }
-  .scoring-support { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 36px; }
+  .scoring-support { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: 36px; }
   .scoring-overall { background: #151B2E; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
   .scoring-overall-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2); }
   .scoring-overall-score { font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
@@ -1066,6 +1066,31 @@
   @media (min-width: 768px) {
     .scoring-intro { max-width: 580px; }
     .scoring-support { max-width: 580px; }
+  }
+
+  .wf-section { padding-top: 80px; padding-bottom: 80px; border-top: 1px solid var(--border); }
+  .wf-intro { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.75; margin: 16px 0 48px; max-width: 580px; }
+  .wf-flow { display: flex; align-items: center; margin-bottom: 52px; padding: 22px 28px; background: #0D1220; border: 0.5px solid rgba(255,255,255,0.07); border-radius: 12px; overflow-x: auto; gap: 0; }
+  .wf-node { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 72px; }
+  .wf-dot { width: 7px; height: 7px; border-radius: 50%; background: #00E676; opacity: 0.9; }
+  .wf-node-label { font-size: 12px; font-weight: 600; color: rgba(232,234,240,0.6); text-align: center; white-space: nowrap; }
+  .wf-arrow { font-size: 14px; color: rgba(255,255,255,0.15); flex-shrink: 0; padding: 0 6px; padding-bottom: 14px; align-self: flex-end; }
+  .wf-steps { margin-bottom: 48px; }
+  .wf-step { display: grid; grid-template-columns: 48px 1fr; gap: 24px; padding: 24px 0; border-bottom: 0.5px solid rgba(255,255,255,0.06); align-items: start; }
+  .wf-step:first-child { border-top: 0.5px solid rgba(255,255,255,0.06); }
+  .wf-step-num { font-size: 11px; font-weight: 700; color: rgba(0,230,118,0.45); letter-spacing: 0.08em; padding-top: 3px; }
+  .wf-step-title { font-size: 17px; font-weight: 700; color: #E8EAF0; margin-bottom: 5px; letter-spacing: -0.2px; }
+  .wf-step-desc { font-size: 15px; color: rgba(232,234,240,0.60); line-height: 1.75; }
+  .wf-export { padding: 20px 0; border-top: 0.5px solid rgba(255,255,255,0.06); border-bottom: 0.5px solid rgba(255,255,255,0.06); margin-bottom: 52px; }
+  .wf-export-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,234,240,0.28); margin-bottom: 14px; }
+  .wf-export-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wf-pill { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: rgba(232,234,240,0.55); background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 7px 13px; }
+  .wf-footer { text-align: center; }
+  .wf-takeaway { font-size: 20px; font-weight: 700; color: #E8EAF0; letter-spacing: -0.3px; margin-bottom: 20px; }
+  .wf-cta { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .wf-cta-note { font-size: 13px; color: var(--muted-2); }
+  @media (min-width: 768px) {
+    .wf-intro { max-width: 580px; }
   }
 </style>
 </head>
@@ -1234,6 +1259,103 @@
     <div class="scoring-cta">
       <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">Try it with your own post →</a>
       <p class="scoring-cta-note">3 free posts. No card needed.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WORKFLOW -->
+<div class="section-wrap wf-section">
+  <div class="reveal">
+    <div class="section-label">The workflow</div>
+    <h2 class="section-title">Don't just generate the post. <span class="green">Build the month.</span></h2>
+    <p class="wf-intro">LucentSignal takes you from rough idea to written post, quality score, calendar schedule and export-ready files.</p>
+  </div>
+
+  <div class="wf-flow reveal">
+    <div class="wf-node"><div class="wf-dot"></div><div class="wf-node-label">Idea</div></div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-node"><div class="wf-dot"></div><div class="wf-node-label">Ghostwriter</div></div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-node"><div class="wf-dot"></div><div class="wf-node-label">Score</div></div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-node"><div class="wf-dot"></div><div class="wf-node-label">Calendar</div></div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-node"><div class="wf-dot"></div><div class="wf-node-label">Export</div></div>
+  </div>
+
+  <div class="wf-steps reveal">
+    <div class="wf-step">
+      <div class="wf-step-num">01</div>
+      <div>
+        <div class="wf-step-title">Find the angle</div>
+        <div class="wf-step-desc">Search trending topics in your industry or start with a rough idea. LucentSignal surfaces what is worth writing about right now.</div>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step-num">02</div>
+      <div>
+        <div class="wf-step-title">Shape the post</div>
+        <div class="wf-step-desc">Use Ghostwriter, writing examples and voice rules to keep the draft close to your voice.</div>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step-num">03</div>
+      <div>
+        <div class="wf-step-title">Score before saving</div>
+        <div class="wf-step-desc">Check hook, insight, clarity and closing so you know what needs improving before you publish.</div>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step-num">04</div>
+      <div>
+        <div class="wf-step-title">Plan the calendar</div>
+        <div class="wf-step-desc">Schedule posts across the month and build a consistent publishing rhythm.</div>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step-num">05</div>
+      <div>
+        <div class="wf-step-title">Export cleanly</div>
+        <div class="wf-step-desc">Download files formatted for the tools your team already uses.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-export reveal">
+    <div class="wf-export-label">Export-ready for</div>
+    <div class="wf-export-pills">
+      <span class="wf-pill">
+        <img src="https://www.google.com/s2/favicons?domain=hootsuite.com&sz=32" width="16" height="16" style="border-radius:3px" onerror="this.style.display='none'" alt="">
+        Hootsuite
+      </span>
+      <span class="wf-pill">
+        <img src="https://www.google.com/s2/favicons?domain=agorapulse.com&sz=32" width="16" height="16" style="border-radius:3px" onerror="this.style.display='none'" alt="">
+        Agorapulse
+      </span>
+      <span class="wf-pill">
+        <img src="https://www.google.com/s2/favicons?domain=airtable.com&sz=32" width="16" height="16" style="border-radius:3px" onerror="this.style.display='none'" alt="">
+        Airtable
+      </span>
+      <span class="wf-pill">
+        <img src="https://www.google.com/s2/favicons?domain=notion.so&sz=32" width="16" height="16" style="border-radius:3px" onerror="this.style.display='none'" alt="">
+        Notion
+      </span>
+      <span class="wf-pill">
+        <img src="https://www.google.com/s2/favicons?domain=calendar.google.com&sz=32" width="16" height="16" style="border-radius:3px" onerror="this.style.display='none'" alt="">
+        Google Calendar
+      </span>
+      <span class="wf-pill">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" style="flex-shrink:0"><rect x="1" y="3" width="16" height="14" rx="2" fill="#4285F4"/><rect x="1" y="3" width="16" height="5" rx="2" fill="#3367D6"/><rect x="1" y="6" width="16" height="2" fill="#3367D6"/><line x1="5" y1="1" x2="5" y2="5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="1" x2="13" y2="5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><rect x="4" y="10" width="3" height="2" rx="0.5" fill="white" opacity="0.8"/><rect x="8" y="10" width="3" height="2" rx="0.5" fill="white" opacity="0.8"/><rect x="4" y="13" width="3" height="2" rx="0.5" fill="white" opacity="0.8"/></svg>
+        ICS
+      </span>
+    </div>
+  </div>
+
+  <div class="wf-footer reveal">
+    <p class="wf-takeaway">Turn one idea into a planned week of content.</p>
+    <div class="wf-cta">
+      <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">Plan your first week →</a>
+      <p class="wf-cta-note">3 free posts. No card needed.</p>
     </div>
   </div>
 </div>
