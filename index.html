@@ -1016,7 +1016,7 @@
     .gw-col { padding: 0; }
   }
 
-  .dms-section { padding-top: 80px; padding-bottom: 80px; }
+  .dms-section { padding-top: 80px; padding-bottom: 80px; background: var(--navy-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .dms-sub { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.75; max-width: 600px; margin: 16px 0 48px; }
   .dms-topic { display: flex; align-items: center; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid var(--border); margin-bottom: 0; }
   .dms-topic-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2); flex-shrink: 0; }
@@ -1158,7 +1158,27 @@
     <p class="gw-cta-note">3 free posts. No card needed.</p>
   </div>
 </div>
-
+<!-- PROBLEM -->
+<div class="section-wrap">
+    <div class="problem-grid">
+      <div class="reveal">
+        <div class="section-label">The problem</div>
+        <h2 class="section-title">Most people don't struggle with <span class="green">ideas.</span></h2>
+        <p style="color:var(--muted);font-size:17px;margin-bottom:28px;line-height:1.7;">They struggle turning those ideas into something worth posting.</p>
+        <ul class="problem-list">
+          <li>Rewrite the same post three times and still aren't happy with it</li>
+          <li>Overthink every sentence until they don't post at all</li>
+          <li>Use AI and get something generic that sounds like everyone else</li>
+          <li>Spend an hour on a post that took 10 minutes to think of</li>
+        </ul>
+      </div>
+      <div class="problem-callout reveal">
+        <p>AI made it easier to produce content. It didn't make it easier to produce content worth reading.</p>
+        <span>LucentSignal is built around your point of view, not a template. The output sounds like you because it starts from how you actually think.</span>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- DIRECT MEASURED SHARP -->
 <div class="section-wrap dms-section">
   <div class="reveal">
@@ -1204,7 +1224,81 @@
     </div>
   </div>
 </div>
+<!-- DEMO -->
+<div class="section-wrap" id="demo">
+  <div class="reveal">
+    <div class="section-label">See it in action</div>
+    <h2 class="section-title">Same idea. <span class="green">Three completely different posts.</span></h2>
+    <p class="section-sub">Same tool. Same input. You control how it comes out.</p>
+  </div>
 
+  <div class="demo-input-box reveal">
+    <span class="demo-input-label">Your idea</span>
+    <span class="demo-input-text">AI is changing hiring decisions, and experience is starting to matter more than credentials</span>
+  </div>
+
+  <div class="demo-tabs reveal">
+    <button class="demo-tab active" onclick="showDemo('measured', this)">Thoughtful</button>
+    <button class="demo-tab" onclick="showDemo('direct', this)">Clear</button>
+    <button class="demo-tab" onclick="showDemo('sharp', this)">Challenging</button>
+  </div>
+
+  <div id="demo-measured" class="demo-post active reveal">
+    <span class="demo-post-label">Thoughtful: explores the tension without landing a verdict</span>
+    <p>There's a shift happening in how hiring decisions are made, but it's easy to miss if you're not looking closely.</p>
+    <p>For a long time, credentials acted as a proxy for capability. They offered reassurance: a signal that someone had met a certain standard. That still matters. But it seems to matter less than it used to.</p>
+    <p>As AI takes on more structured work, the emphasis moves elsewhere. Judgement becomes more important. So does the ability to navigate ambiguity and make decisions without a clear template.</p>
+    <p>Those qualities are harder to validate on paper. They tend to show up through experience, through exposure to real situations where the outcome wasn't obvious from the start.</p>
+    <p>What's less clear is whether most hiring processes are built to surface that. The signals being used were designed for a different kind of work. Whether they're being updated at the same pace as the work itself is a harder question.</p>
+    <span class="demo-hashtags">#Hiring #AI #Leadership #FutureOfWork</span>
+    <div class="demo-score-row">
+      <span class="demo-score-pill">Hook: <span>7/10</span></span>
+      <span class="demo-score-pill">Insight: <span>8/10</span></span>
+      <span class="demo-score-pill">Clarity: <span>8/10</span></span>
+      <span class="demo-score-pill">Closing: <span>6/10</span></span>
+      <span class="demo-score-pill">Overall: <span>29/40</span></span>
+    </div>
+  </div>
+
+  <div id="demo-direct" class="demo-post reveal">
+    <span class="demo-post-label">Direct: clear position, no hedging</span>
+    <p>We've treated hiring like a credentials problem for years. It isn't. It's a risk problem.</p>
+    <p>Degrees and certifications gave companies a way to feel confident about decisions. A way to reduce uncertainty. But they never really proved someone could do the work.</p>
+    <p>AI is starting to make that obvious.</p>
+    <p>When structured tasks are handled by systems, the value shifts to judgement. To knowing what matters when the brief isn't clear. To making decisions without a playbook. You don't get that from a certificate. You get it from experience, from seeing things go wrong and understanding why.</p>
+    <p>The issue is that most hiring processes haven't caught up. They're still built around signals that are becoming less relevant. That creates a gap between people who look qualified and people who actually are.</p>
+    <p>That gap is only going to widen.</p>
+    <span class="demo-hashtags">#Hiring #AI #Leadership #FutureOfWork</span>
+    <div class="demo-score-row">
+      <span class="demo-score-pill">Hook: <span>8/10</span></span>
+      <span class="demo-score-pill">Insight: <span>8/10</span></span>
+      <span class="demo-score-pill">Clarity: <span>7/10</span></span>
+      <span class="demo-score-pill">Closing: <span>8/10</span></span>
+      <span class="demo-score-pill">Overall: <span>31/40</span></span>
+    </div>
+  </div>
+
+  <div id="demo-sharp" class="demo-post reveal">
+    <span class="demo-post-label">Sharp: challenges assumptions, creates friction</span>
+    <p>We're still hiring for a version of work that doesn't exist anymore.</p>
+    <p>Credentials made sense when the job was predictable. When success meant following a known process and getting the same outcome every time. That's not the environment most teams are operating in now.</p>
+    <p>AI is already handling the structured work. The parts that used to justify those credentials in the first place.</p>
+    <p>What's left is the messy part. The judgement calls. The situations where there isn't a clear answer. And that's exactly where credentials tell you the least. They don't show how someone thinks. They don't show how they handle ambiguity. They don't show how they recover when things go wrong.</p>
+    <p>Yet we still treat them as the primary filter. If hiring doesn't evolve, companies won't just miss good candidates. They'll systematically select the wrong ones.</p>
+    <span class="demo-hashtags">#Hiring #AI #Leadership #FutureOfWork</span>
+    <div class="demo-score-row">
+      <span class="demo-score-pill">Hook: <span>9/10</span></span>
+      <span class="demo-score-pill">Insight: <span>7/10</span></span>
+      <span class="demo-score-pill">Clarity: <span>6/10</span></span>
+      <span class="demo-score-pill">Closing: <span>6/10</span></span>
+      <span class="demo-score-pill">Overall: <span>28/40</span></span>
+    </div>
+  </div>
+
+  <div class="demo-cta reveal">
+    <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">Try it on your own idea →</a>
+  </div>
+</div>
 <!-- SCORING -->
 <div class="section-wrap scoring-section">
   <div class="reveal">
@@ -1262,7 +1356,6 @@
     </div>
   </div>
 </div>
-
 <!-- WORKFLOW -->
 <div class="section-wrap wf-section">
   <div class="reveal">
@@ -1376,142 +1469,8 @@
     </div>
   </div>
 </div>
--->
-
-<!-- DEMO -->
-<div class="stripe">
-<div class="section-wrap" id="demo">
-  <div class="reveal">
-    <div class="section-label">See it in action</div>
-    <h2 class="section-title">Same idea. <span class="green">Three completely different posts.</span></h2>
-    <p class="section-sub">Same tool. Same input. You control how it comes out.</p>
-  </div>
-
-  <div class="demo-input-box reveal">
-    <span class="demo-input-label">Your idea</span>
-    <span class="demo-input-text">AI is changing hiring decisions, and experience is starting to matter more than credentials</span>
-  </div>
-
-  <div class="demo-tabs reveal">
-    <button class="demo-tab active" onclick="showDemo('measured', this)">Thoughtful</button>
-    <button class="demo-tab" onclick="showDemo('direct', this)">Clear</button>
-    <button class="demo-tab" onclick="showDemo('sharp', this)">Challenging</button>
-  </div>
-
-  <div id="demo-measured" class="demo-post active reveal">
-    <span class="demo-post-label">Thoughtful: explores the tension without landing a verdict</span>
-    <p>There's a shift happening in how hiring decisions are made, but it's easy to miss if you're not looking closely.</p>
-    <p>For a long time, credentials acted as a proxy for capability. They offered reassurance: a signal that someone had met a certain standard. That still matters. But it seems to matter less than it used to.</p>
-    <p>As AI takes on more structured work, the emphasis moves elsewhere. Judgement becomes more important. So does the ability to navigate ambiguity and make decisions without a clear template.</p>
-    <p>Those qualities are harder to validate on paper. They tend to show up through experience, through exposure to real situations where the outcome wasn't obvious from the start.</p>
-    <p>What's less clear is whether most hiring processes are built to surface that. The signals being used were designed for a different kind of work. Whether they're being updated at the same pace as the work itself is a harder question.</p>
-    <span class="demo-hashtags">#Hiring #AI #Leadership #FutureOfWork</span>
-    <div class="demo-score-row">
-      <span class="demo-score-pill">Hook: <span>7/10</span></span>
-      <span class="demo-score-pill">Insight: <span>8/10</span></span>
-      <span class="demo-score-pill">Clarity: <span>8/10</span></span>
-      <span class="demo-score-pill">Closing: <span>6/10</span></span>
-      <span class="demo-score-pill">Overall: <span>29/40</span></span>
-    </div>
-  </div>
-
-  <div id="demo-direct" class="demo-post reveal">
-    <span class="demo-post-label">Direct: clear position, no hedging</span>
-    <p>We've treated hiring like a credentials problem for years. It isn't. It's a risk problem.</p>
-    <p>Degrees and certifications gave companies a way to feel confident about decisions. A way to reduce uncertainty. But they never really proved someone could do the work.</p>
-    <p>AI is starting to make that obvious.</p>
-    <p>When structured tasks are handled by systems, the value shifts to judgement. To knowing what matters when the brief isn't clear. To making decisions without a playbook. You don't get that from a certificate. You get it from experience, from seeing things go wrong and understanding why.</p>
-    <p>The issue is that most hiring processes haven't caught up. They're still built around signals that are becoming less relevant. That creates a gap between people who look qualified and people who actually are.</p>
-    <p>That gap is only going to widen.</p>
-    <span class="demo-hashtags">#Hiring #AI #Leadership #FutureOfWork</span>
-    <div class="demo-score-row">
-      <span class="demo-score-pill">Hook: <span>8/10</span></span>
-      <span class="demo-score-pill">Insight: <span>8/10</span></span>
-      <span class="demo-score-pill">Clarity: <span>7/10</span></span>
-      <span class="demo-score-pill">Closing: <span>8/10</span></span>
-      <span class="demo-score-pill">Overall: <span>31/40</span></span>
-    </div>
-  </div>
-
-  <div id="demo-sharp" class="demo-post reveal">
-    <span class="demo-post-label">Sharp: challenges assumptions, creates friction</span>
-    <p>We're still hiring for a version of work that doesn't exist anymore.</p>
-    <p>Credentials made sense when the job was predictable. When success meant following a known process and getting the same outcome every time. That's not the environment most teams are operating in now.</p>
-    <p>AI is already handling the structured work. The parts that used to justify those credentials in the first place.</p>
-    <p>What's left is the messy part. The judgement calls. The situations where there isn't a clear answer. And that's exactly where credentials tell you the least. They don't show how someone thinks. They don't show how they handle ambiguity. They don't show how they recover when things go wrong.</p>
-    <p>Yet we still treat them as the primary filter. If hiring doesn't evolve, companies won't just miss good candidates. They'll systematically select the wrong ones.</p>
-    <span class="demo-hashtags">#Hiring #AI #Leadership #FutureOfWork</span>
-    <div class="demo-score-row">
-      <span class="demo-score-pill">Hook: <span>9/10</span></span>
-      <span class="demo-score-pill">Insight: <span>7/10</span></span>
-      <span class="demo-score-pill">Clarity: <span>6/10</span></span>
-      <span class="demo-score-pill">Closing: <span>6/10</span></span>
-      <span class="demo-score-pill">Overall: <span>28/40</span></span>
-    </div>
-  </div>
-
-  <div class="demo-cta reveal">
-    <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">Try it on your own idea →</a>
-  </div>
-</div>
-</div>
-
-<!-- PROBLEM -->
-<div class="section-wrap">
-    <div class="problem-grid">
-      <div class="reveal">
-        <div class="section-label">The problem</div>
-        <h2 class="section-title">Most people don't struggle with <span class="green">ideas.</span></h2>
-        <p style="color:var(--muted);font-size:17px;margin-bottom:28px;line-height:1.7;">They struggle turning those ideas into something worth posting.</p>
-        <ul class="problem-list">
-          <li>Rewrite the same post three times and still aren't happy with it</li>
-          <li>Overthink every sentence until they don't post at all</li>
-          <li>Use AI and get something generic that sounds like everyone else</li>
-          <li>Spend an hour on a post that took 10 minutes to think of</li>
-        </ul>
-      </div>
-      <div class="problem-callout reveal">
-        <p>AI made it easier to produce content. It didn't make it easier to produce content worth reading.</p>
-        <span>LucentSignal is built around your point of view, not a template. The output sounds like you because it starts from how you actually think.</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<div class="stripe">
-<div class="section-wrap" id="how-it-works">
-  <div class="reveal">
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">Four steps. <span class="green">One workflow.</span></h2>
-    <p class="section-sub">Give it your idea. Get a draft worth working with. Know it's good before you post it.</p>
-  </div>
-  <div class="steps-grid">
-    <div class="step-card reveal">
-      <div class="step-num">01</div>
-      <h3>Give it your idea</h3>
-      <p>Type a rough topic or pull from trending industry conversations. No prompting, no setup. Just your idea.</p>
-    </div>
-    <div class="step-card reveal">
-      <div class="step-num">02</div>
-      <h3>Get a draft worth working with</h3>
-      <p>Choose Thoughtful, Clear, or Challenging. Get a post that reads like a real person with a point of view, not a template. Edit it directly in the tool.</p>
-    </div>
-    <div class="step-card reveal">
-      <div class="step-num">03</div>
-      <h3>Score it. Refine it.</h3>
-      <p>Every post is scored across hook, insight, clarity and closing out of 40. Get specific improvement tips before you publish.</p>
-    </div>
-    <div class="step-card reveal">
-      <div class="step-num">04</div>
-      <h3>Schedule &amp; post</h3>
-      <p>Set a publish date, export to Hootsuite, Agorapulse, Notion or Airtable, or download as CSV. Your content, your platform.</p>
-    </div>
-  </div>
-</div>
-</div>
-
 <!-- WHO -->
+<div class="stripe">
 <div class="section-wrap">
     <div class="reveal">
       <div class="section-label">Who it's for</div>
@@ -1542,53 +1501,7 @@
     </div>
   </div>
 </div>
-
-<!-- VS -->
-<div class="stripe">
-<div class="section-wrap">
-  <div class="reveal">
-    <div class="section-label">Why not just use ChatGPT</div>
-    <h2 class="section-title">You can. Lucent<span class="green">Signal</span> just <span class="green">removes the loop &amp; creates a workflow.</span></h2>
-  </div>
-  <div class="vs-grid">
-    <div class="vs-card reveal">
-      <div class="vs-card-label">ChatGPT / Generic AI</div>
-      <ul class="vs-list">
-        <li>
-          <span class="icon-x">✕</span>
-          <div><strong>Generic output, every time</strong>The same prompts produce the same results. Your post ends up sounding like everyone else using the same tool.</div>
-        </li>
-        <li>
-          <span class="icon-x">✕</span>
-          <div><strong>No continuity between sessions</strong>You re-explain your tone, your audience, your style every time. There's no memory of the last post you wrote.</div>
-        </li>
-        <li>
-          <span class="icon-x">✕</span>
-          <div><strong>No way to know if it's good</strong>You publish and hope. There's no feedback on hook strength, clarity, or what to fix before it goes out.</div>
-        </li>
-      </ul>
-    </div>
-    <div class="vs-card signal reveal">
-      <div class="vs-card-label">LucentSignal</div>
-      <ul class="vs-list">
-        <li>
-          <span class="icon-check">✓</span>
-          <div><strong>Your voice, consistently</strong>Three writing styles built for LinkedIn. No prompting — just pick a direction and it sounds like you said it.</div>
-        </li>
-        <li>
-          <span class="icon-check">✓</span>
-          <div><strong>Workflow continuity</strong>Dashboard, calendar and post history in one place. Upload your brand voice once. Pick up exactly where you left off.</div>
-        </li>
-        <li>
-          <span class="icon-check">✓</span>
-          <div><strong>Score before you post</strong>Every post scored out of 40 across hook, insight, clarity and closing. Specific tips on what to improve. Know it's good before it goes live.</div>
-        </li>
-      </ul>
-    </div>
-  </div>
 </div>
-</div>
-
 <!-- PRICING -->
 <div class="section-wrap" id="pricing">
     <div class="reveal" style="text-align:center;">
@@ -1655,7 +1568,6 @@
     </div>
   </div>
 </div>
-
 <!-- FAQ -->
 <div class="stripe">
 <div class="section-wrap">
@@ -1691,7 +1603,6 @@
   </div>
 </div>
 </div>
-
 <!-- FINAL CTA -->
 <div class="section-wrap" style="padding-top:80px;padding-bottom:80px;">
   <div class="final-cta">
