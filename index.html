@@ -983,6 +983,38 @@
     .bridge-input-row { flex-direction: column; align-items: stretch; }
     .bridge-btn { width: 100%; text-align: center; }
   }
+
+  .ghostwriter-objection { padding-top: 80px; padding-bottom: 80px; border-bottom: 1px solid var(--border); }
+
+  .gw-subhead { font-size: 20px; color: var(--muted); line-height: 1.6; margin: 16px 0 0; max-width: 600px; }
+
+  .gw-mechanism { font-size: 17px; color: var(--white); font-weight: 600; line-height: 1.7; margin: 28px 0 48px; letter-spacing: -0.2px; }
+
+  .gw-comparison { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 0; align-items: start; margin-bottom: 28px; }
+
+  .gw-divider { width: 1px; background: var(--border); height: 100%; margin: 0 auto; margin-top: 32px; }
+
+  .gw-col { padding: 0 12px; }
+
+  .gw-col-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2); margin-bottom: 16px; }
+
+  .gw-col-label--voice { color: var(--green); }
+
+  .gw-post { font-size: 16px; color: var(--muted); line-height: 1.85; }
+
+  .gw-post--voice { color: rgba(255,255,255,0.82); }
+
+  .gw-provenance { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+
+  .gw-provenance strong { color: var(--white); font-weight: 600; }
+
+  .gw-cta-note { font-size: 13px; color: var(--muted-2); margin-top: 12px; }
+
+  @media (max-width: 768px) {
+    .gw-comparison { grid-template-columns: 1fr; gap: 32px; }
+    .gw-divider { display: none; }
+    .gw-col { padding: 0; }
+  }
 </style>
 </head>
 <body>
@@ -1021,6 +1053,34 @@
     <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">See how LucentSignal would write it →</a>
   </div>
   <p class="hero-note">No card needed. Start with your own idea.</p>
+</div>
+
+<!-- GHOSTWRITER OBJECTION -->
+<div class="section-wrap ghostwriter-objection">
+  <div class="reveal">
+    <h2 class="section-title" style="letter-spacing:-1.5px;max-width:700px;">Why not just use <span class="green">ChatGPT?</span></h2>
+    <p class="gw-subhead">You can. The problem is the output eventually starts sounding like everyone else's.</p>
+    <p class="gw-mechanism">Most AI tools write well.<br>LucentSignal learns how you write.</p>
+  </div>
+
+  <div class="gw-comparison reveal">
+    <div class="gw-col">
+      <div class="gw-col-label">ChatGPT output</div>
+      <p class="gw-post">Most companies are using AI wrong. They focus on efficiency — faster emails, quicker reports — when the real opportunity is better thinking. That is the shift most leaders are missing.</p>
+    </div>
+    <div class="gw-divider"></div>
+    <div class="gw-col">
+      <div class="gw-col-label gw-col-label--voice">Your voice</div>
+      <p class="gw-post gw-post--voice">Everyone is automating the wrong thing. Faster emails. Cleaner decks. Summaries nobody reads. AI does not make bad strategy good. It makes bad strategy faster.</p>
+    </div>
+  </div>
+
+  <p class="gw-provenance reveal">Generated from <strong>3 writing examples</strong> and <strong>4 voice rules</strong>.</p>
+
+  <div class="reveal" style="margin-top:32px;">
+    <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">Try it with your own writing →</a>
+    <p class="gw-cta-note">3 free posts. No card needed.</p>
+  </div>
 </div>
 
 <!-- ACTIVATION BRIDGE (disabled)
