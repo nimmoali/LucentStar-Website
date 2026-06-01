@@ -1032,6 +1032,41 @@
   @media (max-width: 768px) {
     .dms-row { grid-template-columns: 1fr; gap: 16px; }
   }
+
+  .scoring-section { padding-top: 80px; padding-bottom: 80px; border-top: 1px solid var(--border); }
+  .scoring-intro { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.75; margin: 16px 0 8px; }
+  .scoring-support { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 36px; }
+  .scoring-overall { background: #151B2E; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .scoring-overall-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2); }
+  .scoring-overall-score { font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+  .scoring-overall-score span { font-size: 16px; font-weight: 400; color: var(--muted-2); }
+  .scoring-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 48px; }
+  .scoring-card { background: #151B2E; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 20px 22px; }
+  .scoring-card--amber { border-color: rgba(255,179,0,0.2); }
+  .scoring-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .scoring-card-name { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .scoring-card--amber .scoring-card-name { color: rgba(255,179,0,0.6); }
+  .scoring-card-score { font-size: 22px; font-weight: 800; color: #00E676; letter-spacing: -0.5px; line-height: 1; }
+  .scoring-card-score span { font-size: 13px; font-weight: 400; color: rgba(0,230,118,0.45); }
+  .scoring-card-score--amber { color: #FFB300; }
+  .scoring-card-score--amber span { color: rgba(255,179,0,0.45); }
+  .scoring-progress-track { height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; margin-bottom: 14px; overflow: hidden; }
+  .scoring-progress-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #00E676, rgba(0,230,118,0.6)); }
+  .scoring-progress-fill--amber { background: linear-gradient(90deg, #FFB300, rgba(255,179,0,0.5)); }
+  .scoring-card-text { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; }
+  .scoring-card--amber .scoring-card-text { color: rgba(255,255,255,0.65); }
+  .scoring-footer { text-align: center; }
+  .scoring-takeaway { font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.3px; margin-bottom: 20px; }
+  .scoring-cta { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .scoring-cta-note { font-size: 13px; color: var(--muted-2); }
+  @media (min-width: 640px) {
+    .scoring-grid { grid-template-columns: 1fr 1fr; }
+    .scoring-card { padding: 24px 28px; }
+  }
+  @media (min-width: 768px) {
+    .scoring-intro { max-width: 580px; }
+    .scoring-support { max-width: 580px; }
+  }
 </style>
 </head>
 <body>
@@ -1141,6 +1176,64 @@
     <div class="dms-cta">
       <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">Try it with your own idea →</a>
       <p class="dms-cta-note">3 free posts. No card needed.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SCORING -->
+<div class="section-wrap scoring-section">
+  <div class="reveal">
+    <div class="section-label">Quality scoring</div>
+    <h2 class="section-title">Know whether it is <span class="green">ready to publish.</span></h2>
+    <p class="scoring-intro">Every post gets scored before you save it. Not for vanity. For confidence.</p>
+    <p class="scoring-support">LucentSignal checks the four things that decide whether a LinkedIn post works: hook, insight, clarity and closing.</p>
+  </div>
+
+  <div class="scoring-overall reveal">
+    <span class="scoring-overall-label">Overall score</span>
+    <span class="scoring-overall-score">32<span>/40</span></span>
+  </div>
+
+  <div class="scoring-grid reveal">
+    <div class="scoring-card">
+      <div class="scoring-card-top">
+        <div class="scoring-card-name">Hook</div>
+        <div class="scoring-card-score">8<span>/10</span></div>
+      </div>
+      <div class="scoring-progress-track"><div class="scoring-progress-fill" style="width:80%"></div></div>
+      <div class="scoring-card-text">The hook is sharp and specific, but could earn attention earlier by making the contradiction visible in the first sentence.</div>
+    </div>
+    <div class="scoring-card">
+      <div class="scoring-card-top">
+        <div class="scoring-card-name">Insight</div>
+        <div class="scoring-card-score">9<span>/10</span></div>
+      </div>
+      <div class="scoring-progress-track"><div class="scoring-progress-fill" style="width:90%"></div></div>
+      <div class="scoring-card-text">The core frame is strong. The post connects AI strategy to real organisational behaviour rather than keeping it abstract.</div>
+    </div>
+    <div class="scoring-card scoring-card--amber">
+      <div class="scoring-card-top">
+        <div class="scoring-card-name">Clarity</div>
+        <div class="scoring-card-score scoring-card-score--amber">7<span>/10</span></div>
+      </div>
+      <div class="scoring-progress-track"><div class="scoring-progress-fill scoring-progress-fill--amber" style="width:70%"></div></div>
+      <div class="scoring-card-text">The structure is easy to follow, but the middle section repeats the same idea twice. Cut one supporting sentence and move faster to the consequence.</div>
+    </div>
+    <div class="scoring-card">
+      <div class="scoring-card-top">
+        <div class="scoring-card-name">Closing</div>
+        <div class="scoring-card-score">8<span>/10</span></div>
+      </div>
+      <div class="scoring-progress-track"><div class="scoring-progress-fill" style="width:80%"></div></div>
+      <div class="scoring-card-text">The ending is provocative and memorable, but could land harder by being more specific about what leaders should stop doing.</div>
+    </div>
+  </div>
+
+  <div class="scoring-footer reveal">
+    <p class="scoring-takeaway">You don't just get a score. You get the reason behind it.</p>
+    <div class="scoring-cta">
+      <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">Try it with your own post →</a>
+      <p class="scoring-cta-note">3 free posts. No card needed.</p>
     </div>
   </div>
 </div>
