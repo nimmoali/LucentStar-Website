@@ -1092,6 +1092,35 @@
   @media (min-width: 768px) {
     .wf-intro { max-width: 580px; }
   }
+
+  .pricing-intro { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.75; margin-bottom: 8px; max-width: 580px; }
+  .pricing-support { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: 48px; }
+  .pricing-support strong { color: rgba(255,255,255,0.6); font-weight: 600; }
+  .pricing-grid-new { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .pricing-card-new { background: #0D1220; border: 0.5px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 30px 28px; display: flex; flex-direction: column; position: relative; }
+  .pricing-card-new--featured { border: 2px solid #00E676; }
+  .pricing-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: #00E676; color: #0B0F1A; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 16px; border-radius: 100px; white-space: nowrap; }
+  .pricing-plan-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,234,240,0.4); margin-bottom: 10px; }
+  .pricing-plan-label--featured { color: rgba(0,230,118,0.7); }
+  .pricing-amount-new { font-size: 44px; font-weight: 800; color: #E8EAF0; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+  .pricing-currency { font-size: 22px; font-weight: 600; vertical-align: top; margin-top: 8px; display: inline-block; color: rgba(232,234,240,0.6); }
+  .pricing-period-new { font-size: 13px; color: rgba(232,234,240,0.35); margin-bottom: 8px; }
+  .pricing-tagline { font-size: 13px; color: rgba(232,234,240,0.45); line-height: 1.55; margin-bottom: 22px; }
+  .pricing-divider { border: none; border-top: 0.5px solid rgba(255,255,255,0.07); margin-bottom: 20px; }
+  .pricing-features-new { list-style: none; display: flex; flex-direction: column; gap: 11px; flex: 1; margin-bottom: 28px; }
+  .pricing-features-new li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(232,234,240,0.65); line-height: 1.5; }
+  .pricing-features-new li::before { content: '✓'; color: #00E676; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .pricing-sub { font-size: 12px; color: rgba(232,234,240,0.32); margin-left: 23px; margin-top: -6px; margin-bottom: 28px; line-height: 1.5; }
+  .pricing-btn { display: block; width: 100%; text-align: center; padding: 13px 20px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; font-family: 'Poppins', sans-serif; box-sizing: border-box; }
+  .pricing-btn--primary { background: #00E676; color: #0B0F1A; border: 2px solid #00E676; }
+  .pricing-btn--secondary { background: transparent; color: #E8EAF0; border: 2px solid rgba(255,255,255,0.18); }
+  .pricing-note { font-size: 12px; color: rgba(232,234,240,0.28); text-align: center; margin-top: 10px; }
+  @media (min-width: 640px) {
+    .pricing-grid-new { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 900px) {
+    .pricing-grid-new { grid-template-columns: repeat(3, 1fr); max-width: 1180px; }
+  }
 </style>
 </head>
 <body>
@@ -1509,68 +1538,67 @@
 <!-- PRICING -->
 <div class="stripe">
 <div class="section-wrap" id="pricing">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-label">Pricing</div>
-      <h2 class="section-title">Simple. <span class="green">No surprises.</span></h2>
-      <p class="section-sub" style="margin:0 auto;">Start free. Upgrade when you need more posts.</p>
+  <div class="reveal">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Simple. <span class="green">No surprises.</span></h2>
+    <p class="pricing-intro">Start free. Upgrade when your publishing rhythm needs it.</p>
+    <p class="pricing-support"><strong>Every plan includes</strong> Ghostwriter, quality scoring and all three writing styles.</p>
+  </div>
+
+  <div class="pricing-grid-new reveal">
+
+    <div class="pricing-card-new">
+      <div class="pricing-plan-label">Free</div>
+      <div class="pricing-amount-new"><span class="pricing-currency">£</span>0</div>
+      <div class="pricing-period-new">forever</div>
+      <p class="pricing-tagline">Try the full workflow. No card needed.</p>
+      <hr class="pricing-divider">
+      <ul class="pricing-features-new">
+        <li>3 posts, no time limit</li>
+        <li>Ghostwriter included</li>
+        <li>Trending topic ideas</li>
+        <li>Quality scoring</li>
+        <li>Single post copy and export</li>
+      </ul>
+      <a href="https://signalapp.lucentstar.ai/register" class="pricing-btn pricing-btn--secondary">Start free →</a>
+      <p class="pricing-note">No card needed.</p>
     </div>
-    <div class="pricing-grid">
 
-      <div class="pricing-card reveal">
-  <div class="pricing-plan">Free</div>
-  <div class="pricing-amount"><span class="currency">$</span>0</div>
-  <div class="pricing-period">forever</div>
-  <ul class="pricing-features">
-    <li>3 posts to try the full workflow</li>
-    <li>Thoughtful, Clear and Sharp writing styles</li>
-    <li>Quality scoring with improvement tips</li>
-    <li>Edit and refine posts in one place</li>
-    <li>Scheduling and export</li>
-    <li class="muted-feature">Brand voice upload</li>
-    <li class="muted-feature">Writing sample upload</li>
-    <li class="muted-feature">Repurpose content into 5 angles</li>
-  </ul>
-  <a href="https://signalapp.lucentstar.ai/register" class="btn-primary" style="width:100%;text-align:center;display:block;">Start free, no card needed →</a>
-  <p class="pricing-trial">No time limit on your 3 posts.</p>
-</div>
-
-      <div class="pricing-card reveal">
-        <div class="pricing-plan">Creator</div>
-        <div class="pricing-amount"><span class="currency">$</span>19</div>
-        <div class="pricing-period">per month</div>
-        <ul class="pricing-features">
-          <li>20 posts per month</li>
-          <li>Thoughtful, Clear and Sharp writing styles</li>
-          <li>Quality scoring with improvement tips</li>
-          <li>Edit and refine posts in one place</li>
-          <li>Scheduling and export</li>
-          <li class="muted-feature">Brand voice upload</li>
-          <li class="muted-feature">Writing sample upload</li>
-          <li class="muted-feature">Repurpose content into 5 angles</li>
-        </ul>
-        <a href="https://signalapp.lucentstar.ai/register" class="btn-primary" style="width:100%;text-align:center;display:block;">Start with your first 3 posts →</a>
-        <p class="pricing-trial">Includes 3 free posts to explore the full posting flow.</p>
-      </div>
-
-      <div class="pricing-card featured reveal">
-<div class="pricing-plan">Pro</div>
-        <div class="pricing-amount"><span class="currency">$</span>39</div>
-        <div class="pricing-period">per month</div>
-        <ul class="pricing-features">
-          <li>75 posts per month</li>
-          <li>Thoughtful, Clear and Sharp writing styles</li>
-          <li>Quality scoring with improvement tips</li>
-          <li>Edit and refine posts in one place</li>
-          <li>Scheduling and export</li>
-          <li>Brand voice upload</li>
-          <li>Writing sample upload</li>
-          <li>Repurpose content into 5 angles</li>
-        </ul>
-        <a href="https://signalapp.lucentstar.ai/register" class="btn-primary" style="width:100%;text-align:center;display:block;">Start with your first 3 posts →</a>
-        <p class="pricing-trial">Includes 3 free posts to explore the full posting flow.</p>
-      </div>
-
+    <div class="pricing-card-new pricing-card-new--featured">
+      <div class="pricing-badge">Recommended</div>
+      <div class="pricing-plan-label pricing-plan-label--featured">Creator</div>
+      <div class="pricing-amount-new"><span class="pricing-currency">£</span>19</div>
+      <div class="pricing-period-new">per month</div>
+      <p class="pricing-tagline">For professionals publishing consistently.</p>
+      <hr class="pricing-divider">
+      <ul class="pricing-features-new">
+        <li>20 posts per month</li>
+        <li>Everything in Free</li>
+        <li>Content calendar</li>
+        <li>Drag-and-drop scheduling</li>
+        <li>Bulk CSV export</li>
+      </ul>
+      <a href="https://signalapp.lucentstar.ai/register" class="pricing-btn pricing-btn--primary">Start with Creator →</a>
+      <p class="pricing-note">Start free. Upgrade when ready.</p>
     </div>
+
+    <div class="pricing-card-new">
+      <div class="pricing-plan-label">Pro</div>
+      <div class="pricing-amount-new"><span class="pricing-currency">£</span>39</div>
+      <div class="pricing-period-new">per month</div>
+      <p class="pricing-tagline">For higher-volume publishing workflows.</p>
+      <hr class="pricing-divider">
+      <ul class="pricing-features-new">
+        <li>75 posts per month</li>
+        <li>Everything in Creator</li>
+        <li>Bulk calendar export</li>
+        <li>Platform-ready exports</li>
+      </ul>
+      <p class="pricing-sub">Hootsuite, Agorapulse, Airtable, Notion and Google Calendar</p>
+      <a href="https://signalapp.lucentstar.ai/register" class="pricing-btn pricing-btn--secondary">Start with Pro →</a>
+      <p class="pricing-note">Start free. Upgrade when ready.</p>
+    </div>
+
   </div>
 </div>
 </div>
