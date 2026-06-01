@@ -984,7 +984,7 @@
     .bridge-btn { width: 100%; text-align: center; }
   }
 
-  .ghostwriter-objection { padding-top: 80px; padding-bottom: 80px; border-bottom: 1px solid var(--border); }
+  .ghostwriter-objection { padding-top: 80px; padding-bottom: 80px; background: var(--navy-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
   .gw-subhead { font-size: 20px; color: rgba(255,255,255,0.72); line-height: 1.6; margin: 16px 0 0; max-width: 600px; }
 
@@ -1033,7 +1033,7 @@
     .dms-row { grid-template-columns: 1fr; gap: 16px; }
   }
 
-  .scoring-section { padding-top: 80px; padding-bottom: 80px; border-top: 1px solid var(--border); }
+  .scoring-section { padding-top: 80px; padding-bottom: 80px; background: var(--navy-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .scoring-intro { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.75; margin: 16px 0 8px; }
   .scoring-support { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: 36px; }
   .scoring-overall { background: #151B2E; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
@@ -1081,9 +1081,9 @@
   .wf-step-num { font-size: 11px; font-weight: 700; color: rgba(0,230,118,0.45); letter-spacing: 0.08em; padding-top: 3px; }
   .wf-step-title { font-size: 17px; font-weight: 700; color: #E8EAF0; margin-bottom: 5px; letter-spacing: -0.2px; }
   .wf-step-desc { font-size: 15px; color: rgba(232,234,240,0.60); line-height: 1.75; }
-  .wf-export { padding: 20px 0; border-top: 0.5px solid rgba(255,255,255,0.06); border-bottom: 0.5px solid rgba(255,255,255,0.06); margin-bottom: 52px; }
+  .wf-export { padding: 20px 0; border-top: 0.5px solid rgba(255,255,255,0.06); border-bottom: 0.5px solid rgba(255,255,255,0.06); margin-bottom: 52px; text-align: center; }
   .wf-export-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,234,240,0.28); margin-bottom: 14px; }
-  .wf-export-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wf-export-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
   .wf-pill { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: rgba(232,234,240,0.55); background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 7px 13px; }
   .wf-footer { text-align: center; }
   .wf-takeaway { font-size: 20px; font-weight: 700; color: #E8EAF0; letter-spacing: -0.3px; margin-bottom: 20px; }
@@ -1379,6 +1379,7 @@
 -->
 
 <!-- DEMO -->
+<div class="stripe">
 <div class="section-wrap" id="demo">
   <div class="reveal">
     <div class="section-label">See it in action</div>
@@ -1453,10 +1454,10 @@
     <a href="https://signalapp.lucentstar.ai/register" class="btn-primary">Try it on your own idea →</a>
   </div>
 </div>
+</div>
 
 <!-- PROBLEM -->
-<div class="stripe">
-  <div class="section-wrap">
+<div class="section-wrap">
     <div class="problem-grid">
       <div class="reveal">
         <div class="section-label">The problem</div>
@@ -1478,6 +1479,7 @@
 </div>
 
 <!-- HOW IT WORKS -->
+<div class="stripe">
 <div class="section-wrap" id="how-it-works">
   <div class="reveal">
     <div class="section-label">How it works</div>
@@ -1507,10 +1509,10 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- WHO -->
-<div class="stripe">
-  <div class="section-wrap">
+<div class="section-wrap">
     <div class="reveal">
       <div class="section-label">Who it's for</div>
       <h2 class="section-title">Built for professionals who are <span class="green">serious about LinkedIn</span> but don't want to spend their week on it.</h2>
@@ -1542,6 +1544,7 @@
 </div>
 
 <!-- VS -->
+<div class="stripe">
 <div class="section-wrap">
   <div class="reveal">
     <div class="section-label">Why not just use ChatGPT</div>
@@ -1584,10 +1587,10 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- PRICING -->
-<div class="stripe">
-  <div class="section-wrap" id="pricing">
+<div class="section-wrap" id="pricing">
     <div class="reveal" style="text-align:center;">
       <div class="section-label">Pricing</div>
       <h2 class="section-title">Simple. <span class="green">No surprises.</span></h2>
@@ -1654,6 +1657,7 @@
 </div>
 
 <!-- FAQ -->
+<div class="stripe">
 <div class="section-wrap">
   <div class="reveal">
     <div class="section-label">Questions</div>
@@ -1686,9 +1690,10 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- FINAL CTA -->
-<div class="stripe">
+<div class="section-wrap" style="padding-top:80px;padding-bottom:80px;">
   <div class="final-cta">
     <h2 class="reveal">Take an idea you've been sitting on and turn it into something you'd <span class="green">actually post.</span></h2>
     <p class="reveal">Write, score and refine your first posts free.</p>
