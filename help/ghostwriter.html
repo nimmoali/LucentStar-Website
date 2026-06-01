@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting better results with Ghostwriter | LucentSignal</title>
+<meta name="description" content="Ghostwriter works best when you teach it how you think, not just how you write. A practical guide to getting the best results.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B0F1A;
+    --green: #00E676;
+    --white: #E8EAF0;
+    --body: rgba(232,234,240,0.72);
+    --muted: rgba(232,234,240,0.28);
+    --border: rgba(255,255,255,0.06);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background: var(--navy); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(11,15,26,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-text { font-size: 17px; font-weight: 700; color: var(--white); letter-spacing: -0.3px; }
+  .nav-logo-text span { color: var(--green); }
+  .nav-back { font-size: 14px; font-weight: 500; color: rgba(232,234,240,0.45); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--white); }
+  .article { max-width: 660px; margin: 0 auto; padding: 140px 48px 120px; }
+  .page-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(0,230,118,0.6); margin-bottom: 20px; }
+  .page-title { font-size: 40px; font-weight: 800; color: var(--white); line-height: 1.12; letter-spacing: -0.025em; margin-bottom: 20px; }
+  .page-title .g { color: var(--green); }
+  .page-intro { font-size: 17px; color: var(--body); line-height: 1.85; margin-bottom: 72px; padding-bottom: 72px; border-bottom: 0.5px solid var(--border); }
+  .section { padding: 56px 0; border-bottom: 0.5px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+  .section-q { font-size: 22px; font-weight: 700; color: var(--white); line-height: 1.3; letter-spacing: -0.015em; margin-bottom: 20px; }
+  .section-q .g { color: var(--green); }
+  .body { font-size: 16px; color: var(--body); line-height: 1.9; }
+  .body + .body { margin-top: 14px; }
+  .two-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 28px; }
+  .list-block-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+  .list-block-title.good { color: rgba(0,230,118,0.5); }
+  .list-block-title.avoid { color: rgba(232,234,240,0.28); }
+  .plain-list { display: flex; flex-direction: column; }
+  .plain-item { font-size: 15px; color: var(--body); line-height: 1.7; padding: 9px 0; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
+  .plain-item:first-child { border-top: 0.5px solid rgba(255,255,255,0.05); }
+  .single-list { margin-top: 24px; display: flex; flex-direction: column; }
+  .single-item { font-size: 15px; color: var(--body); line-height: 1.7; padding: 9px 0; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
+  .single-item:first-child { border-top: 0.5px solid rgba(255,255,255,0.05); }
+  .contrast-block { margin: 28px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .contrast-item { padding: 20px 24px; background: rgba(255,255,255,0.02); border: 0.5px solid rgba(255,255,255,0.06); border-radius: 8px; }
+  .contrast-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+  .contrast-label.weak { color: rgba(232,234,240,0.25); }
+  .contrast-label.strong { color: rgba(0,230,118,0.55); }
+  .contrast-text { font-size: 14px; color: var(--body); line-height: 1.7; font-style: italic; }
+  .numbered-list { margin-top: 24px; display: flex; flex-direction: column; gap: 20px; }
+  .numbered-item { display: flex; gap: 18px; align-items: flex-start; }
+  .n { font-size: 11px; font-weight: 700; color: rgba(0,230,118,0.45); flex-shrink: 0; padding-top: 4px; width: 16px; letter-spacing: 0.05em; }
+  .numbered-body { font-size: 15px; color: var(--body); line-height: 1.8; }
+  .numbered-body strong { color: var(--white); font-weight: 600; }
+  .model { margin: 28px 0; }
+  .model-row { display: flex; align-items: baseline; gap: 20px; padding: 18px 0; }
+  .model-row + .model-row { border-top: 0.5px solid rgba(255,255,255,0.05); }
+  .model-label { font-size: 13px; color: var(--muted); width: 200px; flex-shrink: 0; padding-top: 5px; }
+  .model-value { font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+  .model-value .g { color: var(--green); }
+  .steps { margin-top: 24px; display: flex; flex-direction: column; gap: 20px; }
+  .step { display: flex; gap: 18px; align-items: flex-start; }
+  .step-n { font-size: 11px; font-weight: 700; color: rgba(0,230,118,0.45); flex-shrink: 0; padding-top: 4px; width: 16px; letter-spacing: 0.05em; }
+  .step-body { font-size: 15px; color: var(--body); line-height: 1.8; }
+  .closing-note { margin-top: 28px; font-size: 15px; color: rgba(232,234,240,0.45); line-height: 1.8; font-style: italic; }
+  .site-footer { background: var(--navy); padding: 56px 48px 0; border-top: 1px solid var(--border); }
+  .site-footer-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; padding-bottom: 48px; }
+  .site-footer-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .site-footer-mark { width: 40px; height: 40px; background: #0D1220; border: 1px solid rgba(255,255,255,0.1); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .site-footer-wordmark { font-size: 14px; line-height: 1; }
+  .wm-lucent { font-weight: 800; color: #ffffff; }
+  .wm-star { font-weight: 800; color: #00E676; }
+  .wm-ai { font-weight: 300; color: #94A3B8; }
+  .site-footer-brand-copy { font-size: 11px; color: #64748B; margin-left: 4px; }
+  .site-footer-cols { display: flex; gap: 56px; }
+  .site-footer-col h4 { font-size: 9.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: #64748B; margin: 0 0 14px; }
+  .site-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .site-footer-col ul li a { font-size: 13px; color: #64748B; text-decoration: none; transition: color 0.15s; }
+  .site-footer-col ul li a:hover { color: #00E676; }
+  .site-footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 18px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .site-footer-bottom-links { display: flex; align-items: center; flex-wrap: wrap; }
+  .site-footer-bottom-links a { font-size: 11px; color: #64748B; text-decoration: none; padding: 0 12px; border-right: 1px solid rgba(255,255,255,0.08); line-height: 1; transition: color 0.15s; }
+  .site-footer-bottom-links a:first-child { padding-left: 0; }
+  .site-footer-bottom-links a:last-child { border-right: none; }
+  .site-footer-bottom-links a:hover { color: #00E676; }
+  .site-footer-copy { display: flex; align-items: center; gap: 7px; font-size: 11px; color: #64748B; }
+  .site-footer-dot { width: 5px; height: 5px; border-radius: 50%; background: #00E676; opacity: 0.7; flex-shrink: 0; }
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .article { padding: 120px 24px 80px; }
+    .page-title { font-size: 30px; }
+    .two-lists { grid-template-columns: 1fr; gap: 24px; }
+    .contrast-block { grid-template-columns: 1fr; }
+    .model-value { font-size: 22px; }
+    .model-label { width: 140px; }
+    .site-footer { padding: 40px 20px 0; }
+    .site-footer-main { flex-direction: column; gap: 32px; }
+    .site-footer-cols { flex-wrap: wrap; gap: 32px; }
+    .site-footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://lucentstar.ai" class="nav-logo">
+    <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;">
+      <svg width="34" height="34" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Lucent<span>Signal</span></span>
+  </a>
+  <a href="https://signalapp.lucentstar.ai/help" class="nav-back">Back to help</a>
+</nav>
+<article class="article">
+  <div class="page-eyebrow">Ghostwriter</div>
+  <h1 class="page-title">Getting better results with <span class="g">Ghostwriter</span></h1>
+  <p class="page-intro">Ghostwriter works best when you teach it how you think, not just how you write.</p>
+  <div class="section">
+    <h2 class="section-q">What is Ghostwriter?</h2>
+    <p class="body">Most AI writing tools produce output that is technically correct but sounds like everyone else using the same tool.</p>
+    <p class="body" style="margin-top:14px">Ghostwriter fixes that. It learns from examples of your writing and uses them to shape the output. Not what you think. How you think.</p>
+    <p class="body" style="margin-top:14px">It has two inputs. Writing examples teach cadence, vocabulary and rhythm. Voice rules are explicit instructions about what to do and what to avoid. Together they give the generator a clearer picture of how you write and how you want to sound.</p>
+    <p class="body" style="margin-top:14px">Ghostwriter affects generation only. It does not influence your score.</p>
+  </div>
+  <div class="section">
+    <h2 class="section-q">What should I put in <span class="g">Writing Examples?</span></h2>
+    <p class="body">Paste content that genuinely sounds like you. Not your best work, your most representative.</p>
+    <div class="two-lists">
+      <div>
+        <div class="list-block-title good">Good examples</div>
+        <div class="plain-list">
+          <div class="plain-item">LinkedIn posts you have written</div>
+          <div class="plain-item">Emails that sound like you</div>
+          <div class="plain-item">Articles or newsletters</div>
+          <div class="plain-item">Drafts you never published</div>
+        </div>
+      </div>
+      <div>
+        <div class="list-block-title avoid">Avoid</div>
+        <div class="plain-list">
+          <div class="plain-item">Marketing copy from your company</div>
+          <div class="plain-item">Generic AI output</div>
+          <div class="plain-item">Writing from other people</div>
+          <div class="plain-item">Content that does not sound like you</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h2 class="section-q">What should I put in <span class="g">Voice Rules?</span></h2>
+    <p class="body">Think of these as instructions to a human ghostwriter. Specific beats generic every time.</p>
+    <div class="contrast-block">
+      <div class="contrast-item">
+        <div class="contrast-label weak">Weak</div>
+        <div class="contrast-text">Professional, engaging, insightful</div>
+      </div>
+      <div class="contrast-item">
+        <div class="contrast-label strong">Strong</div>
+        <div class="contrast-text">Avoid buzzwords. Challenge assumptions. Short paragraphs. Expose contradictions. Never sound motivational.</div>
+      </div>
+    </div>
+    <p class="body">Examples that work well:</p>
+    <div class="single-list">
+      <div class="single-item">Never use emojis</div>
+      <div class="single-item">Keep paragraphs to two or three sentences</div>
+      <div class="single-item">Challenge the obvious answer, not just the wrong one</div>
+      <div class="single-item">End with an observation, not a question</div>
+      <div class="single-item">Use real situations, not hypotheticals</div>
+      <div class="single-item">Avoid phrases like "in today's world" or "now more than ever"</div>
+    </div>
+  </div>
+  <div class="section">
+    <h2 class="section-q">My results still sound <span class="g">generic</span></h2>
+    <p class="body">Usually one of three things:</p>
+    <div class="numbered-list">
+      <div class="numbered-item">
+        <div class="n">1</div>
+        <div class="numbered-body"><strong>Your examples are not distinctive enough.</strong> Try posts where you took a clear position.</div>
+      </div>
+      <div class="numbered-item">
+        <div class="n">2</div>
+        <div class="numbered-body"><strong>Your voice rules are too vague.</strong> "Be direct" means nothing. "Never use passive voice" does.</div>
+      </div>
+      <div class="numbered-item">
+        <div class="n">3</div>
+        <div class="numbered-body"><strong>You are writing about topics you do not have strong opinions on.</strong> Ghostwriter can match your voice but it cannot manufacture conviction.</div>
+      </div>
+    </div>
+    <p class="body" style="margin-top:28px">Start with the voice rules. Most users see more improvement there than from adding more examples.</p>
+  </div>
+  <div class="section">
+    <h2 class="section-q">Can I use another <span class="g">writer's style?</span></h2>
+    <p class="body">Yes. But do not paste their writing. Describe what you like about it instead.</p>
+    <p class="body" style="margin-top:14px">Rather than pasting someone's posts, add voice rules like:</p>
+    <div class="single-list">
+      <div class="single-item">Cynical but not bitter</div>
+      <div class="single-item">Exposes contradictions other people miss</div>
+      <div class="single-item">Dry humour, used sparingly</div>
+      <div class="single-item">Challenges corporate thinking without being preachy</div>
+      <div class="single-item">Short paragraphs, rarely more than two sentences</div>
+    </div>
+    <p class="body" style="margin-top:24px">Combine their stylistic characteristics with your own experiences and opinions. That combination is where the most distinctive output comes from.</p>
+  </div>
+  <div class="section">
+    <h2 class="section-q">Direct, Measured and Sharp <span class="g">still matter</span></h2>
+    <p class="body">Ghostwriter controls how the post sounds. Direct, Measured and Sharp control how the argument is made.</p>
+    <div class="model">
+      <div class="model-row">
+        <div class="model-label">Ghostwriter controls</div>
+        <div class="model-value">Your <span class="g">voice</span></div>
+      </div>
+      <div class="model-row">
+        <div class="model-label">Direct, Measured, Sharp controls</div>
+        <div class="model-value">Your <span class="g">mood</span></div>
+      </div>
+    </div>
+    <p class="body">The same voice works across all three. Try generating the same topic in each style. You will hear your voice stay consistent while the argument changes shape.</p>
+  </div>
+  <div class="section">
+    <h2 class="section-q">A simple <span class="g">starting point</span></h2>
+    <p class="body">If you are not sure where to begin:</p>
+    <div class="steps">
+      <div class="step"><div class="step-n">01</div><div class="step-body">Add three posts that sound like you</div></div>
+      <div class="step"><div class="step-n">02</div><div class="step-body">Add five voice rules</div></div>
+      <div class="step"><div class="step-n">03</div><div class="step-body">Generate the same topic in Direct, Measured and Sharp</div></div>
+      <div class="step"><div class="step-n">04</div><div class="step-body">Compare the outputs, then refine your voice rules until the result feels familiar</div></div>
+    </div>
+    <div class="closing-note">Most users get better results from improving their voice rules than from adding more examples.</div>
+  </div>
+</article>
+<footer class="site-footer">
+  <div class="site-footer-main">
+    <div class="site-footer-brand">
+      <div class="site-footer-mark">
+        <svg width="34" height="34" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/>
+        </svg>
+      </div>
+      <div class="site-footer-wordmark">
+        <span class="wm-lucent">Lucent</span><span class="wm-star">Star</span> <span class="wm-ai">AI</span>
+      </div>
+      <span class="site-footer-brand-copy">&copy; 2026 LucentStar AI Ltd</span>
+    </div>
+    <div class="site-footer-cols">
+      <div class="site-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="https://signalapp.lucentstar.ai">LucentSignal</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/register">Start for free</a></li>
+          <li><a href="/login">Sign in</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/cookie-policy">Cookie Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/acceptable-use">Acceptable Use</a></li>
+          <li><a href="/ai-transparency">AI Transparency</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="mailto:hello@lucentstar.ai">Contact</a></li>
+          <li><a href="/subprocessors">Subprocessors</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <div class="site-footer-bottom-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookie-policy">Cookies</a>
+      <a href="/terms">Terms</a>
+      <a href="/accessibility">Accessibility</a>
+      <a href="/cookie-settings">Cookie settings</a>
+    </div>
+    <div class="site-footer-copy">
+      <span class="site-footer-dot"></span>
+      <span>&copy; 2026 LucentStar AI Ltd &middot; Registered in England and Wales</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
