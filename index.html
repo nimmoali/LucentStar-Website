@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LucentStar AI: Practical AI workflows for real commercial work</title>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — analytics gated on consent -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LF5E1LE400"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: 'denied' });
   gtag('js', new Date());
   gtag('config', 'G-LF5E1LE400');
 </script>
@@ -382,6 +383,7 @@
       <a href="/cookie-policy">Cookies</a>
       <a href="/terms">Terms</a>
       <a href="/accessibility">Accessibility</a>
+      <a href="#" id="ls-cookie-settings-link">Cookie settings</a>
     </div>
     <div class="site-footer-copy">
       <span class="site-footer-dot"></span>
@@ -397,6 +399,114 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<!-- ── Cookie consent banner ── -->
+<style>
+  #ls-cookie-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: #0B0F1A;
+    border-top: 1px solid rgba(255,255,255,0.09);
+    padding: 16px 24px;
+    font-family: 'Poppins', sans-serif;
+    display: none;
+  }
+  #ls-cookie-banner.ls-cb-visible { display: block; }
+  .ls-cb-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .ls-cb-text { flex: 1; min-width: 200px; }
+  .ls-cb-title { font-size: 13px; font-weight: 700; color: #E8EAF0; margin-bottom: 3px; }
+  .ls-cb-body  { font-size: 12px; color: #64748B; line-height: 1.55; }
+  .ls-cb-btns  { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+  .ls-cb-reject {
+    padding: 8px 18px; border-radius: 7px; font-size: 12px; font-weight: 600;
+    background: transparent; color: #94A3B8;
+    border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+    font-family: 'Poppins', sans-serif; white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .ls-cb-reject:hover { color: #E8EAF0; border-color: rgba(255,255,255,0.35); }
+  .ls-cb-accept {
+    padding: 8px 18px; border-radius: 7px; font-size: 12px; font-weight: 700;
+    background: #00E676; color: #0A0F1E;
+    border: none; cursor: pointer;
+    font-family: 'Poppins', sans-serif; white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .ls-cb-accept:hover { background: #1FFF8E; }
+  @media (max-width: 600px) {
+    .ls-cb-inner { flex-direction: column; align-items: stretch; gap: 14px; }
+    .ls-cb-btns  { flex-direction: column; }
+    .ls-cb-reject, .ls-cb-accept { width: 100%; text-align: center; padding: 11px 18px; }
+  }
+</style>
+
+<div id="ls-cookie-banner" role="region" aria-label="Cookie consent">
+  <div class="ls-cb-inner">
+    <div class="ls-cb-text">
+      <div class="ls-cb-title">We use cookies</div>
+      <p class="ls-cb-body">We use essential cookies to make the site work. With your permission, we also use analytics cookies to understand what is working and improve LucentSignal.</p>
+    </div>
+    <div class="ls-cb-btns">
+      <button class="ls-cb-reject" id="ls-cb-reject">Reject analytics</button>
+      <button class="ls-cb-accept" id="ls-cb-accept">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var STORAGE_KEY = 'ls_analytics_consent';
+    var banner = document.getElementById('ls-cookie-banner');
+    var btnAccept = document.getElementById('ls-cb-accept');
+    var btnReject = document.getElementById('ls-cb-reject');
+    var settingsLink = document.getElementById('ls-cookie-settings-link');
+
+    function grantAnalytics() {
+      if (typeof gtag === 'function') gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+    function denyAnalytics() {
+      if (typeof gtag === 'function') gtag('consent', 'update', { analytics_storage: 'denied' });
+    }
+    function hideBanner() {
+      banner.classList.remove('ls-cb-visible');
+    }
+    function showBanner() {
+      banner.classList.add('ls-cb-visible');
+    }
+
+    // On load: apply stored choice immediately — no banner flash
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'accepted') {
+      grantAnalytics();
+    } else if (stored === 'rejected') {
+      denyAnalytics();
+    } else {
+      showBanner();
+    }
+
+    btnAccept.addEventListener('click', function () {
+      localStorage.setItem(STORAGE_KEY, 'accepted');
+      grantAnalytics();
+      hideBanner();
+    });
+    btnReject.addEventListener('click', function () {
+      localStorage.setItem(STORAGE_KEY, 'rejected');
+      denyAnalytics();
+      hideBanner();
+    });
+    if (settingsLink) {
+      settingsLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.removeItem(STORAGE_KEY);
+        denyAnalytics();
+        showBanner();
+        banner.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      });
+    }
+  })();
 </script>
 
 </body>
