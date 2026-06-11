@@ -1,0 +1,17 @@
+# LucentStar AI
+
+> LucentStar AI builds practical AI products and bespoke workflow systems for businesses that need usable AI, not another prompt.
+
+## Products
+
+- [LucentSignal](https://lucentstar.ai/lucentsignal.html): LinkedIn writing tool with voice matching, quality scoring, and calendar scheduling. Free to start.
+
+## Guides
+
+- [8 Best Taplio Alternatives in 2026 (Tested & Compared)](https://lucentstar.ai/blog/taplio-alternatives.html): Comparison of 8 LinkedIn writing tools on voice matching, account safety and pricing. Updated June 2026.
+
+## Company
+
+- Website: https://lucentstar.ai/
+- Contact: hello@lucentstar.ai
+- Registered in England and Wales
