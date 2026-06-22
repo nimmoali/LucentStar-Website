@@ -1787,8 +1787,16 @@
   function bridgeSubmit() {
     const val = document.getElementById('bridgeInput').value.trim();
     if (!val) return;
+    if (typeof gtag === 'function') gtag('event', 'try_free_clicked', { source: 'bridge_widget' });
     window.location.href = 'https://signalapp.lucentstar.ai/register';
   }
+
+  // Track all CTA links that send users to the app register flow
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href*="register"]');
+    if (!a || typeof gtag !== 'function') return;
+    gtag('event', 'try_free_clicked', { source: a.className.trim() || 'cta_link' });
+  });
 
   document.getElementById('bridgeInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') bridgeSubmit();
