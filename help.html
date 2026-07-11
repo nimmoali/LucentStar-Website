@@ -1,175 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Help &amp; Support · LucentStar AI</title>
-  <meta name="robots" content="noindex">
-  <style>
-  :root { --bg: #0A0F1E; --surface: #0D1220; --border: rgba(255,255,255,0.08); --text: #CBD5E1; --heading: #F8FAFC; --green: #00E676; --muted: #64748B; }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
-  a { color: var(--green); text-decoration: none; } a:hover { text-decoration: underline; }
-  nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(10,15,30,0.95); backdrop-filter: blur(8px); z-index: 100; }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-mark { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
-  .nav-logo-text { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
-  .nav-logo-text span { color: var(--green); }
-  .nav-links { display: flex; align-items: center; gap: 24px; }
-  .nav-cta { background: var(--green); color: #000; font-weight: 600; font-size: 14px; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
-  .nav-cta:hover { background: #00ff88; text-decoration: none; }
-  .legal-wrap { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; flex: 1; }
-  .legal-wrap h1 { font-size: 2rem; font-weight: 800; color: var(--heading); letter-spacing: -0.5px; margin-bottom: 8px; line-height: 1.2; }
-  .legal-wrap h2 { font-size: 1.15rem; font-weight: 700; color: var(--heading); margin: 36px 0 10px; }
-  .legal-wrap p { margin-bottom: 14px; font-size: 0.95rem; }
-  .legal-meta { color: var(--muted); font-size: 0.875rem; margin-bottom: 6px; }
-  .legal-back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 0.875rem; margin-bottom: 40px; text-decoration: none; }
-  .legal-back:hover { color: var(--green); text-decoration: none; }
-  .stub-badge { display: inline-block; background: rgba(0,230,118,0.1); color: var(--green); border: 1px solid rgba(0,230,118,0.25); border-radius: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; padding: 3px 10px; text-transform: uppercase; margin-bottom: 24px; }
-  .cookie-group { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .cookie-group-info h3 { font-size: 15px; font-weight: 600; color: var(--heading); margin-bottom: 4px; }
-  .cookie-group-info p { font-size: 13px; color: var(--muted); margin: 0; }
-  .toggle { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
-  .toggle input { opacity: 0; width: 0; height: 0; }
-  .toggle-track { position: absolute; inset: 0; background: #334155; border-radius: 24px; cursor: pointer; transition: background 0.2s; }
-  .toggle input:checked + .toggle-track { background: var(--green); }
-  .toggle-thumb { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; background: #fff; border-radius: 50%; transition: transform 0.2s; pointer-events: none; }
-  .toggle input:checked ~ .toggle-thumb { transform: translateX(20px); }
-  .toggle-disabled .toggle-track { cursor: not-allowed; opacity: 0.6; }
-  .cookie-save-btn { display: inline-flex; background: var(--green); color: #000; font-weight: 700; font-size: 14px; padding: 12px 28px; border-radius: 8px; border: none; cursor: pointer; margin-top: 24px; }
-  .cookie-save-btn:hover { background: #00ff88; }
-  .site-footer { background: #0D1220; padding: 56px 40px 0; font-family: 'Poppins', sans-serif; }
-  .site-footer-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; max-width: 1100px; margin: 0 auto 40px; }
-  .site-footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; flex: 0 0 300px; }
-  .site-footer-brand-top { display: flex; align-items: center; gap: 10px; }
-  .site-footer-mark { width: 40px; height: 40px; background: #0A0F1E; border: 1px solid rgba(255,255,255,0.1); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .site-footer-wordmark { font-size: 15px; font-weight: 700; letter-spacing: -0.2px; line-height: 1; }
-  .site-footer-wordmark .wm-lucent { font-weight: 800; color: #ffffff; }
-  .site-footer-wordmark .wm-star   { font-weight: 800; color: #00E676; }
-  .site-footer-wordmark .wm-ai     { font-weight: 300; color: #94A3B8; }
-  .site-footer-desc { font-size: 13px; color: #94A3B8; line-height: 1.6; max-width: 280px; }
-  .site-footer-social { display: flex; align-items: center; gap: 10px; }
-  .site-footer-social a { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #94A3B8; transition: color 0.15s, border-color 0.15s; }
-  .site-footer-social a:hover { color: #00E676; border-color: rgba(0,230,118,0.3); }
-  .site-footer-cols { display: flex; gap: 48px; flex: 1; }
-  .site-footer-col { flex: 1; }
-  .site-footer-col h4 { font-size: 10.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: #64748B; margin: 0 0 14px; }
-  .site-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; }
-  .site-footer-col ul li a { font-size: 13px; color: #94A3B8; text-decoration: none; transition: color 0.15s; }
-  .site-footer-col ul li a:hover { color: #00E676; }
-  .site-footer-bottom { max-width: 1100px; margin: 0 auto; padding: 18px 0 32px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .site-footer-copy { font-size: 11.5px; color: #64748B; display: flex; align-items: center; gap: 7px; }
-  .site-footer-dot { width: 5px; height: 5px; border-radius: 50%; background: #00E676; flex-shrink: 0; }
-  .site-footer-cookie { font-size: 11.5px; color: #64748B; text-decoration: none; transition: color 0.15s; }
-  .site-footer-cookie:hover { color: #00E676; }
-  @media (max-width: 680px) {
-    nav { padding: 14px 20px; }
-    .legal-wrap { padding: 40px 20px 60px; }
-    .legal-wrap h1 { font-size: 1.6rem; }
-    .site-footer { padding: 40px 20px 0; }
-    .site-footer-main { flex-direction: column; gap: 28px; }
-    .site-footer-brand { flex: 1 1 auto; max-width: none; }
-    .site-footer-cols { flex-direction: column; gap: 24px; }
-    .site-footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
-  }
-</style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Help &amp; Support · LucentStar AI</title>
+<link rel="canonical" href="https://lucentstar.ai/help" />
+<meta name="description" content="Getting started with LucentSignal, common questions, and how to contact support.">
+<link rel="icon" href="assets/favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/brand.css">
 </head>
 <body>
-<nav>
-  <a href="/" class="nav-logo">
-    <div class="nav-logo-mark">
-      <svg width="34" height="34" viewBox="0 0 56 56" fill="none"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="/">
+      <svg class="brand-mark" width="34" height="34" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg>
+      <span class="wordmark">Lucent<span class="st">Star</span> <span class="ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="https://lucentstar.ai/lucentsignal.html">LucentSignal</a>
+      <a href="https://lucentstar.ai/#products">Products</a>
+      <a href="https://lucentstar.ai/#bespoke">Bespoke work</a>
+      <a href="mailto:hello@lucentstar.ai">Contact</a>
+      <a href="https://blog.lucentstar.ai/">Guides</a>
+      <a href="https://signalapp.lucentstar.ai/register" class="btn btn-primary">Try LucentSignal →</a>
     </div>
-    <span class="nav-logo-text">Lucent<span>Star</span> <span style="font-weight:300;color:#94A3B8">AI</span></span>
+  </nav>
+</header>
+
+<main class="prose-page">
+  <a href="/" class="prose-back">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M13 5H1M5.5 1L1 5l4.5 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to home
   </a>
-  <div class="nav-links">
-    <a href="https://signalapp.lucentstar.ai/register" class="nav-cta">Try it free →</a>
+
+  <div class="prose-header">
+    <h1>Help &amp; Support</h1>
   </div>
-</nav>
-<div class="legal-wrap">
-  <a href="/" class="legal-back">← Back to home</a>
-  
-<h1>Help &amp; Support</h1>
-<p>Need help with LucentSignal? We&#8217;re here.</p>
 
-<h2>Getting started</h2>
-<p>After signing up, you&#8217;ll be guided through setting up your brand voice — the tone and style guidelines LucentSignal uses to write posts that sound like you. The whole onboarding takes about four minutes.</p>
+  <div class="prose">
+    <p>Need help with LucentSignal? We&#8217;re here.</p>
 
-<h2>Common questions</h2>
-<h3>How do I change my brand voice?</h3>
-<p>Go to Settings &rarr; Brand Voice. You can update your guidelines, upload a file, or paste new instructions at any time.</p>
+    <h2>Getting started</h2>
+    <p>After signing up, you&#8217;ll be guided through setting up your brand voice — the tone and style guidelines LucentSignal uses to write posts that sound like you. The whole onboarding takes about four minutes.</p>
 
-<h3>What writing styles are available?</h3>
-<p>LucentSignal generates three versions of every post: Thoughtful (explores a topic without forcing a conclusion), Clear (direct and structured), and Challenging (takes a sharper stance). You choose the one that fits.</p>
+    <h2>Common questions</h2>
 
-<h3>Can I edit the post after it&#8217;s generated?</h3>
-<p>Yes. Every generated post is fully editable before you copy it to LinkedIn.</p>
+    <h3>How do I change my brand voice?</h3>
+    <p>Go to Settings &rarr; Brand Voice. You can update your guidelines, upload a file, or paste new instructions at any time.</p>
 
-<h3>How do I cancel my subscription?</h3>
-<p>Go to Settings &rarr; Subscription and select Cancel. Your access continues until the end of the billing period.</p>
+    <h3>What writing styles are available?</h3>
+    <p>LucentSignal generates three versions of every post: Thoughtful (explores a topic without forcing a conclusion), Clear (direct and structured), and Challenging (takes a sharper stance). You choose the one that fits.</p>
 
-<h2>Contact support</h2>
-<p>Email us at <a href="mailto:hello@lucentstar.ai">hello@lucentstar.ai</a> and we&#8217;ll get back to you within one business day.</p>
+    <h3>Can I edit the post after it&#8217;s generated?</h3>
+    <p>Yes. Every generated post is fully editable before you copy it to LinkedIn.</p>
 
-</div>
-<div class="site-footer">
-  <div class="site-footer-main">
-    <div class="site-footer-brand">
-      <div class="site-footer-brand-top">
-        <div class="site-footer-mark">
-          <svg width="34" height="34" viewBox="0 0 56 56" fill="none"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg>
-        </div>
-        <div class="site-footer-wordmark">
-          <span class="wm-lucent">Lucent</span><span class="wm-star">Star</span> <span class="wm-ai">AI</span>
-        </div>
-      </div>
-      <p class="site-footer-desc">Practical AI tools for clearer content, sharper workflows and better digital growth.</p>
-      <div class="site-footer-social">
+    <h3>How do I cancel my subscription?</h3>
+    <p>Go to Settings &rarr; Subscription and select Cancel. Your access continues until the end of the billing period.</p>
+
+    <h2>Contact support</h2>
+    <p>Email us at <a href="mailto:hello@lucentstar.ai">hello@lucentstar.ai</a> and we&#8217;ll get back to you within one business day.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a class="brand" href="/">
+        <svg class="brand-mark" width="34" height="34" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg>
+        <span class="wordmark">Lucent<span class="st">Star</span> <span class="ai">AI</span></span>
+      </a>
+      <p class="footer-desc">Practical AI tools for clearer content, sharper workflows and better digital growth.</p>
+      <div class="footer-social">
         <a href="https://www.linkedin.com/company/lucentstar" aria-label="LinkedIn" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
       </div>
     </div>
-    <div class="site-footer-cols">
-      <div class="site-footer-col">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="https://lucentstar.ai/lucentsignal.html">LucentSignal</a></li>
-          <li><a href="https://lucentstar.ai/pricing">Pricing</a></li>
-          <li><a href="https://signalapp.lucentstar.ai/register">Start for free</a></li>
-          <li><a href="https://signalapp.lucentstar.ai/login">Sign in</a></li>
-        </ul>
-      </div>
-      <div class="site-footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="https://lucentstar.ai/about">About</a></li>
-          <li><a href="https://blog.lucentstar.ai/">Guides</a></li>
-          <li><a href="https://lucentstar.ai/#bespoke">Bespoke work</a></li>
-          <li><a href="mailto:hello@lucentstar.ai">Contact</a></li>
-        </ul>
-      </div>
-      <div class="site-footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="https://lucentstar.ai/privacy">Privacy Policy</a></li>
-          <li><a href="https://lucentstar.ai/terms">Terms of Service</a></li>
-          <li><a href="https://lucentstar.ai/cookie-policy">Cookie Policy</a></li>
-          <li><a href="https://lucentstar.ai/acceptable-use">Acceptable Use</a></li>
-          <li><a href="https://lucentstar.ai/ai-transparency">AI Transparency</a></li>
-          <li><a href="https://lucentstar.ai/accessibility">Accessibility</a></li>
-          <li><a href="https://lucentstar.ai/subprocessors">Subprocessors</a></li>
-        </ul>
-      </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="https://lucentstar.ai/lucentsignal.html">LucentSignal</a></li>
+        <li><a href="https://lucentstar.ai/pricing">Pricing</a></li>
+        <li><a href="https://signalapp.lucentstar.ai/register">Start for free</a></li>
+        <li><a href="https://signalapp.lucentstar.ai/login">Sign in</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://lucentstar.ai/about">About</a></li>
+        <li><a href="https://blog.lucentstar.ai/">Guides</a></li>
+        <li><a href="https://lucentstar.ai/#bespoke">Bespoke work</a></li>
+        <li><a href="mailto:hello@lucentstar.ai">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="https://lucentstar.ai/privacy">Privacy Policy</a></li>
+        <li><a href="https://lucentstar.ai/terms">Terms of Service</a></li>
+        <li><a href="https://lucentstar.ai/cookie-policy">Cookie Policy</a></li>
+        <li><a href="https://lucentstar.ai/acceptable-use">Acceptable Use</a></li>
+        <li><a href="https://lucentstar.ai/ai-transparency">AI Transparency</a></li>
+        <li><a href="https://lucentstar.ai/accessibility">Accessibility</a></li>
+        <li><a href="https://lucentstar.ai/subprocessors">Subprocessors</a></li>
+      </ul>
     </div>
   </div>
-  <div class="site-footer-bottom">
-    <div class="site-footer-copy">
-      <span class="site-footer-dot"></span>
+  <div class="footer-bottom">
+    <div class="footer-copy">
+      <span class="footer-dot"></span>
       <span>&copy; 2026 LucentStar AI Ltd &middot; Registered in England and Wales</span>
     </div>
-    <a href="https://lucentstar.ai/cookie-settings" class="site-footer-cookie">Cookie settings</a>
+    <a href="https://lucentstar.ai/cookie-settings" class="footer-cookie">Cookie settings</a>
   </div>
-</div>
+</footer>
+
 </body>
 </html>
