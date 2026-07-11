@@ -427,6 +427,12 @@
   .prose dt { font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: var(--text); margin-bottom: 2px; }
   .prose dd { color: var(--muted); }
 
+  .prose .table-wrap { overflow-x: auto; }
+  .prose table { width: 100%; border-collapse: collapse; }
+  .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .prose th { font-size: 13px; font-weight: 600; color: var(--text); }
+  .prose td { color: var(--muted); }
+
   @media (max-width: 960px) {
     .prose-page { padding-top: var(--s7); padding-bottom: var(--s8); }
   }
