@@ -12,9 +12,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   (function () {
-    // ANALYTICS_ENABLED — set to true in Commit 2 after consent smoke-test passes
-    var ANALYTICS_ENABLED = false;
-    if (!ANALYTICS_ENABLED) return;
     gtag('consent', 'default', { analytics_storage: 'denied' });
     gtag('js', new Date());
     gtag('config', 'G-LF5E1LE400');
