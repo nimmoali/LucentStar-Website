@@ -350,7 +350,8 @@
   .export { padding: var(--s3) 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: var(--s6); }
   .export-label { font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-2); margin-bottom: var(--s2); }
   .pills { display: flex; flex-wrap: wrap; gap: var(--s1); }
-  .chip { display: inline-flex; align-items: center; font-size: 13px; font-weight: 500; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 8px 14px; }
+  .chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 8px 14px; }
+  .chip svg { width: 16px; height: 16px; flex: 0 0 auto; }
   .card-icon { width: 40px; height: 40px; border-radius: var(--r-sm); background: var(--green-dim); display: grid; place-items: center; margin-bottom: var(--s3); }
   .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); align-items: stretch; }
   .plan { position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--s4); }
