@@ -433,6 +433,39 @@
   .prose th { font-size: 13px; font-weight: 600; color: var(--text); }
   .prose td { color: var(--muted); }
 
+  /* Comparison list (e.g. "Good examples" vs "Avoid") */
+  .prose .compare-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin-top: var(--s3); }
+  .prose .compare-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--s2); }
+  .prose .compare-label.good { color: var(--green); }
+  .prose .compare-label.avoid { color: var(--muted-2); }
+  .prose .compare-list { display: flex; flex-direction: column; }
+  .prose .compare-list div { font-size: 15px; color: var(--muted); line-height: 1.6; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .prose .compare-list div:first-child { border-top: 1px solid var(--border); }
+
+  /* Weak vs strong contrast pair */
+  .prose .contrast-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); margin: var(--s3) 0; }
+  .prose .contrast-card { padding: var(--s3); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); }
+  .prose .contrast-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--s2); }
+  .prose .contrast-card-label.weak { color: var(--muted-2); }
+  .prose .contrast-card-label.strong { color: var(--green); }
+  .prose .contrast-card-text { font-size: 14px; color: var(--muted); font-style: italic; line-height: 1.6; }
+
+  /* Numbered step / reason list — consolidates the live page's two
+     near-identical numbered-list variants into one pattern */
+  .prose .steps-list { display: flex; flex-direction: column; gap: var(--s3); margin-top: var(--s3); }
+  .prose .step-item { display: flex; gap: var(--s3); align-items: flex-start; }
+  .prose .step-num { font-size: 11px; font-weight: 700; color: var(--green); flex: 0 0 auto; width: 20px; padding-top: 4px; }
+  .prose .step-body { font-size: 15px; color: var(--muted); line-height: 1.7; }
+  .prose .step-body strong { color: var(--text); font-weight: 600; }
+
+  /* Model / stat row (e.g. "Ghostwriter controls -> Your voice") */
+  .prose .model-rows { margin: var(--s3) 0; }
+  .prose .model-row { display: flex; align-items: baseline; gap: var(--s3); padding: var(--s3) 0; border-top: 1px solid var(--border); }
+  .prose .model-label { font-size: 13px; color: var(--muted-2); width: 200px; flex: 0 0 auto; }
+  .prose .model-value { font-size: 24px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+
   @media (max-width: 960px) {
     .prose-page { padding-top: var(--s7); padding-bottom: var(--s8); }
+    .prose .compare-cols, .prose .contrast-pair { grid-template-columns: 1fr; gap: var(--s3); }
+    .prose .model-label { width: 140px; }
   }
