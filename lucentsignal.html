@@ -158,6 +158,16 @@
   </nav>
 </header>
 
+<nav class="subnav" aria-label="Site sections">
+  <div class="subnav-inner">
+    <a href="/lucentsignal.html" class="sub-link">LucentSignal</a>
+    <a href="/#products" class="sub-link">Products</a>
+    <a href="/#bespoke" class="sub-link">Bespoke work</a>
+    <a href="https://blog.lucentstar.ai/" class="sub-link">Guides</a>
+    <a href="mailto:hello@lucentstar.ai" class="sub-link">Contact</a>
+  </div>
+</nav>
+
 <main>
 
   <!-- HERO -->
@@ -272,15 +282,17 @@
 
     <div class="topic-row">
       <span class="topic-label">Topic</span>
-      <span class="topic-text">Why most AI strategies fail</span>
+      <span class="topic-text">Why AI strategies fail</span>
     </div>
 
     <div class="style-row">
       <div>
         <p class="style-name">Thoughtful</p>
-        <p class="style-desc">Reflective. Nuanced. Considered.</p>
+        <p class="style-desc">Reflective. Considered. Explores the tension.</p>
       </div>
-      <p class="style-text">There is a pattern in how most organisations approach AI. The ambition is genuine. The investment is real. But the outcomes rarely match either. The gap is not technical. It is clarity about what the organisation is actually trying to change.</p>
+      <p class="style-text">There's a gap between how organisations talk about AI strategy and what the documents actually contain. The ambition tends to be genuine. What's less clear is whether anyone answered the underlying question, what are we actually trying to change, with the same rigour they applied to the roadmap.
+
+The plans are detailed. The problem statement, less so.</p>
     </div>
 
     <div class="style-row">
@@ -288,15 +300,23 @@
         <p class="style-name">Focused</p>
         <p class="style-desc">Clear. Confident. No hedging.</p>
       </div>
-      <p class="style-text">Most AI strategies fail because they start in the wrong place. Companies launch pilots and build roadmaps before agreeing what problem they are actually solving. The strategy is not the issue. The thinking behind it is.</p>
+      <p class="style-text">AI strategies fail at the point where ambition replaces specificity.
+
+Organisations build roadmaps before agreeing what problem they're solving. Getting alignment on the actual problem is slower and harder to present to a board, so teams skip it and hope the detail emerges later.
+
+It doesn't. The fix isn't a better framework. It's an earlier and more uncomfortable conversation.</p>
     </div>
 
     <div class="style-row">
       <div>
         <p class="style-name">Challenging</p>
-        <p class="style-desc">Challenging. Uncomfortable. Opinionated.</p>
+        <p class="style-desc">Direct. Uncomfortable. Opinionated.</p>
       </div>
-      <p class="style-text">Most AI strategy decks are therapy sessions disguised as business plans. They manage anxiety, not problems. The organisations making progress are the ones willing to say what they are actually going to stop doing.</p>
+      <p class="style-text">AI strategy documents describe the future an organisation wants without naming what it's unwilling to give up.
+
+That's a political problem, not a planning one. Naming what stops means someone loses something, so the roadmap gets built around addition instead.
+
+The slow processes survive. Now they're running alongside AI, and they're still slow.</p>
     </div>
 
     <p class="closer">You choose how the argument should land.</p>
@@ -680,6 +700,63 @@
     .ls-cb-btns  { flex-direction: column; }
     .ls-cb-reject, .ls-cb-accept { width: 100%; text-align: center; padding: 11px 18px; }
   }
+  /* ---------- Section subnav ---------- */
+  .subnav {
+    position: sticky;
+    top: 81px;                      /* measured header height at >=400px */
+    z-index: 15;                    /* below the site header's z-index: 20 */
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .subnav-inner {
+    display: flex;
+    height: 36px;
+    align-items: center;
+    overflow-x: auto;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--s3);
+  }
+  .sub-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 12px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    border-bottom: 1.5px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .sub-link:hover { color: var(--text); }
+  .sub-link.active { color: var(--text); border-bottom-color: var(--green); }
+  .sub-divider {
+    width: 1px; height: 16px;
+    background: var(--border);
+    flex-shrink: 0;
+    margin: 0 4px;
+  }
+  .nav-links a.active { color: var(--green); }
+
+  @media (max-width: 400px) {
+    .subnav { top: 87px; }          /* header is 87.4px below 400px; underlap avoids a hairline gap */
+  }
+
+  /* State 2 - products section subnav. Not deployed: no products landing
+     page exists yet. Markup kept here for when one does:
+
+     <nav class="subnav" aria-label="Products">
+       <div class="subnav-inner">
+         <a href="/#products" class="sub-link">&larr; All products</a>
+         <span class="sub-divider" aria-hidden="true"></span>
+         <a href="/lucentsignal.html" class="sub-link">LucentSignal</a>
+         <a href="/ai-answer-visibility.html" class="sub-link">AI Answer Visibility</a>
+         <span class="sub-link">Coming soon</span>
+       </div>
+     </nav>
+  */
 </style>
 
 <div id="ls-cookie-banner" role="region" aria-label="Cookie consent">
