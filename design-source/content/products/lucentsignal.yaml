@@ -226,13 +226,13 @@ verification:
     status: owner
     source: Owner decision, 28 September 2026. The public sign-in and registration screens were reachable on 28 September 2026.
   - fact: Free includes three initial posts, with no monthly renewal
-    status: owner
-    source: "Owner decision in Rebrief LucentStar AI website, 3 October 2026. Integrated source counts retained full-draft generation reservations over the initial lifetime window, including before plan changes. Optional refinements do not reduce the three full-draft slots; their existing bounded usage check is retained. Local PostgreSQL tests cover month boundaries, refunds, concurrency, cancellation and past-due fallback. No production deployment is implied; repository integration is owner-authorised."
-    check: "The retained-history treatment for existing accounts and returning paid/trial users is selected under the owner’s launch-priority direction, not a further decision. Candidate behavior is locally tested; live verification remains necessary."
+    status: verified
+    source: "Owner decision in Rebrief LucentStar AI website, 3 October 2026. Integrated source counts retained full-draft generation reservations over the initial lifetime window, including before plan changes. Optional refinements do not reduce the three full-draft slots; their existing bounded usage check is retained. Local PostgreSQL tests cover month boundaries, refunds, concurrency, cancellation and past-due fallback. The authorised protective revision a89f68b is deployed; live home-data and browser screens confirm the initial three-post allowance."
+    check: "The retained-history treatment for existing accounts and returning paid/trial users is selected under the owner’s launch-priority direction, not a further decision. Month boundaries and refunds are covered by disposable PostgreSQL tests; live initial entitlement and display were checked without generating paid AI content."
   - fact: Paid prices (Creator £19 a month; Pro £39 a month; sterling required)
-    status: conflict
-    source: "Owner direction in this launch chat, 3 October 2026: all LucentStar currency must be sterling. Read-only live Stripe and production Railway price-ID checks show the currently configured prices are USD 19/39 monthly with no GBP option. Source copy now uses the owner-required GBP offer; no Stripe price or production mapping has been changed."
-    check: "Create and verify GBP 1900/3900 monthly prices, change the production price-ID mapping under release approval, and verify checkout currency before paid-plan publication. The prepared currency guard refuses incorrect configured prices."
+    status: verified
+    source: "Authorised live cutover, 3 October 2026. Live Stripe Creator price_1UMbSL9xMB9mnb60NjYmbsS6 is GBP 1900/month; Pro price_1UMbSL9xMB9mnb60c5z4zOCf is GBP 3900/month. Production Railway maps both IDs. Controlled live checkout inspection verified unpaid totals of £19 and £39 on pay.lucentstar.ai, with Adaptive Pricing disabled. No payment was completed; controlled sessions and customers were cleaned up. Historical USD prices are retained only for subscription reconciliation."
+    check: "Production read-only price and dedicated portal configuration checks pass. A real paid transaction and its resulting subscription reconciliation were not performed during launch verification."
   - fact: Exports by plan (single post on every plan, bulk export on Creator and Pro, platform-ready files on Pro)
     status: source
     source: Single post copy and export in the front end and the signed-in /api/export route; plan rules in /api/exports/allowed and /api/exports/calendar/:type.
