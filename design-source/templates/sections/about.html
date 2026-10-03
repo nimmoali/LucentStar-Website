@@ -1,0 +1,15 @@
+{# About the business. A general introduction and four principles. A personal
+   founder introduction can be added later with the "people" section. #}
+<section class="sec sec-cloud" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap about">
+    <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+    <div>
+      <p class="lead">{{ s.lead | inline }}</p>
+      {% if s.text %}<p class="about-p">{{ s.text | inline }}</p>{% endif %}
+      <ul class="pr-list">
+        {% for pr in s.principles %}<li class="pr"><h3>{{ pr.heading }}</h3><p>{{ pr.text | inline }}</p></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

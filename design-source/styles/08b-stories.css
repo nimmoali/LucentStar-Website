@@ -1,0 +1,270 @@
+/* Product page stories (sections/stories.html, visuals/stories.html).
+
+   Desktop with motion: the steps on the left scroll normally; the picture on
+   the right stays in view (sticky, never pinned) and changes state as each
+   step is read, with a rail that fills as the story moves on.
+   Desktop with reduced motion: each step beside its own still picture.
+   Tablets: each step, then its picture on the same fixed stage.
+   Phones: each step, then a compact picture of just that state.
+   Text and links are never hidden or delayed. Pictures are decorative. */
+
+.st-intro{padding-bottom:16px}
+.st-label{margin-bottom:18px}
+.st-label .feat-status{display:inline-flex}
+.story{margin-top:24px}
+.story-name{display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;color:var(--navy)}
+.story-n{display:inline-grid;place-items:center;min-width:34px;height:34px;padding:0 8px;border-radius:99px;background:var(--cloud);font-size:13px}
+.story-steps{display:flex;flex-direction:column}
+.sstep{padding-block:44px;border-top:1px solid var(--line)}
+.sstep:first-child{border-top:0;padding-top:24px}
+.sstep-k{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-weight:600;font-size:14.5px;color:var(--muted);transition:color var(--t-med) var(--ease)}
+.sstep-k span{display:inline-grid;place-items:center;min-width:30px;height:30px;padding:0 6px;border-radius:99px;background:var(--cloud);color:var(--navy);font-size:13px;transition:background-color var(--t-med) var(--ease),color var(--t-med) var(--ease)}
+.sstep-h{margin-bottom:12px}
+.sstep-t{max-width:34em}
+.sstep-tl{margin-top:18px;font-weight:500;font-size:14px;color:var(--muted)}
+.terms{display:grid;gap:8px;max-width:34em;margin-top:10px}
+.terms div{display:grid;grid-template-columns:116px minmax(0,1fr);gap:12px;align-items:baseline;padding:10px 14px;border-radius:14px;background:var(--cloud)}
+.terms dt{font-weight:600;font-size:15px;color:var(--navy)}
+.terms dd{font-size:15px;line-height:1.55;color:var(--text)}
+.sstep-pts{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.sstep-pts li{font-size:16px;line-height:1.55}
+.sstep-prod{margin-top:16px}
+.sstep-links{margin-top:12px}
+.sstep-vis{margin-top:28px;padding:26px 22px;border-radius:28px;background:var(--cloud)}
+.story-aside{display:none}
+.story-note{display:flex;align-items:flex-start;justify-content:center;gap:10px;max-width:46em;margin:40px auto 0;font-size:14.5px;line-height:1.55;color:var(--muted)}
+.story-note .ic{flex:0 0 auto;width:18px;height:18px;margin-top:2px}
+.story-note b{font-weight:600;color:var(--navy)}
+
+/* The rail above the sticky picture: one segment per step */
+.story-rail{position:absolute;left:28px;right:28px;top:22px;z-index:3;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:10px}
+.srail{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;font-weight:500;font-size:12.5px;line-height:1.25;color:var(--muted);transition:color var(--t-med) var(--ease)}
+.srail b{position:relative;display:block;height:3px;border-radius:3px;background:#DCE0E6;overflow:hidden;font-weight:400}
+.srail b i{position:absolute;inset:0;background:var(--navy);transform-origin:left;transform:scaleX(var(--f,0))}
+.srail.is-active{color:var(--navy)}
+
+@media (min-width:1000px){
+  html.motion .story-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px}
+  html.motion .sstep{display:flex;flex-direction:column;justify-content:center;min-height:52vh;padding-block:5vh;border-top:0}
+  html.motion .sstep-vis{display:none}
+  html.motion .story-aside{display:block}
+  html.motion .sstep.is-active .sstep-k{color:var(--navy)}
+  html.motion .sstep.is-active .sstep-k span{background:var(--accent);color:var(--accent-on)}
+  .story-pin{position:sticky;top:calc(var(--hdr) + 7vh);padding-bottom:7vh}
+  .story-stage{position:relative;height:min(600px,calc(100vh - var(--hdr) - 14vh));min-height:470px;border-radius:32px;background:var(--cloud);overflow:hidden}
+  .story-live{position:absolute;inset:74px 28px 22px}
+  html.still .sstep{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center;padding-block:56px}
+  html.still .sstep-vis{margin-top:0}
+}
+
+/* ---------------------------------------------------------------- pictures
+   Shared: the picture's own type scale, never inherited from the page. */
+.sv{font-size:13px;line-height:1.5;color:var(--text);pointer-events:none}
+.sv .ic{width:15px;height:15px}
+.sv-card,.vz-card,.vz-scope,.vz-ev,.vz-next,.sz-m{background:var(--white);box-shadow:0 0 0 1px var(--line),0 16px 32px -24px rgba(11,15,26,.45)}
+.sv-k,.vz-sk,.vz-next-k,.sz-mk{font-weight:600;font-size:10.5px;line-height:1.3;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* AI visibility */
+.vz-q{padding:11px 16px 12px;border-radius:18px 18px 4px 18px;background:var(--navy);font-size:14px;line-height:1.45;color:var(--white)}
+.vz-q-k{display:block;margin-bottom:3px;font-weight:600;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#AEB7C6}
+.vz-card{padding:12px 14px 13px;border-radius:16px}
+.vz-k{display:flex;align-items:center;gap:7px;font-size:12px;line-height:1.3;color:var(--muted)}
+.vz-k b{font-weight:600;color:var(--navy)}
+.vz-meta{margin-left:auto;white-space:nowrap}
+.vz-n{display:inline-grid;place-items:center;flex:0 0 auto;width:19px;height:19px;border-radius:50%;background:var(--navy);font-weight:600;font-size:10.5px;color:var(--white)}
+.vz-t{margin-top:7px;font-size:13px;line-height:1.5}
+.vz-t mark{padding:1px 0;border-radius:3px;background:var(--a-hl);color:inherit}
+.vz-scope{padding:15px 16px 16px;border-radius:18px}
+.vz-qs{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+.vz-qs li{display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:10px;font-size:12.5px;line-height:1.4}
+.vz-qs .vz-n{background:var(--cloud);color:var(--navy)}
+.vz-qs li.is-shown{background:var(--a-lav)}
+.vz-qs li.is-shown .vz-n{background:var(--navy);color:var(--white)}
+.vz-qs em{margin-left:auto;font-style:normal;font-weight:600;font-size:11px;color:var(--a-ink);white-space:nowrap}
+.vz-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.vz-chips span{padding:5px 10px;border-radius:99px;background:var(--cloud);font-weight:500;font-size:11.5px;color:var(--navy)}
+.vz-ev{padding:10px 16px 14px;border-radius:18px}
+.vz-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.35fr);gap:8px;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:12.5px;line-height:1.35}
+.vz-head{padding-top:4px;border-top:0;font-weight:600;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.vz-ra{display:flex;align-items:center;gap:7px;min-width:0;font-weight:600;color:var(--navy)}
+.vz-l{display:none}
+.vz-yn{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.vz-yn i{display:grid;place-items:center;flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:var(--cloud)}
+.vz-yn .ic{width:12px;height:12px;stroke-width:2.4}
+.vz-yn.is-yes{font-weight:600;color:var(--navy)}
+.vz-yn.is-yes i{background:var(--green-tint);color:#00804A}
+.vz-cite{display:inline-flex;align-items:center;gap:6px;min-width:0;color:var(--navy)}
+.vz-cite .ic{flex:0 0 auto;width:14px;height:14px;color:var(--muted)}
+.vz-cite.is-none{color:var(--muted)}
+.vz-na{display:flex;align-items:center;gap:8px;margin-top:6px;padding:8px 10px;border-radius:10px;background:var(--cloud);font-size:12.5px}
+.vz-na .ic{color:var(--muted)}
+.vz-lim{margin-top:8px;font-size:12px;color:var(--muted)}
+.vz-next{padding:16px 18px 18px;border-radius:18px;box-shadow:0 0 0 1px var(--line),0 30px 54px -30px rgba(11,15,26,.6)}
+.vz-next ol{display:flex;flex-direction:column;gap:11px;margin-top:10px}
+.vz-next li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:start}
+.vz-nn{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--navy);font-weight:600;font-size:12px;color:var(--white)}
+.vz-next b{display:block;font-weight:600;font-size:13.5px;line-height:1.45;color:var(--navy)}
+.vz-next em{display:block;margin-top:2px;font-style:normal;font-size:12px;color:var(--muted)}
+
+/* LucentSignal: the app's parts use the screen grab's look (.sfl in
+   17c-welcome.css), arranged for the story, and never play the welcome
+   screen's own entrance */
+html.motion .sv .sfl-card,html.motion .sv .sfl-styles .is-on,html.motion .sv .sfl-hook,html.motion .sv .sfl-p,html.motion .sv .sfl-ring,html.motion .sv .sfl-dims li{animation:none}
+.sz-mk{display:block}
+.sz-m{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:14px;font-weight:500;font-size:13px;line-height:1.35;color:var(--navy)}
+.sz-ic{display:grid;place-items:center;flex:0 0 auto;width:28px;height:28px;border-radius:9px;background:var(--cloud)}
+.sz-due{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:99px;background:var(--amber-tint);font-weight:600;font-size:12px;color:var(--amber-ink);white-space:nowrap}
+.sz-lines{display:none}
+.sz-app.sfl{display:flex;flex-direction:column;gap:8px;padding:0 14px 14px;border-radius:20px;font-size:12.5px}
+.sz-app .sfl-bar{margin:0 -14px 2px;padding:10px 14px}
+.sz-app .sfl-card{padding:10px 12px 11px;border-radius:12px}
+.sz-app .sfl-k{gap:7px}
+.sz-app .sfl-chip{font-size:10.5px}
+.sz-app .sfl-idea-t{margin-top:8px;font-size:13px}
+.sz-app .sfl-styles{margin-top:8px}
+.sz-app .sfl-hook{margin-top:8px;font-size:13.5px}
+.sz-app .sfl-rv{gap:14px;margin-top:10px}
+.sz-app .sfl-score{width:58px;height:58px}
+.sz-app .sfl-score p{padding-top:18px}
+.sz-app .sfl-score b{font-size:16px}
+.sz-app .sfl-dims{gap:5px}
+.sz-app .sfl-dims li{padding:5px 8px}
+.sz-app .sfl-dims span{font-size:9.5px}
+.sz-app .sfl-dims b{font-size:12px}
+.sv .sfl-ring{stroke-dashoffset:100;transition:stroke-dashoffset 1000ms var(--ease) 250ms}
+.sv-sig.s4 .sfl-ring{stroke-dashoffset:calc(100 - var(--v))}
+.sz-empty{padding:4px 2px;font-size:12px;line-height:1.5;color:var(--s-muted-2)}
+.sz-why{margin-top:9px;padding-top:9px;border-top:1px solid var(--s-border);font-size:12px;line-height:1.5;color:var(--s-muted)}
+.sz-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px 10px;padding:9px 12px;border-radius:12px;background:var(--s-surface);border:1px solid var(--s-border);font-weight:500;font-size:12px;line-height:1.35;color:var(--s-text)}
+.sz-bar > span{display:inline-flex;align-items:center;gap:6px;min-width:0}
+.sz-ed{grid-column:1;grid-row:1}
+.sz-plan{grid-column:1;grid-row:2}
+.sz-ed .ic{color:var(--green)}
+.sz-plan .ic{color:var(--s-muted)}
+.sz-exp{grid-column:2;grid-row:1 / span 2;padding:4px 11px;border-radius:99px;border:1px solid var(--s-border);color:var(--s-text)}
+.sz-pub{display:flex;align-items:center;gap:8px;font-weight:500;font-size:12.5px;color:var(--navy)}
+.sz-pub .ic{color:var(--muted)}
+
+/* ---------------------------------------------------------------- stage
+   Desktop and tablets: every part has its place on a fixed stage, and the
+   state classes move, reveal and dim them. */
+@media (min-width:600px){
+  .sv{position:relative;height:100%}
+  .sv.is-still{height:480px}
+  .sv-sig.is-still{height:500px}
+  .sstep-vis .sv{max-width:620px;margin-inline:auto}
+  .sv > *,.vz-card,.sz-m,.sz-app > *{transition:opacity 520ms var(--ease),transform 720ms var(--ease)}
+
+  /* AI visibility */
+  .vz-q{position:absolute;top:5%;right:0;max-width:86%}
+  .vz-cards{position:absolute;left:0;right:0;top:calc(5% + 104px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+  .vz-scope,.vz-ev{position:absolute;left:0;right:0;top:calc(5% + 104px);opacity:0;transform:translateY(18px)}
+  .vz-card{padding:14px 16px 15px}
+  .vz-t{font-size:13.5px}
+  .vz-next{position:absolute;left:5%;right:5%;bottom:0;opacity:0;transform:translateY(28px)}
+  /* 1: one answer, centred over the space the others will fill */
+  .sv-vis:not(.s2) .vz-c1{transform:translate(calc(50% + 6px),calc(50% + 6px)) scale(1.16)}
+  .sv-vis:not(.s2) .vz-c2,.sv-vis:not(.s2) .vz-c3,.sv-vis:not(.s2) .vz-c4{opacity:0;transform:translateY(18px) scale(.96)}
+  .sv-vis .vz-c3{transition-delay:90ms}
+  .sv-vis .vz-c4{transition-delay:180ms}
+  /* 3: the answers give way to the scope */
+  .sv-vis.s3 .vz-cards{opacity:0;transform:translateY(-14px) scale(.97)}
+  .sv-vis.s3:not(.s4) .vz-scope{opacity:1;transform:none}
+  /* 4: the evidence; 5: the priorities over the dimmed evidence */
+  .sv-vis.s4 .vz-scope{transform:translateY(-14px) scale(.97)}
+  .sv-vis.s4 .vz-ev{opacity:1;transform:none}
+  .sv-vis.s5 .vz-ev{opacity:.32;transform:translateY(-8px) scale(.97)}
+  .sv-vis.s5 .vz-next{opacity:1;transform:none}
+
+  /* LucentSignal */
+  .sz-mat{position:absolute;inset:0}
+  .sz-mk{position:absolute;left:0;top:0}
+  .sz-m{position:absolute;width:40%;transition:left 760ms var(--ease),top 760ms var(--ease),width 760ms var(--ease),transform 760ms var(--ease),opacity 520ms var(--ease)}
+  /* 1: scattered across the stage, with the week's rhythm */
+  .sz-m1{left:3%;top:16%;transform:rotate(-2.5deg)}
+  .sz-m2{left:54%;top:9%;transform:rotate(2deg)}
+  .sz-m3{left:9%;top:48%;transform:rotate(1.5deg)}
+  .sz-m4{left:55%;top:42%;transform:rotate(-1.5deg)}
+  .sz-due{position:absolute;left:30%;top:78%}
+  /* 2 onwards: lined up on the left, feeding the app on the right */
+  .sv-sig.s2 .sz-m{left:0;width:35%;transform:none}
+  .sv-sig.s2 .sz-m1{top:9%}
+  .sv-sig.s2 .sz-m2{top:27%}
+  .sv-sig.s2 .sz-m3{top:45%}
+  .sv-sig.s2 .sz-m4{top:63%}
+  .sv-sig.s2 .sz-due{opacity:0;transform:translateY(10px)}
+  .sz-lines{display:block;position:absolute;left:35%;top:0;width:6%;height:100%;overflow:visible;opacity:0;transition:opacity 300ms var(--ease)}
+  .sv-sig.s2 .sz-lines{opacity:1}
+  .sz-lines path{fill:none;stroke:var(--navy);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;vector-effect:non-scaling-stroke;opacity:.7;transition:stroke-dashoffset 900ms var(--ease) 280ms}
+  .sz-lines path:nth-child(2){transition-delay:360ms}
+  .sz-lines path:nth-child(3){transition-delay:440ms}
+  .sz-lines path:nth-child(4){transition-delay:520ms}
+  .sv-sig.s2 .sz-lines path{stroke-dashoffset:0}
+  .sz-app.sfl{position:absolute;left:41%;right:0;top:0;bottom:30px;opacity:0;transform:translateX(26px)}
+  .sv-sig.s2 .sz-app{opacity:1;transform:none}
+  .sz-draft,.sz-review,.sz-bar{opacity:0;transform:translateY(14px)}
+  .sv-sig.s3 .sz-draft,.sv-sig.s4 .sz-review,.sv-sig.s5 .sz-bar{opacity:1;transform:none}
+  .sv-sig.s3 .sz-empty{display:none}
+  /* As each new card arrives, the earlier ones fold to their essentials, so
+     the screen never overflows: the styles once the draft is there, the
+     draft's second line once the guidance is there, the reason once the
+     plan is there */
+  .sz-idea .sfl-styles,.sz-draft .sfl-p,.sz-why{max-height:64px;overflow:hidden;transition:max-height 600ms var(--ease),opacity 360ms var(--ease),margin 600ms var(--ease),padding 600ms var(--ease)}
+  .sv-sig.s3 .sz-idea .sfl-styles,.sv-sig.s4 .sz-draft .sfl-p,.sv-sig.s5 .sz-why{max-height:0;margin-top:0;padding-top:0;border-top-color:transparent;opacity:0}
+  .sz-bar{margin-top:auto}
+  .sz-pub{position:absolute;left:41%;right:0;bottom:0;justify-content:flex-end;opacity:0;transform:translateY(8px)}
+  .sv-sig.s5 .sz-pub{opacity:1;transform:none}
+}
+
+/* ---------------------------------------------------------------- phones
+   A compact picture of just the step's own state */
+@media (max-width:599px){
+  .sstep{padding-block:36px}
+  .sstep-vis{margin-top:22px;padding:18px 14px;border-radius:22px}
+  .terms div{grid-template-columns:minmax(0,1fr);gap:2px}
+  .story-note{justify-content:flex-start;margin-top:28px}
+  .sv{display:flex;flex-direction:column;gap:10px}
+
+  /* AI visibility */
+  .vz-cards{display:flex;flex-direction:column;gap:8px}
+  .sv-vis:not(.s2) .vz-c2,.sv-vis:not(.s2) .vz-c3,.sv-vis:not(.s2) .vz-c4,
+  .sv-vis.s3 .vz-cards,.vz-scope,.vz-ev,.vz-next{display:none}
+  .sv-vis.s3:not(.s4) .vz-scope,.sv-vis.s4:not(.s5) .vz-ev,.sv-vis.s5 .vz-next{display:block}
+  .vz-meta{margin-left:0}
+  .vz-k{flex-wrap:wrap}
+  .vz-head{display:none}
+  /* each answer: its name, then what it says, wrapping onto new lines when
+     the screen is narrow */
+  .vz-row{display:flex;flex-wrap:wrap;gap:6px 14px;padding:10px 0}
+  .vz-r1{border-top:0}
+  .vz-ra{flex:0 0 100%}
+  .vz-yn,.vz-cite{white-space:nowrap}
+  .vz-l{display:inline;font-weight:500;color:var(--muted)}
+  .vz-yn.is-yes .vz-l{font-weight:500}
+  .vz-cite{flex:0 0 100%}
+  .vz-qs em{display:none}
+  /* the question is already in the list (3) and not needed for the priorities (5) */
+  .sv-vis.s3:not(.s4) .vz-q,.sv-vis.s5 .vz-q{display:none}
+
+  /* LucentSignal */
+  .sz-mat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+  .sz-mk{grid-column:1 / -1}
+  .sz-m{align-items:flex-start;padding:9px 10px;font-size:12px}
+  .sz-m1,.sz-m4{transform:rotate(-1.5deg)}
+  .sz-m2,.sz-m3{transform:rotate(1.5deg)}
+  .sz-ic{width:24px;height:24px}
+  .sz-due{grid-column:1 / -1;justify-self:start}
+  .sv-sig.s2 .sz-mat,.sv-sig .sz-app,.sv-sig .sz-pub{display:none}
+  .sv-sig.s2 .sz-app{display:flex}
+  .sv-sig.s5 .sz-pub{display:flex}
+  .sv-sig .sz-idea,.sv-sig .sz-draft,.sv-sig .sz-review,.sv-sig .sz-bar,.sv-sig .sz-empty{display:none}
+  .sv-sig.s2:not(.s3) .sz-empty{display:block}
+  .sv-sig.s2:not(.s3) .sz-idea,.sv-sig.s3:not(.s4) .sz-draft,.sv-sig.s5 .sz-draft,.sv-sig.s4:not(.s5) .sz-review{display:block}
+  .sv-sig.s5 .sz-bar{display:grid}
+  .sv-sig.s5 .sz-draft .sfl-p{display:none}
+  .sz-app .sfl-nav{display:none}
+  .sz-app .sfl-rv{gap:10px}
+  .sz-app .sfl-score{width:52px;height:52px}
+  .sz-app .sfl-score p{padding-top:16px}
+  .sz-app .sfl-dims li{padding:5px 7px;gap:4px}
+}

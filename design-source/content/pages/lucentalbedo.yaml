@@ -1,0 +1,161 @@
+# LucentAlbedo product page. It reuses the shared header, footer, contact
+# panel, product showcase, question list and contact form, and adds its own
+# visual story (stories) and two small components (features and ways).
+# Product facts come from content/products/lucentalbedo.yaml, so the
+# homepage and this page stay in step.
+#
+# The journey (owner's brief, 1 October 2026): the AI visibility problem,
+# starting with unreliable measurement, then how consulting helps today,
+# then the two ways to work with us, then the planned online version (the
+# report design and the planned features), kept clearly separate.
+
+slug: lucentalbedo
+url: /lucentalbedo
+title: LucentAlbedo
+seo_title: LucentAlbedo | AI visibility reporting from LucentStar AI
+description: LucentAlbedo, coming soon from LucentStar AI, is being built to show how your business appears in AI answers, with the evidence behind each finding.
+nav_current: products
+theme: albedo          # Albedo purple for heading emphasis, buttons, links and the contact launcher
+extra_icons: true      # the story's picture uses icons from partials/icons-extra.html
+
+sections:
+
+  - type: page_hero
+    product: albedo
+    heading: Understand how your business appears in *AI answers.*
+    lead: When people ask AI tools about the kind of products or services you offer, does your business appear, and how is it described? One answer won’t tell you. LucentAlbedo is being built to show you the evidence across the questions that matter, and help you decide what deserves attention.
+    actions:
+      - {label: Talk about AI visibility, href: "@contact", style: primary, topic: visibility}
+      - {label: See how we approach it, href: "#evidence", icon: down}
+
+  # The visual story. Consulting, available now. The business, its question,
+  # the answers and the sources are invented to show the method (see note).
+  - type: stories
+    id: evidence
+    spy_as: products
+    label: {status: planned, text: Illustrative approach}
+    heading: Why one answer isn’t enough
+    lead: The questions and evidence to consider when discussing an AI visibility project.
+    stories:
+      - id: evidence-story
+        label: From one answer to a short list of priorities
+        note: "**Example using fictional data.** Fernhill Studio, its competitors, the answers and the sources are invented to illustrate the approach. This is not a delivered client report."
+        steps:
+          - rail: One answer
+            heading: One check can give the wrong impression.
+            text: "Ask an AI assistant about your kind of business and you get one answer: one prompt, one model, one run. It’s easy to screenshot, and easy to read too much into."
+          - rail: Different answers
+            heading: Ask again, and the answer can change.
+            text: Change the wording, ask another assistant or come back a few weeks later, and the answer can be different. There’s no universal score that settles this across models, and a single number can look more certain than the evidence behind it.
+          - rail: A sensible scope
+            heading: First, we agree a sensible scope.
+            text: For a proposed project, the questions, assistants, conditions, deliverables and timing should be agreed before work begins. A later comparison needs the same scope and conditions.
+          - rail: The evidence
+            heading: Then we examine the evidence.
+            text: An evidence-led review distinguishes what an answer says from what it supports. This fictional example separates three different findings; the scope of any consulting deliverable is agreed for the project.
+            terms:
+              - {term: Mentioned, text: The answer names your business.}
+              - {term: Recommended, text: The answer suggests you as a good choice.}
+              - {term: Cited, text: "The answer points to a source, such as your own website or a directory."}
+          - rail: Priorities
+            heading: And help you decide what to do.
+            text: Discuss the practical decisions the evidence could inform, and agree the deliverables before starting work. No one can promise how AI tools will answer, so we don’t promise rankings or results.
+            links:
+              - {label: Talk about AI visibility, topic: visibility}
+        visual:
+          kind: visibility
+          question_label: The buyer’s question
+          question: Who are good interior designers in Manchester for small office fit-outs?
+          labels: {answer: Answer, mentioned: Mentioned, recommended: Recommended, cited: Cited, "yes": "Yes", "no": "No", none: None shown}
+          answers:
+            - label: As asked
+              meta: Assistant A · 14 Sep
+              before: Calder & Moss and Atelier North are often recommended.
+              mark: Fernhill Studio is known mainly for homes.
+              mentioned: true
+              recommended: false
+              cited: A directory
+            - label: Reworded
+              meta: Assistant A · 14 Sep
+              before: For office fit-outs, Calder & Moss and Atelier North are the names that come up.
+              mentioned: false
+              recommended: false
+              cited: ""
+            - label: Another assistant
+              meta: Assistant B · 14 Sep
+              mark: Fernhill Studio is worth a look for small offices,
+              after: alongside Atelier North.
+              mentioned: true
+              recommended: true
+              cited: Fernhill’s website
+            - label: Two weeks later
+              meta: Assistant A · 28 Sep
+              before: Atelier North is often recommended.
+              mark: Fernhill Studio mainly designs homes.
+              mentioned: true
+              recommended: false
+              cited: A directory
+          scope_label: The questions tested
+          shown_label: Shown here
+          questions:
+            - Who are good interior designers in Manchester for small office fit-outs?
+            - Office fit-out designers in Manchester
+            - Which Manchester studios design small offices?
+            - Interior designers for a 20-person office in Manchester
+            - Who can redesign a small office in Manchester city centre?
+          conditions: [Two assistants, Signed out, UK, 14 and 28 September]
+          not_assessed: Signed-in answers not assessed
+          limits: Four answers to one of the five questions. A wider set could look different.
+          next_label: Practical priorities
+          next:
+            - {text: Update the directory listing that describes Fernhill as mainly residential., from: From answers 1 and 4}
+            - {text: Make office fit-outs easy to find on Fernhill’s own website., from: From answer 3}
+            - {text: Ask the same questions the same way next month., from: To see what changes}
+
+  # Consulting now, the online version later: the hinge between the two
+  - type: ways
+    id: ways
+    product: albedo
+    heading: Two ways to work with us
+    lead: You can discuss a consulting project with us today. A limited online version is planned.
+
+  # The planned online version: how a report is designed to work, with the
+  # product's disclosure and limitations (kept from Round 5)
+  - type: showcase
+    product: albedo
+    id: example
+    head: false
+    label: {status: planned, text: Planned for the online version}
+    heading: How a report is designed to work
+    lead: Follow one question from a buyer’s search to a clear next step.
+
+  - type: features
+    id: features
+    product: albedo
+    tone: cloud
+    heading: Planned features
+    lead: What we plan to include in the online version. None of it is confirmed yet, and details may change before release.
+    foot: Every feature in this list is planned for the online version, not yet available. Consulting, available now, is described above. We’ll update this list as each feature is confirmed.
+
+  - type: faq
+    id: questions
+    spy_as: products
+    heading: Questions about LucentAlbedo
+    items:
+      - q: Is LucentAlbedo available now?
+        a: Not yet. It’s coming soon, and a limited online version is planned. Contact us to discuss a consulting project and agree its scope and deliverables.
+      - q: Which AI assistants will it cover?
+        a: Coverage will be announced when the online version is ready. The scope of any consulting project is agreed before work begins.
+      - q: Will it give our business a visibility score?
+        a: No. We don’t reduce visibility to a single number. We show what was asked, what was answered and what supports it, and anything we didn’t check stays marked as not assessed.
+      - q: Can you guarantee we’ll be recommended?
+        a: No one can guarantee how AI tools answer. We help you understand the evidence and choose sensible next steps.
+
+  - type: contact
+    id: contact
+    heading: Talk about AI visibility
+    lead: Tell us about your business and the questions your customers ask. We’ll reply by email and suggest a sensible next step.
+    email_label: Prefer email?
+    next_title: What happens next
+    next_text: We read your message and reply by email. If it helps, we suggest a conversation to understand more.
+    default_topic: visibility

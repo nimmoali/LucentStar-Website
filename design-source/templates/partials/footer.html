@@ -1,0 +1,28 @@
+{# Site footer, shared by every page. The columns come from footer_columns
+   in build.py (content/site.yaml, with the products column made from
+   content/products/), the same data that nav.json is made from. On screens
+   for people who are already signed in (page.signed_in), "Sign in to
+   LucentSignal" becomes "Open LucentSignal", as in the header, and "Try
+   LucentSignal" is left out. #}
+{% import 'macros.html' as ui with context %}
+{% set sp = products | selectattr('destinations.sign_in') | first %}
+{% set signed_in = page.signed_in and sp and sp.destinations.open %}
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <a class="brand" href="{{ link('index#top') }}" aria-label="{{ site.brand.name }} {{ site.brand.suffix }}, home"><svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="12" fill="#0B0F1A"/><g transform="translate(28,28) scale(0.82) translate(-28,-28)"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></g></svg><span class="brand-word">{{ site.brand.name }}<span> {{ site.brand.suffix }}</span></span></a>
+        <p>{{ site.brand.tagline }}</p>
+      </div>
+      {% for col in footer_columns %}
+      <nav aria-labelledby="f{{ loop.index }}"><h2 class="ftr-h" id="f{{ loop.index }}">{{ col.heading }}</h2><ul class="ftr-list">
+        {% for l in col.links if not (signed_in and l.kind == 'try' and l.product == sp.id) %}<li>{% if signed_in and l.kind == 'sign_in' %}{{ ui.navlink(sp.destinations.open, sp.destinations.open_label, same_tab=true) }}{% else %}{{ ui.navlink(l.href, l.label, same_tab=l.same_tab) }}{% endif %}</li>{% endfor %}
+      </ul></nav>
+      {% endfor %}
+    </div>
+    <div class="ftr-base">
+      <p>© {{ year }} {{ site.brand.legal_name }} · {{ site.brand.registered }} · <a href="{{ site.brand.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+    {% if site.footer.prototype_note %}<p class="proto-note">{{ site.footer.prototype_note }}</p>{% endif %}
+  </div>
+</footer>

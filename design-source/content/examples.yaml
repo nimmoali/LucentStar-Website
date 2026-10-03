@@ -1,0 +1,229 @@
+# Opening examples, one per audience. The homepage leads with marketing
+# (businesses and smaller in-house teams). Every example uses fictional data:
+# the businesses, people and numbers are invented. Keep them that way unless a
+# real client has approved a case study (use the clients section for that).
+#
+# A page chooses its example with hero.example in its page file. The homepage
+# can also show the switcher (hero.switcher: true). In a browser, #for-<id>
+# at the end of the address (or ?for=<id> on a normal website) opens a
+# specific example, for example #for-dmc.
+#
+# chip states: ready (green), person (amber), done (grey)
+# phone.type: cards | chat
+#
+# image (optional): a photo shown inside the example's application screens,
+# the laptop's main pane and the phone's header. Leave it out and the example
+# shows text only. The photo is representative stock, never presented as a
+# client's project or property; the opening's note says so.
+#   src          the image, with sizes saved beside it as <name>-<width>.jpg
+#   widths       the sizes that exist, smallest first
+#   width/height the largest size, so the space is reserved before it loads
+#   tint         a colour shown while it loads
+#   alt          what the photo shows (the screens themselves are hidden from
+#                screen readers, so the opening uses alt=""; other layouts
+#                use this text), or decorative: true
+#   focal        where to crop on the laptop, as a CSS position ("60% 45%")
+#   mobile_focal where to crop the phone's photo header
+#   label        a short label shown on the photo in the application
+#   credit, source, licence, licence_url   where it came from, and its terms
+
+default: marketing
+
+items:
+  - id: marketing
+    label: Marketing
+    caption: A content tool that turns ideas and existing material, such as project notes and past posts, into drafts for someone on your team to review.
+    image:
+      src: assets/examples/marketing-kitchen.jpg
+      widths: [480, 800, 1200, 1600]
+      width: 1600
+      height: 1060
+      tint: "#96856F"
+      alt: A kitchen with a reclaimed wood island, bar stools and tall windows onto a garden
+      focal: 52% 60%
+      mobile_focal: 44% 64%
+      label: Site photo
+      credit: Jelena Djurkovic
+      source: https://unsplash.com/photos/brown-wooden-table-and-chairs-4RzMYZ0lx-0
+      licence: Unsplash License
+      licence_url: https://unsplash.com/license
+    app:
+      logo: NJ
+      logo_colour: "#5A3E2B"
+      name: Northgate Joinery
+      tabs: [Drafts, Ideas, Library]
+      avatar: JM
+      list_heading: This week
+      items:
+        - {who: Customer story, when: Thu, what: Hale Farm kitchen, chip: Draft ready, state: ready, selected: true}
+        - {who: October newsletter, when: Fri, what: From three recent blog posts, chip: Draft ready, state: ready}
+        - {who: Price update FAQ, when: Mon, what: Needs a decision on wording, chip: Needs a person, state: person}
+        - {who: LinkedIn post, when: Tue, what: New showroom opening, chip: Approved, state: done}
+      title: Customer story, Hale Farm kitchen
+      meta: From Jess’s idea and the project notes · Due Thursday
+      request_label: Idea from Jess
+      message: Turn the Hale Farm kitchen into a short customer story. Focus on the reclaimed oak and the six-week fit.
+      draft_label: Draft story
+      draft_chip: Ready for your review
+      draft: The Hales wanted a kitchen made from their barn’s own oak. We reclaimed 40 beams and finished the fit in six weeks, with a temporary kitchen so the family could keep cooking.
+      sources_label: Drafted from
+      sources: [Project notes, Site photos, Customer quote]
+      actions: [Edit, Approve draft]
+      foot: Nothing is published until someone on your team approves it.
+    phone:
+      type: cards
+      heading: Drafts
+      subheading: Northgate Joinery · This week
+      cards:
+        - {chip: Draft ready, state: ready, who: Customer story, what: Hale Farm kitchen, excerpt: "When the Hales asked for a kitchen made from their barn’s original oak…", actions: [Review, Approve]}
+        - {chip: Needs a person, state: person, what: The price update FAQ needs a decision on wording. Passed to Jess.}
+        - {chip: Approved, state: done, what: LinkedIn post · New showroom}
+
+  - id: agencies
+    label: Agencies
+    caption: A reporting tool that drafts each client’s monthly commentary from the numbers, for an account lead to check before it’s sent.
+    image:
+      src: assets/examples/agencies-campaign.jpg
+      widths: [480, 800, 1200, 1600]
+      width: 1600
+      height: 1066
+      tint: "#585B54"
+      alt: A walker in leather boots stepping across a rocky stream
+      focal: 74% 58%
+      mobile_focal: 76% 60%
+      label: Campaign photo
+      credit: Wes Hicks
+      source: https://unsplash.com/photos/person-stepping-on-rock--zqLoHuYkj4
+      licence: Unsplash License
+      licence_url: https://unsplash.com/license
+    app:
+      logo: HF
+      logo_colour: "#1F2F4A"
+      name: Harlow & Finch
+      tabs: [Reports, Clients, Templates]
+      avatar: RM
+      list_heading: Due this week
+      items:
+        - {who: Hollins Outdoor, when: Fri, what: Monthly performance report, chip: Draft ready, state: ready, selected: true}
+        - {who: Marlow Dental, when: Fri, what: Monthly performance report, chip: Draft ready, state: ready}
+        - {who: Arden Hotels, when: Mon, what: Booking numbers look incomplete, chip: Needs a person, state: person}
+        - {who: Fenwick Foods, when: 2 Sep, what: August report, chip: Sent, state: done}
+      title: Hollins Outdoor, September report
+      meta: Client message · Account lead Rosa Mendes · Due Friday
+      request_label: Client message
+      message: Hi Rosa, could the September report focus on trade enquiries? The board meets on the 14th.
+      draft_label: Draft commentary
+      draft_chip: Ready for your review
+      draft: Trade enquiries rose to 64 in September, up from 51 in August. Much of the growth came from organic search after the new stockist pages went live. Paid search cost per enquiry fell from £44 to £38.
+      sources_label: Drafted from
+      sources: [Analytics export, Ads account, Client goals]
+      actions: [Edit, Approve for client]
+      foot: Nothing goes to the client until someone approves it.
+    phone:
+      type: cards
+      heading: Reports
+      subheading: Harlow & Finch · This week
+      cards:
+        - {chip: Draft ready, state: ready, who: Hollins Outdoor, what: September report, excerpt: "Trade enquiries rose to 64 in September, up from 51…", actions: [Review, Approve]}
+        - {chip: Needs a person, state: person, what: "Arden Hotels: booking numbers look incomplete. Passed to you."}
+        - {chip: Sent, state: done, what: Fenwick Foods · August report}
+
+  - id: dmc
+    label: Travel DMCs
+    caption: A request tool that turns a tour operator’s email into a first proposal from a DMC’s own itineraries and rates, for a travel designer to check and price.
+    image:
+      src: assets/examples/dmc-skye.jpg
+      widths: [480, 800, 1200, 1600]
+      width: 1600
+      height: 1067
+      tint: "#626666"
+      alt: The Old Man of Storr on the Isle of Skye, with lochs and hills beyond
+      focal: 60% 42%
+      mobile_focal: 62% 46%
+      label: Day 4, Skye
+      credit: Martin Bennie
+      source: https://unsplash.com/photos/the-storr-range-with-a-body-of-water-in-the-foreground-r3peJAPApQw
+      licence: Unsplash License
+      licence_url: https://unsplash.com/license
+    app:
+      logo: AT
+      logo_colour: "#1F3A2E"
+      name: Alba Trails
+      tabs: [Requests, Itineraries, Suppliers]
+      avatar: EM
+      list_heading: Today
+      items:
+        - {who: Nordvik Travel, when: "09:12", what: "Group of 24, Highlands, May", chip: Draft ready, state: ready, selected: true}
+        - {who: Meridian Incentives, when: "08:40", what: "Incentive trip for 60, Edinburgh", chip: Draft ready, state: ready}
+        - {who: Harbourline Tours, when: "08:05", what: Private whisky tasting request, chip: Needs a person, state: person}
+        - {who: Caravel Holidays, when: Yesterday, what: Three nights by rail, chip: Sent, state: done}
+      title: Group of 24, Highlands, five nights in May
+      meta: Nordvik Travel, tour operator · 09:12
+      request_label: Tour operator’s enquiry
+      message: Could you send a first proposal for 24 guests, five nights in the Highlands in mid-May? Coach included, please.
+      draft_label: First proposal
+      draft_chip: Ready for your review
+      draft: "Five nights on our Highlands circuit: Inverness, Loch Ness, Speyside and Skye, with coach and guide. Hotel rates are provisional until availability is confirmed."
+      sources_label: Drafted from
+      sources: [Highlands itineraries, Hotel allocations, Coach rates]
+      actions: [Edit, Approve and send]
+      foot: Prices and availability are checked by a person before anything is sent.
+    phone:
+      type: cards
+      heading: Requests
+      subheading: Alba Trails · Today
+      cards:
+        - {chip: Draft ready, state: ready, who: Nordvik Travel, what: "Group of 24, Highlands, May", excerpt: "Five nights on our Highlands circuit: Inverness, Loch Ness, Speyside and Skye…", actions: [Review, Approve]}
+        - {chip: Needs a person, state: person, what: Harbourline Tours asked for a private whisky tasting. Passed to you.}
+        - {chip: Sent, state: done, what: Caravel Holidays · Three nights by rail}
+
+  - id: holiday-lets
+    label: Holiday lets
+    caption: A guest messaging assistant that answers routine questions from a holiday let’s own house guide, and passes anything unusual to the owner.
+    image:
+      src: assets/examples/holiday-lets-cottage.jpg
+      widths: [480, 800, 1200, 1600]
+      width: 1600
+      height: 1200
+      tint: "#687C87"
+      alt: A cottage on a grassy headland above the sea, under a wide sky
+      focal: 62% 62%
+      mobile_focal: 66% 64%
+      label: Harbour Loft
+      credit: Kate Russell
+      source: https://unsplash.com/photos/a-house-sitting-on-top-of-a-lush-green-field-LAM8BdAZirQ
+      licence: Unsplash License
+      licence_url: https://unsplash.com/license
+    app:
+      logo: SC
+      logo_colour: "#214A5C"
+      name: Seaview Cottages
+      tabs: [Guest messages, Bookings, House guides]
+      avatar: MR
+      list_heading: Tonight
+      items:
+        - {who: Tom · Harbour Loft, when: "22:41", what: "Parking, and can we bring our dog?", chip: Answered, state: ready, selected: true}
+        - {who: Priya · Old Boathouse, when: "22:15", what: "Can we check in at 1pm?", chip: Needs a person, state: person}
+        - {who: Chen · Dune Cottage, when: "21:58", what: "What’s the Wi-Fi password?", chip: Answered, state: ready}
+        - {who: Ruth · Harbour Loft, when: Yesterday, what: Late checkout on Sunday, chip: Replied by you, state: done}
+      title: Parking and dogs at Harbour Loft
+      meta: Tom, arriving Saturday · 22:41
+      request_label: Guest message
+      message: Hi, where do we park when we arrive? And is it OK to bring our dog?
+      draft_label: Answer sent
+      draft_chip: From your house guide
+      draft: Hi Tom, there’s a private space behind the cottage, marked Harbour Loft. One well-behaved dog is welcome, and there’s a bowl and towels in the utility room.
+      sources_label: Answered from
+      sources: ["House guide: parking", Pet policy]
+      actions: [Edit answer, Take over]
+      foot: It only answers from your house guide. Anything else comes to you.
+    phone:
+      type: chat
+      heading: Seaview Cottages
+      subheading: Guest help · Harbour Loft
+      messages:
+        - {from: guest, text: "Where do we park when we arrive? And is it OK to bring our dog?"}
+        - {from: assistant, text: "There’s a private space behind the cottage, marked Harbour Loft. One well-behaved dog is welcome, and there’s a bowl in the utility room."}
+        - {from: guest, text: "Could we check in at 1pm instead of 4pm?"}
+        - {from: assistant, text: "Early check-in depends on the cleaning schedule, so this has gone to Maria, who’ll reply here.", chip: Passed to a person}
+      note: Answers come from the house guide

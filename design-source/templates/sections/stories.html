@@ -1,0 +1,66 @@
+{# Story: a product page's visual story, told in a short sequence of steps
+   that moves from the customer's problem to the response.
+
+   Desktop with motion: the story's picture stays in view beside the steps
+   and changes state as each step is read, with a rail showing how far the
+   story has got (motion pattern: sticky aside, so the page always scrolls
+   normally and never pins). Phones, tablets and reduced motion: each step
+   shows its own still picture, beside the step on desktop and under it on
+   smaller screens, where the picture has a compact layout of its own
+   (templates/visuals/stories.html).
+
+   Content: heading, lead, an optional label (status: available | planned,
+   with label text), an optional note under the story, and one or more
+   stories, each with steps (rail, heading, text) and a visual. A step can add
+   terms (a short list of definitions), a product note and a link. Give a
+   story a name when a section holds more than one; its steps' headings then
+   sit one level below it. Text and links are never hidden or delayed by
+   motion. #}
+{% import 'macros.html' as ui with context %}
+{% import 'visuals/stories.html' as sv with context %}
+<section class="sec st-sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h"{% if s.spy_as %} data-spy-as="{{ s.spy_as }}"{% endif %}>
+  <div class="wrap">
+    <header class="sec-head center st-intro">
+      {% if s.label %}<p class="st-label"><span class="feat-status feat-{{ s.label.status }}">{{ s.label.text }}</span></p>{% endif %}
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+    </header>
+
+    {% for st in s.stories %}
+    {% set named = st.name is defined and st.name %}
+    <article class="story" id="{{ st.id }}" tabindex="-1" {% if named %}aria-labelledby="{{ st.id }}-h"{% else %}aria-label="{{ st.label or s.heading }}"{% endif %} data-seq="story">
+      {% if named %}<h3 class="story-name" id="{{ st.id }}-h">{% if st.number %}<span class="story-n">{{ st.number }}</span>{% endif %}{{ st.name }}</h3>{% endif %}
+      <div class="story-grid">
+        <ol class="story-steps">
+          {% for x in st.steps %}
+          <li class="sstep" data-step>
+            <div class="sstep-txt">
+              <p class="sstep-k"><span>{{ loop.index }}</span>{{ x.rail }}</p>
+              {% if named %}<h4 class="h3 sstep-h">{{ x.heading | inline }}</h4>{% else %}<h3 class="h3 sstep-h">{{ x.heading | inline }}</h3>{% endif %}
+              <p class="sstep-t">{{ x.text | inline }}</p>
+              {% if x.terms %}
+              {% if x.terms_label %}<p class="sstep-tl">{{ x.terms_label }}</p>{% endif %}
+              <dl class="terms">{% for t in x.terms %}<div><dt>{{ t.term }}</dt><dd>{{ t.text | inline }}</dd></div>{% endfor %}</dl>
+              {% endif %}
+              {% if x.points %}<ul class="sstep-pts star-list">{% for pt in x.points %}<li>{{ pt | inline }}</li>{% endfor %}</ul>{% endif %}
+              {% if x.product_note %}{% set pr = products_by_id[x.product_note.product] %}<p class="chap-prod sstep-prod">{{ ui.dot(pr.accent) }}<span>{{ x.product_note.text | inline }}</span></p>{% endif %}
+              {% if x.links %}<div class="chap-links sstep-links">{% for l in x.links %}{{ ui.tlink(l.href or '@contact', l.label, arrow=l.icon or 'arrow', topic=l.topic, sr=l.sr) }}{% endfor %}</div>{% endif %}
+            </div>
+            <div class="sstep-vis" data-reveal aria-hidden="true">{{ sv.visual(st, loop.index) }}</div>
+          </li>
+          {% endfor %}
+        </ol>
+        <div class="story-aside" aria-hidden="true">
+          <div class="story-pin">
+            <div class="story-stage">
+              <div class="story-rail" style="--n:{{ st.steps | length }}">{% for x in st.steps %}<span class="srail" data-rail>{{ x.rail }}<b><i></i></b></span>{% endfor %}</div>
+              <div class="story-live">{{ sv.visual(st, 1, true) }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if st.note %}<p class="story-note">{{ ui.icon('info') }}<span>{{ st.note | inline }}</span></p>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>

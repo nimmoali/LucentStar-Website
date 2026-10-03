@@ -1,0 +1,108 @@
+{# Screens for the opening examples. One layer per example; the chosen one
+   carries is-on. Data comes from content/examples.yaml. An example with an
+   image shows it inside the application: a generous photo in the laptop's
+   main pane with the working panel over its lower edge, and a cropped photo
+   header on the phone. Without an image, the screens show text only. #}
+{% import 'macros.html' as ui with context %}
+
+{% macro chip(text, state) -%}
+<span class="en-chip{{ ' is-ready' if state == 'ready' else (' is-person' if state == 'person' else '') }}">{{ text }}</span>
+{%- endmacro %}
+
+{# One responsive photo. The chosen example's photo loads with the page (the
+   laptop's at high priority). The other examples' photos carry their
+   addresses in data-src and data-srcset, and scripts/05-examples.js fetches
+   them once the page has loaded, or as soon as their button is pointed at or
+   focused, so they never compete with the first photo and a switch never
+   shows a gap. The laptop is hidden on small screens, so there its photo is
+   swapped for an empty image and never downloaded. The devices are hidden
+   from screen readers (the caption describes the example), so alt is empty. #}
+{% macro photo(ex, where, on) -%}
+{% set im = ex.image %}
+{% set dot = im.src.rfind('.') %}
+{% set base, ext = im.src[:dot], im.src[dot:] %}
+{% set focal = (im.mobile_focal or im.focal) if where == 'phone' else im.focal %}
+<picture class="en-pic">
+  {% if where == 'laptop' %}<source media="(max-width: 760px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">{% endif %}
+  {% set one = asset(base ~ '-' ~ im.widths[1 if im.widths | length > 1 else 0] ~ ext) %}
+  {% set srcset %}{% for w in im.widths %}{{ asset(base ~ '-' ~ w ~ ext) }} {{ w }}w{{ ', ' if not loop.last }}{% endfor %}{% endset %}
+  <img {% if on %}src="{{ one }}" srcset="{{ srcset }}"{% else %}src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="{{ one }}" data-srcset="{{ srcset }}"{% endif %} sizes="{{ '(max-width: 760px) 340px, 300px' if where == 'phone' else '(max-width: 1400px) 58vw, 820px' }}" width="{{ im.width }}" height="{{ im.height }}" alt="" decoding="async"{% if on %} fetchpriority="{{ 'high' if where == 'laptop' else 'auto' }}"{% endif %} data-example-img style="object-position:{{ focal or '50% 50%' }}">
+</picture>
+{%- endmacro %}
+
+{# The working panel: the request, the useful output, the material it came
+   from and the review step #}
+{% macro work(a) -%}
+{% if a.request_label %}<p class="en-work-k">{{ a.request_label }}</p>{% endif %}
+<div class="en-msg">{{ a.message }}</div>
+<div class="en-draft-h"><p>{{ a.draft_label }}</p>{{ chip(a.draft_chip, 'ready') }}</div>
+<p class="en-draft-t">{{ a.draft }}</p>
+<div class="en-srcs"><span class="en-k2">{{ a.sources_label }}</span>{% for s in a.sources %}<span class="en-src">{{ s }}</span>{% endfor %}</div>
+<div class="en-acts"><span class="en-b2">{{ a.actions[0] }}</span><span class="en-b1">{{ a.actions[1] }}</span></div>
+{%- endmacro %}
+
+{# Laptop: the business's own tool, with a list, the selected item and a draft for review #}
+{% macro laptop_layer(ex, on) -%}
+{% set a = ex.app %}
+<div class="hx en-ui{{ ' is-on' if on else '' }}" data-example="{{ ex.id }}">
+  <div class="en-top"><span class="en-logo" style="background:{{ a.logo_colour }}">{{ a.logo }}</span><span class="en-name">{{ a.name }}</span><span class="en-tabs">{% for t in a.tabs %}<span{% if loop.first %} class="is-on"{% endif %}>{{ t }}</span>{% endfor %}</span><span class="en-av">{{ a.avatar }}</span></div>
+  <div class="en-body">
+    <div class="en-list">
+      <p class="en-k">{{ a.list_heading }}</p>
+      {% for it in a['items'] %}
+      <div class="en-item{{ ' is-sel' if it.selected else '' }}"><p class="en-who">{{ it.who }} <span>{{ it.when }}</span></p><p class="en-sub">{{ it.what }}</p>{{ chip(it.chip, it.state) }}</div>
+      {% endfor %}
+      {% if ex.image %}<p class="en-foot en-list-foot">{{ ui.icon('check') }}<span>{{ a.foot }}</span></p>{% endif %}
+    </div>
+    {% if ex.image %}
+    <div class="en-detail has-media">
+      <div class="en-media" style="--tint:{{ ex.image.tint or '#D9DCE1' }}">
+        {{ photo(ex, 'laptop', on) }}
+        <div class="en-media-h"><p class="en-h">{{ a.title }}</p><p class="en-meta">{{ a.meta }}</p></div>
+        {% if ex.image.label %}<span class="en-media-tag">{{ ui.icon('camera') }}{{ ex.image.label }}</span>{% endif %}
+      </div>
+      <div class="en-work">{{ work(a) }}</div>
+    </div>
+    {% else %}
+    <div class="en-detail">
+      <p class="en-h">{{ a.title }}</p>
+      <p class="en-meta">{{ a.meta }}</p>
+      <div class="en-msg">{{ a.message }}</div>
+      <div class="en-draft">
+        <div class="en-draft-h"><p>{{ a.draft_label }}</p>{{ chip(a.draft_chip, 'ready') }}</div>
+        <p class="en-draft-t">{{ a.draft }}</p>
+        <div class="en-srcs"><span class="en-k2">{{ a.sources_label }}</span>{% for s in a.sources %}<span class="en-src">{{ s }}</span>{% endfor %}</div>
+        <div class="en-acts"><span class="en-b2">{{ a.actions[0] }}</span><span class="en-b1">{{ a.actions[1] }}</span></div>
+      </div>
+      <p class="en-foot">{{ ui.icon('check') }}{{ a.foot }}</p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{%- endmacro %}
+
+{# Phone: a list of cards, or a guest chat, with a photo header when the example has an image #}
+{% macro phone_layer(ex, on) -%}
+{% set p = ex.phone %}
+{% set pic = ex.image %}
+{% if p.type == 'chat' %}
+<div class="hx enc{{ ' has-photo' if pic else '' }}{{ ' is-on' if on else '' }}" data-example="{{ ex.id }}">
+  {% if pic %}<div class="enp-photo" style="--tint:{{ pic.tint or '#D9DCE1' }}">{{ photo(ex, 'phone', on) }}</div>{% endif %}
+  <header class="enc-top"><span class="enc-logo" style="background:{{ ex.app.logo_colour }}">{{ ex.app.logo }}</span><div><p class="enc-h">{{ p.heading }}</p><p class="enc-s">{{ p.subheading }}</p></div></header>
+  <div class="enc-body">
+    {% for m in p.messages %}
+    <div class="enc-msg is-{{ m.from }}">{{ m.text }}{% if m.chip %}{{ chip(m.chip, 'person') }}{% endif %}</div>
+    {% endfor %}
+    <p class="enc-note">{{ ui.icon('check') }}{{ p.note }}</p>
+  </div>
+</div>
+{% else %}
+<div class="hx en-m{{ ' has-photo' if pic else '' }}{{ ' is-on' if on else '' }}" data-example="{{ ex.id }}">
+  {% if pic %}<div class="enp-photo" style="--tint:{{ pic.tint or '#D9DCE1' }}">{{ photo(ex, 'phone', on) }}</div>{% endif %}
+  <header class="enm-top">{% if pic %}<span class="enc-logo" style="background:{{ ex.app.logo_colour }}">{{ ex.app.logo }}</span>{% endif %}<div><p class="enm-h">{{ p.heading }}</p><p class="enm-s">{{ p.subheading }}</p></div></header>
+  {% for c in (p.cards[:2] if pic else p.cards) %}
+  <div class="enm-card">{{ chip(c.chip, c.state) }}{% if c.who %}<p class="enm-who">{{ c.who }}</p>{% endif %}<p class="enm-sub">{{ c.what }}</p>{% if c.excerpt %}<p class="enm-ex">{{ c.excerpt }}</p>{% endif %}{% if c.actions %}<div class="enm-acts"><span class="en-b2">{{ c.actions[0] }}</span><span class="en-b1">{{ c.actions[1] }}</span></div>{% endif %}</div>
+  {% endfor %}
+</div>
+{% endif %}
+{%- endmacro %}

@@ -1,0 +1,43 @@
+/* Floating "Contact us" launcher and compact enquiry panel.
+   The panel reuses the contact form's fields, validation and sending code.
+   It never opens by itself.
+
+   Movement (scripts/06-enquiry.js, Web Animations): the panel slides up from
+   the launcher with a light fade (from the bottom edge on phones) while the
+   backdrop fades, both with the same duration and easing.
+     open   220ms (250ms on phones), cubic-bezier(.22,1,.36,1)
+     close  180ms (200ms on phones), cubic-bezier(.33,1,.68,1)
+   The dialog only closes once the exit movement has finished. With reduced
+   motion the panel opens and closes instantly. */
+.fab{position:fixed;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:60;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 22px 0 18px;border:0;border-radius:999px;background:var(--launcher);color:var(--white);font:600 15.5px/1 var(--f);cursor:pointer;box-shadow:0 16px 32px -16px rgba(11,15,26,.65),0 2px 6px rgba(11,15,26,.16);visibility:hidden;opacity:0;transform:translateY(14px) scale(.96);transition:opacity 220ms var(--ease),transform 320ms var(--ease),visibility 0s linear 320ms,background-color var(--t-fast) var(--ease)}
+.fab.is-shown{visibility:visible;opacity:1;transform:none;transition:opacity 220ms var(--ease),transform 320ms var(--ease),visibility 0s,background-color var(--t-fast) var(--ease)}
+.fab:hover{background:var(--launcher-hover)}
+.fab.is-shown:active{transform:scale(.97)}
+.fab .ic{width:20px;height:20px;color:var(--launcher-ic)}
+.fab:focus-visible{outline:3px solid var(--navy);outline-offset:3px;box-shadow:0 0 0 3px var(--white),0 16px 32px -16px rgba(11,15,26,.65)}
+
+/* The dialog covers the screen; the backdrop and panel sit inside it */
+.enq{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:var(--text);font-family:var(--f);overflow:hidden}
+.enq::backdrop{background:transparent}
+.enq-scrim{position:absolute;inset:0;background:rgba(11,15,26,.28)}
+.enq-panel{position:absolute;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;width:min(440px,calc(100vw - 48px));max-height:calc(100vh - 48px);max-height:calc(100dvh - 48px);border-radius:24px;background:var(--white);box-shadow:0 0 0 1px var(--line),0 40px 80px -30px rgba(11,15,26,.5);overflow:hidden;transform-origin:100% 100%}
+.enq-in{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:22px 24px 26px}
+.enq-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.enq-h{padding-top:6px;font-weight:600;font-size:22px;line-height:1.25;letter-spacing:-.01em;color:var(--navy)}
+.enq-x{flex:0 0 44px;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:0;background:var(--cloud);color:var(--navy);cursor:pointer;transition:background-color var(--t-fast) var(--ease)}
+.enq-x:hover{background:#E8EBEF}
+.enq-x .ic{width:20px;height:20px}
+.enq-lead{margin-top:4px;font-size:15.5px;line-height:1.55;color:var(--text)}
+.enq .f{gap:18px;margin-top:22px}
+.enq .f-input{min-height:48px}
+.enq textarea.f-input{min-height:112px}
+.enq .f-actions{gap:12px}
+.enq .f-send{width:100%}
+.enq .f-done{margin-top:18px}
+html.enq-lock{overflow:hidden}
+
+@media (max-width:599px){
+  .fab{right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));min-height:48px;padding:0 18px 0 14px;font-size:15px}
+  .enq-panel{left:0;right:0;bottom:0;width:100%;max-height:92vh;max-height:92dvh;border-radius:24px 24px 0 0;transform-origin:50% 100%}
+  .enq-in{padding:18px 16px calc(22px + env(safe-area-inset-bottom,0px))}
+}

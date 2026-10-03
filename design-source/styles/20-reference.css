@@ -1,0 +1,46 @@
+/* Component reference page only (dist/shared/reference.html). Layout for the
+   specimens; the components themselves come from the shared styles. */
+.rf-sec{padding-block:88px}
+.rf-sec .lead{max-width:44em;margin-top:14px}
+.rf-sec code,.rf-label code{font:500 .9em/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:1px 6px;border-radius:6px;background:var(--cloud);color:var(--navy)}
+.sec-cloud .rf-sec code,.sec-cloud code{background:var(--white)}
+.rf-theme{margin-top:28px;border:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 24px;font-size:15px;color:var(--text)}
+.rf-theme legend{font-weight:600;font-size:14px;color:var(--muted);margin-bottom:8px;padding:0}
+.rf-theme label{display:inline-flex;align-items:center;gap:8px;min-height:44px;cursor:pointer}
+.rf-theme input{width:18px;height:18px;accent-color:var(--navy)}
+.rf-grid{margin-top:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rf-card{margin:0}
+.rf-card figcaption{margin-top:8px;font-size:13.5px;color:var(--muted)}
+.rf-swatch{display:grid;place-items:center;min-height:120px;padding:20px;border-radius:20px}
+.rf-on-white{background:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
+.rf-on-cloud{background:var(--cloud)}
+.rf-on-navy{background:var(--navy)}
+.rf-wm-l{font-size:clamp(26px,3vw,36px);letter-spacing:-.02em}
+.rf-wm-m{font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em}
+.rf-label{margin:36px 0 12px;font-weight:600;font-size:14px;color:var(--muted)}
+.rf-stack > div:first-child .rf-label{margin-top:28px}
+.rf-row{display:flex;flex-wrap:wrap;gap:12px}
+.rf-chip{margin:0}
+.rf-colours{margin-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rf-colour{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:20px;box-shadow:inset 0 0 0 1px var(--line);font-size:14.5px;line-height:1.55}
+.rf-colour b{display:block;color:var(--navy)}
+.rf-colour p{margin-top:6px;color:var(--muted)}
+.rf-chipc{flex:0 0 40px;height:40px;border-radius:12px}
+.rf-proposed{display:inline-block;margin-top:6px;padding:4px 10px;border-radius:99px;background:var(--amber-tint);color:var(--amber-ink);font-weight:600;font-size:12.5px}
+.rf-title{max-width:14ch}
+.rf-list{display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.55}
+.rf-rule{max-width:34em;font-size:14.5px;color:var(--muted)}
+.rf-table{margin-top:28px;width:100%;max-width:760px;border-collapse:collapse;font-size:15px}
+.rf-table th,.rf-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.rf-table thead th{font-size:13.5px;color:var(--muted);font-weight:600}
+@media (max-width:900px){
+  .rf-grid,.rf-colours{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .rf-sec{padding-block:64px}
+  .rf-table{display:block;overflow-x:auto}
+}
+.rf-stack .intro{margin-inline:0;text-align:left}
+.rf-sec .cta-row{margin-top:24px}
+.rf-sec .lead + .rf-grid{margin-top:32px}
+.rf-flow{max-width:560px}

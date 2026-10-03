@@ -1,0 +1,27 @@
+{# Two ways to work with us, side by side, each with its status. Items come
+   from the section (items) or the product (ways). A card's action can set
+   style: secondary (white pill); the default is the filled pill. An optional
+   foot adds one line under the cards. #}
+{% import 'macros.html' as ui with context %}
+{% set pr = products_by_id[s.product] if s.product else none %}
+{% set items = s.get('items') or (pr.ways if pr else []) %}
+{% set labels = {'planned': 'Planned', 'available': 'Available now', 'coming_soon': 'Coming soon'} %}
+<section class="sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h"{% if s.spy_as %} data-spy-as="{{ s.spy_as }}"{% endif %}>
+  <div class="wrap">
+    <header class="sec-head center">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+    </header>
+    <div class="ways">
+      {% for w in items %}
+      <article class="way" data-reveal="text">
+        <span class="feat-status feat-{{ w.status }}">{{ labels[w.status] or w.status }}</span>
+        <h3 class="h3">{{ w.title }}</h3>
+        <p>{{ w.text | inline }}</p>
+        {% if w.cta %}{{ ui.button(w.cta.href, w.cta.label, style=w.cta.style or 'primary', topic=w.cta.topic, cls='btn-sm', sr=w.cta.sr) }}{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% if s.foot %}<p class="svc-foot ways-foot">{{ ui.icon('info') }}<span>{{ s.foot | inline }}</span></p>{% endif %}
+  </div>
+</section>

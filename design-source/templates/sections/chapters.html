@@ -1,0 +1,36 @@
+{# Chapters: alternating text and picture rows that explain how a product
+   works, one step at a time. Each chapter has its own id for deep links
+   (for example lucentsignal#scoring). The picture comes from
+   templates/visuals/<visual.kind>.html and reads the product's shared record.
+   Pictures are hidden from screen readers unless visual.accessible is true,
+   because the text beside them says the same thing. Motion: each picture
+   fades and rises once (reveal pattern). #}
+{% import 'macros.html' as ui with context %}
+{% set p = products_by_id[s.product] if s.product else none %}
+<section class="sec chs-sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+    </header>
+    <div class="chs">
+      {% for c in s.chapters %}
+      {% set v = c.visual %}
+      <article class="ch{{ ' ch-flip' if loop.index is even else '' }}" id="{{ c.id }}" tabindex="-1" aria-labelledby="{{ c.id }}-h">
+        <div class="ch-txt">
+          <p class="ch-k"><span class="ch-n">{{ '%02d' % loop.index }}</span>{{ c.kicker }}</p>
+          <h3 class="ch-h" id="{{ c.id }}-h">{{ c.heading | inline }}</h3>
+          <p class="ch-p">{{ c.text | inline }}</p>
+          {% if c.points %}<ul class="ch-pts">{% for pt in c.points %}<li>{{ ui.icon('check') }}<span>{{ pt | inline }}</span></li>{% endfor %}</ul>{% endif %}
+          {% if c.callout %}<p class="ch-call">{{ ui.icon('info') }}<span>{{ c.callout | inline }}</span></p>{% endif %}
+          {% if c.note %}<p class="ch-note">{{ c.note | inline }}</p>{% endif %}
+        </div>
+        <div class="ch-vis" data-reveal{% if not v.accessible %} aria-hidden="true"{% endif %}>
+          {% include 'visuals/' ~ v.kind ~ '.html' %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% if s.note %}<p class="svc-foot chs-foot">{{ ui.icon('info') }}<span>{{ s.note | inline }}</span></p>{% endif %}
+  </div>
+</section>

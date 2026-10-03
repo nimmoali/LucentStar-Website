@@ -1,0 +1,8 @@
+{# Standard page: renders the sections listed in the page's content file, in order. #}
+{% extends 'base.html' %}
+{% block main %}
+{% for s in page.sections %}
+{% include 'sections/' ~ s.type ~ '.html' %}
+
+{% endfor %}
+{% endblock %}

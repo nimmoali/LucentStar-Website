@@ -1,0 +1,5 @@
+/* Reduced motion: complete static story */
+html.still *,html.still *::before,html.still *::after{transition-duration:0s !important;transition-delay:0s !important;animation-duration:0s !important;animation-delay:0s !important;scroll-behavior:auto !important}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;transition-delay:0s !important;animation-duration:0s !important;animation-delay:0s !important}
+}

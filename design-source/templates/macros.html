@@ -1,0 +1,138 @@
+{# Shared building blocks. Import with: {% import 'macros.html' as ui with context %} #}
+
+{% macro icon(name, cls='ic') -%}
+<svg class="{{ cls }}" aria-hidden="true"><use href="#i-{{ name }}"/></svg>
+{%- endmacro %}
+
+{# The four-point star as an inline icon (decorative, hidden from assistive
+   technology). Lists use class="star-list" instead, which draws the same star. #}
+{% macro star(cls='') -%}
+<svg class="star{{ ' ' ~ cls if cls else '' }}" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>
+{%- endmacro %}
+
+{% macro dot(accent) -%}
+<span class="dot {{ 'dot-a' if accent == 'albedo' else ('dot-s' if accent == 'signal' else 'dot-n') }}" aria-hidden="true"></span>
+{%- endmacro %}
+
+{# One discreet note beside an example whose businesses or results are
+   fictional but could look real. Use it once per example, not as a badge. #}
+{% macro note(text, cls='') -%}
+<span class="ex-note{{ ' ' ~ cls if cls else '' }}">{{ icon('info') }}<span>{{ text }}</span></span>
+{%- endmacro %}
+
+{# Links take content targets (see content/site.yaml) and resolve them for the
+   page being built. External addresses open in a new tab unless same_tab. #}
+{% macro tlink(href, label, arrow='arrow', topic=None, cls='', sr=None, same_tab=false) -%}
+{% set url = link(href) %}
+<a class="tlink{{ ' down' if arrow == 'down' else '' }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}><span>{{ label }}</span>{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}{% if arrow %}{{ icon(arrow) }}{% endif %}</a>
+{%- endmacro %}
+
+{% macro button(href, label, style='primary', topic=None, cls='', same_tab=false, sr=None) -%}
+{% set url = link(href) %}
+<a class="btn btn-{{ style }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}>{{ label }}{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}</a>
+{%- endmacro %}
+
+{# A row of actions from content. Each action is
+     {label, href, style, topic, sr, icon}
+   style: primary (filled accent pill), pill (white pill) or link (underlined
+   text link, the default). #}
+{% macro actions(list, cls='') -%}
+{% if list %}<div class="cta-row{{ ' ' ~ cls if cls else '' }}">
+{% for a in list %}
+{% if a.style == 'primary' %}{{ button(a.href, a.label, style='primary', topic=a.topic, same_tab=a.same_tab, sr=a.sr) }}
+{% elif a.style == 'pill' %}{{ button(a.href, a.label, style='secondary', topic=a.topic, same_tab=a.same_tab, sr=a.sr) }}
+{% else %}{{ tlink(a.href, a.label, arrow=a.icon or 'arrow', topic=a.topic, sr=a.sr, same_tab=a.same_tab) }}
+{% endif %}
+{% endfor %}
+</div>{% endif %}
+{%- endmacro %}
+
+{# Plain link for navigation lists #}
+{% macro navlink(href, label, cls='', same_tab=false, attrs='') -%}
+{% set url = link(href) %}
+<a{% if cls %} class="{{ cls }}"{% endif %} href="{{ url }}"{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}{{ attrs | safe }}>{{ label }}{{ caller() if caller else '' }}</a>
+{%- endmacro %}
+
+{# Availability label, shown only when content marks it as verified #}
+{% macro status(p) -%}
+{% if p.availability and p.availability.verified and p.availability.label %}<span class="status status-{{ p.availability.status }}">{{ p.availability.label }}</span>{% endif %}
+{%- endmacro %}
+
+{# Device frames. The screen content goes in the call block. #}
+{% macro laptop(ui_class, cls='', hidden=true) -%}
+<div class="lp {{ cls }}"{% if hidden %} aria-hidden="true"{% endif %}>
+  <div class="lp-lid"><span class="lp-cam"></span>
+    <div class="lp-scr"><div class="lp-ui {{ ui_class }}">{{ caller() }}</div></div>
+  </div>
+  <div class="lp-base"></div>
+</div>
+{%- endmacro %}
+
+{% macro phone(ui_class, cls='', hidden=true) -%}
+<div class="ph {{ cls }}"{% if hidden %} aria-hidden="true"{% endif %}>
+  <div class="ph-frame"><div class="ph-scr"><div class="ph-ui {{ ui_class }}">
+    <span class="ph-cam"></span>
+    {{ caller() }}
+  </div></div></div>
+</div>
+{%- endmacro %}
+
+{# The enquiry form. The same fields, validation and sending code are used
+   by the contact section (prefix "f") and the floating panel (prefix "p"). #}
+{% macro enquiry_form(prefix, error_preview=false, compact=false, default_topic=None) -%}
+{% set F = site.form %}
+<div class="f-done" id="{{ prefix }}-done" hidden>
+  <span class="f-done-ic" aria-hidden="true">{{ icon('check') }}</span>
+  <h3 tabindex="-1" id="{{ prefix }}-done-h">{{ F.done_title | replace(', {name}', '') }}</h3>
+  <p id="{{ prefix }}-done-p">We’ll reply by email.</p>
+  {% if simulated %}<p class="f-proto star-rule">{{ icon('info') }}<span>{{ F.prototype_done }}</span></p>{% endif %}
+  {% if compact %}
+  <button class="f-link" type="button" data-enquiry-close>{{ F.done_close }}{{ icon('arrow') }}</button>
+  {% else %}
+  <button class="f-link" type="button" id="{{ prefix }}-again">{{ F.done_again }}{{ icon('arrow') }}</button>
+  {% endif %}
+</div>
+<form class="f" id="{{ prefix }}" data-enquiry="{{ prefix }}" novalidate>
+  <div class="enquiry-honeypot" aria-hidden="true"><label for="{{ prefix }}-website">Leave this empty</label><input id="{{ prefix }}-website" name="website" tabindex="-1" autocomplete="off"></div>
+  <div class="f-summary" id="{{ prefix }}-summary" role="alert" tabindex="-1" hidden><h3 id="{{ prefix }}-summary-h">Please check these answers</h3><ul id="{{ prefix }}-summary-list"></ul></div>
+  <div>
+    <label class="f-label" for="{{ prefix }}-name">{{ F.name_label }}</label>
+    <p class="f-err" id="{{ prefix }}-name-err" hidden>{{ icon('alert') }}<span></span></p>
+    <input class="f-input" id="{{ prefix }}-name" name="name" maxlength="120" type="text" autocomplete="name" aria-required="true">
+  </div>
+  <div>
+    <label class="f-label" for="{{ prefix }}-email">{{ F.email_label }}</label>
+    <p class="f-err" id="{{ prefix }}-email-err" hidden>{{ icon('alert') }}<span></span></p>
+    <input class="f-input" id="{{ prefix }}-email" name="email" maxlength="254" type="email" autocomplete="email" spellcheck="false" aria-required="true">
+  </div>
+  <div>
+    <label class="f-label" for="{{ prefix }}-company">{{ F.company_label }} <span class="f-opt">{{ F.optional }}</span></label>
+    <input class="f-input" id="{{ prefix }}-company" name="company" maxlength="200" type="text" autocomplete="organization">
+  </div>
+  <div>
+    <label class="f-label" for="{{ prefix }}-message">{{ F.message_label }}</label>
+    <p class="f-hint" id="{{ prefix }}-message-hint">{{ F.message_hint }}</p>
+    <p class="f-err" id="{{ prefix }}-message-err" hidden>{{ icon('alert') }}<span></span></p>
+    <textarea class="f-input" id="{{ prefix }}-message" name="message" maxlength="5000" rows="{{ 4 if compact else 5 }}" aria-required="true" aria-describedby="{{ prefix }}-message-hint"></textarea>
+  </div>
+  <fieldset class="f-topics">
+    <legend class="f-label">{{ F.topics_label }} <span class="f-opt">{{ F.optional }}</span></legend>
+    <div class="f-chips">
+      {% for t in topics %}
+      <div class="f-chip"><input type="radio" name="topic" id="{{ prefix }}-t-{{ t.key }}" value="{{ t.key }}"{% if default_topic == t.key %} checked{% endif %}><label for="{{ prefix }}-t-{{ t.key }}">{{ t.label }}</label></div>
+      {% endfor %}
+    </div>
+  </fieldset>
+  <div class="f-fail" id="{{ prefix }}-fail" role="alert" hidden>{{ icon('alert') }}<p><strong>{{ F.fail_title }}</strong>{{ F.fail_text }}</p></div>
+  <div class="f-actions">
+    {# The enquiry notice sits just above the button, so it is read before sending.
+       Its link opens in a new tab so nothing typed in the form is lost. #}
+    {% set notice_link %}<a href="{{ site.contact.privacy_url }}" target="_blank" rel="noopener">{{ F.privacy_link }}<span class="sr">{{ F.new_tab_note }}</span></a>{% endset %}
+    <p class="f-privacy" id="{{ prefix }}-privacy">{{ (F.privacy_notice | e) | replace('{link}', notice_link) }}</p>
+    <button class="btn btn-primary f-send" type="submit" disabled id="{{ prefix }}-send"><span id="{{ prefix }}-send-label">{% if F.delivery.enabled %}Checking delivery…{% else %}Sending unavailable{% endif %}</span><span class="f-bar" aria-hidden="true"></span></button>
+    <p class="f-hint" id="{{ prefix }}-availability" role="status">Website forms are unavailable. Please <a href="mailto:hello@lucentstar.ai">email hello@lucentstar.ai</a>. Your enquiry will not subscribe you to marketing.</p>
+  </div>
+  {% if simulated %}<p class="f-proto star-rule">{{ icon('info') }}<span>{{ F.prototype_sending }}</span>{% if error_preview %}<button type="button" id="{{ prefix }}-errsim" data-errsim aria-pressed="false">{{ F.error_preview }}</button>{% endif %}</p>{% endif %}
+  <p class="sr" role="status" aria-live="polite" id="{{ prefix }}-live"></p>
+</form>
+{%- endmacro %}

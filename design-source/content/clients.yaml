@@ -1,0 +1,25 @@
+# Optional clients section.
+#
+# The section, its "Clients" navigation entry and its footer link only appear
+# when enabled is true AND at least one item has approved: true. While either
+# is missing, nothing about clients is shown anywhere on the site.
+#
+# Only add a client, logo, quote or result once that client has agreed in
+# writing. Never add placeholder or invented clients.
+
+enabled: false
+heading: Businesses we work with
+intro: Some of the organisations we’ve worked with, shared with their permission.
+
+items: []
+
+# Example item. Copy it into items, fill it in, and set approved: true only
+# once permission is confirmed. Every field except name is optional.
+#
+#  - name: Client name
+#    logo: assets/clients/client-name.svg     # SVG or PNG on a transparent background
+#    logo_alt: Client name                    # defaults to the name
+#    summary: One or two sentences on what we did together, in plain language.
+#    case_study_url: /work/client-name        # a case study page, when there is one
+#    case_study_label: Read the case study
+#    approved: false

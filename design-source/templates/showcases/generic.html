@@ -1,0 +1,34 @@
+{# Generic showcase for a new product. It needs no product-specific code:
+   a heading, a lead, actions, one screen (an image in a laptop or phone
+   frame) and up to four steps. Motion: the device rises in and the steps
+   reveal in order (standard reveal pattern). Content fields:
+     showcase_content:
+       heading, lead, actions (see macros.actions), note
+       device: laptop | phone
+       screen: {image: assets/products/name.png, alt: "What the screen shows"}
+       steps: [{title, text}, ...]                                          #}
+{% import 'macros.html' as ui with context %}
+<section class="prod-sec" id="{{ sid }}" data-spy-as="products" tabindex="-1" aria-labelledby="{{ sid }}-h">
+  <div class="wrap prod-head">
+    <p class="chip-prod{{ ' chip-a' if p.accent == 'albedo' else '' }}">{{ ui.dot(p.accent) }}{{ wordmark(p) }}{{ ui.status(p) }}</p>
+    <h2 class="h2" id="{{ sid }}-h">{{ sc.heading }}</h2>
+    <p class="lead">{{ sc.lead | inline }}</p>
+    {{ ui.actions(sc.actions) }}
+  </div>
+  <div class="wrap gs">
+    <div class="gs-dev gs-{{ sc.device or 'laptop' }}" data-reveal>
+      {% if (sc.device or 'laptop') == 'phone' %}
+        {% call ui.phone('gs-screen', hidden=false) %}{% if sc.screen and sc.screen.image %}<img src="{{ asset(sc.screen.image) }}" alt="{{ sc.screen.alt }}">{% else %}<span class="gs-empty">Product screen to be supplied</span>{% endif %}{% endcall %}
+      {% else %}
+        {% call ui.laptop('gs-screen', hidden=false) %}{% if sc.screen and sc.screen.image %}<img src="{{ asset(sc.screen.image) }}" alt="{{ sc.screen.alt }}">{% else %}<span class="gs-empty">Product screen to be supplied</span>{% endif %}{% endcall %}
+      {% endif %}
+    </div>
+    {% if sc.steps %}
+    <ol class="stage-cards gs-steps">
+      {% for st in sc.steps %}<li class="stage-card" data-reveal="text"><span class="sc-n">{{ loop.index }}</span><div><b>{{ st.title }}</b><p>{{ st.text }}</p></div></li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+    {% if sc.note and not hide_note %}<p class="sig-note">{{ ui.icon('info') }}<span>{{ sc.note | inline }}</span></p>{% endif %}
+  </div>
+</section>

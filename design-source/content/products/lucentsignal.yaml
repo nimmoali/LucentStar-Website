@@ -1,0 +1,281 @@
+# One file per product. Products feed the navigation menu, the mobile menu,
+# the product tiles, the footer, the contact topics, the product showcase and
+# the navigation data for the blog and the app (nav.json).
+# Add a product by copying this file and changing every field.
+#
+# Facts that appear in copy anywhere on the site (allowances, prices, style
+# names, scoring, export tools) are written ONCE, in the records below. Copy
+# quotes them with placeholders, for example {{signal.plan.free.posts}} or
+# {{signal.styles}}. The full list is in build.py (product_facts), and the
+# build stops if page copy types one of these facts by hand.
+
+id: signal
+order: 1
+name: LucentSignal
+accent: signal            # colour of the product half of the wordmark, the dot and the chip: signal | albedo | neutral
+# wordmark: {lead: Lucent, tail: Signal}    # only needed if the name splits differently
+
+# Short descriptions used across the site
+menu_text: Turn your expertise into LinkedIn content, in your own voice.
+mobile_text: Turn your expertise into LinkedIn content.
+tile_heading: Turn your expertise into LinkedIn content.
+tile_text: Develop ideas into drafts shaped by your voice, get feedback on each draft and plan what to post.
+
+# Availability is only shown publicly once someone has confirmed it.
+# status: live | private | waitlist | unconfirmed
+availability:
+  status: live
+  verified: true          # confirmed by the owner, 28 September 2026
+  label: Available now    # shown next to the name only when verified is true
+
+# Where visitors go. Leave a field empty when the destination does not exist yet.
+destinations:
+  section: "index#signal"                              # showcase on the homepage
+  detail_page: lucentsignal                            # the full product page, /lucentsignal.html
+  menu_link_label: See features and pricing
+  try: https://signalapp.lucentstar.ai/register
+  try_label: Try LucentSignal
+  sign_in: https://signalapp.lucentstar.ai/login
+  # For people who are already signed in (the welcome screen's header): the
+  # app's own entry. The app adapter keeps the destination today's pages use.
+  open: https://signalapp.lucentstar.ai/
+  open_label: Open LucentSignal
+  contact_topic: signal
+  contact_topic_label: LucentSignal
+
+# Named facts that copy can quote as {{signal.<name>}}
+facts:
+  # The name of the voice feature. The marketing page says "Ghostwriter"; the
+  # privacy policy says "ghost profile" and the brand system lists "Ghost
+  # profile" and "Your voice profile". Change it here once the app's own label
+  # is confirmed, and every page follows.
+  voice_feature: Ghostwriter
+  # What every plan includes, quoted by the pricing introduction
+  plans_note: Every plan includes {{signal.voice_feature}}, quality scoring and all {{signal.styles_count}} writing styles.
+
+# Which showcase component tells the product story: signal | albedo | generic
+showcase: signal
+showcase_content:
+  heading: Turn your expertise into LinkedIn content.
+  lead: LucentSignal helps you develop ideas into posts that sound like you, shows you the reason behind every score, and helps you plan what to publish. You stay in charge of every word.
+  # Actions under the showcase heading. style: pill (white pill), primary
+  # (filled) or link (underlined text link, the default).
+  actions:
+    - {label: Try LucentSignal, href: "https://signalapp.lucentstar.ai/register", style: pill}
+    - {label: See features and pricing, href: "lucentsignal", sr: " for LucentSignal"}
+    - {label: Sign in, href: "https://signalapp.lucentstar.ai/login", sr: " to LucentSignal"}
+  steps:
+    - title: A rough idea
+      text: A sentence is enough. Choose how you want the argument to land.
+    - title: A draft in your voice
+      text: Shaped by examples of your writing, then scored on {{signal.scoring.dimensions}}.
+    - title: Your review
+      text: Every score comes with the reason behind it. You decide what to change.
+    - title: Plan, then publish
+      text: Add it to your calendar and export it. LucentSignal doesn’t post for you.
+
+  # Example app screen (fictional draft and scores). Screen labels were
+  # written for this design; see verification below.
+  app:
+    user_initials: JM
+    nav: [Write, Content calendar, Library]
+    idea: "AI plans often skip the hard question: what should stop?"
+    style_on: Focused                 # must be one of the styles below (checked by the build)
+    voice_label: "{{signal.voice_feature}}"
+    voice: On, using your writing examples
+    write_button: Write the draft
+    empty_draft: Your draft will appear here once you start writing.
+    hook_old: AI plans often describe everything a business wants to add.
+    hook_new: Plenty of AI plans list what to add. Few say what should stop.
+    paragraphs:
+      - That’s the harder conversation, so it tends to get skipped.
+      - Roadmaps fill up with new tools and pilots, while the slow processes stay exactly where they were.
+      - Before the next roadmap, agree one process you’d happily retire.
+    feedback_label: Hook feedback
+    feedback: Hook could be sharper. Lead with the tension so readers see the point straight away.
+    edited: Edited by you
+    score_empty: Scoring appears once there’s a draft to review.
+    score: 32
+    score_text: Your post scored 32/{{signal.scoring.out_of}}
+    # Names must match scoring.dimensions (checked by the build)
+    dimensions:
+      - {name: Hook, score: 8, note: "Clear, but the tension arrives late."}
+      - {name: Insight, score: 9, note: Specific and useful.}
+      - {name: Clarity, score: 7, note: The middle repeats one idea., warn: true}
+      - {name: Closing, score: 8, note: Memorable. Could be more concrete.}
+    planned: Planned for Tuesday 13 October
+    publish_note: You publish when you’re ready.
+    export: Export
+
+# ---------------------------------------------------------------- product facts
+# Copied from the live marketing page (lucentstar.ai/lucentsignal.html) on
+# 28 September 2026. None of these has been checked in the app or its billing
+# yet: see verification at the end of this file. Change them here only.
+
+# The three writing styles, with the live page's descriptions and the example
+# posts it shows for one topic.
+styles_topic: Why AI strategies fail
+styles:
+  - name: Thoughtful
+    tagline: Reflective. Considered. Explores the tension.
+    text: Holds nuance and invites reflection.
+    sample:
+      - There’s a gap between how organisations talk about AI strategy and what the documents actually contain. The ambition tends to be genuine. What’s less clear is whether anyone answered the underlying question, what are we actually trying to change, with the same rigour they applied to the roadmap.
+      - The plans are detailed. The problem statement, less so.
+  - name: Focused
+    tagline: Clear. Confident. No hedging.
+    text: Delivers a clear position without hedging.
+    sample:
+      - AI strategies fail at the point where ambition replaces specificity.
+      - Organisations build roadmaps before agreeing what problem they’re solving. Getting alignment on the actual problem is slower and harder to present to a board, so teams skip it and hope the detail emerges later.
+      - It doesn’t. The fix isn’t a better framework. It’s an earlier and more uncomfortable conversation.
+  - name: Challenging
+    tagline: Direct. Uncomfortable. Opinionated.
+    text: Pushes harder and questions assumptions.
+    sample:
+      - AI strategy documents describe the future an organisation wants without naming what it’s unwilling to give up.
+      - That’s a political problem, not a planning one. Naming what stops means someone loses something, so the roadmap gets built around addition instead.
+      - The slow processes survive. Now they’re running alongside AI, and they’re still slow.
+
+# Scoring: four dimensions, each out of 10, 40 in total. The example
+# feedback is the live page's sample (fictional post, fictional scores).
+scoring:
+  dimensions: [Hook, Insight, Clarity, Closing]
+  out_of: 40
+  example:
+    total: 32
+    dimensions:
+      - {name: Hook, score: 8, note: "The hook is sharp and specific, but could earn attention earlier by making the contradiction visible in the first sentence."}
+      - {name: Insight, score: 9, note: The core frame is strong. The post connects AI strategy to real organisational behaviour rather than keeping it abstract.}
+      - {name: Clarity, score: 7, warn: true, note: "The structure is easy to follow, but the middle section repeats the same idea twice. Cut one supporting sentence and move faster to the consequence."}
+      - {name: Closing, score: 8, note: "The ending is provocative and memorable, but could land harder by being more specific about what leaders should stop doing."}
+
+# The voice screen on the product page (example content)
+voice_demo:
+  rules: [British spelling, Short paragraphs, Plain words, End on a clear point]
+  examples_label: Writing examples
+  rules_label: Voice rules
+
+# Content calendar screen on the product page (example content)
+calendar_demo: {planned: "Planned: What should stop?", draft: Draft in progress}
+
+# The tools Pro's platform-ready exports are formatted for
+platforms: [Hootsuite, Agorapulse, Airtable, Notion, Google Calendar]
+
+# Export and planning, by plan. LucentSignal does not publish to LinkedIn.
+exports:
+  - {label: Copy or export a single post, plans: Every plan}
+  - {label: Content calendar and bulk CSV export, plans: "{{signal.plan.creator.name}} and {{signal.plan.pro.name}}"}
+  - {label: "Platform-ready exports: {{signal.platforms}}", plans: "{{signal.plan.pro.name}}"}
+publishing: LucentSignal doesn’t publish to LinkedIn. You post when you’re ready, or through the scheduling tool you already use.
+
+# Plans and prices. Every button goes to registration. posts is the monthly
+# (or, on Free, total) post allowance; key names the plan in placeholders.
+plans:
+  - key: free
+    name: Free
+    price: "£0"
+    period: forever
+    posts: 3
+    summary: Try the full workflow. No card needed.
+    allowance: "{{signal.plan.free.posts}} initial posts, no monthly reset"
+    features: ["{{signal.voice_feature}} included", Trending topic ideas, Quality scoring, Single post copy and export]
+    cta: {label: Start free, href: "https://signalapp.lucentstar.ai/register"}
+    cta_note: No card needed.
+  - key: creator
+    name: Creator
+    badge: Recommended
+    price: "£19"
+    period: per month
+    posts: 20
+    summary: For professionals publishing consistently.
+    allowance: "{{signal.plan.creator.posts}} posts per month"
+    features: [Everything in Free, Content calendar, Drag-and-drop scheduling, Bulk CSV export]
+    cta: {label: Start with Creator, href: "https://signalapp.lucentstar.ai/register"}
+    cta_note: Start free. Upgrade when ready.
+  - key: pro
+    name: Pro
+    price: "£39"
+    period: per month
+    posts: 75
+    summary: For higher-volume publishing workflows.
+    allowance: "{{signal.plan.pro.posts}} posts per month"
+    features: [Everything in Creator, Bulk calendar export, "Platform-ready exports for {{signal.platforms}}"]
+    cta: {label: Start with Pro, href: "https://signalapp.lucentstar.ai/register"}
+    cta_note: Start free. Upgrade when ready.
+
+# Search engine data for the product page (kept from the live page)
+schema:
+  category: BusinessApplication
+  os: Web
+  currency: GBP
+  description: "A LinkedIn post writing workflow with {{signal.voice_feature}} voice matching, quality scoring across {{signal.scoring.dimensions}}, and {{signal.styles_count}} writing styles: {{signal.styles}}."
+
+# ---------------------------------------------------------------- where each fact comes from
+# status: verified   checked in the live app or its live billing (Stripe) configuration
+#         source     matches the app's source code (linkedin-generator, read by the independent
+#                    Round 4 review on 28 September 2026: last commit 70e4444 of 5 September 2026,
+#                    with uncommitted local edits). Evidence, not proof of the deployed version
+#         conflict   the app's source contradicts or complicates the claim; reconcile before publishing
+#         owner      decided or confirmed by the owner
+#         marketing  copied from the live marketing page; not yet checked in the app
+#         design     written for this design; needs confirming before launch
+# The build prints how many facts have each status. Paid prices and production price-ID mapping were checked read-only on 3 October 2026.
+verification:
+  - fact: Availability, "Available now"
+    status: owner
+    source: Owner decision, 28 September 2026. The public sign-in and registration screens were reachable on 28 September 2026.
+  - fact: Free includes three initial posts, with no monthly renewal
+    status: owner
+    source: "Owner decision in Rebrief LucentStar AI website, 3 October 2026. Integrated source counts retained full-draft generation reservations over the initial lifetime window, including before plan changes. Optional refinements do not reduce the three full-draft slots; their existing bounded usage check is retained. Local PostgreSQL tests cover month boundaries, refunds, concurrency, cancellation and past-due fallback. No production deployment is implied; repository integration is owner-authorised."
+    check: "The retained-history treatment for existing accounts and returning paid/trial users is selected under the owner’s launch-priority direction, not a further decision. Candidate behavior is locally tested; live verification remains necessary."
+  - fact: Paid prices (Creator £19 a month; Pro £39 a month; sterling required)
+    status: conflict
+    source: "Owner direction in this launch chat, 3 October 2026: all LucentStar currency must be sterling. Read-only live Stripe and production Railway price-ID checks show the currently configured prices are USD 19/39 monthly with no GBP option. Source copy now uses the owner-required GBP offer; no Stripe price or production mapping has been changed."
+    check: "Create and verify GBP 1900/3900 monthly prices, change the production price-ID mapping under release approval, and verify checkout currency before paid-plan publication. The prepared currency guard refuses incorrect configured prices."
+  - fact: Exports by plan (single post on every plan, bulk export on Creator and Pro, platform-ready files on Pro)
+    status: source
+    source: Single post copy and export in the front end and the signed-in /api/export route; plan rules in /api/exports/allowed and /api/exports/calendar/:type.
+    check: Trial and internal-account exceptions exist, so don't simplify the full entitlement matrix further. Not exercised with account data.
+  - fact: Platform-ready formats (Hootsuite, Agorapulse, Airtable, Notion and Google Calendar)
+    status: source
+    source: Export routes for Hootsuite, Agorapulse, Airtable, Notion and an ICS calendar file, which is what the "Google Calendar" label refers to.
+    check: No downloaded files were checked.
+  - fact: Other plan features (Ghostwriter on every plan, trending topic ideas on Free, content calendar and scheduling on Creator)
+    status: marketing
+    source: lucentstar.ai/lucentsignal.html, read 28 September 2026.
+    conflict: The May 2026 brand system says Free has no calendar, no export and no voice profile, Creator adds trending topics, and Pro adds the voice profile.
+    check: Confirm the plan gating for each of these in the app's code or configuration (not by creating accounts in production).
+  - fact: Writing style names (Thoughtful, Focused, Challenging)
+    status: source
+    source: The generator's display labels (public/index.html:2725).
+    conflict: The help page says Thoughtful, Clear and Challenging, and the Ghostwriter help article says Direct, Measured and Sharp. Those pages should change to match the app.
+    check: Not seen in a signed-in live session.
+  - fact: Scoring (hook, insight, clarity and closing, out of 40, with feedback)
+    status: source
+    source: The editor's score handling and the export code.
+    conflict: The AI transparency page lists clarity, engagement, credibility and relevance, and should change to match.
+    check: No live score was generated.
+  - fact: Feedback and review (a reason behind every score; the person decides what to change)
+    status: marketing
+    source: "lucentstar.ai/lucentsignal.html: \"You don't just get a score. You get the reason behind it.\" and \"Each score comes with specific feedback on what to improve.\""
+    check: Round 3's wording (use, change or ignore each suggestion) stays withdrawn. Confirm how the app presents feedback and whether a suggestion can be applied directly.
+  - fact: Agencies and several clients ("Manage multiple clients from one dashboard" on the live page)
+    status: conflict
+    source: The app keeps one voice profile per account. A unique index on ghost_profile.user_id (db/schema.sql:88), and the save route updates that user's one stored profile (server.js:3561).
+    check: The multi-client claim is removed from this design. The Agencies card now describes drafting from material a client supplies. Bring the claim back only if a verified multi-client feature exists.
+  - fact: The voice feature's name (Ghostwriter), with saved writing examples and voice rules
+    status: source
+    source: The generator's labels and the GET and POST /api/ghost routes. One profile per account.
+    conflict: The privacy policy says "ghost writing profile" and "ghost profile"; the brand system lists "Ghost profile" and "Your voice profile".
+  - fact: Publishing to LinkedIn
+    status: owner
+    source: The owner's Round 4 instruction, 28 September 2026. The answer is "No" unless a publishing feature is confirmed. The live page says "Not yet".
+  - fact: Password recovery on the sign-in screen
+    status: source
+    source: POST /forgot-password creates a password-reset token and emails a /reset-password link (server.js:3213). A separate /recover route gives passwordless access. The live sign-in link ("Request a secure access link") and the live /forgot-password page ("we'll send you a secure access link. No password needed.") describe passwordless access, not the reset that route performs.
+    check: The sign-in design now describes the reset accurately. Offering the passwordless route as well is a design decision for the owner; don't change authentication behaviour as part of the restyle.
+  - fact: Screen labels in the example screens (Write, Content calendar, Library, Your draft, Post scoring, Writing style)
+    status: design
+    source: Written for this design. The brand system names Content calendar and Post scoring as feature names.
+    check: Compare with the labels in the app before launch.

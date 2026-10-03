@@ -1,0 +1,215 @@
+# Homepage. Sections render in this order. Each section's "type" picks a
+# component from templates/sections/. Copy can be edited here without
+# touching layout or animation code.
+#
+# Inline formatting: *text* adds heading emphasis, **text** is bold,
+# [label](target) is a link (targets are explained in content/site.yaml).
+
+slug: index
+url: /
+title: LucentStar Homepage
+seo_title: LucentStar AI | Practical AI, built around your business
+description: LucentStar AI is a practical AI consulting partner for businesses and smaller in-house teams, supported by two focused products, LucentSignal and LucentAlbedo.
+extra_icons: true      # the approach diagram uses icons from partials/icons-extra.html
+
+sections:
+
+  - type: hero
+    heading: Practical AI, *built around your business.*
+    lead: "We’re a practical AI consulting partner for businesses and smaller in-house teams, working closely with you from how AI answers describe you to everyday marketing work. Two focused products support that work: {{signal.name}}, {{signal.status_lc}}, and {{albedo.name}}, {{albedo.status_lc}}."
+    actions:
+      - {label: Let’s talk, href: "#contact", style: primary}
+      - {label: See how we can help, href: "#help", icon: down}
+    example: marketing         # which opening example to show first (see content/examples.yaml)
+    switcher: true             # let visitors switch between examples
+    switcher_label: Industries we’ve worked with   # owner's wording: the team's wider industry experience, not client projects
+    switcher_intro: Our team brings experience from these industries. Here’s how we could apply AI to their everyday work.
+    # No note under the examples (owner decision, 29 September 2026). Photo
+    # credits, sources and licences stay in content/examples.yaml.
+
+  # How we can help: consulting first, through two problems people recognise
+  # and the bespoke route. Each problem leads to its product page, where the
+  # full story is told, or to a conversation. Same component, motion and
+  # layout as before (owner decision, 1 October 2026: keep the homepage
+  # concise and put the detail on the product pages).
+  - type: services
+    id: help
+    heading: How we can help
+    lead: Consulting comes first. Here are two problems you might recognise, where our products fit, and bespoke help for anything else.
+    examples_label: For example
+    chapters:
+      - key: visibility
+        rail: Visibility
+        name: AI visibility
+        heading: AI answers are hard to measure.
+        body: They shift with the wording, the assistant and the day you ask, and no single score settles it across models. That makes it hard to know what AI is really saying about your business.
+        examples_label: You might also recognise
+        examples:
+          - Your business left out of answers, or described inaccurately
+          - No clear view of the sources the answers rely on
+          - Not knowing which finding to act on first
+        product_note: {product: albedo, text: "Our visibility product, LucentAlbedo, is {{albedo.status_lc}}. Contact us to discuss a consulting project."}
+        links:
+          - {label: See how we approach it, href: lucentalbedo, sr: " on the LucentAlbedo page"}
+          - {label: Talk about AI visibility, topic: visibility}
+        visual:
+          kind: variation
+          title: Same question, different answers
+          question: Who are good interior designers in Manchester for small offices?
+          answers:
+            - label: As asked
+              meta: Assistant A
+              text: Calder & Moss and Atelier North are often recommended.
+              mark: Fernhill Studio works mainly on homes.
+              tags: [{label: Mentioned, value: "Yes", positive: true}, {label: Recommended, value: "No"}]
+            - label: Reworded
+              meta: Assistant A
+              text: Calder & Moss and Atelier North are known for office projects.
+              tags: [{label: Mentioned, value: "No"}, {label: Recommended, value: "No"}]
+            - label: Another assistant
+              meta: Assistant B
+              mark: Fernhill Studio is worth a look for small offices.
+              tags: [{label: Mentioned, value: "Yes", positive: true}, {label: Recommended, value: "Yes", positive: true}]
+      - key: workflows
+        rail: Marketing
+        name: AI workflows in marketing
+        heading: Good material, scattered everywhere, and a deadline every week.
+        body: Small marketing teams have plenty to say and little time to pull it together. Ideas, notes and past work are spread across the tools you already use, and the drafting never stops.
+        examples_label: You might also recognise
+        examples:
+          - Ideas in chat threads, and material nobody can find when it’s needed
+          - The same newsletter, case study and posts to draft every month
+          - Review squeezed in just before the deadline
+        product_note: {product: signal, text: "For LinkedIn, LucentSignal is {{signal.status_lc}}: it develops your ideas into drafts with editorial guidance. For wider workflows, we build around your team’s own tools."}
+        links:
+          - {label: See how LucentSignal helps, href: lucentsignal, sr: " on the LucentSignal page"}
+          - {label: Talk to us about a workflow, topic: workflows}
+        visual:
+          kind: workflow
+          title: Scattered material, one useful draft
+          sources:
+            - {icon: chat, label: Team chat}
+            - {icon: folder, label: Shared drive}
+            - {icon: mail, label: Inbox}
+          output_label: First draft
+          output_title: October newsletter, due Friday
+          output_note: A person reviews it before it goes out
+          output_avatar: PR
+      - key: bespoke
+        rail: Bespoke
+        name: Bespoke AI projects
+        heading: A focused tool for a particular need.
+        body: When an existing product isn’t enough, we design and build something around the problem. We agree what it needs to do, and who it’s for, before choosing any technology.
+        examples:
+          - A tool that answers staff questions from your own guidance
+          - A guided form that turns customer details into a proposal draft
+          - A checker that reviews documents against your house rules
+        link: {label: Discuss a project, topic: bespoke}
+        visual:
+          kind: tool
+          title: A focused tool for one need
+          window: Staff guidance
+          question: Can a team lead approve a refund over £500?
+          answer: Refunds over £500 need a manager’s approval. A team lead can approve refunds up to £500.
+          source_label: Source
+          source: Finance guide, section 4
+          chips: [Your documents, Your wording, Your approval rules]
+
+  # How we work together: the five practical steps, shown with a small
+  # marketing team's monthly newsletter (the glimpse of how we help that the
+  # owner asked for). The last step keeps the owner's wording of
+  # 29 September 2026.
+  - type: workflow
+    id: approach
+    heading: How we work together
+    lead: Five practical steps that keep the work manageable and keep people involved, shown here for a small marketing team’s monthly newsletter.
+    diagram_heading: Five practical steps
+    example_heading: For a monthly newsletter, for example
+    steps:
+      - key: work
+        icon: need
+        kicker: 1 · The work today
+        node: The work today
+        node_sub: Where ideas and material live
+        heading: Understand the work.
+        text: "We look at how the work happens today: the tools you already use, where ideas and material live, and who signs things off."
+        example: {icon: chat, text: "Ideas in chat, notes in the shared drive"}
+      - key: start
+        icon: spark
+        kicker: 2 · A useful start
+        node: A useful start
+        node_sub: One workflow, not everything
+        heading: Choose a useful starting point.
+        text: We pick one piece of recurring work where AI would genuinely help, and leave the rest alone for now.
+        example: {icon: spark, text: The newsletter comes first}
+      - key: build
+        icon: plug
+        kicker: 3 · Your tools
+        node: Your tools
+        node_sub: Built around what you use
+        heading: Build around what you already use.
+        text: We build or connect a small working version around your current tools, so drafts arrive where your team already works.
+        example: {icon: folder, text: Drafts land in the shared drive}
+      - key: test
+        icon: loop
+        kicker: 4 · Tested
+        node: Tested
+        node_sub: On your own recent work
+        heading: Test it with real examples.
+        text: We try it on examples from your own recent work, and adjust it before anyone relies on it.
+        example: {icon: loop, text: Tried on the last three newsletters}
+      - key: review
+        icon: review
+        kicker: 5 · People involved
+        node: People involved
+        node_sub: In review and decisions
+        heading: Keep people in review and decisions.
+        text: We agree what AI can handle and where a person needs to review, approve or take over. Routine answers can use your approved guidance; sensitive questions and important decisions stay with your team.
+        human: People approve, edit or take over.
+        example: {icon: review, text: "Priya approves, edits or takes over"}
+
+  - type: products
+    id: products
+    heading: Products built for specific jobs
+    lead: Alongside our consulting, we make focused products. Each one is built to support your judgement, not replace it.
+    tile_link: See it in action
+
+  - type: showcases
+    notes: false   # no fictional-data notes under the product stories here (owner decision,
+                   # 29 September 2026); LucentAlbedo's disclosure and limitations still show
+
+  - type: clients
+
+  - type: about
+    id: about
+    heading: About LucentStar
+    lead: LucentStar AI is a small, hands-on AI consultancy. We help businesses and smaller in-house teams with AI visibility, AI workflows and bespoke projects.
+    principles:
+      - {heading: We listen first, text: We ask about the work before we talk about technology.}
+      - {heading: We start with what you have, text: We check what your current tools can already do before suggesting anything new.}
+      - {heading: We think about the people, text: "We consider how a change affects the people doing the work, and shape it around them."}
+      - {heading: We’re honest about limits, text: "If AI isn’t the answer, we’ll say so. If something wasn’t checked, we’ll say that too."}
+
+  - type: faq
+    id: questions
+    heading: Questions people ask
+    items:
+      - q: Do we need technical knowledge to work with you?
+        a: No. We explain things in plain language and work with whoever does the job today. You bring the knowledge of your business; we bring the technical side.
+      - q: Can you work with the tools we already use?
+        a: Often, yes. We check what your current tools allow before recommending anything new, and we prefer to build on what already works.
+      - q: How do you make sure a change works for our team?
+        a: We involve the people who do the work from the start, test with real examples, and keep a person in charge of anything that matters.
+      - q: What if AI isn’t the right answer?
+        a: We’ll tell you. A clearer process, a shared template or a feature in a tool you already pay for can be the better fix.
+      - q: What happens after we get in touch?
+        a: We read your message and reply by email. If it helps, we suggest a conversation to understand what you’d like to make easier.
+
+  - type: contact
+    id: contact
+    heading: What would you like to make easier?
+    lead: Tell us what takes too much time, what feels difficult, or what you’re curious about. We can work out a sensible next step together.
+    email_label: Prefer email?
+    next_title: What happens next
+    next_text: We read your message and reply by email. If it helps, we suggest a conversation to understand more.
+    error_preview: true

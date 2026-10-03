@@ -1,0 +1,14 @@
+/* Hero */
+.hero{padding-block:88px 0}
+.hero-copy{--title-measure:14ch}
+.hero-stage{margin-top:72px;padding-inline:32px;max-width:1360px;margin-inline:auto}
+.hero-push{transform-origin:50% 0;will-change:transform}
+html.motion .hero-push{transform:translateY(calc(var(--hp,0) * -28px)) scale(calc(1 + var(--hp,0) * .045))}
+.hero-devices{position:relative;padding-bottom:4%}
+.hero-lp{width:88%;margin-inline:auto}
+.hero-devices .hero-ph{position:absolute;right:1.5%;bottom:0;width:21%;pointer-events:none}   /* decorative: never catches a click meant for the switcher */
+html.motion .hero-lp{opacity:0;transform:translateY(56px) scale(.94)}
+html.motion .hero-ph{opacity:0;transform:translateY(96px) scale(.96)}
+html.motion .hero-stage.is-in .hero-lp{opacity:1;transform:none;transition:opacity 900ms var(--ease),transform 1300ms var(--ease)}
+html.motion .hero-stage.is-in .hero-ph{opacity:1;transform:none;transition:opacity 900ms var(--ease) 260ms,transform 1400ms var(--ease) 260ms}
+.stage-cap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 14px;margin:28px auto 0;max-width:760px;text-align:center;font-size:15px;line-height:1.55;color:var(--muted)}

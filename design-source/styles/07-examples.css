@@ -1,0 +1,156 @@
+/* Opening examples (illustrative). One layer per audience inside each device;
+   only the chosen layer is visible. Content comes from content/examples.yaml. */
+.en-ui{background:var(--white);color:var(--text);font-family:var(--f);display:flex;flex-direction:column}
+.en-top{display:flex;align-items:center;gap:.75em;height:3.6em;padding:0 1.4em;border-bottom:1px solid var(--line);flex:0 0 auto}
+.en-logo{display:grid;place-items:center;width:2em;height:2em;border-radius:.55em;background:#1F3A2E;color:#fff;font-weight:600;font-size:.75em}
+.en-name{font-weight:600;font-size:.9375em;color:var(--navy)}
+.en-tabs{display:flex;gap:.3em;margin-left:1.2em}
+.en-tabs span{font-size:.8125em;padding:.45em .9em;border-radius:99em;color:var(--muted)}
+.en-tabs .is-on{background:var(--cloud);color:var(--navy);font-weight:500}
+.en-av{margin-left:auto;display:grid;place-items:center;width:2.1em;height:2.1em;border-radius:50%;background:var(--green-tint);color:var(--navy);font-size:.75em;font-weight:600}
+.en-body{flex:1 1 auto;display:grid;grid-template-columns:19.5em 1fr;min-height:0}
+.en-list{border-right:1px solid var(--line);padding:1em .8em;display:flex;flex-direction:column;gap:.35em;background:#FBFBFC}
+.en-k{font-size:.6875em;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0 .9em .4em}
+.en-item{padding:.75em .9em;border-radius:.75em;display:flex;flex-direction:column;gap:.15em}
+.en-item.is-sel{background:var(--white);box-shadow:0 0 0 1px var(--line),0 .5em 1.2em -.8em rgba(11,15,26,.25)}
+.en-who{display:flex;justify-content:space-between;font-weight:600;font-size:.8125em;color:var(--navy)}
+.en-who span{font-weight:400;color:var(--muted)}
+.en-sub{font-size:.8125em;color:var(--text)}
+.en-chip{align-self:flex-start;display:inline-flex;align-items:center;gap:.4em;margin-top:.35em;font-weight:500;font-size:.6875em;line-height:1;padding:.5em .75em;border-radius:99em;background:var(--cloud);color:var(--navy)}
+.en-chip::before{content:'';width:.55em;height:.55em;border-radius:50%;background:var(--field)}
+.en-chip.is-ready{background:var(--green-tint)}
+.en-chip.is-ready::before{background:#00B85F}
+.en-chip.is-person{background:var(--amber-tint);color:var(--amber-ink)}
+.en-chip.is-person::before{background:var(--amber)}
+.en-detail{padding:1.5em 2em;display:flex;flex-direction:column;gap:.8em;min-width:0}
+.en-h{font-weight:600;font-size:1.25em;color:var(--navy);letter-spacing:-.01em}
+.en-meta{font-size:.8125em;color:var(--muted);margin-top:-.5em}
+.en-msg{background:var(--cloud);border-radius:.9em;padding:.9em 1.1em;font-size:.875em;max-width:34em}
+.en-draft{position:relative;border:1px solid var(--line);border-radius:1em;padding:1.1em 1.25em;background:var(--white);box-shadow:0 1.2em 2.4em -1.8em rgba(11,15,26,.35);transition:border-color 600ms var(--ease),box-shadow 600ms var(--ease)}
+.en-draft-h{display:flex;align-items:center;justify-content:space-between;gap:1em}
+.en-draft-h p{font-weight:600;font-size:.8125em;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.en-draft-h .en-chip{margin-top:0}
+.en-draft-t{margin-top:.6em;font-size:.9375em;line-height:1.6;color:var(--text)}
+.en-srcs{display:flex;flex-wrap:wrap;align-items:center;gap:.4em;margin-top:.8em}
+.en-k2{font-size:.75em;color:var(--muted);margin-right:.2em}
+.en-src{font-size:.6875em;padding:.45em .7em;border-radius:.45em;background:var(--cloud);border:1px solid var(--line);color:var(--text)}
+.en-acts{display:flex;gap:.5em;margin-top:1em;padding-top:1em;border-top:1px solid var(--line)}
+.en-b1,.en-b2{display:inline-flex;align-items:center;font-weight:600;font-size:.75em;padding:.75em 1.2em;border-radius:99em}
+.en-b1{background:var(--navy);color:var(--white)}
+.en-b2{border:1.5px solid var(--line);color:var(--navy)}
+.en-foot{display:flex;align-items:center;gap:.5em;font-size:.75em;color:var(--muted)}
+.en-foot svg{width:1.3em;height:1.3em;color:#00A857}
+/* Entrance timing: --hx-d is the delay before the screen details settle.
+   It is long on first load (devices are still rising) and short after a switch. */
+.hero-stage{--hx-d:900ms}
+.hero-stage.is-switched{--hx-d:180ms}
+html.motion .hero-stage .en-src{opacity:0;transform:translateY(.4em);transition:opacity 500ms var(--ease),transform 500ms var(--ease)}
+html.motion .hero-stage.is-in .hx.is-on .en-src{opacity:1;transform:none}
+html.motion .hero-stage.is-in .hx.is-on .en-src:nth-of-type(2){transition-delay:calc(var(--hx-d) + 250ms)}
+html.motion .hero-stage.is-in .hx.is-on .en-src:nth-of-type(3){transition-delay:calc(var(--hx-d) + 350ms)}
+html.motion .hero-stage.is-in .hx.is-on .en-src:nth-of-type(4){transition-delay:calc(var(--hx-d) + 450ms)}
+.en-m{background:var(--cloud);font-family:var(--f);padding:3em 1em 1em;display:flex;flex-direction:column;gap:.7em}
+.enm-h{font-weight:600;font-size:1.35em;color:var(--navy);letter-spacing:-.01em}
+.enm-s{font-size:.75em;color:var(--muted)}
+.enm-card{background:var(--white);border-radius:1em;padding:.9em 1em;box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column;gap:.2em}
+.enm-card .en-chip{margin-top:0;margin-bottom:.35em}
+.enm-who{font-weight:600;font-size:.875em;color:var(--navy)}
+.enm-sub{font-size:.8125em;color:var(--text)}
+.enm-ex{font-size:.75em;color:var(--muted);margin-top:.2em}
+.enm-acts{display:flex;gap:.4em;margin-top:.6em}
+.enm-acts .en-b1,.enm-acts .en-b2{font-size:.6875em}
+html.motion .hero-stage .enm-card,html.motion .hero-stage .enc-msg{opacity:0;transform:translateY(1.2em)}
+html.motion .hero-stage.is-in .hx.is-on .enm-card,html.motion .hero-stage.is-in .hx.is-on .enc-msg{opacity:1;transform:none;transition:opacity 600ms var(--ease),transform 800ms var(--ease)}
+html.motion .hero-stage.is-in .hx.is-on .enm-card:nth-of-type(1),html.motion .hero-stage.is-in .hx.is-on .enc-msg:nth-child(1){transition-delay:var(--hx-d)}
+html.motion .hero-stage.is-in .hx.is-on .enm-card:nth-of-type(2),html.motion .hero-stage.is-in .hx.is-on .enc-msg:nth-child(2){transition-delay:calc(var(--hx-d) + 150ms)}
+html.motion .hero-stage.is-in .hx.is-on .enm-card:nth-of-type(3),html.motion .hero-stage.is-in .hx.is-on .enc-msg:nth-child(3){transition-delay:calc(var(--hx-d) + 300ms)}
+html.motion .hero-stage.is-in .hx.is-on .enc-msg:nth-child(4){transition-delay:calc(var(--hx-d) + 450ms)}
+
+/* Example layers */
+.hx{position:absolute;inset:0}
+.hx:not(.is-on){opacity:0;visibility:hidden}
+html.motion .hx{transition:opacity 380ms var(--ease),visibility 0s linear 380ms}
+html.motion .hx.is-on{transition:opacity 420ms var(--ease) 100ms,visibility 0s}
+
+/* Guest chat on the phone (holiday lets example) */
+.enc{background:var(--cloud);font-family:var(--f);display:flex;flex-direction:column}
+.enc-top{display:flex;align-items:center;gap:.6em;padding:2.9em 1em .8em;background:var(--white);border-bottom:1px solid var(--line);flex:0 0 auto}
+.enc-logo{display:grid;place-items:center;width:2.2em;height:2.2em;border-radius:.6em;color:#fff;font-weight:600;font-size:.75em;flex:0 0 auto}
+.enc-h{font-weight:600;font-size:.875em;line-height:1.3;color:var(--navy)}
+.enc-s{font-size:.6875em;line-height:1.3;color:var(--muted)}
+.enc-body{flex:1 1 auto;display:flex;flex-direction:column;gap:.6em;padding:1em .8em .9em;min-height:0}
+.enc-msg{max-width:86%;padding:.7em .9em;font-size:.75em;line-height:1.45;border-radius:1.1em}
+.enc-msg.is-guest{align-self:flex-end;background:var(--navy);color:var(--white);border-bottom-right-radius:.35em}
+.enc-msg.is-assistant{align-self:flex-start;background:var(--white);color:var(--text);box-shadow:0 0 0 1px var(--line);border-bottom-left-radius:.35em}
+.enc-msg .en-chip{display:flex;width:max-content;margin-top:.6em;font-size:.875em}
+.enc-note{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:.4em;font-size:.625em;color:var(--muted)}
+.enc-note svg{width:1.3em;height:1.3em;color:#00A857}
+
+/* Example switcher, part of the caption under the devices */
+.hx-cap{flex-direction:column;gap:14px}
+.hx-head{display:flex;flex-direction:column;align-items:center;gap:4px;max-width:640px}
+.hx-for{font-weight:600;font-size:17px;line-height:1.35;color:var(--navy)}
+.hx-intro{font-size:15px;line-height:1.55;color:var(--muted)}
+.hx-switch{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:4px;border-radius:999px;background:var(--cloud)}
+.hx-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:500 15px/1.2 var(--f);cursor:pointer;transition:background-color var(--t-fast) var(--ease),color var(--t-fast) var(--ease),box-shadow var(--t-med) var(--ease)}
+.hx-btn:hover{color:var(--navy)}
+.hx-btn[aria-pressed="true"]{background:var(--white);color:var(--navy);box-shadow:0 0 0 1px var(--line),0 6px 14px -10px rgba(11,15,26,.45)}
+.hx-btn:focus-visible{outline:3px solid var(--navy);outline-offset:2px;border-radius:999px}
+.hx-text{max-width:720px;margin-inline:auto}
+/* While the phone stands beside the laptop, keep the caption's text clear of it */
+@media (min-width:761px){
+  .hero-devices .hx-head,.hero-devices .hx-text{max-width:min(640px,52%)}
+}
+@media (max-width:599px){
+  .hx-switch{display:grid;grid-template-columns:1fr 1fr;width:100%;max-width:360px;border-radius:24px}
+  .hx-btn{padding:0 10px;font-size:14.5px}
+}
+@media (max-width:359px){
+  .hx-btn{padding:0 6px;font-size:13.5px}
+}
+
+/* Examples with a photo (image in content/examples.yaml). The photo belongs to
+   the task in the screen: the project under review, the client's campaign,
+   the itinerary's destination or the guest's cottage. Text always sits on a
+   solid white surface. The photo crossfades with its layer when the example
+   changes, and its space is reserved (fixed height, tint) before it loads. */
+.en-pic{display:block;width:100%;height:100%}
+.en-pic img{display:block;width:100%;height:100%;object-fit:cover}
+/* Switching on slow connections (scripts/05-examples.js): the screens keep
+   the current example until the next one's photos are ready. A slow switch
+   gets a quiet cue on the chosen button; a photo that arrives after the
+   switch fades in; a photo that fails leaves its tinted panel. */
+.hero-stage.is-pending .hx-switch{cursor:progress}
+html.motion .hero-stage.is-pending .hx-btn[aria-pressed="true"]{animation:hx-wait 800ms var(--ease) infinite alternate}
+@keyframes hx-wait{to{color:var(--muted)}}
+.en-pic img.is-waiting{opacity:0}
+html.motion .en-pic img{transition:opacity 320ms var(--ease)}
+.en-pic.is-failed img{visibility:hidden}
+.hero-lp .en-ui{font-size:calc(100cqw / 60)}
+.en-detail.has-media{position:relative;padding:1.1em 1.3em .9em;gap:0}
+.en-media{position:relative;flex:0 0 auto;height:13.4em;border-radius:.9em;overflow:hidden;background:var(--tint,var(--cloud))}
+.en-media-h{position:absolute;left:.8em;top:.8em;max-width:min(24em,66%);padding:.6em .85em .65em;border-radius:.75em;background:var(--white);box-shadow:0 .5em 1.2em -.9em rgba(11,15,26,.5)}
+.en-media-h .en-h{font-size:.9375em;line-height:1.3}
+.en-media-h .en-meta{margin-top:.25em;font-size:.6875em;line-height:1.4}
+.en-media-tag{position:absolute;right:.8em;top:.8em;display:inline-flex;align-items:center;gap:.45em;padding:.5em .8em;border-radius:99em;background:var(--white);font-weight:600;font-size:.6875em;line-height:1;color:var(--navy)}
+.en-media-tag .ic{width:1.25em;height:1.25em}
+.en-work{position:relative;z-index:1;margin:-3.6em 0 0 .8em;width:min(28em,calc(100% - 1.6em));padding:.95em 1.1em 1em;border-radius:1em;background:var(--white);box-shadow:0 0 0 1px var(--line),0 1.4em 2.6em -1.6em rgba(11,15,26,.5)}
+.en-work-k{margin-bottom:.45em;font-size:.6875em;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.en-work .en-msg{max-width:none;padding:.65em .85em;font-size:.8125em;line-height:1.5;border-radius:.8em}
+.en-work .en-draft-h{margin-top:.8em}
+.en-work .en-draft-t{margin-top:.35em;font-size:.875em;line-height:1.55}
+.en-work .en-srcs{margin-top:.6em}
+.en-work .en-acts{margin-top:.75em;padding-top:.75em}
+.en-list-foot{margin-top:auto;padding:.9em .9em .3em;align-items:flex-start;line-height:1.45}
+.en-list-foot svg{flex:0 0 auto;margin-top:.1em}
+
+/* Phone: a cropped photo header, with the app's bar on white over its lower
+   edge, then the conversation or the drafts */
+.enm-top{display:flex;align-items:center;gap:.6em}
+.enp-photo{position:relative;flex:0 0 auto;height:33%;overflow:hidden;background:var(--tint,var(--cloud))}
+.en-m.has-photo,.enc.has-photo{padding:0 0 .9em;gap:.6em}
+.en-m.has-photo .enm-top,.enc.has-photo .enc-top{position:relative;z-index:1;margin:-1.5em .7em 0;padding:.7em .85em;border:0;border-radius:1em;background:var(--white);box-shadow:0 0 0 1px var(--line),0 .8em 1.6em -1.1em rgba(11,15,26,.5)}
+.en-m.has-photo .enm-h{font-size:.9375em;line-height:1.3}
+.en-m.has-photo .enm-card{margin-inline:.7em}
+.enc.has-photo .enc-body{padding:.4em .8em 0}
+.enc.has-photo .enp-photo{height:27%}

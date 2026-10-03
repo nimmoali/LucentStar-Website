@@ -1,0 +1,44 @@
+/* Layout */
+.wrap{width:100%;max-width:1264px;margin-inline:auto;padding-inline:32px}
+.sec{padding-block:144px}
+.sec-cloud{background:var(--cloud)}
+.sec-head{max-width:760px}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-head .lead{margin-top:20px}
+.sec-head.center .lead{margin-inline:auto}
+
+/* Type */
+/* Page title: the main heading of every page uses this one style (Poppins
+   700, 40 to 80px), so new pages inherit it. .h-display and .h-page are kept
+   as aliases for older templates. */
+.h-title,.h-display,.h-page{font-weight:700;font-size:clamp(40px,5.6vw,80px);line-height:1.04;letter-spacing:-.035em;color:var(--navy);text-wrap:balance}
+.h2{font-weight:600;font-size:clamp(32px,3.6vw,52px);line-height:1.1;letter-spacing:-.03em;color:var(--navy);text-wrap:balance}
+.h3{font-weight:600;font-size:clamp(22px,1.7vw,28px);line-height:1.25;letter-spacing:-.018em;color:var(--navy);text-wrap:balance}
+.lead{font-size:clamp(18px,1.35vw,21px);line-height:1.6;color:var(--text);max-width:36em;text-wrap:pretty}
+.eyebrow{font-weight:500;font-size:15px;color:var(--muted);margin-bottom:14px}
+p{text-wrap:pretty}
+/* Heading emphasis: text colour only, never an underline or highlight bar.
+   On the main website it is the brand green #00E676. The owner chose it on
+   28 September 2026 knowing it is 1.67:1 on white, below the WCAG AA text
+   minimum, so it is used only for emphasis inside large display headings,
+   never for body text, links or small labels. A page theme can change it. */
+.em{color:var(--em)}
+
+/* Page opening: the title, introduction and actions at the top of every page */
+.opening{text-align:center;max-width:1040px}
+.opening .h-title{max-width:var(--title-measure,20ch);margin-inline:auto}
+.intro{font-size:clamp(18px,1.35vw,21px);line-height:1.6;color:var(--text);max-width:40em;margin:28px auto 0;text-wrap:pretty}
+.opening .cta-row{justify-content:center;margin-top:40px}
+.opening-left{text-align:left}
+.opening-left .h-title,.opening-left .intro{margin-inline:0}
+.opening-left .cta-row{justify-content:flex-start}
+/* Inner page opening: the same spacing as the homepage opening */
+.page-hero{padding-block:88px 24px}
+@media (max-width:999px){.page-hero{padding-block:64px 16px}}
+@media (max-width:599px){.page-hero{padding-block:44px 8px}.opening .cta-row{flex-direction:column;gap:6px}.opening .cta-row .btn{width:100%}}
+
+@media (max-width:760px){.wrap{padding-inline:20px}}
+@media (max-width:599px){body{font-size:16px}.wrap{padding-inline:16px}}
+/* Section spacing on tablets and phones */
+@media (max-width:999px){.sec{padding-block:104px}}
+@media (max-width:599px){.sec{padding-block:80px}}

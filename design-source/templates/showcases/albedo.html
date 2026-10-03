@@ -1,0 +1,72 @@
+{# LucentAlbedo showcase. Desktop with motion: the phone pushes in, then a
+   short pinned sequence adds the question, answer, evidence and next step,
+   with the report scrolling inside the phone as the visitor scrolls.
+   Phones and reduced motion: the same four layers as a static report.
+   The four notes are in reading order 1, 2, 3, 4 in the page; the grid places
+   1 and 3 on the left of the phone and 2 and 4 on the right.
+   Set show_head = false before including this to reuse the sequence alone. #}
+{% import 'macros.html' as ui with context %}
+{% set A = sc.app %}
+{% set show_head = show_head if show_head is defined else true %}
+{% macro l1() -%}<div class="al-layer al-l1"><p class="al-k">{{ A.question_label }}</p><p class="al-q">{{ A.question }}</p><p class="al-meta">{{ A.question_meta }}</p></div>{%- endmacro %}
+{% macro l2() -%}<div class="al-layer al-l2"><p class="al-k">{{ A.answer_label }}</p><p class="al-ans">{{ A.answer_before }} <mark>{{ A.answer_mark }}</mark></p><p class="al-src">{{ A.source_label }} <span>{{ A.source }}</span></p></div>{%- endmacro %}
+{% macro l3() -%}<div class="al-layer al-l3"><p class="al-k">{{ A.evidence_label }}</p><dl class="al-ev">{% for e in A.evidence %}<div{% if e.kind == 'count' %} class="is-count"{% elif e.kind == 'na' %} class="is-na"{% endif %}><dt>{{ e.label }}</dt><dd>{{ e.value }}</dd></div>{% endfor %}</dl><p class="al-note">{{ A.evidence_note }}</p></div>{%- endmacro %}
+{% macro l4() -%}<div class="al-layer al-l4 al-action"><p class="al-k">{{ A.action_label }}</p><p class="al-act">{{ A.action }}</p><p class="al-then">{{ A.action_then }}</p></div>{%- endmacro %}
+{% set logo %}<svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="13" fill="#7759B3"/><g transform="translate(28,28) scale(0.78) translate(-28,-28)"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#24105E"/></g></svg>{% endset %}
+<section class="prod-sec sec-cloud{{ ' prod-sec-tight' if not show_head else '' }}" id="{{ sid }}" data-spy-as="products" tabindex="-1" aria-labelledby="{{ sid }}-h" style="background:var(--white)">
+  {% if show_head %}
+  <div class="wrap prod-head">
+    <p class="chip-prod chip-a">{{ ui.dot(p.accent) }}{{ wordmark(p) }}{{ ui.status(p) }}</p>
+    <h2 class="h2" id="{{ sid }}-h">{{ sc.heading }}</h2>
+    <p class="lead">{{ sc.lead | inline }}</p>
+    {{ ui.actions(sc.actions) }}
+    {% if p.status_note %}<p class="prod-note">{{ p.status_note | inline }}</p>{% endif %}
+    {# The report below is the planned online version's design: say so where it starts #}
+    {% if sc.planned_label %}<p class="alb-planned"><span class="feat-status feat-planned">{{ sc.planned_status or 'Planned' }}</span><span>{{ sc.planned_label }}</span></p>{% endif %}
+  </div>
+  {% else %}
+  <div class="wrap sec-head center">
+    {% if intro.label %}<p class="st-label"><span class="feat-status feat-{{ intro.label.status }}">{{ intro.label.text }}</span></p>{% endif %}
+    <h2 class="h2" id="{{ sid }}-h">{{ intro.heading }}</h2>
+    {% if intro.lead %}<p class="lead">{{ intro.lead | inline }}</p>{% endif %}
+  </div>
+  {% endif %}
+  <div id="alb-example">
+    <div class="alb-track" id="{{ sid }}-track" data-stage="albedo" data-stages="4" data-cuts="0.25,0.5,0.75">
+      <div class="alb-pin">
+        <div class="wrap">
+          <div class="alb-grid" role="list" aria-label="{{ sc.steps_label }}">
+            {% for st in sc.steps %}<div class="co co-{{ loop.index }}" role="listitem" data-stage-cap="{{ loop.index }}"><span class="co-n">{{ loop.index }}</span><b>{{ st.title }}</b><p>{{ st.text }}</p></div>
+            {% endfor %}
+            <div class="alb-phone" data-stage-push>
+              {% call ui.phone('al-ui') %}
+                <div class="al-top">{{ logo }}{{ wordmark(p, 'light', 'al-word') }}<span class="al-tab">{{ A.tab }}</span></div>
+                <div class="al-ctx"><span class="al-badge">{{ A.business_initials }}</span><div><p class="al-ctx-k">{{ A.business_label }}</p><p class="al-ctx-n">{{ A.business }}</p></div></div>
+                <div class="al-view" data-view><div class="al-stack" data-shift>
+                  {{ l1() }}
+                  {{ l2() }}
+                  {{ l3() }}
+                  {{ l4() }}
+                </div></div>
+              {% endcall %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap alb-static">
+      <div class="alb-panel">
+        <div class="alb-panel-top">{{ logo }}{{ wordmark(p, 'light', 'alb-word') }}<span>{{ A.panel_label }}</span></div>
+        <ol class="alb-steps">
+          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>1</i>{{ sc.steps[0].title }}</p>{{ l1() }}<p class="alb-step-t">{{ sc.steps[0].static_text }}</p></li>
+          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>2</i>{{ sc.steps[1].title }}</p>{{ l2() }}<p class="alb-step-t">{{ sc.steps[1].static_text }}</p></li>
+          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>3</i>{{ sc.steps[2].title }}</p>{{ l3() }}<p class="alb-step-t">{{ sc.steps[2].static_text }}</p></li>
+          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>4</i>{{ sc.steps[3].title }}</p>{{ l4() }}<p class="alb-step-t">{{ sc.steps[3].static_text }}</p></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="alb-limits">{{ ui.icon('info') }}<span>{{ sc.limits | inline }}</span></p>
+  </div>
+</section>

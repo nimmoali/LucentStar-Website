@@ -1,0 +1,16 @@
+{# LucentSignal: score and feedback (the live page's example, fictional) #}
+{% import 'visuals/_signal.html' as sig with context %}
+{% set S = p.scoring.example %}
+{% set pct = S.total / p.scoring.out_of %}
+{% call sig.frame('Post scoring') %}
+<div class="sg-card mf">
+  <div class="mf-total">
+    <div class="sg-ring mf-ring"><svg viewBox="0 0 118 118"><circle cx="59" cy="59" r="51" fill="none" stroke="#232B42" stroke-width="8"/><circle class="mf-arc" cx="59" cy="59" r="51" fill="none" stroke="#00E676" stroke-width="8" stroke-linecap="round" pathLength="100" stroke-dasharray="100" style="--to:{{ (100 - pct * 100) | round(1) }}" transform="rotate(-90 59 59)"/></svg><p><b>{{ S.total }}</b><em>/{{ p.scoring.out_of }}</em></p></div>
+    <p class="mf-label">Overall score</p>
+  </div>
+  <ul class="mf-dims">
+    {% for d in S.dimensions %}<li{% if d.warn %} class="is-warn"{% endif %}><p><span>{{ d.name }}</span><b>{{ d.score }}/10</b></p><em>{{ d.note }}</em></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endcall %}

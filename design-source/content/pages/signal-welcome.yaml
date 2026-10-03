@@ -1,0 +1,46 @@
+# LucentSignal welcome screen (signalapp.lucentstar.ai/welcome), shown after
+# a successful magic-link sign-in. Designed with the shared header and footer.
+# It is built for review only: in production the app renders this page from
+# its existing route, keeping the magic-link check, the session handling and
+# the existing destination into the app (see docs/SHARED-DESIGN.md).
+#
+# Visitors here are already signed in, so the header offers "Open LucentSignal"
+# instead of "Sign in" (signed_in: true). The page makes no claims about plans
+# or allowances, shows no testimonials and no personal details.
+
+slug: signal-welcome
+url: https://signalapp.lucentstar.ai/welcome
+property: app
+template: pages/signal-welcome.html
+title: Welcome to LucentSignal
+seo_title: Welcome | LucentSignal
+description: Welcome to LucentSignal. Start with a rough idea and shape it into a post that sounds like you.
+noindex: true            # a signed-in screen: never indexed
+signed_in: true          # header: "Open LucentSignal" instead of "Sign in"
+panel: false             # no floating contact launcher over the first step
+
+welcome:
+  product: signal
+  kicker: You’re signed in
+  heading: "Welcome to {{wordmark:signal}}."     # the LucentSignal wordmark, light variant
+  lead: Start with a rough idea. LucentSignal helps you shape it into a post that sounds like you, and you stay in charge of every word.
+  # The one main action. In the app it keeps the existing destination of
+  # today's /welcome page (the adapter sets the address); "@open" is the
+  # app's own entry, used in this preview.
+  action: {label: Create your first post, href: "@open"}
+  next_heading: What happens next
+  next_intro: Three steps, and you decide what’s ready.
+  steps:
+    - key: idea
+      title: Start with an idea
+      text: A sentence is enough. Choose how you want the argument to land.
+    - key: draft
+      title: Get a draft in your voice
+      text: "LucentSignal writes the first draft. {{signal.voice_feature}} keeps it close to how you write, using examples of your writing."
+    - key: review
+      title: Review and decide
+      text: "Each draft is scored on {{signal.scoring.dimensions}}. You decide what to change before you save it."
+  help: "Questions along the way? The [LucentSignal help pages](https://lucentstar.ai/help) cover the basics."
+  # The illustration: idea, draft and review, using the example screen's
+  # fictional post from the product record (content/products/lucentsignal.yaml, app:)
+  flow_labels: {idea: Your idea, draft: Your draft, review: Your review, voice: In your voice, decide: You decide what to change}

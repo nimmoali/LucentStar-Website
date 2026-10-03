@@ -1,0 +1,90 @@
+{# LucentSignal showcase. Desktop with motion: the laptop pushes in, then a
+   short pinned sequence moves through four stages as the visitor scrolls,
+   with caption bars that fill continuously. Phones and reduced motion: a
+   phone screen and four stage cards.
+   Set show_head = false before including this to reuse the sequence alone,
+   under the section's own heading (as on the LucentSignal page). #}
+{% import 'macros.html' as ui with context %}
+{% set A = sc.app %}
+{% set show_head = show_head if show_head is defined else true %}
+<section class="prod-sec{{ ' prod-sec-tight' if not show_head else '' }}" id="{{ sid }}" data-spy-as="products" tabindex="-1" aria-labelledby="{{ sid }}-h">
+  {% if show_head %}
+  <div class="wrap prod-head">
+    <p class="chip-prod">{{ ui.dot(p.accent) }}{{ wordmark(p) }}{{ ui.status(p) }}</p>
+    <h2 class="h2" id="{{ sid }}-h">{{ sc.heading }}</h2>
+    <p class="lead">{{ sc.lead | inline }}</p>
+    {{ ui.actions(sc.actions) }}
+  </div>
+  {% else %}
+  <div class="wrap sec-head center">
+    <h2 class="h2" id="{{ sid }}-h">{{ intro.heading | inline }}</h2>
+    {% if intro.lead %}<p class="lead">{{ intro.lead | inline }}</p>{% endif %}
+  </div>
+  {% endif %}
+  <div class="sig-track" id="{{ sid }}-track" data-stage="signal" data-stages="4" data-cuts="0.18,0.5,0.8">
+    <div class="sig-pin">
+      <div class="wrap">
+        <div class="sig-dev" data-stage-push>
+          {% call ui.laptop('sg-ui') %}<div class="sg-canvas" data-zoom>
+            <div class="sg-top"><svg class="sg-logo" viewBox="0 0 56 56"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg>{{ wordmark(p, 'dark', 'sg-word') }}<span class="sg-nav">{% for n in A.nav %}<span{% if loop.first %} class="is-on"{% endif %}>{{ n }}</span>{% endfor %}</span><span class="sg-av">{{ A.user_initials }}</span></div>
+            <div class="sg-body">
+              <div class="sg-card sg-idea">
+                <p class="sg-k">Your idea</p>
+                <p class="sg-topic">{{ A.idea }}</p>
+                <p class="sg-k">Writing style</p>
+                <div class="sg-seg">{% for st in p.styles %}<span{% if st.name == A.style_on %} class="is-on"{% endif %}>{{ st.name }}</span>{% endfor %}</div>
+                <p class="sg-k">{{ A.voice_label }}</p>
+                <p class="sg-voice"><i></i>{{ A.voice }}</p>
+                <span class="sg-btn">{{ A.write_button }}</span>
+              </div>
+              <div class="sg-card sg-draft">
+                <p class="sg-k">Your draft</p>
+                <p class="sg-empty">{{ A.empty_draft }}</p>
+                <div class="sg-post">
+                  <p class="sg-hook"><span class="sg-old">{{ A.hook_old }}</span><span class="sg-new">{{ A.hook_new }}</span></p>
+                  {% for para in A.paragraphs %}<p>{{ para }}</p>
+                  {% endfor %}
+                </div>
+                <div class="sg-pop"><p class="sg-pop-k">{{ A.feedback_label }}</p><p class="sg-pop-t">{{ A.feedback }}</p></div>
+                <p class="sg-edited"><svg class="ic"><use href="#i-check"/></svg>{{ A.edited }}</p>
+              </div>
+              <div class="sg-card sg-score">
+                <p class="sg-k">Post scoring</p>
+                <p class="sg-sc-empty">{{ A.score_empty }}</p>
+                <div class="sg-sc-in">
+                  <div class="sg-ring"><svg viewBox="0 0 118 118"><circle cx="59" cy="59" r="51" fill="none" stroke="#232B42" stroke-width="8"/><circle cx="59" cy="59" r="51" fill="none" stroke="#00E676" stroke-width="8" stroke-linecap="round" stroke-dasharray="{{ (320 * A.score / p.scoring.out_of) | round | int }} 320" transform="rotate(-90 59 59)"/></svg><p><b>{{ A.score }}</b><em>/{{ p.scoring.out_of }}</em></p></div>
+                  <p class="sg-score-t">{{ A.score_text }}</p>
+                  <ul class="sg-dims">
+                    {% for d in A.dimensions %}<li{% if d.warn %} class="is-warn"{% endif %}><span>{{ d.name }}</span><b>{{ d.score }}/10</b><em>{{ d.note }}</em></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="sg-bar"><span class="sg-plan"><svg class="ic"><use href="#i-cal"/></svg>{{ A.planned }}</span><span class="sg-bar-r"><span class="sg-note-s">{{ A.publish_note }}</span><span class="sg-btn-o">{{ A.export }}</span></span></div>
+          </div>{% endcall %}
+        </div>
+        <div class="sig-caps" role="group" aria-label="{{ p.name }} example stages">
+          {% for st in sc.steps %}<button type="button" class="sig-cap" data-stage-cap="{{ loop.index }}"><b>{{ loop.index }} · {{ st.title }}</b><span>{{ st.text }}</span></button>
+          {% endfor %}
+        </div>
+        {% if sc.note and not hide_note %}<p class="sig-note">{{ ui.icon('info') }}<span>{{ sc.note | inline }}</span></p>{% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="wrap sig-mobile">
+    <div class="sgm-wrap" data-reveal>
+      {% call ui.phone('sg-ui sgm') %}
+        <div class="sgm-top"><svg class="sg-logo" viewBox="0 0 56 56"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg>{{ wordmark(p, 'dark', 'sg-word') }}</div>
+        <div class="sgm-card"><p class="sg-k">Your draft</p><p class="sgm-hook">{{ A.hook_new }}</p><p class="sgm-p">{{ A.paragraphs[0] }}</p><p class="sgm-p">{{ A.paragraphs[-1] }}</p><span class="sgm-ed"><svg class="ic"><use href="#i-check"/></svg>{{ A.edited }}</span></div>
+        <div class="sgm-card"><p class="sg-k">Post scoring</p><p class="sgm-sc"><b>{{ A.score }}</b><span>/{{ p.scoring.out_of }}</span></p><ul class="sgm-dims">{% for d in A.dimensions %}<li{% if d.warn %} class="is-warn"{% endif %}>{{ d.name }} <b>{{ d.score }}</b></li>{% endfor %}</ul></div>
+        <div class="sgm-plan"><svg class="ic"><use href="#i-cal"/></svg>{{ A.planned }}</div>
+      {% endcall %}
+    </div>
+    <ol class="stage-cards">
+      {% for st in sc.steps %}<li class="stage-card" data-reveal="text"><span class="sc-n">{{ loop.index }}</span><div><b>{{ st.title }}</b><p>{{ st.text }}</p></div></li>
+      {% endfor %}
+    </ol>
+    {% if sc.note and not hide_note %}<p class="sig-note">{{ ui.icon('info') }}<span>{{ sc.note | inline }}</span></p>{% endif %}
+  </div>
+</section>

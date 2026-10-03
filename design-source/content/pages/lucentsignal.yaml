@@ -1,0 +1,184 @@
+# LucentSignal product page, at its existing address /lucentsignal.html.
+# The #pricing and #faq anchors from the live page are kept. Product facts
+# (writing styles, scoring, exports, plans and prices) come from
+# content/products/lucentsignal.yaml, so the homepage showcase, this page and
+# the pricing stay in step. Facts are quoted with placeholders such as
+# {{signal.plan.free.posts}}, never typed. The address, title, description
+# and search engine data (organisation, product and prices, questions) are
+# kept from the live page; see the verification list in the product file for
+# what still needs checking in the app.
+
+slug: lucentsignal
+url: /lucentsignal.html
+title: LucentSignal
+seo_title: LucentSignal | AI LinkedIn Post Generator That Sounds Like You       # the live page's title, kept
+description: "Write LinkedIn posts in your own voice. {{signal.voice_feature}} voice matching, quality scoring out of {{signal.scoring.out_of}}, {{signal.styles_count}} writing styles. {{signal.plan.free.posts}} free posts, no card needed."
+nav_current: products
+product: signal
+structured_data: [organization, software, faq]     # kept from the live page, now made from this content
+extra_icons: true      # the story's picture uses icons from partials/icons-extra.html
+#
+# The journey (owner's brief, 1 October 2026): what LucentSignal does, as a
+# progression from your expertise and material to a post you plan and
+# publish yourself; who it helps; when bespoke consulting fits better; the
+# detail of each step; pricing and questions (anchors #pricing and #faq kept).
+
+sections:
+
+  - type: page_hero
+    product: signal
+    heading: Write LinkedIn posts that actually *sound like you.*
+    lead: You have ideas worth sharing, but not an hour to shape each one. LucentSignal helps you turn your expertise into LinkedIn drafts shaped by your voice, with editorial guidance on every draft. You review, plan and publish when you’re ready.
+    actions:
+      - {label: Try LucentSignal, href: "https://signalapp.lucentstar.ai/register", style: primary}
+      - {label: See pricing, href: "#pricing", icon: down}
+      - {label: Sign in, href: "https://signalapp.lucentstar.ai/login", sr: " to LucentSignal"}
+    note: Start with {{signal.plan.free.posts}} free posts. No card needed.
+
+  # The visual story: LucentSignal's role, from what you know to a post you
+  # plan and publish yourself. The app's screens are in its own dark blue.
+  # Example data (the post and scores are the product file's fictional ones).
+  - type: stories
+    id: workflow
+    spy_as: products
+    heading: From what you know to a post you’d publish
+    lead: What LucentSignal does, one step at a time, and where you stay in charge.
+    stories:
+      - id: workflow-story
+        label: From your expertise to a planned post
+
+        steps:
+          - rail: What you know
+            heading: Your expertise is the starting point.
+            text: It’s in client conversations, notes from a talk, articles you’ve saved and posts that worked. Turning it into something worth posting, week after week, is the hard part.
+          - rail: One idea
+            heading: Start from one idea.
+            text: Type or paste your idea as text. Notes, slides, articles and past posts can inform it; this is not a file-import flow. Choose one of {{signal.styles_count}} writing styles for how the argument should land.
+          - rail: Your voice
+            heading: Get a draft in your voice.
+            text: "{{signal.voice_feature}} shapes the draft using examples of your writing, so it sounds like you rather than a template."
+          - rail: Guidance
+            heading: See what works, and why.
+            text: Each draft is scored, with the reason behind every score and specific feedback on what to improve.
+          - rail: Review and plan
+            heading: You decide, then plan it.
+            text: You change what you want and decide when it’s ready. Then plan when it goes out and export it. You publish it yourself.
+        visual:
+          kind: signal
+          product: signal
+          material_label: What you know
+          material:
+            - {icon: chat, label: Notes from a client call}
+            - {icon: doc, label: Slides from your last talk}
+            - {icon: link, label: An article you saved}
+            - {icon: check, label: A post that worked}
+          rhythm: Two posts this week
+          labels: {idea: Your idea, draft: Your draft, voice: In your voice, review: Editorial guidance}
+
+  - type: features
+    id: who
+    tone: cloud
+    heading: Who it helps
+    lead: Built for professionals who are serious about LinkedIn but don’t want to spend their week on it.
+    items:
+      - title: Individuals
+        text: You know what you think. You just don’t always know how to say it clearly. LucentSignal closes that gap without making you sound like a content machine.
+      - title: Founders and consultants
+        text: Your expertise is the brief. LucentSignal helps you turn what you know into content that builds authority, without spending your evenings writing and rewriting.
+      - title: Agencies
+        text: Start from the notes, articles and brand material a client supplies, and turn them into drafts your team can review and edit before anything goes out.
+
+  # LucentSignal or bespoke consulting: the product does one job; wider
+  # marketing workflows are consulting work (owner's brief, 1 October 2026)
+  - type: ways
+    id: fit
+    spy_as: products
+    heading: LucentSignal, or something built around your team?
+    lead: LucentSignal does one job well. When the work is wider than LinkedIn posts, we build around your team instead.
+    items:
+      - title: LucentSignal
+        status: available
+        text: "For LinkedIn posts from your own ideas and expertise: drafts shaped by your voice, editorial guidance on each one, then planning and export. You can start on your own today."
+        cta: {label: Try LucentSignal, href: "https://signalapp.lucentstar.ai/register"}
+      - title: Bespoke consulting
+        status: available
+        text: For wider marketing workflows, such as newsletters, case studies and reports, built around the tools and review steps your team already has, and scoped with you before anything is built.
+        cta: {label: Talk to us about a workflow, href: "@contact", topic: workflows, style: secondary}
+    foot: LucentSignal doesn’t publish to LinkedIn, and it doesn’t connect to every tool. It exports files, as the plans below describe. Anything more specific is bespoke work.
+
+  - type: chapters
+    id: how
+    product: signal
+    heading: A closer look
+    lead: The detail behind each step, from your voice to the file you export.
+
+    chapters:
+      - id: voice
+        kicker: Starting material and voice
+        heading: Start from your idea, in your own voice.
+        text: Start with a rough idea, or search trending topics in your industry to find an angle. {{signal.voice_feature}} keeps the draft close to how you write, using examples of your writing and the voice rules you set.
+        points:
+          - Add writing examples and voice rules from your first post
+          - "{{signal.voice_feature}} is included on every plan, including {{signal.plan.free.name}}"
+        visual: {kind: signal-voice}
+      - id: styles
+        kicker: Drafting
+        heading: Choose how the argument lands.
+        text: "{{signal.styles}} don’t just change the tone. They change how the argument is built. Pick the one that fits, and LucentSignal writes the draft. Here is the same topic in all {{signal.styles_count}}."
+        visual: {kind: signal-styles, accessible: true}
+      - id: review
+        kicker: Reviewing feedback
+        heading: You get the reason, not just the score.
+        text: Each score comes with the reason behind it and specific feedback on what to improve, so you can decide what to change before you save the post.
+        visual: {kind: signal-review}
+      - id: scoring
+        kicker: Editorial feedback
+        heading: Know whether it’s ready to publish.
+        text: Every post is scored out of {{signal.scoring.out_of}} across {{signal.scoring.dimensions}}, with specific feedback on what to improve. The rubric is intentionally strict, so a 7 means something.
+        note: Scores are AI-generated editorial guidance, not a prediction of reach or engagement.
+        visual: {kind: signal-feedback}
+      - id: plan
+        kicker: Planning and export
+        heading: Plan the month, then export.
+        text: Schedule posts across the month in the content calendar, then export them as files, in the formats your plan includes.
+        callout: "**Planning, not publishing.** Scheduling in LucentSignal means planning a date in your calendar. LucentSignal doesn’t post to LinkedIn: you publish when you’re ready, or through the scheduling tool you already use."
+        visual: {kind: signal-plan}
+
+  - type: pricing
+    id: pricing
+    product: signal
+    heading: Simple. No surprises.
+    lead: Start free. Upgrade when your publishing rhythm needs it. {{signal.plans_note}}
+
+  # The questions are the live page's, in the reader's own words (reader_voice),
+  # which also keeps the search engine question data the live page has.
+  - type: faq
+    id: faq
+    spy_as: products
+    reader_voice: true
+    heading: Questions worth asking
+    items:
+      - q: Can I just use ChatGPT?
+        a: "Yes. But LucentSignal gives you a workflow ChatGPT does not: {{signal.voice_feature}}, writing styles, quality scoring, calendar scheduling and export-ready files. It’s built to help you go from rough idea to a post you’d publish, not just generate another draft. Comparing tools? Read our [guide to the best Taplio alternatives](https://blog.lucentstar.ai/taplio-alternatives)."
+      - q: Is {{signal.voice_feature}} included on the free plan?
+        a: Yes. {{signal.voice_feature}} is available on all plans, including {{signal.plan.free.name}}. You can upload writing examples and voice rules from your first post.
+      - q: What happens after my {{signal.plan.free.posts}} free posts?
+        a: Your posts are saved and you keep access to them. When you’re ready to create more, you can upgrade to {{signal.plan.creator.name}} or {{signal.plan.pro.name}} at any time. Your three initial Free posts have no time limit and do not renew each month.
+      - q: Does LucentSignal publish directly to LinkedIn?
+        a: No. LucentSignal helps you plan, write, score and schedule posts, then export them as files. You publish when you’re ready.
+      - q: What is the difference between {{signal.plan.creator.name}} and {{signal.plan.pro.name}}?
+        a: Post volume and export formats. {{signal.plan.creator.name}} gives you {{signal.plan.creator.allowance}} plus bulk CSV export. {{signal.plan.pro.name}} gives you {{signal.plan.pro.allowance}} plus platform-ready exports for {{signal.platforms}}. Both start with {{signal.plan.free.posts}} free posts, no card required.
+      - q: What are {{signal.styles}}?
+        a: They’re writing styles that shape how the argument is built. {{signal.styles_described}} Same topic, {{signal.styles_count}} different editorial treatments.
+      - q: How does scoring work?
+        a: Every post is scored across {{signal.scoring.count}} dimensions, {{signal.scoring.dimensions}}, out of {{signal.scoring.out_of}}. Each score comes with specific feedback on what to improve. The rubric is intentionally strict. A 7 should mean something.
+      - q: Can I export my posts?
+        a: Yes. {{signal.plan.free.name}} includes single post copy and export. {{signal.plan.creator.name}} adds bulk CSV export. {{signal.plan.pro.name}} adds platform-ready exports formatted for {{signal.platforms}}.
+
+  - type: cta_band
+    id: start
+    heading: Take an idea you’ve been sitting on and turn it into something you’d *actually post.*
+    lead: Write, score and refine your first posts free. No card needed.
+    actions:
+      - {label: Try LucentSignal, href: "https://signalapp.lucentstar.ai/register", style: primary}
+      - {label: Sign in, href: "https://signalapp.lucentstar.ai/login", sr: " to LucentSignal"}

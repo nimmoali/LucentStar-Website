@@ -1,0 +1,7 @@
+/* Reveal, once, as a block comes into view.
+   A picture fades and rises (data-reveal). A block that carries text or
+   actions only rises a little (data-reveal="text"): its text and buttons are
+   visible and usable from the start, never waiting for the animation. */
+html.motion [data-reveal]:not([data-reveal="text"]){opacity:0;transform:translateY(24px);transition:opacity 700ms var(--ease),transform 900ms var(--ease)}
+html.motion [data-reveal="text"]{transform:translateY(16px);transition:transform 900ms var(--ease)}
+html.motion [data-reveal].is-in{opacity:1;transform:none}

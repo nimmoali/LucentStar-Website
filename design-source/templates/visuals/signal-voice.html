@@ -1,0 +1,22 @@
+{# LucentSignal: the idea and Ghostwriter voice settings (example content) #}
+{% import 'visuals/_signal.html' as sig with context %}
+{% set A = p.showcase_content.app %}
+{% set V = p.voice_demo %}
+{% call sig.frame('Write') %}
+<div class="sg-card mv">
+  <p class="sg-k">Your idea</p>
+  <p class="sg-topic">{{ A.idea }}</p>
+  <div class="mv-cols">
+    <div>
+      <p class="sg-k">{{ V.examples_label }}</p>
+      <ul class="mv-docs">{% for i in range(3) %}<li><i></i><span><b></b><b></b></span></li>{% endfor %}</ul>
+    </div>
+    <div>
+      <p class="sg-k">{{ V.rules_label }}</p>
+      <ul class="mv-rules">{% for r in V.rules %}<li>{{ r }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+  <p class="sg-voice"><i></i>{{ A.voice }}</p>
+  <span class="sg-btn">{{ A.write_button }}</span>
+</div>
+{% endcall %}

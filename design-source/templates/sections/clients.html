@@ -1,0 +1,34 @@
+{# Optional clients section. Renders nothing unless content/clients.yaml has
+   enabled: true and at least one approved client. The page builder also
+   drops the matching navigation and footer links in that case. #}
+{% import 'macros.html' as ui with context %}
+{% if clients_live %}
+{% set approved = clients['items'] | selectattr('approved') | list %}
+{% set logos = approved | selectattr('logo') | list %}
+{% set cases = approved | selectattr('summary') | list %}
+<section class="sec" id="clients" tabindex="-1" aria-labelledby="clients-h">
+  <div class="wrap">
+    <header class="sec-head center">
+      <h2 class="h2" id="clients-h">{{ clients.heading }}</h2>
+      {% if clients.intro %}<p class="lead">{{ clients.intro | inline }}</p>{% endif %}
+    </header>
+    {% if logos %}
+    <ul class="cl-logos" data-reveal>
+      {% for c in logos %}<li class="cl-logo"><img src="{{ asset(c.logo) }}" alt="{{ c.logo_alt or c.name }}" loading="lazy"></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if cases %}
+    <div class="cl-cases">
+      {% for c in cases %}
+      <article class="cl-case" data-reveal>
+        <h3>{{ c.name }}</h3>
+        <p>{{ c.summary | inline }}</p>
+        {% if c.case_study_url %}{{ ui.tlink(c.case_study_url, c.case_study_label or 'Read the case study', sr=' about ' ~ c.name) }}{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

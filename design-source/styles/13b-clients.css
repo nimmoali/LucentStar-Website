@@ -1,0 +1,13 @@
+/* Optional clients section. Rendered only when content/clients.yaml is
+   switched on and has at least one approved client. */
+.cl-logos{margin-top:48px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.cl-logo{display:grid;place-items:center;width:200px;max-width:100%;height:96px;padding:20px 24px;border-radius:20px;background:var(--cloud)}
+.cl-logo img{display:block;max-width:100%;max-height:48px;object-fit:contain}
+.cl-cases{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.cl-case{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:var(--white);box-shadow:0 0 0 1px var(--line)}
+.cl-case h3{font-weight:600;font-size:18px;line-height:1.35;color:var(--navy)}
+.cl-case p{font-size:16px;line-height:1.6}
+.cl-case .tlink{margin-top:auto}
+/* Placeholders, used only on the component reference page */
+.cl-ph{display:grid;place-items:center;width:200px;max-width:100%;height:96px;border-radius:20px;border:1.5px dashed #C3C9D2;color:var(--muted);font-size:14px}
+.cl-ph-case{border:1.5px dashed #C3C9D2;box-shadow:none;color:var(--muted)}

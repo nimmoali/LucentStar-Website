@@ -1,0 +1,78 @@
+/* Desktop layouts */
+@media (min-width:1000px){
+  .chap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center;padding-block:64px}
+  .chap-vis{margin-top:0;display:flex;justify-content:center;border-radius:28px;background:var(--cloud);padding:36px 28px}
+  html.motion .svc-story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px}
+  html.motion .chap{display:flex;flex-direction:column;justify-content:center;min-height:54vh;padding-block:6vh;border-top:0}
+  html.motion .chap-vis{display:none}
+  html.motion .svc-aside{display:block}
+  .svc-pin{position:sticky;top:calc(var(--hdr) + 8vh);padding-bottom:8vh}
+  html.motion .chap .chap-k{color:var(--muted)}
+  html.motion .chap.is-active .chap-k{color:var(--navy)}
+  html.motion .chap.is-active .chap-n{background:var(--green)}
+  .wf-story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:80px;align-items:start}
+  .wf-aside{display:block;align-self:stretch}
+  html.still .wf-pin{position:static}
+  html.motion .wf-steps::before{display:none}
+  html.motion .wf-step{padding:7vh 0;min-height:40vh;display:flex;flex-direction:column;justify-content:center}
+  html.motion .wf-n5 .wf-step{padding:6vh 0;min-height:34vh}
+  html.motion .wf-step .wf-dot{display:none}
+  html.motion .wf-k{padding-top:0}
+  html.motion .wf-step .h3,html.motion .wf-step p.wf-t{transition:color var(--t-med)}
+  .sig-track{display:block}
+  .sig-mobile{display:none}
+  /* Pinned product stories. --pin is the extra scroll distance in screen heights (was 1.8 and 1.9). */
+  html.motion .sig-track{height:calc(100vh + var(--pin) * 100vh)}
+  html.motion .sig-pin{position:sticky;top:var(--hdr);height:calc(100vh - var(--hdr));display:flex;flex-direction:column;justify-content:center;padding-block:18px}
+  html.motion .sig-dev{width:min(960px,100%,calc((100vh - var(--hdr) - 250px) * 1.5))}
+  html.still .sig-cap{cursor:default}
+  html.motion .alb-track{display:block;height:calc(100vh + var(--pin) * 100vh)}
+  html.motion .alb-pin{position:sticky;top:var(--hdr);height:calc(100vh - var(--hdr));display:flex;flex-direction:column;justify-content:center}
+  html.motion .alb-static{display:none}
+}
+@media (min-width:1000px) and (max-height:760px){
+  html.motion .sig-caps span{display:none}
+  html.motion .sig-note{margin-top:10px}
+}
+
+/* Tablet and mobile. Rules for shared components (sections, header, footer,
+   questions, forms) live with those components, so the shared export has them. */
+@media (max-width:999px){
+  .prod-sec{padding-block:88px}
+  .hero{padding-block:64px 0}
+  .hero-stage{margin-top:56px;padding-inline:24px}
+  .people{grid-template-columns:minmax(0,1fr);gap:44px}
+  .portrait{max-width:320px;aspect-ratio:1/1}
+  .talk{grid-template-columns:minmax(0,1fr);gap:44px}
+  .alb-grid{column-gap:40px}
+}
+@media (max-width:760px){
+  .hero-stage{padding-inline:16px}
+  .hero-lp{display:none}
+  .hero-devices .hero-ph{position:relative;right:auto;bottom:auto;width:min(340px,86%);margin-inline:auto}
+  .hero-devices{padding-bottom:0}
+  html.motion .hero-push{transform:none}
+  .pi-grid{grid-template-columns:minmax(0,1fr)}
+  .pi-tile{padding:28px 24px}
+  .chap-vis{border-radius:24px;padding:24px 16px}
+  .v-wf-grid{grid-template-columns:118px 1fr 150px}
+  .v-src{padding:10px;font-size:13px;gap:8px}
+  .v-ic{width:26px;height:26px}
+  .v-out{padding:12px}
+  .v-out-t{font-size:14px}
+}
+@media (max-width:599px){
+  .prod-sec{padding-block:72px}
+  .hero{padding-block:44px 0}
+  .pr-list{grid-template-columns:minmax(0,1fr)}
+  .portrait{max-width:100%;aspect-ratio:3/2}
+  .alb-steps{padding:12px}
+  .v-wf-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .v-srcs{flex-direction:row;flex-wrap:wrap;gap:8px}
+  .v-src{flex:1 1 30%;min-width:0;flex-direction:column;text-align:center}
+  .v-lines{display:none}
+  .v-out{margin-top:4px}
+  .prod-head .cta-row{flex-direction:column;gap:6px}
+  .prod-head .cta-row .btn{width:100%}
+}
+

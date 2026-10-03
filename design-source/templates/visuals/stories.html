@@ -1,0 +1,120 @@
+{# Pictures for the product pages' visual stories (sections/stories.html).
+
+   One composition per story (visual.kind: visibility | signal). Its state
+   classes (s1, s2 ...) say how far the story has got, one state per step:
+   the sticky picture on desktop changes state as each step is read
+   (scripts/03-sections.js), and the still pictures beside or under each step
+   are drawn at that step's state. Desktop and tablets place the parts on a
+   fixed stage; phones show a compact version of each state
+   (styles/08b-stories.css).
+
+   Decorative: the steps say the same in text, so every picture is hidden from
+   screen readers and holds nothing focusable. Example data only, from the
+   story's visual block in the page file. No scores in the visibility picture:
+   it shows what was captured, not a number. Screens of the LucentSignal app
+   use the app's own dark blue (owner decision, 29 September 2026).
+
+   Import with: {% import 'visuals/stories.html' as sv with context %} #}
+{% import 'macros.html' as ui with context %}
+
+{% macro classes(kind, n, live) -%}
+sv sv-{{ kind }}{% for k in range(1, n + 1) %} s{{ k }}{% endfor %}{{ ' is-live' if live else ' is-still' }}
+{%- endmacro %}
+
+{# AI visibility (LucentAlbedo page), five states:
+   1 one question, one answer
+   2 the same question, four captured answers that differ by wording,
+     assistant and date
+   3 the scope: the questions tested and the conditions
+   4 the evidence: mentioned, recommended and cited for each answer, what
+     wasn't assessed, and what the set can't show
+   5 a short list of practical priorities, each tied to its evidence #}
+{% macro visibility(v, n, live) -%}
+{% set L = v.labels %}
+<div class="{{ classes('vis', n, live) }}" data-sv>
+  <p class="vz-q"><span class="vz-q-k">{{ v.question_label }}</span>{{ v.question }}</p>
+  <div class="vz-cards">
+    {% for a in v.answers %}
+    <div class="vz-card vz-c{{ loop.index }}">
+      <p class="vz-k"><span class="vz-n">{{ loop.index }}</span><b>{{ a.label }}</b><span class="vz-meta">{{ a.meta }}</span></p>
+      <p class="vz-t">{% if a.before %}{{ a.before }}{% endif %}{% if a.mark %}{{ ' ' if a.before }}<mark>{{ a.mark }}</mark>{% endif %}{% if a.after %} {{ a.after }}{% endif %}</p>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="vz-scope">
+    <p class="vz-sk">{{ v.scope_label }}</p>
+    <ol class="vz-qs">{% for q in v.questions %}<li{% if loop.first %} class="is-shown"{% endif %}><span class="vz-n">{{ loop.index }}</span><span>{{ q }}</span>{% if loop.first %}<em>{{ v.shown_label }}</em>{% endif %}</li>{% endfor %}</ol>
+    <p class="vz-chips">{% for c in v.conditions %}<span>{{ c }}</span>{% endfor %}</p>
+  </div>
+  <div class="vz-ev">
+    <div class="vz-row vz-head"><span>{{ L.answer }}</span><span>{{ L.mentioned }}</span><span>{{ L.recommended }}</span><span>{{ L.cited }}</span></div>
+    {% for a in v.answers %}
+    <div class="vz-row vz-r{{ loop.index }}">
+      <span class="vz-ra"><span class="vz-n">{{ loop.index }}</span><span>{{ a.label }}</span></span>
+      {% for label, yes in [(L.mentioned, a.mentioned), (L.recommended, a.recommended)] %}<span class="vz-yn{{ ' is-yes' if yes else ' is-no' }}"><i>{{ ui.icon('check' if yes else 'x') }}</i><span class="vz-l">{{ label }}:</span> {{ L.yes if yes else L.no }}</span>{% endfor %}
+      <span class="vz-cite{{ '' if a.cited else ' is-none' }}"><span class="vz-l">{{ L.cited }}:</span> {% if a.cited %}{{ ui.icon('link') }}{% endif %}<span>{{ a.cited or L.none }}</span></span>
+    </div>
+    {% endfor %}
+    <p class="vz-na">{{ ui.icon('info') }}<span>{{ v.not_assessed }}</span></p>
+    <p class="vz-lim">{{ v.limits }}</p>
+  </div>
+  <div class="vz-next">
+    <p class="vz-next-k">{{ v.next_label }}</p>
+    <ol>{% for x in v.next %}<li><span class="vz-nn">{{ loop.index }}</span><span><b>{{ x.text }}</b><em>{{ x.from }}</em></span></li>{% endfor %}</ol>
+  </div>
+</div>
+{%- endmacro %}
+
+{# LucentSignal (LucentSignal page), five states:
+   1 what you know, scattered: notes, a talk, a saved article, a past post,
+     with the week's posting rhythm
+   2 one idea in the app, with its writing style
+   3 a draft in your voice
+   4 editorial guidance: the score and the reason for each part
+   5 your review and plan: edited by you, a planned date and the export; you
+     publish
+   The app's parts reuse the screen grab's look (.sfl, styles/17c-welcome.css)
+   and the product's own example (content/products/lucentsignal.yaml). #}
+{% macro signal(v, n, live) -%}
+{% set p = products_by_id[v.product] %}
+{% set A = p.showcase_content.app %}
+{% set L = v.labels %}
+<div class="{{ classes('sig', n, live) }}" data-sv>
+  <div class="sz-mat">
+    <p class="sz-mk">{{ v.material_label }}</p>
+    {% for m in v.material %}<p class="sz-m sz-m{{ loop.index }}"><span class="sz-ic">{{ ui.icon(m.icon) }}</span><span>{{ m.label }}</span></p>{% endfor %}
+    <p class="sz-due">{{ ui.icon('clock') }}{{ v.rhythm }}</p>
+  </div>
+  <svg class="sz-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 22 C50 22 50 30 100 30"/><path pathLength="1" d="M0 41 C50 41 50 31 100 31"/><path pathLength="1" d="M0 60 C50 60 50 32 100 32"/><path pathLength="1" d="M0 79 C50 79 50 33 100 33"/></svg>
+  <div class="sz-app sfl">
+    <div class="sfl-bar"><svg class="sfl-logo" viewBox="0 0 56 56" aria-hidden="true"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg>{{ wordmark(p, 'dark', 'sfl-word') }}<span class="sfl-nav"><span class="is-on">{{ A.nav[0] }}</span></span></div>
+    <div class="sfl-card sz-idea">
+      <p class="sfl-k">{{ L.idea }}</p>
+      <p class="sfl-idea-t">{{ A.idea }}</p>
+      <div class="sfl-styles">{% for st in p.styles %}<span{% if st.name == A.style_on %} class="is-on"{% endif %}>{{ st.name }}</span>{% endfor %}</div>
+    </div>
+    <p class="sz-empty">{{ A.empty_draft }}</p>
+    <div class="sfl-card sz-draft">
+      <p class="sfl-k">{{ L.draft }}<span class="sfl-chip"><i></i>{{ L.voice }}</span></p>
+      <p class="sfl-hook">{{ A.hook_new }}</p>
+      <p class="sfl-p">{{ A.paragraphs[0] }}</p>
+    </div>
+    <div class="sfl-card sz-review">
+      <p class="sfl-k">{{ L.review }}</p>
+      <div class="sfl-rv">
+        <div class="sfl-score"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="sfl-ring-bg" cx="24" cy="24" r="20"/><circle class="sfl-ring" cx="24" cy="24" r="20" pathLength="100" style="--v:{{ (A.score * 100 / p.scoring.out_of) | round(1) }}"/></svg><p><b>{{ A.score }}</b><span>/{{ p.scoring.out_of }}</span></p></div>
+        <ul class="sfl-dims">{% for d in A.dimensions %}<li{% if d.warn %} class="is-warn"{% endif %}><span>{{ d.name }}</span><b>{{ d.score }}</b></li>{% endfor %}</ul>
+      </div>
+      <p class="sz-why">{{ A.feedback }}</p>
+    </div>
+    <div class="sz-bar"><span class="sz-ed">{{ ui.icon('check') }}{{ A.edited }}</span><span class="sz-plan">{{ ui.icon('cal') }}{{ A.planned }}</span><span class="sz-exp">{{ A.export }}</span></div>
+  </div>
+  <p class="sz-pub">{{ ui.icon('person') }}<span>{{ A.publish_note }}</span></p>
+</div>
+{%- endmacro %}
+
+{# The picture for a story at a given step (n), live (the sticky picture,
+   whose state the script changes) or still #}
+{% macro visual(st, n, live=false) -%}
+{% if st.visual.kind == 'visibility' %}{{ visibility(st.visual, n, live) }}{% elif st.visual.kind == 'signal' %}{{ signal(st.visual, n, live) }}{% endif %}
+{%- endmacro %}

@@ -1,0 +1,43 @@
+{# How we work together. On desktop the diagram stays in view while the
+   explanations scroll; the line draws from the first step to the last as you
+   read. On phones the steps stack with their own icons. Four or five steps
+   (wf-n5 makes the diagram more compact). #}
+{% import 'macros.html' as ui with context %}
+<section class="sec sec-cloud" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading }}</h2>
+      <p class="lead">{{ s.lead | inline }}</p>
+    </header>
+    <div class="wf-story wf-n{{ s.steps | length }}" data-seq="workflow">
+      <div class="wf-aside" aria-hidden="true">
+        <div class="wf-pin">
+          <div class="wf-dia" style="background:var(--white)">
+            <p class="wf-dia-h">{{ s.diagram_heading }}</p>
+            <div class="wf-track">
+              <div class="wf-line"><span class="wf-fill" data-fill></span></div>
+              {% for st in s.steps %}
+              <div class="wf-node" data-node><span class="wf-nd"><svg class="ic"><use href="#i-{{ st.icon }}"/></svg></span><span class="wf-nl"><b>{{ st.node }}</b><span>{{ st.node_sub }}</span></span></div>
+              {% endfor %}
+            </div>
+            <div class="wf-ex"><p class="wf-ex-k">{{ s.example_heading }}</p><div class="wf-ex-t">
+              {% for st in s.steps %}<span class="wf-card" data-card><svg class="ic"><use href="#i-{{ st.example.icon }}"/></svg>{{ st.example.text }}</span>
+              {% endfor %}
+            </div></div>
+          </div>
+        </div>
+      </div>
+      <ol class="wf-steps">
+        {% for st in s.steps %}
+        <li class="wf-step" data-step data-reveal-step>
+          <span class="wf-dot" aria-hidden="true"><svg class="ic"><use href="#i-{{ st.icon }}"/></svg></span>
+          <p class="wf-k">{{ st.kicker }}</p>
+          <h3 class="h3">{{ st.heading }}</h3>
+          <p class="wf-t">{{ st.text | inline }}</p>
+          {% if st.human %}<p class="wf-human">{{ ui.icon('review') }}{{ st.human }}</p>{% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+{# The people and principles behind the work. Static with light reveals. #}
+{% import 'macros.html' as ui with context %}
+<section class="sec sec-cloud" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap people">
+    {% if s.portrait %}
+    <img class="portrait-img" src="{{ asset(s.portrait) }}" alt="{{ s.portrait_alt }}" data-reveal>
+    {% else %}
+    <div class="portrait" role="img" aria-label="{{ s.portrait_alt }}" data-reveal>
+      {{ ui.icon('camera') }}
+      <p>{{ s.portrait_label | nl2br }}</p>
+    </div>
+    {% endif %}
+    <div>
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading }}</h2>
+      <p class="lead">{{ s.lead | inline }}</p>
+      <p class="people-p">{{ s.text | inline }}</p>
+      <ul class="pr-list">
+        {% for pr in s.principles %}<li class="pr"><h3>{{ pr.heading }}</h3><p>{{ pr.text }}</p></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

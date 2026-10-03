@@ -1,0 +1,18 @@
+{# Opening for an inner page. It uses the same title style, introduction and
+   spacing as the homepage opening (.opening, .h-title, .intro), so every
+   page starts the same way. Optional: a product label (product: id) or an
+   eyebrow, actions (see macros.actions) and a short note. For a product
+   page, the note defaults to the product's status note; note: false hides it. #}
+{% import 'macros.html' as ui with context %}
+{% set pr = products_by_id[s.product] if s.product else none %}
+{% set note = s.note if s.note is defined else (pr.status_note if pr else none) %}
+<section class="page-hero" id="top" aria-labelledby="page-h">
+  <div class="wrap opening">
+    {% if pr %}<p class="chip-prod{{ ' chip-a' if pr.accent == 'albedo' else '' }}">{{ ui.dot(pr.accent) }}{{ wordmark(pr) }}{{ ui.status(pr) }}</p>
+    {% elif s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}
+    <h1 class="h-title" id="page-h" tabindex="-1">{{ s.heading | inline }}</h1>
+    {% if s.lead %}<p class="intro">{{ s.lead | inline }}</p>{% endif %}
+    {{ ui.actions(s.actions) }}
+    {% if note %}<p class="prod-note">{{ note | inline }}</p>{% endif %}
+  </div>
+</section>

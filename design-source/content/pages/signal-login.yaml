@@ -1,0 +1,55 @@
+# LucentSignal sign-in screen (signalapp.lucentstar.ai/login), designed with
+# the shared header and footer. It is built for review only: in production
+# the app renders this page itself, with its own form handling (see
+# docs/SHARED-DESIGN.md). Wording checked against the live page on
+# 28 September 2026.
+
+slug: signal-login
+url: https://signalapp.lucentstar.ai/login
+property: app
+template: pages/signal-login.html
+title: Sign in to LucentSignal
+seo_title: Sign in | LucentSignal
+description: Sign in to LucentSignal, from LucentStar AI.
+nav_current: signin
+panel: false             # no floating contact launcher over a sign-in form
+
+auth:
+  product: signal
+  heading: "Sign in to {{wordmark:signal}}."     # the LucentSignal wordmark, light variant
+  intro: Write LinkedIn posts that actually sound like you.
+  links:
+    - {label: See plans and pricing, href: "lucentsignal#pricing"}
+  form_action: /login
+  email_label: Email or username
+  password_label: Password
+  submit: Sign in
+  # /forgot-password emails a link to reset the password (server.js:3213 in
+  # the app, read by the Round 4 review). The wording says exactly that.
+  # Offering passwordless access (/recover) as well is an owner decision.
+  recovery:
+    label: Forgotten your password?
+    href: https://signalapp.lucentstar.ai/forgot-password
+    note: We’ll email you a link to reset it.
+  register:
+    text: Don’t have an account?
+    label: Register
+    href: https://signalapp.lucentstar.ai/register
+  # Messages the app renders above the fields. The app keeps its own wording;
+  # the design gives each one of three variants:
+  #   error    role="alert", takes focus when the page loads (data-focus-on-load)
+  #   success  role="status", read with the first field (aria-describedby)
+  #   neutral  role="status", read with the first field (aria-describedby)
+  # The wording below is example wording for the design preview only.
+  message_preview_label: Preview a message
+  message_preview_none: No message
+  message_note: Example wording. The app keeps its own messages.
+  messages:
+    - {key: signed-out, label: Session ended, variant: neutral, heading: "You’ve been signed out", text: Sign in again to carry on.}
+    - {key: reset, label: Password reset, variant: success, heading: Your password has been reset, text: Sign in with your new password.}
+    - {key: wrong, label: Wrong details, variant: error, heading: "We couldn’t sign you in", text: "Check your email or username and password, then try again."}
+    - {key: inactive, label: Account not active, variant: error, heading: "This account isn’t active", text: "Get in touch if you think this is a mistake."}
+    - {key: link, label: Link expired or used, variant: error, heading: That link can’t be used, text: "It has expired or has already been used. You can ask for a new one."}
+  preview_note: "Design preview: this form doesn’t sign anyone in."
+
+live_form: true

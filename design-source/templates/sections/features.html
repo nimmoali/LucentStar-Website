@@ -1,0 +1,25 @@
+{# Card grid. Items come from the section (items) or, for a product, from its
+   planned_features. An item with a status shows it as a label, so planned or
+   unconfirmed features are always identified as such; an item without a
+   status (an audience card, say) shows none. #}
+{% set pr = products_by_id[s.product] if s.product else none %}
+{% set items = s.get('items') or (pr.planned_features if pr else []) %}
+{% set labels = {'planned': 'Planned', 'available': 'Available now', 'coming_soon': 'Coming soon'} %}
+<section class="sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+    </header>
+    <ul class="feat-grid{{ ' feat-' ~ (items | length) if (items | length) < 3 else '' }}">
+      {% for f in items %}
+      <li class="feat" data-reveal="text">
+        {% if f.status %}<span class="feat-status feat-{{ f.status }}">{{ labels[f.status] or f.status }}</span>{% endif %}
+        <h3 class="feat-h">{{ f.title }}</h3>
+        <p class="feat-p">{{ f.text | inline }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if s.foot %}<p class="svc-foot"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>{{ s.foot | inline }}</span></p>{% endif %}
+  </div>
+</section>

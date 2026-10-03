@@ -1,0 +1,12 @@
+{# Closing call to action: a dark rounded band with a heading, one line and
+   actions (see macros.actions). #}
+{% import 'macros.html' as ui with context %}
+<section class="sec cta-sec" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <div class="band" data-reveal="text">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+      {{ ui.actions(s.actions) }}
+    </div>
+  </div>
+</section>

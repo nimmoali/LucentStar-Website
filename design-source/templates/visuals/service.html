@@ -1,0 +1,46 @@
+{# Small service illustrations: workflow, tool, variation and answer. Used by the
+   services section and the focus section (the homepage's bespoke projects).
+   Each builds in three beats (.b1, .b2, .b3) when revealed.
+   Import with: {% import 'visuals/service.html' as svc with context %} #}
+
+{% macro visual(v) -%}
+{% if v.kind == 'workflow' %}
+<p class="v-title b1">{{ v.title }}</p>
+<div class="v-wf-grid">
+  <div class="v-srcs">
+    {% for src in v.sources %}<div class="v-src v-card b1"><span class="v-ic"><svg class="ic"><use href="#i-{{ src.icon }}"/></svg></span>{{ src.label }}</div>
+    {% endfor %}
+  </div>
+  <svg class="v-lines" viewBox="0 0 100 170" preserveAspectRatio="none"><path pathLength="1" d="M0 26 C50 26 50 85 100 85"/><path pathLength="1" d="M0 85 L100 85"/><path pathLength="1" d="M0 144 C50 144 50 85 100 85"/></svg>
+  <div class="v-out v-card b3"><p class="v-out-k">{{ v.output_label }}</p><p class="v-out-t">{{ v.output_title }}</p><p class="v-out-p"><span class="av">{{ v.output_avatar }}</span>{{ v.output_note }}</p></div>
+</div>
+{% elif v.kind == 'tool' %}
+<p class="v-title b1">{{ v.title }}</p>
+<div class="v-card v-win b1">
+  <div class="v-win-bar"><span></span><span></span><span></span><p>{{ v.window }}</p></div>
+  <div class="v-win-body">
+    <div class="v-q b1"><svg class="ic"><use href="#i-search"/></svg>{{ v.question }}</div>
+    <div class="v-a b2"><p>{{ v.answer }}</p><p class="v-a-src">{{ v.source_label }} <span>{{ v.source }}</span></p></div>
+    <div class="v-chips b3">{% for c in v.chips %}<span>{{ c }}</span>{% endfor %}</div>
+  </div>
+</div>
+{% elif v.kind == 'variation' %}
+{# One question, several captured answers that disagree: the first answer
+   arrives, then the others, then what each one says about the business #}
+<p class="v-title b1">{{ v.title }}</p>
+<div class="v-bubble b1">{{ v.question }}</div>
+<div class="v-vars">
+  {% for a in v.answers %}
+  <div class="v-var v-card {{ 'b1' if loop.first else 'b2' }}">
+    <div class="v-var-k"><p><b>{{ a.label }}</b><span>{{ a.meta }}</span></p><p class="v-var-tags b3">{% for t in a.tags %}<span class="{{ 'is-yes' if t.positive else 'is-no' }}"><b>{{ t.label }}</b>{{ t.value }}</span>{% endfor %}</p></div>
+    <p class="v-var-t">{% if a.text %}{{ a.text }}{% endif %}{% if a.mark %}{{ ' ' if a.text }}<mark>{{ a.mark }}</mark>{% endif %}</p>
+  </div>
+  {% endfor %}
+</div>
+{% elif v.kind == 'answer' %}
+<p class="v-title b1">{{ v.title }}</p>
+<div class="v-bubble b1">{{ v.question }}</div>
+<div class="v-ans v-card b2"><p>{{ v.answer_before }} <mark>{{ v.answer_mark }}</mark></p></div>
+<div class="v-tags b3">{% for t in v.tags %}<span><b>{{ t.label }}</b>{{ t.value }}</span>{% endfor %}</div>
+{% endif %}
+{%- endmacro %}

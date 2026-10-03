@@ -1,0 +1,116 @@
+id: albedo
+order: 2
+name: LucentAlbedo
+accent: albedo
+
+menu_text: Understand how your business appears in AI answers.
+mobile_text: Understand how your business appears in AI answers.
+tile_heading: Understand how your business appears in AI answers.
+tile_text: Being built to show the questions, the answers and the evidence, so you can decide which next steps deserve attention.
+tile_link: See the planned design     # the homepage tile's link (the default is the section's tile_link)
+
+# Coming soon (confirmed by the owner, 28 September 2026). Platform coverage,
+# pricing, release date and sign-up route are not confirmed, so the product
+# routes to a conversation and planned features are labelled as planned.
+availability:
+  status: coming_soon
+  verified: true
+  label: Coming soon
+
+destinations:
+  section: "index#albedo"
+  detail_page: lucentalbedo
+  menu_link_label: See planned features
+  try: ""
+  try_label: ""
+  sign_in: ""
+  contact_topic: visibility
+  contact_topic_label: AI visibility
+
+# Shown with the product wherever its status is explained
+status_note: "**Coming soon.** A limited online version is planned. Contact us to discuss an AI visibility consulting project and agree an appropriate scope and deliverables."
+
+# Planned features. None of these is confirmed for release yet; each one is
+# labelled "Planned" on the site. Change status to "available" only once a
+# feature is released and tested.
+planned_features:
+  - title: Questions based on how your customers choose
+    text: Questions researched from your business, services, customers and markets. You confirm them before anything is asked.
+    status: planned
+  - title: Answers saved with their conditions
+    text: Each answer is kept in full, with the assistant, date and settings used, so you can see exactly what was captured.
+    status: planned
+  - title: How your business is described
+    text: Whether you’re mentioned or recommended, and how your services are described. Mentions, recommendations and cited sources stay separate.
+    status: planned
+  - title: Who else is named
+    text: The other businesses that appear for the same questions, and how they’re described.
+    status: planned
+  - title: The websites behind the answers
+    text: The sources AI answers draw on, including your own website and the directories and articles that mention you.
+    status: planned
+  - title: Next steps and progress
+    text: Proportionate actions tied to the evidence, and a like-for-like comparison when the same questions are asked again.
+    status: planned
+
+# Two ways to work with us: consulting, available now, first; then the
+# planned online version
+ways:
+  - title: Consulting
+    status: available
+    text: Talk to us about your business and the AI visibility questions you want to understand. We agree the scope, deliverables and timing before starting a project.
+    cta: {label: Talk about AI visibility, href: "@contact", topic: visibility}
+  - title: A limited online version
+    status: planned
+    text: We’ll confirm what it includes, and when it will be available, before it launches.
+
+showcase: albedo
+showcase_content:
+  heading: Understand how your business appears in AI answers.
+  lead: When someone asks an AI tool about the kind of products or services you offer, does your business appear? How is it described, and what supports that answer? LucentAlbedo is being built to show you the evidence and help you decide what deserves attention.
+  actions:
+    - {label: Talk about AI visibility, href: "@contact", style: pill, topic: visibility}
+    - {label: See planned features, href: "lucentalbedo#features", sr: " for LucentAlbedo"}
+  steps_label: How a report comes together, in four steps
+  # Shown above the report on the homepage: the report is the planned online
+  # version's design, not today's consulting deliverable or a live product
+  planned_label: How a report is designed to work in the online version
+  steps:
+    - title: A buyer’s question
+      text: Written the way a real customer might ask it, and recorded exactly.
+      static_text: Written the way a real customer might ask it, and recorded exactly.
+    - title: The saved AI answer
+      text: Saved in full with the date, the tool and how it was asked. Here, Fernhill is named, but for homes rather than offices.
+      static_text: Saved in full with the date, the tool and how it was asked. Fernhill is named, but for homes rather than offices.
+    - title: The evidence
+      text: Mentions, recommendations and cited sources are kept separate. Anything we didn’t check stays “not assessed”, never zero.
+      static_text: Mentions, recommendations and cited sources are kept separate. Anything we didn’t check stays “not assessed”, never zero.
+    - title: A clear next step
+      text: A proportionate action tied to the evidence. Next time, the same question would be asked the same way.
+      static_text: A proportionate action tied to the evidence.
+  limits: "**Example using fictional data.** It shows one question, one assistant and one day. AI answers vary between accounts, locations and sessions, and change over time, so a report shows what was captured under stated conditions, not what every customer sees."
+  # Example report screen (fictional business, question and answer)
+  app:
+    tab: Evidence
+    business_initials: FS
+    business_label: Report for
+    business: Fernhill Studio
+    panel_label: Report for Fernhill Studio
+    question_label: The buyer’s question
+    question: “Who are good interior designers in Manchester for small office fit-outs?”
+    question_meta: One general-purpose AI assistant · Signed out · UK · 14 September 2026
+    answer_label: Saved answer, excerpt
+    answer_before: For small office fit-outs, Calder & Moss and Atelier North are often recommended for commercial work.
+    answer_mark: Fernhill Studio is another Manchester practice, mainly known for residential interiors.
+    source_label: Source cited
+    source: manchester-design-directory.example
+    evidence_label: The evidence
+    evidence:
+      - {label: Mentioned, value: "Yes", kind: count}
+      - {label: Recommended, value: "No"}
+      - {label: Own website cited, value: "No"}
+      - {label: Signed-in answers, value: Not assessed, kind: na}
+    evidence_note: The description matches an older directory listing.
+    action_label: Next step
+    action: Update the directory listing to include office fit-outs, and make that service easy to find on Fernhill’s own site.
+    action_then: Then ask the same question, the same way, in the next report.

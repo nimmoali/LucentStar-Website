@@ -1,0 +1,29 @@
+# The LucentStar Blog, blog.lucentstar.ai.
+#
+# This kit designs the blog index and the article template, using the shared
+# header, footer, type and colours. The blog itself is published by the Blog
+# & Content Engine in the linkedin-generator repository, which takes the
+# shared files from dist/shared/ (see docs/SHARED-DESIGN.md). Article
+# addresses never change: https://blog.lucentstar.ai/<slug>.
+#
+# Each article is one file in content/blog/posts/. A file without a body only
+# appears as a card on the index (it links to the live article).
+
+title: The LucentStar Blog
+seo_title: The LucentStar Blog                                   # the live title, kept
+description: Straight talk on LinkedIn content, without the noise.  # the live description, kept
+base_url: https://blog.lucentstar.ai/
+heading: The LucentStar *Blog*
+intro: Straight talk on LinkedIn content, without the noise.
+list_heading: Latest articles
+read_label: Read the article
+related_label: Related
+
+# Closing band on the index
+band:
+  id: try
+  heading: Write LinkedIn posts that actually *sound like you.*
+  lead: LucentSignal takes you from rough idea to a post you’d publish. Start with {{signal.plan.free.posts}} free posts, no card needed.
+  actions:
+    - {label: Try LucentSignal, href: "https://signalapp.lucentstar.ai/register", style: primary}
+    - {label: See how it works, href: "lucentsignal"}

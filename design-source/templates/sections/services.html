@@ -1,0 +1,49 @@
+{# Services: chapters with an illustration each. On desktop the illustration
+   panel stays in view while the service descriptions scroll past (motion
+   pattern: sticky aside). On phones and with reduced motion each service shows
+   its own illustration. The homepage now tells its services as stories
+   (sections/stories.html); this section stays available for other pages. #}
+{% import 'macros.html' as ui with context %}
+
+{% import 'visuals/service.html' as svc with context %}
+
+<section class="sec" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center svc-intro">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading }}</h2>
+      <p class="lead">{{ s.lead | inline }}</p>
+    </header>
+    <div class="svc-story" data-seq="services">
+      <div class="svc-chapters">
+        {% for c in s.chapters %}
+        <article class="chap" id="{{ c.key }}" tabindex="-1" data-step aria-labelledby="c{{ loop.index0 }}-h">
+          <div class="chap-txt">
+            <p class="chap-k"><span class="chap-n">{{ '%02d' % loop.index }}</span>{{ c.name }}</p>
+            <h3 class="h3" id="c{{ loop.index0 }}-h">{{ c.heading }}</h3>
+            <p class="chap-body">{{ c.body | inline }}</p>
+            <p class="ex-h">{{ c.examples_label or s.examples_label }}</p>
+            <ul class="ex star-list">{% for e in c.examples %}<li>{{ e }}</li>{% endfor %}</ul>
+            {% if c.product_note %}{% set pr = products_by_id[c.product_note.product] %}<p class="chap-prod">{{ ui.dot(pr.accent) }}<span>{{ c.product_note.text | inline }}</span></p>{% endif %}
+            {# One link (link:) or several (links:). A link without href goes to
+               the contact form, with its topic chosen. #}
+            {% set ls = c.links or [c.link] %}
+            <div class="chap-links">{% for l in ls %}{{ ui.tlink(l.href or '@contact', l.label, topic=l.topic, sr=l.sr) }}{% endfor %}</div>
+          </div>
+          <div class="chap-vis" data-reveal data-beats aria-hidden="true"><div class="v">{{ svc.visual(c.visual) }}</div></div>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="svc-aside" aria-hidden="true">
+        <div class="svc-pin">
+          <div class="svc-stage">
+            <div class="stage-rail">{% for c in s.chapters %}<span class="rail-seg" data-rail>{{ c.rail }}<b><i></i></b></span>{% endfor %}</div>
+            {% for c in s.chapters %}
+            <div class="stage-vis" data-panel><div class="v">{{ svc.visual(c.visual) }}</div></div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if s.foot %}<p class="svc-foot">{{ ui.icon('info') }}<span>{{ s.foot | inline }}</span></p>{% endif %}
+  </div>
+</section>

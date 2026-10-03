@@ -1,0 +1,47 @@
+/* Components for inner pages and product status. They reuse the homepage's
+   tokens, type scale and spacing. */
+
+/* Availability labels are shared (03b-brand.css); on the product tiles: */
+.pi-name .status{background:var(--cloud)}
+.pi-a .pi-name .status{background:var(--white)}
+
+/* A short note about a product's status, under its actions */
+.prod-note{max-width:40em;margin:22px auto 0;font-size:15px;line-height:1.6;color:var(--muted);text-wrap:pretty}
+.prod-note b{color:var(--navy);font-weight:600}
+
+/* About the business: heading on the left, introduction and principles on the right */
+.about{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:80px;align-items:start}
+.about-p{margin-top:16px;max-width:36em}
+.about .pr-list{margin-top:40px}
+
+.prod-sec-tight{padding-top:72px}
+
+/* Feature grid with a status on every item */
+.feat-grid{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.feat{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:var(--white);box-shadow:0 0 0 1px var(--line)}
+.feat-h{font-weight:600;font-size:18px;line-height:1.35;color:var(--navy)}
+.feat-p{font-size:15.5px;line-height:1.6;color:var(--text)}
+.feat-status{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:99px;font:500 12.5px/1 var(--f);white-space:nowrap}
+.feat-status::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}
+.feat-planned{background:var(--a-lav);color:var(--a-ink)}
+.feat-coming_soon{background:var(--cloud);color:var(--navy)}
+.feat-available{background:var(--green-tint);color:var(--navy)}
+.feat-available::before{background:#00B85F}
+
+/* Two ways to work with us */
+.ways{margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:1000px;margin-inline:auto}
+.way{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:36px;border-radius:28px;background:var(--white);box-shadow:0 0 0 1px var(--line)}
+.way p{font-size:16.5px;line-height:1.65}
+.way .btn{margin-top:auto}
+
+@media (max-width:999px){
+  .about{grid-template-columns:minmax(0,1fr);gap:28px}
+  .feat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:699px){
+  .feat-grid,.ways{grid-template-columns:minmax(0,1fr)}
+  .way{padding:28px 24px}
+}
+@media (max-width:599px){
+  .feat{padding:24px 20px}
+}

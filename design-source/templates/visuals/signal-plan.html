@@ -1,0 +1,15 @@
+{# LucentSignal: the content calendar and export options by plan #}
+{% import 'visuals/_signal.html' as sig with context %}
+{% set A = p.showcase_content.app %}
+{% call sig.frame('Content calendar') %}
+<div class="mp">
+  <div class="mp-week">
+    {% for d in ['Mon','Tue','Wed','Thu','Fri'] %}<div class="mp-day{{ ' has-post' if d in ['Tue','Thu'] else '' }}"><b>{{ d }}</b>{% if d == 'Tue' %}<span class="mp-post">{{ p.calendar_demo.planned }}</span>{% elif d == 'Thu' %}<span class="mp-post is-draft">{{ p.calendar_demo.draft }}</span>{% endif %}</div>{% endfor %}
+  </div>
+  <div class="sg-card mp-exp">
+    <p class="sg-k">Export</p>
+    <ul>{% for e in p.exports %}<li><span>{{ e.label }}</span><em>{{ e.plans }}</em></li>{% endfor %}</ul>
+    <p class="mp-pub"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>You publish to LinkedIn yourself</p>
+  </div>
+</div>
+{% endcall %}

@@ -1,0 +1,43 @@
+{# Homepage opening. The title, introduction and actions use the shared page
+   opening (.opening, .h-title, .intro), so every page starts the same way.
+   The devices rise in and push in gently on scroll. The example shown is
+   chosen per page. A page can add a discreet note (note:); the homepage has
+   none (owner decision, 29 September 2026). #}
+{% import 'macros.html' as ui with context %}
+{% import 'examples/app.html' as app with context %}
+{% set current = s.example or examples.default %}
+{% set shown = examples['items'] if s.switcher else examples['items'] | selectattr('id', 'equalto', current) | list %}
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="wrap opening hero-copy">
+    <h1 class="h-title" id="hero-h" tabindex="-1">{{ s.heading | inline }}</h1>
+    <p class="intro">{{ s.lead | inline }}</p>
+    {{ ui.actions(s.actions) }}
+  </div>
+  <div class="hero-stage" id="hero-stage" data-examples data-default="{{ current }}">
+    <div class="hero-push" id="hero-push" data-push>
+      <figure class="hero-devices" aria-labelledby="hx-text">
+        {% call ui.laptop('en-stack', cls='hero-lp') %}
+          {% for ex in shown %}{{ app.laptop_layer(ex, ex.id == current) }}{% endfor %}
+        {% endcall %}
+        {% call ui.phone('en-stack', cls='hero-ph') %}
+          {% for ex in shown %}{{ app.phone_layer(ex, ex.id == current) }}{% endfor %}
+        {% endcall %}
+        <figcaption class="stage-cap{{ ' hx-cap' if s.switcher else '' }}">
+          {% if s.switcher %}
+          <div class="hx-head">
+            <p class="hx-for" id="hx-label">{{ s.switcher_label }}</p>
+            {% if s.switcher_intro %}<p class="hx-intro" id="hx-intro">{{ s.switcher_intro | inline }}</p>{% endif %}
+          </div>
+          <div class="hx-switch" role="group" aria-labelledby="hx-label"{% if s.switcher_intro %} aria-describedby="hx-intro"{% endif %}>
+            {% for ex in shown %}<button type="button" class="hx-btn" data-example-btn="{{ ex.id }}" aria-pressed="{{ 'true' if ex.id == current else 'false' }}">{{ ex.label }}</button>{% endfor %}
+          </div>
+          <p class="hx-text" id="hx-text" aria-live="polite">{% for ex in shown %}<span data-example-cap="{{ ex.id }}"{% if ex.id != current %} hidden{% endif %}>{{ ex.caption }}</span>{% endfor %}</p>
+          {% else %}
+          <p class="hx-text" id="hx-text">{{ shown[0].caption }}</p>
+          {% endif %}
+          {% if s.note %}{{ ui.note(s.note) }}{% endif %}
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

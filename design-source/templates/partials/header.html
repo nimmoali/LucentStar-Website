@@ -1,0 +1,73 @@
+{# Site header, shared by every page. Links resolve for the page being built,
+   so homepage sections are reached from inner pages too. The item for the
+   current page (page.nav_current) is marked; on the homepage the current
+   section is highlighted as the visitor scrolls. On screens for people who
+   are already signed in (page.signed_in, such as the LucentSignal welcome
+   screen), "Sign in" becomes "Open LucentSignal", which stays in the same tab. #}
+{% import 'macros.html' as ui with context %}
+{% set signin_product = products | selectattr('destinations.sign_in') | first %}
+{% set cur = page.nav_current %}
+{% set signin_url = link(signin_product.destinations.sign_in) if signin_product else '' %}
+{% set try_url = link(signin_product.destinations.try) if signin_product and signin_product.destinations.try else '' %}
+{% set signed_in = page.signed_in and signin_product and signin_product.destinations.open %}
+{% set open_url = link(signin_product.destinations.open) if signed_in else '' %}
+{% macro ext(url) -%}{% if url is newtab %} target="_blank" rel="noopener"{% endif %}{%- endmacro %}
+{% macro brand_mark() -%}
+<svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="12" fill="#0B0F1A"/><g transform="translate(28,28) scale(0.82) translate(-28,-28)"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></g></svg>
+{%- endmacro %}
+{% macro product_href(p) -%}{{ p.destinations.detail_page or p.destinations.section }}{%- endmacro %}
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="{{ link('index#top') }}" aria-label="{{ site.brand.name }} {{ site.brand.suffix }}, home">
+      {{ brand_mark() }}
+      <span class="brand-word">{{ site.brand.name }}<span> {{ site.brand.suffix }}</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul class="nav-list">
+        {% for n in nav %}
+        {% if n.type == 'products' %}
+        <li class="nav-prod">
+          <button class="nav-link nav-btn{{ ' is-current' if cur == n.spy else '' }}" type="button" id="prod-btn" aria-expanded="false" aria-controls="prod-menu" data-spy="{{ n.spy }}">{{ n.label }}{{ ui.icon('chev') }}</button>
+          <div class="prod-menu" id="prod-menu" hidden>
+            {% for p in products %}
+            <a class="pm-item" href="{{ link(product_href(p)) }}"><span class="pm-name">{{ ui.dot(p.accent) }}{{ wordmark(p) }}{{ ui.status(p) }}</span><span class="pm-desc">{{ p.menu_text }}</span><span class="pm-go"><span class="ul">{{ p.destinations.menu_link_label or site.products_menu.item_link }}</span>{{ ui.icon('arrow') }}</span></a>
+            {% endfor %}
+            <div class="pm-foot">{% if signed_in %}<a href="{{ open_url }}">{{ signin_product.destinations.open_label }}</a>{% elif signin_product %}<span>Already using {{ signin_product.name }}? <a href="{{ signin_url }}"{{ ext(signin_url) }}>Sign in</a></span>{% endif %}<a href="{{ link(site.products_menu.help_href) }}">{{ site.products_menu.help_link }}</a></div>
+          </div>
+        </li>
+        {% else %}
+        <li>{{ ui.navlink(n.href, n.label, cls='nav-link' ~ (' is-current' if cur == n.spy else ''), same_tab=n.same_tab, attrs=(' data-spy="' ~ n.spy ~ '"' ~ (' aria-current="page"' if cur == n.spy else ''))) }}</li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="hdr-end">
+      {% if signed_in %}<a class="signin" href="{{ open_url }}">{{ signin_product.destinations.open_label }}</a>{% elif signin_product %}<a class="signin" href="{{ signin_url }}"{{ ext(signin_url) }}{% if cur == 'signin' %} aria-current="page"{% endif %}>Sign in<span class="sr"> to {{ signin_product.name }}</span></a>{% endif %}
+      <a class="btn btn-primary btn-sm hdr-talk" href="{{ link(site.header.cta_href) }}">{{ site.header.cta_label }}</a>
+      <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="m-menu"><span class="mb-ic" aria-hidden="true"><i></i><i></i></span><span class="mb-label">{{ site.header.menu_label }}</span></button>
+    </div>
+  </div>
+  <div class="m-menu" id="m-menu" hidden>
+    <div class="wrap">
+      <nav aria-label="Main (mobile)">
+        <ul class="mm-list">
+          {% for n in nav %}
+          {% if n.type == 'products' %}
+          <li style="--i:{{ loop.index0 }}"><p class="mm-label">{{ n.label }}</p>
+            {% for p in products %}<a class="mm-prod" href="{{ link(product_href(p)) }}"><span class="pm-name">{{ ui.dot(p.accent) }}{{ wordmark(p) }}{{ ui.status(p) }}</span><span class="pm-desc">{{ p.mobile_text }}</span></a>
+            {% endfor %}
+          </li>
+          {% else %}
+          <li style="--i:{{ loop.index0 }}">{% call ui.navlink(n.href, n.label, cls='mm-a', same_tab=n.same_tab, attrs=(' aria-current="page"' if cur == n.spy else '')) %}{{ ui.icon('arrow') }}{% endcall %}</li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+      <div class="mm-cta"><a class="btn btn-primary" href="{{ link(site.header.cta_href) }}">{{ site.header.cta_label }}</a></div>
+      {% if signed_in %}<div class="mm-quiet"><a href="{{ open_url }}">{{ signin_product.destinations.open_label }}</a></div>
+      {% elif signin_product %}<div class="mm-quiet"><a href="{{ signin_url }}"{{ ext(signin_url) }}{% if cur == 'signin' %} aria-current="page"{% endif %}>Sign in to {{ signin_product.name }}</a>{% if try_url %}<a href="{{ try_url }}"{{ ext(try_url) }}>{{ signin_product.destinations.try_label }}</a>{% endif %}</div>{% endif %}
+    </div>
+  </div>
+</header>

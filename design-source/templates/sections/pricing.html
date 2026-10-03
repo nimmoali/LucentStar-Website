@@ -1,0 +1,33 @@
+{# Pricing. Plans, prices, allowances and buttons come from the product's
+   shared record (content/products/<id>.yaml, plans:), never from page copy,
+   so a price changes in one place. The recommended plan is shown on a dark
+   card rather than with a coloured border. #}
+{% import 'macros.html' as ui with context %}
+{% set pr = products_by_id[s.product] %}
+<section class="sec sec-cloud" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+    </header>
+    <ul class="plans">
+      {% for pl in pr.plans %}
+      <li class="plan{{ ' is-rec' if pl.badge else '' }}" data-reveal="text" aria-labelledby="plan-{{ loop.index }}">
+        <div class="plan-top"><h3 class="plan-name" id="plan-{{ loop.index }}">{{ pl.name }}</h3>{% if pl.badge %}<span class="plan-badge">{{ pl.badge }}</span>{% endif %}</div>
+        <p class="plan-price"><b>{{ pl.price }}</b><span>{{ pl.period }}</span></p>
+        <p class="plan-sum">{{ pl.summary }}</p>
+        <p class="plan-allow">{{ pl.allowance }}</p>
+        <ul class="plan-feat">
+          {% for f in pl.features %}<li>{{ ui.icon('check') }}<span>{{ f | inline }}</span></li>
+          {% endfor %}
+        </ul>
+        <div class="plan-cta">
+          {{ ui.button(pl.cta.href, pl.cta.label, style=('primary' if pl.badge else 'secondary'), sr=' on the ' ~ pl.name ~ ' plan') }}
+          {% if pl.cta_note %}<p>{{ pl.cta_note }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if s.foot %}<p class="svc-foot">{{ ui.icon('info') }}<span>{{ s.foot | inline }}</span></p>{% endif %}
+  </div>
+</section>

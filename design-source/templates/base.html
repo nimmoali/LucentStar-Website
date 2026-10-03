@@ -1,0 +1,15 @@
+{# Page shell shared by every page: icons, header, main content, footer,
+   and the floating contact panel (left out with panel: false). A page that
+   uses the story pictures or the approach diagram's newer icons sets
+   extra_icons: true (partials/icons-extra.html, not part of the shared export). #}
+{% include 'partials/icons.html' %}
+{% if page.extra_icons %}{% include 'partials/icons-extra.html' %}{% endif %}
+
+{% include 'partials/header.html' %}
+
+<main id="main" tabindex="-1">
+{% block main %}{% endblock %}
+</main>
+
+{% include 'partials/footer.html' %}
+{% include 'partials/enquiry-panel.html' %}

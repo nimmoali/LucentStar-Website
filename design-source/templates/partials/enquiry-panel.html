@@ -1,0 +1,22 @@
+{# Floating "Contact us" launcher and the compact enquiry panel (prefix "p").
+   The panel opens only when the visitor asks for it. The dialog fills the
+   screen: .enq-scrim is its backdrop and .enq-panel the sliding panel, so
+   both move with one timing (scripts/06-enquiry.js). A page can leave the
+   panel out with panel: false in its page file. #}
+{% import 'macros.html' as ui with context %}
+{% if site.enquiry_panel.enabled and page.panel is not sameas false %}
+<button class="fab" id="fab" type="button" aria-haspopup="dialog" aria-controls="enquiry">{{ ui.icon('chat') }}<span>{{ site.enquiry_panel.launcher_label }}</span></button>
+<dialog class="enq" id="enquiry" aria-labelledby="enq-h">
+  <div class="enq-scrim" data-enquiry-close aria-hidden="true"></div>
+  <div class="enq-panel">
+    <div class="enq-in">
+      <div class="enq-head">
+        <h2 class="enq-h" id="enq-h" tabindex="-1">{{ site.enquiry_panel.heading }}</h2>
+        <button class="enq-x" type="button" data-enquiry-close aria-label="Close">{{ ui.icon('x') }}</button>
+      </div>
+      <p class="enq-lead" id="enq-lead">{{ site.enquiry_panel.lead }}</p>
+      {{ ui.enquiry_form('p', compact=true) }}
+    </div>
+  </div>
+</dialog>
+{% endif %}

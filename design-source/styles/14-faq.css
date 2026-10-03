@@ -1,0 +1,22 @@
+/* Questions (expandable) */
+.faq{max-width:860px;margin:48px auto 0;border-top:1px solid var(--line)}
+.faq-i{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;padding:18px 4px;border:0;background:none;text-align:left;cursor:pointer;font-weight:500;font-size:18px;color:var(--navy);border-radius:12px;transition:background-color var(--t-fast) var(--ease),padding var(--t-med) var(--ease)}
+.faq-q:hover{background:var(--cloud);padding-inline:14px}
+.pm{position:relative;flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:var(--cloud);transition:background-color var(--t-med) var(--ease)}
+.pm::before,.pm::after{content:'';position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;border-radius:2px;background:var(--navy);transition:transform var(--t-med) var(--ease)}
+.pm::after{transform:rotate(90deg)}
+.faq-q[aria-expanded="true"] .pm{background:var(--accent)}
+.faq-q[aria-expanded="true"] .pm::before,.faq-q[aria-expanded="true"] .pm::after{background:var(--accent-on)}
+.faq-q[aria-expanded="true"] .pm::after{transform:rotate(90deg) scaleX(0)}
+/* Collapsed answers use visibility:hidden (after the closing movement), so
+   screen readers and the Tab key skip them until they are opened. Without
+   JavaScript the answers stay open. */
+.faq-a{display:grid;grid-template-rows:1fr}
+html.motion .faq-a,html.still .faq-a{grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows 360ms var(--ease),visibility 0s linear 360ms}
+.faq-a > div{overflow:hidden}
+.faq-a p{padding:0 4px 24px;max-width:44em;font-size:16.5px;line-height:1.65}
+html.motion .faq-a p{opacity:0;transform:translateY(-4px);transition:opacity 300ms var(--ease),transform 360ms var(--ease)}
+html.motion .faq-i.is-open .faq-a,html.still .faq-i.is-open .faq-a{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows 360ms var(--ease),visibility 0s}
+html.motion .faq-i.is-open .faq-a p{opacity:1;transform:none}
+@media (max-width:599px){.faq-q{font-size:17px}}

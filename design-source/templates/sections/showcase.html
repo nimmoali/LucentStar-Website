@@ -1,0 +1,8 @@
+{# One product's showcase on any page. With head: false the product heading is
+   replaced by the section's own heading, so an inner page can reuse the story. #}
+{% set p = products_by_id[s.product] %}
+{% set sc = p.showcase_content %}
+{% set sid = s.id or p.id %}
+{% set show_head = s.head if s.head is defined else true %}
+{% set intro = s %}
+{% include 'showcases/' ~ p.showcase ~ '.html' %}

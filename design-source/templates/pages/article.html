@@ -1,0 +1,144 @@
+{# Article (blog.lucentstar.ai/<slug>). The page title uses the shared title
+   style; the text sits in a reading column about 68 characters wide.
+   Blocks in content/blog/posts/<slug>.yaml (build.py stops on any other):
+     p, h2, h3, quick_answer, callout {label, text}, quote {text, cite, cite_url},
+     table {head, rows, risk_col, caption, note}, ol [items], ul [items],
+     checklist {heading, items, ordered}, tools [{rank, name, best_for, highlight,
+     disclosure, text, pros, cons, pricing, link}], image {src, widths, width,
+     height, alt | decorative, caption, credit, credit_url, size: wide | inline},
+     video {src, title, caption}, qa [{q, a}], cta {heading, text, actions, note}
+   The article can also have a hero image (hero, the same fields as image).
+   docs/SHARED-DESIGN.md maps each block to the live blog's own renderer.
+   Motion is restrained: the article heading fades in once on load. #}
+{% extends 'base.html' %}
+{% import 'macros.html' as ui with context %}
+{% macro picture(im, sizes, eager=false) -%}
+{% set dot = im.src.rfind('.') %}{% set base, ext = im.src[:dot], im.src[dot:] %}
+<img src="{{ asset(base ~ '-' ~ im.widths[-1 if im.widths | length < 3 else 1] ~ ext) }}" srcset="{% for w in im.widths %}{{ asset(base ~ '-' ~ w ~ ext) }} {{ w }}w{{ ', ' if not loop.last }}{% endfor %}" sizes="{{ sizes }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ '' if im.decorative else im.alt }}" decoding="async"{% if eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %}{% if im.tint %} style="background:{{ im.tint }}"{% endif %}>
+{%- endmacro %}
+{% macro credit(im) -%}
+{% if im.credit %}<span class="art-credit">Photo: {% if im.credit_url %}<a href="{{ im.credit_url }}" target="_blank" rel="noopener">{{ im.credit }}<span class="sr"> (opens in a new tab)</span></a>{% else %}{{ im.credit }}{% endif %}{% if im.licence %}, {{ im.licence }}{% endif %}</span>{% endif %}
+{%- endmacro %}
+{% block main %}
+{% set P = page.post %}
+{% set B = page.blog %}
+{% set risk = {'None': 'none', 'Low': 'low', 'High': 'high'} %}
+<article class="art" aria-labelledby="page-h">
+  <header class="page-hero art-head" id="top">
+    <div class="wrap opening">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="{{ link(B.base_url) }}">Blog</a></li><li><span aria-current="page">{{ P.category }}</span></li></ol></nav>
+      <h1 class="h-title art-title" id="page-h" tabindex="-1">{{ P.title }}</h1>
+      <p class="art-meta">{{ P.category }}<span aria-hidden="true"> · </span><span class="sr">, </span><time datetime="{{ P.date }}">{{ P.date | date_long }}</time><span aria-hidden="true"> · </span><span class="sr">, </span>{{ P.reading_time }}</p>
+    </div>
+    {% if P.hero %}
+    <figure class="wrap art-hero">
+      {{ picture(P.hero, '(max-width: 1024px) 100vw, 1200px', eager=true) }}
+      {% if P.hero.caption or P.hero.credit %}<figcaption>{% if P.hero.caption %}{{ P.hero.caption | inline }} {% endif %}{{ credit(P.hero) }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+  </header>
+  <div class="wrap">
+    <div class="art-body">
+      {% for blk in P.body %}
+      {% if blk.quick_answer %}
+      <aside class="art-quick" aria-labelledby="quick-h"><h2 class="art-quick-h" id="quick-h">{{ ui.icon('check') }}Quick answer</h2><p>{{ blk.quick_answer | inline }}</p></aside>
+      {% elif blk.callout %}
+      <aside class="art-callout" aria-label="{{ blk.callout.label }}"><p class="art-callout-k">{{ blk.callout.label }}</p><p>{{ blk.callout.text | inline }}</p></aside>
+      {% elif blk.quote %}
+      <figure class="art-quote">
+        <blockquote{% if blk.quote.cite_url %} cite="{{ link(blk.quote.cite_url) }}"{% endif %}><p>{{ blk.quote.text | inline }}</p></blockquote>
+        {% if blk.quote.cite %}<figcaption>{% if blk.quote.cite_url %}<a class="ilink" href="{{ link(blk.quote.cite_url) }}">{{ blk.quote.cite }}</a>{% else %}{{ blk.quote.cite }}{% endif %}</figcaption>{% endif %}
+      </figure>
+      {% elif blk.image %}
+      {% set im = blk.image %}
+      <figure class="art-fig{{ ' is-inline' if im.size == 'inline' else '' }}">
+        {{ picture(im, '(max-width: 760px) 100vw, 760px' if im.size != 'inline' else '(max-width: 760px) 100vw, 480px') }}
+        {% if im.caption or im.credit %}<figcaption>{% if im.caption %}{{ im.caption | inline }} {% endif %}{{ credit(im) }}</figcaption>{% endif %}
+      </figure>
+      {% elif blk.video %}
+      {% set v = blk.video %}
+      <figure class="art-video">
+        <div class="art-video-frame"><iframe src="{{ v.src }}" title="{{ v.title }}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        {% if v.caption %}<figcaption>{{ v.caption | inline }}</figcaption>{% endif %}
+      </figure>
+      {% elif blk.checklist %}
+      {% set c = blk.checklist %}
+      <section class="art-check" aria-labelledby="chk-{{ loop.index }}">
+        <h3 id="chk-{{ loop.index }}">{{ c.heading }}</h3>
+        {% if c.ordered %}<ol>{% for it in c['items'] %}<li>{{ it | inline }}</li>{% endfor %}</ol>{% else %}<ul class="star-list">{% for it in c['items'] %}<li>{{ it | inline }}</li>{% endfor %}</ul>{% endif %}
+      </section>
+      {% elif blk.tools %}
+      <ol class="art-tools">
+        {% for t in blk.tools %}
+        <li class="art-tool{{ ' is-ours' if t.highlight else '' }}">
+          <div class="art-tool-top"><h3><span class="art-tool-n" aria-hidden="true">{{ t.rank or loop.index }}.</span> {{ t.name }}</h3><p class="art-tool-best">{{ t.best_for }}</p></div>
+          {% if t.disclosure %}<p class="art-tool-disc">{{ ui.icon('info') }}<span>{{ t.disclosure | inline }}</span></p>{% endif %}
+          {% for para in (t.text if t.text is not string else [t.text]) %}<p class="art-tool-p">{{ para | inline }}</p>{% endfor %}
+          <div class="art-pc">
+            <div class="art-pros"><p class="art-pc-h">Pros</p><ul>{% for it in t.pros %}<li>{{ ui.icon('check') }}<span>{{ it | inline }}</span></li>{% endfor %}</ul></div>
+            <div class="art-cons"><p class="art-pc-h">Cons</p><ul>{% for it in t.cons %}<li>{{ ui.icon('x') }}<span>{{ it | inline }}</span></li>{% endfor %}</ul></div>
+          </div>
+          {% if t.pricing %}<p class="art-tool-price">{{ t.pricing | inline }}{% if t.link %} <a class="ilink" href="{{ link(t.link.href) }}">{{ t.link.label }}</a>{% endif %}</p>{% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+      {% elif blk.p %}
+      <p>{{ blk.p | inline }}</p>
+      {% elif blk.h2 %}
+      <h2 id="{{ blk.h2 | slugify }}">{{ blk.h2 }}</h2>
+      {% elif blk.h3 %}
+      <h3>{{ blk.h3 }}</h3>
+      {% elif blk.table %}
+      {% set t = blk.table %}
+      <figure class="art-table">
+        <div class="art-table-scroll" role="region" aria-label="{{ t.caption }}" tabindex="0">
+          <table role="table">
+            <caption class="sr">{{ t.caption }}</caption>
+            <thead role="rowgroup"><tr role="row">{% for h in t.head %}<th role="columnheader" scope="col">{{ h }}</th>{% endfor %}</tr></thead>
+            <tbody role="rowgroup">
+              {% for row in t.rows %}<tr role="row">{% for c in row %}{% if loop.first %}<th role="rowheader" scope="row" data-label="{{ t.head[loop.index0] }}">{{ c }}</th>{% else %}<td role="cell" data-label="{{ t.head[loop.index0] }}">{% if t.risk_col is defined and loop.index0 == t.risk_col %}<span class="risk risk-{{ risk[c] or 'x' }}">{{ c }}</span>{% else %}{{ c | inline }}{% endif %}</td>{% endif %}{% endfor %}</tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% if t.note %}<figcaption>{{ ui.icon('info') }}<span>{{ t.note | inline }}</span></figcaption>{% endif %}
+      </figure>
+      {% elif blk.ol %}
+      <ol class="art-ol">{% for it in blk.ol %}<li><span class="art-n" aria-hidden="true">{{ loop.index }}</span><p>{{ it | inline }}</p></li>{% endfor %}</ol>
+      {% elif blk.ul %}
+      <ul class="art-ul">{% for it in blk.ul %}<li>{{ it | inline }}</li>{% endfor %}</ul>
+      {% elif blk.qa %}
+      <div class="art-qa">{% for it in blk.qa %}<h3 data-voice="reader">{{ it.q }}</h3><p>{{ it.a | inline }}</p>{% endfor %}</div>
+      {% elif blk.cta %}
+      {% set c = blk.cta %}
+      <aside class="art-cta" aria-labelledby="art-cta-h">
+        <h2 id="art-cta-h">{{ c.heading | inline }}</h2>
+        <p>{{ c.text | inline }}</p>
+        {{ ui.actions(c.actions) }}
+        {% if c.note %}<p class="art-cta-note">{{ c.note }}</p>{% endif %}
+      </aside>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</article>
+{% set rel = posts | selectattr('slug', 'in', P.related or []) | list %}
+{% if rel %}
+<section class="art-related" id="related" aria-labelledby="related-h">
+  <div class="wrap">
+    <h2 class="blog-list-h" id="related-h">{{ B.related_label }}</h2>
+    <ul class="posts posts-related">
+      {% for post in rel %}
+      <li class="post-card">
+        <p class="post-cat">{{ post.category }}</p>
+        <h3 class="post-title"><a href="{{ link(post.url) }}">{{ post.title }}</a></h3>
+        <p class="post-sum">{{ post.summary }}</p>
+        <p class="post-meta">{{ post.reading_time }}<span aria-hidden="true"> · </span><span class="sr">, </span>{{ post.date_label }}</p>
+        <p class="post-go" aria-hidden="true"><span class="ul">{{ B.read_label }}</span>{{ ui.icon('arrow') }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{# The conversation. Uses the shared enquiry form (prefix "f"). #}
+{% import 'macros.html' as ui with context %}
+<section class="sec" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap talk">
+    <div>
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading }}</h2>
+      <p class="lead">{{ s.lead | inline }}</p>
+      <div class="talk-alt">
+        <div class="talk-row"><span class="talk-ic">{{ ui.icon('mail') }}</span><div><p><strong>{{ s.email_label }}</strong></p><p class="email-row"><span class="email" id="email-text">{{ site.contact.email }}</span><button class="copy" type="button" id="copy-btn" data-copy="{{ site.contact.email }}">{{ ui.icon('copy') }}<span>Copy</span></button></p></div></div>
+        <div class="talk-row"><span class="talk-ic">{{ ui.icon('chat') }}</span><p><strong>{{ s.next_title }}</strong>{{ s.next_text }}</p></div>
+      </div>
+    </div>
+    <div class="form-card" id="form-card">
+      {{ ui.enquiry_form('f', error_preview=s.error_preview, default_topic=s.default_topic) }}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+{# Idea, draft and review: a screen grab of LucentSignal's first steps, in the
+   app's own dark blue (the --s-* tokens the app uses), placed on the white
+   page. It is drawn from the product's example screen (showcase_content.app
+   in content/products/<id>.yaml), so the post, style, labels and scores match
+   the rest of the site. Reusable: flow(product, labels, cls).
+
+   It is decorative (aria-hidden): the page's own text says the same thing.
+   With motion, the three cards arrive in order once, in about two seconds,
+   and stay; nothing loops. With reduced motion they are shown complete. #}
+{% import 'macros.html' as ui with context %}
+{% macro flow(p, L, cls='') -%}
+{% set A = p.showcase_content.app %}
+<div class="sfl{{ ' ' ~ cls if cls else '' }}" aria-hidden="true">
+  <div class="sfl-bar"><svg class="sfl-logo" viewBox="0 0 56 56"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg>{{ wordmark(p, 'dark', 'sfl-word') }}<span class="sfl-nav">{% for n in A.nav %}<span{% if loop.first %} class="is-on"{% endif %}>{{ n }}</span>{% endfor %}</span></div>
+  <div class="sfl-card sfl-idea">
+    <p class="sfl-k"><span class="sfl-n">1</span>{{ L.idea }}</p>
+    <p class="sfl-idea-t">{{ A.idea }}</p>
+    <p class="sfl-styles">{% for s in p.styles %}<span{% if s.name == A.style_on %} class="is-on"{% endif %}>{{ s.name }}</span>{% endfor %}</p>
+  </div>
+  <div class="sfl-card sfl-draft">
+    <p class="sfl-k"><span class="sfl-n">2</span>{{ L.draft }}<span class="sfl-chip"><i></i>{{ L.voice }}</span></p>
+    <p class="sfl-hook">{{ A.hook_new }}</p>
+    <p class="sfl-p">{{ A.paragraphs[0] }}</p>
+    <p class="sfl-p">{{ A.paragraphs[-1] }}</p>
+  </div>
+  <div class="sfl-card sfl-review">
+    <p class="sfl-k"><span class="sfl-n">3</span>{{ L.review }}</p>
+    <div class="sfl-rv">
+      <div class="sfl-score"><svg viewBox="0 0 48 48"><circle class="sfl-ring-bg" cx="24" cy="24" r="20"/><circle class="sfl-ring" cx="24" cy="24" r="20" pathLength="100" style="--v:{{ (A.score * 100 / p.scoring.out_of) | round(1) }}"/></svg><p><b>{{ A.score }}</b><span>/{{ p.scoring.out_of }}</span></p></div>
+      <ul class="sfl-dims">{% for d in A.dimensions %}<li{% if d.warn %} class="is-warn"{% endif %}><span>{{ d.name }}</span><b>{{ d.score }}</b></li>{% endfor %}</ul>
+    </div>
+    <p class="sfl-decide">{{ ui.icon('check') }}{{ L.decide }}</p>
+  </div>
+</div>
+{%- endmacro %}

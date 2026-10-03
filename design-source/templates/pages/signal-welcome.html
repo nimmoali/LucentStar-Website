@@ -1,0 +1,44 @@
+{# LucentSignal welcome (signalapp.lucentstar.ai/welcome), shown after a
+   successful magic-link sign-in, inside the shared header (signed-in variant:
+   "Open LucentSignal" instead of "Sign in") and footer. The app keeps its
+   route, the magic-link check, the session handling and the existing
+   destination of the main action; only the page's markup and classes change
+   (see docs/SHARED-DESIGN.md).
+
+   One responsive page with two presentations. Desktop (1000px and wider):
+   the introduction and the one main action on the left, the idea, draft and
+   review illustration on the right, then the three steps in a row. Phones
+   and tablets: the action straight after the introduction, then a compact
+   illustration, then the steps as a list. The action is never animated or
+   delayed, so it can be used as soon as the page appears. #}
+{% extends 'base.html' %}
+{% import 'macros.html' as ui with context %}
+{% import 'visuals/signal-flow.html' as sf with context %}
+{% block main %}
+{% set W = page.welcome %}
+{% set pr = products_by_id[W.product] %}
+{% set go = link(pr.destinations.open) if W.action.href == '@open' else link(W.action.href) %}
+<section class="wl" id="top" aria-labelledby="page-h">
+  <div class="wrap wl-grid">
+    <div class="opening opening-left wl-copy">
+      <p class="wl-kicker">{{ ui.icon('check') }}<span>{{ W.kicker }}</span></p>
+      <h1 class="h-title" id="page-h" tabindex="-1">{{ W.heading | inline }}</h1>
+      <p class="intro">{{ W.lead | inline }}</p>
+      <p class="wl-go"><a class="btn btn-primary wl-cta" href="{{ go }}">{{ W.action.label }}</a></p>
+    </div>
+    <div class="wl-visual">{{ sf.flow(pr, W.flow_labels) }}</div>
+  </div>
+</section>
+<section class="wl-next" aria-labelledby="next-h">
+  <div class="wrap">
+    <h2 class="wl-next-h" id="next-h">{{ W.next_heading }}</h2>
+    <p class="wl-next-lead">{{ W.next_intro | inline }}</p>
+    <ol class="wl-steps">
+      {% for st in W.steps %}
+      <li class="wl-step"><span class="wl-n" aria-hidden="true">{{ loop.index }}</span><div><h3>{{ st.title }}</h3><p>{{ st.text | inline }}</p></div></li>
+      {% endfor %}
+    </ol>
+    <p class="wl-help">{{ ui.icon('info') }}<span>{{ W.help | inline }}</span></p>
+  </div>
+</section>
+{% endblock %}

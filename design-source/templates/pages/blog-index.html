@@ -1,0 +1,33 @@
+{# Blog index (blog.lucentstar.ai). The same header, footer, opening and
+   type as the main website, with Blog as the current item. Articles come
+   from content/blog/posts/, newest first. Motion is restrained: the cards
+   fade in once, nothing is pinned or linked to scrolling. #}
+{% extends 'base.html' %}
+{% import 'macros.html' as ui with context %}
+{% block main %}
+{% set B = page.blog %}
+<section class="page-hero blog-hero" id="top" aria-labelledby="page-h">
+  <div class="wrap opening">
+    <h1 class="h-title" id="page-h" tabindex="-1">{{ B.heading | inline }}</h1>
+    <p class="intro">{{ B.intro | inline }}</p>
+  </div>
+</section>
+<section class="blog-list" id="articles" aria-labelledby="articles-h">
+  <div class="wrap">
+    <h2 class="blog-list-h" id="articles-h">{{ B.list_heading }}</h2>
+    <ul class="posts">
+      {% for post in posts %}
+      {% set href = link(post.url) %}
+      <li class="post-card" data-reveal>
+        <p class="post-cat">{{ post.category }}</p>
+        <h3 class="post-title"><a href="{{ href }}">{{ post.title }}</a></h3>
+        <p class="post-sum">{{ post.summary }}</p>
+        <p class="post-meta">{{ post.reading_time }}<span aria-hidden="true"> · </span><span class="sr">, </span>{{ post.date_label }}</p>
+        <p class="post-go" aria-hidden="true"><span class="ul">{{ B.read_label }}</span>{{ ui.icon('arrow') }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% if B.band %}{% set s = B.band %}{% include 'sections/cta_band.html' %}{% endif %}
+{% endblock %}

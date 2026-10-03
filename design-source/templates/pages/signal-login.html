@@ -1,0 +1,57 @@
+{# LucentSignal sign-in (signalapp.lucentstar.ai/login), inside the shared
+   header and footer. The app keeps its own form: method POST to /login,
+   fields "email" (email or username) and "password", any hidden fields, the
+   reset link at /forgot-password, the Register link, and its own
+   server-rendered messages, which go in the message box above the fields
+   (.auth-msg, one of three variants). Only the shell and classes change.
+   In this design preview the form sends nothing and the messages use
+   example wording. #}
+{% extends 'base.html' %}
+{% import 'macros.html' as ui with context %}
+{% block main %}
+{% set A = page.auth %}
+{% set pr = products_by_id[A.product] %}
+<section class="auth" id="top" aria-labelledby="page-h">
+  <div class="wrap auth-grid">
+    <div class="opening opening-left auth-copy">
+      <p class="chip-prod">{{ ui.dot(pr.accent) }}{{ wordmark(pr) }}{{ ui.status(pr) }}</p>
+      <h1 class="h-title" id="page-h" tabindex="-1">{{ A.heading | inline }}</h1>
+      <p class="intro">{{ A.intro | inline }}</p>
+      {{ ui.actions(A.links, cls='auth-more') }}
+    </div>
+    <div class="form-card auth-card">
+      {# The app renders no more than one message here. Error: role="alert",
+         tabindex="-1" and data-focus-on-load. Success or neutral: role="status",
+         and the first field gets aria-describedby="auth-msg". #}
+      {% set icons = {'error': 'alert', 'success': 'check', 'neutral': 'info'} %}
+      <!--SERVER_MESSAGE-->
+      <form class="f auth-form" method="post" action="{{ A.form_action if page.live_form else '#' }}"{% if not page.live_form %} data-auth-preview novalidate{% endif %} aria-labelledby="page-h">
+        <div>
+          <label class="f-label" for="email">{{ A.email_label }}</label>
+          <input class="f-input" type="text" id="email" name="email" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        </div>
+        <div>
+          <label class="f-label" for="password">{{ A.password_label }}</label>
+          <input class="f-input" type="password" id="password" name="password" autocomplete="current-password" required>
+        </div>
+        <button class="btn btn-primary auth-submit" type="submit">{{ A.submit }}</button>
+      </form>
+      <div class="auth-links">
+        <p><a class="ilink" href="{{ link(A.recovery.href) }}">{{ A.recovery.label }}</a></p>
+        <p class="auth-hint">{{ A.recovery.note }}</p>
+        <p class="auth-reg">{{ A.register.text }} <a class="ilink" href="{{ link(A.register.href) }}">{{ A.register.label }}</a></p>
+      </div>
+      {% if not page.live_form %}<div class="f-proto star-rule auth-proto" id="auth-proto">
+        <p>{{ ui.icon('info') }}<span>{{ A.preview_note }}</span></p>
+        <p class="auth-states"><label for="auth-state">{{ A.message_preview_label }}</label>
+          <select id="auth-state" data-auth-states>
+            <option value="">{{ A.message_preview_none }}</option>
+            {% for m in A.messages %}<option value="{{ m.key }}" data-variant="{{ m.variant }}" data-icon="{{ icons[m.variant] }}" data-heading="{{ m.heading }}" data-text="{{ m.text }}">{{ m.label }}</option>{% endfor %}
+          </select>
+          <span class="auth-note">{{ A.message_note }}</span></p>
+      </div>
+      <p class="sr" role="status" aria-live="polite" id="auth-live"></p>{% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

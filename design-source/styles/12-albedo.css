@@ -1,0 +1,86 @@
+/* LucentAlbedo moment */
+.alb-track{display:none;position:relative;--pin:.9}
+.alb-pin{padding-block:40px}
+.alb-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"c1 ph c2" "c3 ph c4";column-gap:56px;row-gap:40px;align-items:center;max-width:1180px;margin-inline:auto}
+.alb-phone{grid-area:ph}
+.co-1{grid-area:c1}.co-2{grid-area:c2}.co-3{grid-area:c3}.co-4{grid-area:c4}
+.co-1,.co-3{justify-self:end;text-align:right}
+.co-2,.co-4{justify-self:start}
+.co{max-width:300px;transition:opacity var(--t-med) var(--ease)}
+.co-n{position:relative;display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--a-lav);color:var(--a-ink);font-weight:600;font-size:13px;margin-bottom:10px;transition:background-color var(--t-med) var(--ease),color var(--t-med) var(--ease)}
+/* Ring around the number fills as the visitor scrolls through that stage (--sp from 0 to 1) */
+.co-n::before{content:'';position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(var(--a-3) calc(var(--sp,0) * 1turn),transparent 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2px));pointer-events:none}
+.co b{display:block;font-weight:600;font-size:18px;color:var(--navy)}
+.co p{margin-top:6px;font-size:15.5px;line-height:1.55;color:var(--muted);transition:color var(--t-med) var(--ease)}
+.co.is-active .co-n{background:var(--a-ink);color:var(--white)}
+.co.is-active p{color:var(--text)}
+.alb-phone{width:min(360px,calc((100vh - var(--hdr) - 90px) * .4857));transform-origin:50% 70%}
+html.motion .alb-phone{transform:translateY(calc((1 - var(--e,1)) * 60px)) scale(calc(.92 + var(--e,1) * .08));will-change:transform}
+.alb-limits{display:flex;gap:12px;align-items:flex-start;max-width:860px;margin:40px auto 0;padding:18px 20px;border-radius:18px;background:var(--a-lav);font-size:15px;line-height:1.6;color:var(--text)}
+.alb-limits .ic{width:20px;height:20px;margin-top:2px;color:var(--a-ink)}
+.alb-limits b{color:var(--navy);font-weight:600}
+.alb-static{display:block;margin-top:48px}
+.alb-panel{max-width:720px;margin-inline:auto;border-radius:24px;overflow:hidden;background:var(--a-page);box-shadow:0 0 0 1px var(--a-border),0 30px 60px -40px rgba(36,16,94,.45);font-family:var(--f-inter)}
+.alb-panel-top{display:flex;align-items:center;gap:10px;padding:16px 20px;background:var(--white);color:var(--a-ink);box-shadow:inset 0 -1px 0 var(--a-border)}
+.alb-panel-top svg{width:26px;height:26px}
+.alb-word{font-size:15px;letter-spacing:-.01em}   /* a light wordmark (03b-brand.css) */
+.alb-panel-top > span:last-child{margin-left:auto;font-size:12.5px;color:var(--a-muted)}
+.alb-steps{padding:18px;display:flex;flex-direction:column;gap:14px}
+.alb-step-lbl{display:flex;align-items:center;gap:10px;font-family:var(--f);font-weight:600;font-size:15px;color:var(--navy);margin-bottom:8px}
+.alb-step-lbl i{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--a-ink);color:var(--white);font-style:normal;font-size:12px}
+.alb-step p.alb-step-t{font-family:var(--f);font-size:15px;line-height:1.55;color:var(--muted);margin-top:10px}
+/* Albedo report UI (illustrative, Inter) */
+.al-ui{font-family:var(--f-inter);background:var(--a-page);color:#3F3C56;display:flex;flex-direction:column}
+.al-top{display:flex;align-items:center;gap:.55em;padding:2.6em 1em .85em;background:var(--white);color:var(--a-ink);box-shadow:inset 0 -1px 0 var(--a-border);flex:0 0 auto}
+.al-top svg{width:1.55em;height:1.55em}
+.al-word{font-size:.875em;letter-spacing:-.02em}   /* a light wordmark (03b-brand.css) */
+.al-tab{margin-left:auto;font-weight:600;font-size:.625em;letter-spacing:.1em;text-transform:uppercase;color:var(--a-2)}
+.al-ctx{display:flex;align-items:center;gap:.6em;padding:.75em 1em;background:var(--white);border-bottom:1px solid var(--a-border);flex:0 0 auto}
+.al-badge{display:grid;place-items:center;width:2.1em;height:2.1em;border-radius:.5em;background:var(--a-2);color:var(--white);font-weight:800;font-size:.6875em}
+.al-ctx-k{font-size:.625em;color:var(--a-muted)}
+.al-ctx-n{font-weight:700;font-size:.8125em;color:var(--a-ink)}
+.al-view{position:relative;flex:1 1 auto;overflow:hidden;min-height:0}
+.al-stack{position:relative;display:flex;flex-direction:column;gap:.7em;padding:.8em .8em 1.2em;transform:translateY(calc(var(--shift,0px) * -1));transition:transform 320ms var(--ease)}
+.al-layer{background:var(--white);border:1px solid var(--a-border);border-radius:1em;padding:.85em .9em;transition:opacity 560ms var(--ease),transform 800ms var(--ease),box-shadow 800ms var(--ease)}
+.al-k{font-weight:800;font-size:.625em;letter-spacing:.11em;text-transform:uppercase;color:var(--a-2);margin-bottom:.5em}
+.al-q{font-weight:700;font-size:.875em;line-height:1.45;color:var(--a-ink)}
+.al-meta{margin-top:.5em;font-size:.625em;line-height:1.45;color:var(--a-muted)}
+.al-ans{font-size:.75em;line-height:1.6;color:#3F3C56}
+.al-ans mark{color:inherit;background-image:linear-gradient(var(--a-hl),var(--a-hl));background-color:transparent;background-repeat:no-repeat;background-size:100% 100%;border-radius:.2em;transition:background-size 800ms var(--ease) 350ms}
+.al-src{margin-top:.6em;display:flex;flex-wrap:wrap;align-items:center;gap:.35em;font-size:.625em;color:var(--a-muted)}
+.al-src span{padding:.35em .6em;border-radius:99em;border:1px solid var(--a-3);color:var(--a-ink);font-weight:600}
+.al-ev{display:grid;grid-template-columns:1fr 1fr;gap:.4em}
+.al-ev div{padding:.5em .6em;border-radius:.6em;background:var(--white);border:1px solid var(--a-border);transition:opacity 420ms var(--ease),transform 560ms var(--ease)}
+.al-ev dt{font-size:.625em;color:var(--a-muted)}
+.al-ev dd{font-weight:700;font-size:.75em;color:var(--a-ink)}
+.al-ev .is-count{background:var(--a-lav)}
+.al-ev .is-na{border-style:dashed;border-color:var(--a-muted);background:var(--a-page)}
+.al-ev .is-na dd{font-weight:600;color:var(--a-muted)}
+.al-note{margin-top:.55em;font-size:.625em;line-height:1.5;color:#3F3C56}
+.al-action{background:var(--a-ink);border-color:var(--a-ink);color:var(--white)}
+.al-action .al-k{color:var(--a-yellow)}
+.al-action p.al-act{font-size:.75em;line-height:1.55;color:var(--white)}
+.al-then{margin-top:.5em;font-size:.625em;line-height:1.5;color:#C6C3D9}
+html.motion .alb-track .al-layer{opacity:0;transform:translateY(2em) scale(.96)}
+html.motion .alb-track.s1 .al-l1,html.motion .alb-track.s2 .al-l2,html.motion .alb-track.s3 .al-l3,html.motion .alb-track.s4 .al-l4{opacity:1;transform:none;box-shadow:0 1.2em 2.4em -1.8em rgba(36,16,94,.45)}
+html.motion .alb-track .al-ans mark{background-size:0% 100%}
+html.motion .alb-track.s2 .al-ans mark{background-size:100% 100%}
+html.motion .alb-track .al-ev div{opacity:0;transform:translateY(.6em)}
+html.motion .alb-track.s3 .al-ev div{opacity:1;transform:none}
+html.motion .alb-track.s3 .al-ev div:nth-child(2){transition-delay:90ms}
+html.motion .alb-track.s3 .al-ev div:nth-child(3){transition-delay:180ms}
+html.motion .alb-track.s3 .al-ev div:nth-child(4){transition-delay:270ms}
+/* Static (mobile and reduced) Albedo cards reuse the report look at full size */
+.alb-steps .al-layer{font-size:16px;padding:16px 18px}
+.alb-steps .al-q{font-size:16px}
+.alb-steps .al-ans{font-size:15px}
+.alb-steps .al-meta,.alb-steps .al-note,.alb-steps .al-then{font-size:13px}
+.alb-steps .al-k{font-size:11px}
+.alb-steps .al-src{font-size:12px}
+.alb-steps .al-ev dt{font-size:12px}
+.alb-steps .al-ev dd{font-size:14px}
+.alb-steps .al-ev div{padding:8px 10px}
+.alb-steps .al-action p.al-act{font-size:15px}
+
+/* "Planned" above the report on the homepage: the report is the online version's design */
+.alb-planned{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px;margin-top:30px;font-weight:600;font-size:15px;line-height:1.4;color:var(--navy)}

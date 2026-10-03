@@ -1,0 +1,170 @@
+# Shared website content: brand, navigation, contact details and footer.
+# Every page uses this file. Page-specific copy lives in content/pages/.
+# Copy rules (checked by build.py): UK English, "we" and "you", no em dashes,
+# none of the banned words listed in build.py.
+#
+# Links used anywhere in content:
+#   index#help        a section on another page (here, the homepage)
+#   lucentalbedo      another page, by its slug
+#   #faq              a section on the same page
+#   @contact          the contact form: this page's own, or the homepage's
+#   https://...       an external address
+
+brand:
+  name: LucentStar
+  suffix: AI
+  legal_name: LucentStar AI Ltd
+  tagline: Practical AI, built around your business.
+  registered: Registered in England and Wales
+  linkedin: https://www.linkedin.com/company/lucentstar
+
+# How page addresses are written in the built site.
+#   files  index.html, lucentalbedo.html (prototype and artifact review)
+#   clean  /, /lucentalbedo, using each page's "url" (production)
+url_mode: clean
+production_url: https://lucentstar.ai
+app_url: https://signalapp.lucentstar.ai/     # the LucentSignal app (links to it stay in the same tab inside the app)
+
+# In review builds (url_mode: clean), a link to the public address of any
+# page this kit builds (the blog index, each article with a body, the sign-in
+# design) opens the local design instead, so every link in the review set can
+# be followed. Production builds keep the public addresses. Nothing to list.
+
+# Links to these addresses stay in the same tab (LucentStar's own sites).
+# Other external links open in a new tab.
+same_tab_prefixes:
+  - https://lucentstar.ai/
+  - https://blog.lucentstar.ai/
+
+# Main navigation, in order. "products" expands into the products menu, built
+# from content/products/. An item with "requires" only appears when that
+# section is switched on (for example the optional clients section).
+nav:
+  - label: How we help
+    href: "index#help"
+    spy: help
+  - label: Our products
+    type: products
+    spy: products
+  - label: Our approach
+    href: "index#approach"
+    spy: approach
+  - label: Clients
+    href: "index#clients"
+    spy: clients
+    requires: clients
+  - label: About
+    href: "index#about"
+    spy: about
+  - label: Blog
+    href: "https://blog.lucentstar.ai/"
+    spy: blog
+    same_tab: true
+
+header:
+  cta_label: Let’s talk
+  cta_href: "@contact"
+  menu_label: Menu
+  close_label: Close
+
+products_menu:
+  item_link: See it in action
+  help_link: Not sure which fits? Let’s talk
+  help_href: "@contact"
+
+contact:
+  email: hello@lucentstar.ai
+  privacy_url: https://lucentstar.ai/privacy
+
+# Organisation details used in search engine data (kept from the live
+# LucentSignal page's structured data)
+organization:
+  founding_location: London, United Kingdom
+
+# Floating contact launcher and compact enquiry panel.
+enquiry_panel:
+  enabled: true
+  launcher_label: Contact us
+  heading: Contact us
+  lead: Tell us what you’d like to make easier. We’ll reply by email.
+
+footer:
+  columns:
+    - heading: How we help
+      links:
+        - {label: AI workflows, href: "index#workflows"}
+        - {label: Bespoke AI projects, href: "index#bespoke"}
+        - {label: AI visibility reporting, href: "index#visibility"}
+    - heading: Products
+      products: true
+      links:
+        - {label: Pricing, href: "https://lucentstar.ai/pricing"}
+        - {label: Help, href: "https://lucentstar.ai/help"}
+    - heading: Company
+      links:
+        - {label: About, href: "index#about"}
+        - {label: Our approach, href: "index#approach"}
+        - {label: Clients, href: "index#clients", requires: clients}
+        - {label: Blog, href: "https://blog.lucentstar.ai/", same_tab: true}
+        - {label: Contact, href: "@contact"}
+    - heading: Legal
+      links:
+        - {label: Privacy Notice, href: "https://lucentstar.ai/privacy"}
+        - {label: Terms of service, href: "https://lucentstar.ai/terms"}
+        - {label: Cookie policy, href: "https://lucentstar.ai/cookie-policy"}
+        - {label: Cookie settings, href: "https://lucentstar.ai/cookie-settings"}
+        - {label: Acceptable use, href: "https://lucentstar.ai/acceptable-use"}
+        - {label: AI transparency, href: "https://lucentstar.ai/ai-transparency"}
+        - {label: Accessibility, href: "https://lucentstar.ai/accessibility"}
+        - {label: Subprocessors, href: "https://lucentstar.ai/subprocessors"}
+  prototype_note: ""
+
+# The enquiry form is shared by the contact section and the floating panel.
+form:
+  # Both forms will deliver to this address. Until delivery is connected and
+  # tested, keep simulated: false so every form says that sending is simulated.
+  delivery:
+    enabled: false # Enable only after real delivery and inbox tests.
+    to: hello@lucentstar.ai
+    endpoint: "https://signalapp.lucentstar.ai/api/enquiries"            # form service address, once chosen
+    simulated: false
+  name_label: Your name
+  email_label: Email address
+  company_label: Company
+  optional: (optional)
+  message_label: What would you like help with?
+  message_hint: A sentence or two is plenty. You don’t need to know the answer, or the technology.
+  topics_label: What’s it about?
+  # Topic choices: these three, then each product with its own topic, then "not sure"
+  topics:
+    - {key: workflows, label: AI workflows}
+    - {key: bespoke, label: A bespoke project}
+    - {key: visibility, label: AI visibility}
+  unsure_topic: Not sure yet
+  send_label: Send message
+  sending_label: Sending…
+  sending_status: Sending your message
+  retry_label: Try again
+  # Enquiry notice, shown just above both send buttons (owner's wording, Round 4).
+  # {link} becomes the Privacy Notice link, which opens in a new tab. Both
+  # forms are enquiry-only: no marketing sign-up and no consent checkbox.
+  privacy_notice: "LucentStar AI will use your details to respond to your enquiry and manage any related conversation. Sending this form won’t subscribe you to marketing emails. Read our {link}."
+  privacy_link: Privacy Notice
+  new_tab_note: " (opens in a new tab)"
+  errors:
+    name: Enter your name
+    email_missing: Enter your email address
+    email_format: Enter an email address in the correct format, like name@example.com
+    message: Tell us a little about what you’d like help with
+  summary_one: Please check 1 answer
+  summary_many: Please check {n} answers
+  fail_title: Sorry, your message didn’t send.
+  fail_text: Everything you wrote is still here. Please try again, or email hello@lucentstar.ai.
+  done_title: Thank you, {name}. Your message was accepted for email delivery.
+  done_text: We’ll reply by email to {email}.
+  done_again: Send another message
+  done_close: Close
+  prototype_sending: "Prototype: sending is simulated and nothing leaves this page."
+  prototype_done: "Prototype: this confirmation is simulated and nothing was sent."
+  error_preview: Preview the error state
+  error_preview_on: Error preview on

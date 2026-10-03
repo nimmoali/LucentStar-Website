@@ -1,0 +1,19 @@
+{# LucentSignal: feedback shown with its reason, beside the part of the draft
+   it is about (example content). The feedback is the live page's own example
+   for the first scoring dimension. The screen doesn't show a one-click
+   "use suggestion" control: that isn't confirmed for the current app. #}
+{% import 'visuals/_signal.html' as sig with context %}
+{% set A = p.showcase_content.app %}
+{% set d = p.scoring.example.dimensions[0] %}
+{% call sig.frame('Your draft') %}
+<div class="sg-card mr">
+  <p class="sg-k">Your draft</p>
+  <p class="mr-hook"><span class="mr-old">{{ A.hook_old }}</span></p>
+  {% for para in A.paragraphs[:2] %}<p class="mr-p">{{ para }}</p>
+  {% endfor %}
+  <div class="mr-pop">
+    <p class="sg-pop-k">{{ d.name }} {{ d.score }}/10</p>
+    <p class="sg-pop-t">{{ d.note }}</p>
+  </div>
+</div>
+{% endcall %}
