@@ -1,212 +1,206 @@
-# Homepage. Sections render in this order. Each section's "type" picks a
-# component from templates/sections/. Copy can be edited here without
-# touching layout or animation code.
-#
-# Inline formatting: *text* adds heading emphasis, **text** is bold,
-# [label](target) is a link (targets are explained in content/site.yaml).
-
 slug: index
 url: /
 title: LucentStar Homepage
 seo_title: LucentStar AI | Practical AI, built around your business
-description: LucentStar AI is a practical AI consulting partner for businesses and smaller in-house teams, supported by two focused products, LucentSignal and LucentAlbedo.
-extra_icons: true      # the approach diagram uses icons from partials/icons-extra.html
-
+description: LucentStar AI is a practical AI consulting partner for businesses and smaller in-house teams, supported by two focused products, LucentSignal and LucentAlba.
+extra_icons: true
 sections:
+- type: hero
+  heading: Practical AI, *built around your business.*
+  actions:
+  - label: Let’s talk
+    href: '#contact'
+    style: primary
+  - label: See how we can help
+    href: '#help'
+    icon: down
+  example: marketing
+  switcher: true
+  switcher_label: Ideas for everyday work
+  switcher_intro: These examples draw on our team’s experience. Choose one to see how AI could support work like yours.
+  lead_paragraphs:
+  - We work alongside businesses and in-house teams to find practical ways to use AI, from individual projects to everyday workflows. We bring the AI expertise, work closely with your team, and build around how your business actually works.
+  - 'We also build focused AI products of our own: LucentSignal, available now, and LucentAlba, coming soon.'
+- type: services
+  id: help
+  heading: How we can help
+  lead: Bring us the work you want to make easier. We start with your business, the people doing the work and the tools you already use, then work out whether AI could help. These are a few starting points, not the limits of what we can discuss.
+  examples_label: For example, we could help with
+  chapters:
+  - key: visibility
+    rail: Visibility
+    name: AI visibility
+    heading: Understand what AI answers say about your business.
+    body: A single prompt can give a misleading picture. Answers change with the wording, assistant and date. We can agree a useful set of questions and conditions, examine how your business is described and which sources are cited, and discuss what the evidence supports. There is no universal score or promised outcome.
+    examples_label: For example, we could help with
+    examples:
+    - Comparing how your services are described across agreed questions
+    - Checking mentions, recommendations and cited sources separately
+    - Identifying changes worth considering, with the limits made clear
+    visual:
+      kind: variation
+      title: Same question, different answers
+      question: Who are good interior designers in Manchester for small offices?
+      answers:
+      - label: As asked
+        meta: Assistant A
+        text: Calder & Moss and Atelier North are often recommended.
+        mark: Fernhill Studio works mainly on homes.
+        tags:
+        - label: Mentioned
+          value: 'Yes'
+          positive: true
+        - label: Recommended
+          value: 'No'
+      - label: Reworded
+        meta: Assistant A
+        text: Calder & Moss and Atelier North are known for office projects.
+        tags:
+        - label: Mentioned
+          value: 'No'
+        - label: Recommended
+          value: 'No'
+      - label: Another assistant
+        meta: Assistant B
+        mark: Fernhill Studio is worth a look for small offices.
+        tags:
+        - label: Mentioned
+          value: 'Yes'
+          positive: true
+        - label: Recommended
+          value: 'Yes'
+          positive: true
+    link:
+      label: Talk through an AI visibility question
+      topic: visibility
+  - key: workflows
+    rail: Marketing
+    name: AI workflows in marketing
+    heading: Make recurring marketing work easier to manage.
+    body: We help businesses and smaller in-house marketing teams design and implement workflows around their own material and tools. That could mean gathering inputs, drafting or coordinating review. We test on real examples, check quality, and agree where people review, approve or take over.
+    examples_label: For example, we could help with
+    examples:
+    - Turning notes and existing material into a newsletter draft
+    - Preparing report commentary for someone to check
+    - Bringing briefs, drafts and feedback into a clearer review process
+    visual:
+      kind: workflow
+      title: Scattered material, one useful draft
+      sources:
+      - icon: chat
+        label: Team chat
+      - icon: folder
+        label: Shared drive
+      - icon: mail
+        label: Inbox
+      output_label: First draft
+      output_title: October newsletter, due Friday
+      output_note: A person reviews it before it goes out
+      output_avatar: PR
+    link:
+      label: Talk through your marketing work
+      topic: workflows
+  - key: bespoke
+    rail: Bespoke
+    name: Bespoke AI projects
+    heading: Build a focused tool around a real need.
+    body: Tell us where the work gets difficult. We look at what your existing tools can do before deciding whether to build something bespoke. If a new tool makes sense, we agree who it is for, what it needs to do and how to test it, with clear points for people to check or take over.
+    examples:
+    - Helping staff find answers in your own approved guidance
+    - Turning an enquiry into a proposal draft for review
+    - Checking a document against your house rules
+    visual:
+      kind: tool
+      title: A focused tool for one need
+      window: Staff guidance
+      question: Can a team lead approve a refund over £500?
+      answer: Refunds over £500 need a manager’s approval. A team lead can approve refunds up to £500.
+      source_label: Source
+      source: Finance guide, section 4
+      chips:
+      - Your documents
+      - Your wording
+      - Your approval rules
+    examples_label: For example, we could help with
+    link:
+      label: Talk through a project idea
+      topic: bespoke
+  foot: Your starting point may be different. We can talk it through and decide together whether there’s a useful next step.
+- type: workflow
+  id: approach
+  heading: Built with your team. Focused on your business.
+  lead: Whether you need to reduce repetitive work, improve decisions or free your people to focus on customers, we start with the result you want. Then we work alongside your team to define, build and test a practical solution, with clear decisions at every stage.
+  diagram_heading: Five steps, built around you
+  example_heading: 'One example: a monthly newsletter'
+  steps:
+    - key: work
+      icon: need
+      kicker: 1 · Understand
+      node: Understand
+      node_sub: Agree what success means
+      heading: Understand the challenge
+      text: 'We get close to the work: where time is lost, what gets in the way and what your people need. Together, we define the problem and agree how we will measure success.'
+      example: {icon: chat, text: 'Goal: less last-minute newsletter work'}
+    - key: start
+      icon: spark
+      kicker: 2 · Define
+      node: Define
+      node_sub: Focus on business value
+      heading: Agree the right first move
+      text: We choose a focused opportunity with clear business value. We agree the scope, where AI can help and where human judgement matters, so everyone knows what we are building and why.
+      example: {icon: spark, text: Start with one newsletter workflow}
+    - key: build
+      icon: plug
+      kicker: 3 · Build
+      node: Build
+      node_sub: Shape it with your team
+      heading: Build with your people
+      text: We create an early working version using real tasks and relevant business material. Your team tries it, challenges it and helps shape it around the way they work.
+      example: {icon: folder, text: Your team tries the first draft workflow}
+    - key: test
+      icon: loop
+      kicker: 4 · Test
+      node: Test
+      node_sub: Assess the results together
+      heading: Test the value
+      text: We test on everyday work and assess the results against our agreed measures. We improve what falls short, establish where human review is needed and decide together whether it is ready for wider use.
+      example: {icon: loop, text: Check draft quality and time saved}
+    - key: review
+      icon: review
+      kicker: 5 · Adopt
+      node: Adopt
+      node_sub: Clear ownership and support
+      heading: Put it into practice
+      text: We work with your team to bring the solution into everyday use, with clear responsibilities, practical guidance and agreed support. Together, we review how it performs and identify what to improve next.
+      example: {icon: review, text: "Priya owns review, with agreed support"}
+  foot: You help set the direction and shape the solution throughout. Each stage builds the evidence and confidence needed to take the next step.
+  action_label: Let’s talk about the challenge you want to solve.
 
-  - type: hero
-    heading: Practical AI, *built around your business.*
-    lead: "We’re a practical AI consulting partner for businesses and smaller in-house teams, working closely with you from how AI answers describe you to everyday marketing work. Two focused products support that work: {{signal.name}}, {{signal.status_lc}}, and {{albedo.name}}, {{albedo.status_lc}}."
-    actions:
-      - {label: Let’s talk, href: "#contact", style: primary}
-      - {label: See how we can help, href: "#help", icon: down}
-    example: marketing         # which opening example to show first (see content/examples.yaml)
-    switcher: true             # let visitors switch between examples
-    switcher_label: Industries we’ve worked with   # owner's wording: the team's wider industry experience, not client projects
-    switcher_intro: Our team brings experience from these industries. Here’s how we could apply AI to their everyday work.
-    # No note under the examples (owner decision, 29 September 2026). Photo
-    # credits, sources and licences stay in content/examples.yaml.
-
-  # How we can help: consulting first, through two problems people recognise
-  # and the bespoke route. Each problem leads to its product page, where the
-  # full story is told, or to a conversation. Same component, motion and
-  # layout as before (owner decision, 1 October 2026: keep the homepage
-  # concise and put the detail on the product pages).
-  - type: services
-    id: help
-    heading: How we can help
-    lead: Consulting comes first. Here are two problems you might recognise, where our products fit, and bespoke help for anything else.
-    examples_label: For example
-    chapters:
-      - key: visibility
-        rail: Visibility
-        name: AI visibility
-        heading: AI answers are hard to measure.
-        body: They shift with the wording, the assistant and the day you ask, and no single score settles it across models. That makes it hard to know what AI is really saying about your business.
-        examples_label: You might also recognise
-        examples:
-          - Your business left out of answers, or described inaccurately
-          - No clear view of the sources the answers rely on
-          - Not knowing which finding to act on first
-        product_note: {product: albedo, text: "Our visibility product, LucentAlbedo, is {{albedo.status_lc}}. Contact us to discuss a consulting project."}
-        links:
-          - {label: See how we approach it, href: lucentalbedo, sr: " on the LucentAlbedo page"}
-          - {label: Talk about AI visibility, topic: visibility}
-        visual:
-          kind: variation
-          title: Same question, different answers
-          question: Who are good interior designers in Manchester for small offices?
-          answers:
-            - label: As asked
-              meta: Assistant A
-              text: Calder & Moss and Atelier North are often recommended.
-              mark: Fernhill Studio works mainly on homes.
-              tags: [{label: Mentioned, value: "Yes", positive: true}, {label: Recommended, value: "No"}]
-            - label: Reworded
-              meta: Assistant A
-              text: Calder & Moss and Atelier North are known for office projects.
-              tags: [{label: Mentioned, value: "No"}, {label: Recommended, value: "No"}]
-            - label: Another assistant
-              meta: Assistant B
-              mark: Fernhill Studio is worth a look for small offices.
-              tags: [{label: Mentioned, value: "Yes", positive: true}, {label: Recommended, value: "Yes", positive: true}]
-      - key: workflows
-        rail: Marketing
-        name: AI workflows in marketing
-        heading: Good material, scattered everywhere, and a deadline every week.
-        body: Small marketing teams have plenty to say and little time to pull it together. Ideas, notes and past work are spread across the tools you already use, and the drafting never stops.
-        examples_label: You might also recognise
-        examples:
-          - Ideas in chat threads, and material nobody can find when it’s needed
-          - The same newsletter, case study and posts to draft every month
-          - Review squeezed in just before the deadline
-        product_note: {product: signal, text: "For LinkedIn, LucentSignal is {{signal.status_lc}}: it develops your ideas into drafts with editorial guidance. For wider workflows, we build around your team’s own tools."}
-        links:
-          - {label: See how LucentSignal helps, href: lucentsignal, sr: " on the LucentSignal page"}
-          - {label: Talk to us about a workflow, topic: workflows}
-        visual:
-          kind: workflow
-          title: Scattered material, one useful draft
-          sources:
-            - {icon: chat, label: Team chat}
-            - {icon: folder, label: Shared drive}
-            - {icon: mail, label: Inbox}
-          output_label: First draft
-          output_title: October newsletter, due Friday
-          output_note: A person reviews it before it goes out
-          output_avatar: PR
-      - key: bespoke
-        rail: Bespoke
-        name: Bespoke AI projects
-        heading: A focused tool for a particular need.
-        body: When an existing product isn’t enough, we design and build something around the problem. We agree what it needs to do, and who it’s for, before choosing any technology.
-        examples:
-          - A tool that answers staff questions from your own guidance
-          - A guided form that turns customer details into a proposal draft
-          - A checker that reviews documents against your house rules
-        link: {label: Discuss a project, topic: bespoke}
-        visual:
-          kind: tool
-          title: A focused tool for one need
-          window: Staff guidance
-          question: Can a team lead approve a refund over £500?
-          answer: Refunds over £500 need a manager’s approval. A team lead can approve refunds up to £500.
-          source_label: Source
-          source: Finance guide, section 4
-          chips: [Your documents, Your wording, Your approval rules]
-
-  - type: workflow
-    id: approach
-    heading: Built with your team. Focused on your business.
-    lead: Whether you need to reduce repetitive work, improve decisions or free your people to focus on customers, we start with the result you want. Then we work alongside your team to define, build and test a practical solution, with clear decisions at every stage.
-    diagram_heading: Five steps, built around you
-    example_heading: 'One example: a monthly newsletter'
-    steps:
-      - key: work
-        icon: need
-        kicker: 1 · Understand
-        node: Understand
-        node_sub: Agree what success means
-        heading: Understand the challenge
-        text: 'We get close to the work: where time is lost, what gets in the way and what your people need. Together, we define the problem and agree how we will measure success.'
-        example: {icon: chat, text: 'Goal: less last-minute newsletter work'}
-      - key: start
-        icon: spark
-        kicker: 2 · Define
-        node: Define
-        node_sub: Focus on business value
-        heading: Agree the right first move
-        text: We choose a focused opportunity with clear business value. We agree the scope, where AI can help and where human judgement matters, so everyone knows what we are building and why.
-        example: {icon: spark, text: Start with one newsletter workflow}
-      - key: build
-        icon: plug
-        kicker: 3 · Build
-        node: Build
-        node_sub: Shape it with your team
-        heading: Build with your people
-        text: We create an early working version using real tasks and relevant business material. Your team tries it, challenges it and helps shape it around the way they work.
-        example: {icon: folder, text: Your team tries the first draft workflow}
-      - key: test
-        icon: loop
-        kicker: 4 · Test
-        node: Test
-        node_sub: Assess the results together
-        heading: Test the value
-        text: We test on everyday work and assess the results against our agreed measures. We improve what falls short, establish where human review is needed and decide together whether it is ready for wider use.
-        example: {icon: loop, text: Check draft quality and time saved}
-      - key: review
-        icon: review
-        kicker: 5 · Adopt
-        node: Adopt
-        node_sub: Clear ownership and support
-        heading: Put it into practice
-        text: We work with your team to bring the solution into everyday use, with clear responsibilities, practical guidance and agreed support. Together, we review how it performs and identify what to improve next.
-        example: {icon: review, text: "Priya owns review, with agreed support"}
-    foot: You help set the direction and shape the solution throughout. Each stage builds the evidence and confidence needed to take the next step.
-    action_label: Let’s talk about the challenge you want to solve.
-
-  - type: products
-    id: products
-    heading: Products built for specific jobs
-    lead: Alongside our consulting, we make focused products. Each one is built to support your judgement, not replace it.
-    tile_link: See it in action
-
-  - type: showcases
-    notes: false   # no fictional-data notes under the product stories here (owner decision,
-                   # 29 September 2026); LucentAlbedo's disclosure and limitations still show
-
-  - type: clients
-
-  - type: about
-    id: about
-    heading: About LucentStar
-    lead: LucentStar AI is a small, hands-on AI consultancy. We help businesses and smaller in-house teams with AI visibility, AI workflows and bespoke projects.
-    principles:
-      - {heading: We listen first, text: We ask about the work before we talk about technology.}
-      - {heading: We start with what you have, text: We check what your current tools can already do before suggesting anything new.}
-      - {heading: We think about the people, text: "We consider how a change affects the people doing the work, and shape it around them."}
-      - {heading: We’re honest about limits, text: "If AI isn’t the answer, we’ll say so. If something wasn’t checked, we’ll say that too."}
-
-  - type: faq
-    id: questions
-    heading: Questions people ask
-    items:
-      - q: Do we need technical knowledge to work with you?
-        a: No. We explain things in plain language and work with whoever does the job today. You bring the knowledge of your business; we bring the technical side.
-      - q: Can you work with the tools we already use?
-        a: Often, yes. We check what your current tools allow before recommending anything new, and we prefer to build on what already works.
-      - q: How do you make sure a change works for our team?
-        a: We involve the people who do the work from the start, test with real examples, and keep a person in charge of anything that matters.
-      - q: What if AI isn’t the right answer?
-        a: We’ll tell you. A clearer process, a shared template or a feature in a tool you already pay for can be the better fix.
-      - q: What happens after we get in touch?
-        a: We read your message and reply by email. If it helps, we suggest a conversation to understand what you’d like to make easier.
-
-  - type: contact
-    id: contact
-    heading: What would you like to make easier?
-    lead: Tell us what takes too much time, what feels difficult, or what you’re curious about. We can work out a sensible next step together.
-    email_label: Prefer email?
-    next_title: What happens next
-    next_text: We read your message and reply by email. If it helps, we suggest a conversation to understand more.
-    error_preview: true
+- type: products
+  id: products
+  heading: Products built for specific jobs
+  lead: Alongside our consulting, we make focused products. Each one is built to support your judgement, not replace it.
+  tile_link: See it in action
+- type: clients
+- type: faq
+  id: questions
+  heading: Questions people ask
+  items:
+  - q: Do we need technical knowledge to work with you?
+    a: No. We explain things in plain language and work with whoever does the job today. You bring the knowledge of your business; we bring the technical side.
+  - q: Can you work with the tools we already use?
+    a: Often, yes. We check what your current tools allow before recommending anything new, and we prefer to build on what already works.
+  - q: How do you make sure a change works for our team?
+    a: We involve the people who do the work from the start, test with real examples, and keep a person in charge of anything that matters.
+  - q: What if AI isn’t the right answer?
+    a: We’ll tell you. A clearer process, a shared template or a feature in a tool you already pay for can be the better fix.
+  - q: What happens after we get in touch?
+    a: We read your message and reply by email. If it helps, we suggest a conversation to understand what you’d like to make easier.
+- type: contact
+  id: contact
+  heading: What would you like to make easier?
+  lead: Tell us what takes too much time, what feels difficult, or what you’re curious about. We can work out a sensible next step together.
+  email_label: Prefer email?
+  next_title: What happens next
+  next_text: We read your message and reply by email. If it helps, we suggest a conversation to understand more.
+  error_preview: true

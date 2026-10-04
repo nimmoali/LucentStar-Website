@@ -1,3 +1,7 @@
+## Published follow-up, 4 October 2026
+
+Approved homepage introduction, consulting-led services, direct product cards and separate About page. LucentAlba replaces the public LucentAlbedo name, using #24105E for its wordmark. Legacy product pages redirect to /lucentalba. The approved five-step partnership copy is retained. Public forms retain their released disabled configuration and email fallback. Earlier records below describe historical states.
+
 # Website decision record
 
 Keeps owner decisions, proposed choices, what the preview implements, what was tested and the live state apart. Newest first. Earlier rounds are summarised at the end; the full Round 1 to 3 record is in the project's decision record.

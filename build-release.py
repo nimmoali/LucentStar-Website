@@ -22,7 +22,10 @@ panel=(shared/'enquiry-panel.html').read_text()
 head=f'''<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="{prefix}/lucentstar-shell.css"><script src="{prefix}/lucentstar-mode.js"></script><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/favicon.ico"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">'''
 scripts=f'<script src="{prefix}/lucentstar-shell.js"></script><script src="{prefix}/lucentstar-enquiry.js"></script>'
 for p in (SOURCE/'content/retained').rglob('*.html'):
-    rel=p.relative_to(SOURCE/'content/retained'); original=p.read_text()
+    rel=p.relative_to(SOURCE/'content/retained')
+    # Current generated business About takes precedence over the retained legacy body.
+    if (SOURCE/'dist/site'/rel).is_file(): continue
+    original=p.read_text()
     original_head=re.search(r'<head[^>]*>(.*?)</head>',original,re.S|re.I).group(1)
     metadata='\n'.join(re.findall(r'<(?:meta|title|link\s+rel="canonical")[^>]*>(?:[^<]*</title>)?|<script\s+type="application/ld\+json"[^>]*>.*?</script>',original_head,re.S|re.I))
     main=re.search(r'<main[^>]*>.*?</main>',original,re.S|re.I).group(0).replace('<main ', '<main id="main" tabindex="-1" ',1)
@@ -30,13 +33,16 @@ for p in (SOURCE/'content/retained').rglob('*.html'):
 
 (ROOT/'help/index.html').write_text((ROOT/'help.html').read_text())
 
-# Existing HTML addresses stay. Directory output supplies a reliable Pages clean route.
-albedo=(ROOT/'lucentalbedo.html').read_text()
+# Clean routes plus explicit static page redirects for legacy product addresses.
+for slug in ['lucentalba', 'about']:
+    (ROOT/slug).mkdir(exist_ok=True)
+    (ROOT/slug/'index.html').write_text((ROOT/(slug+'.html')).read_text())
+redirect='<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/lucentalba"><link rel="canonical" href="https://lucentstar.ai/lucentalba"><title>LucentAlba</title></head><body><p>This product is now LucentAlba. <a href="/lucentalba">Visit LucentAlba</a>.</p></body></html>'
+(ROOT/'lucentalbedo.html').write_text(redirect)
 (ROOT/'lucentalbedo').mkdir(exist_ok=True)
-(ROOT/'lucentalbedo/index.html').write_text(albedo)
-sitemap=(ROOT/'sitemap.xml').read_text()
-if 'https://lucentstar.ai/lucentalbedo<' not in sitemap:
-    (ROOT/'sitemap.xml').write_text(sitemap.replace('</urlset>','  <url><loc>https://lucentstar.ai/lucentalbedo</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>\n</urlset>'))
+(ROOT/'lucentalbedo/index.html').write_text(redirect)
+sitemap=(ROOT/'sitemap.xml').read_text().replace('https://lucentstar.ai/lucentalbedo<','https://lucentstar.ai/lucentalba<')
+(ROOT/'sitemap.xml').write_text(sitemap)
 shutil.copy2(ROOT/'assets/favicon.ico', ROOT/'favicon.ico')
 (ROOT/'.nojekyll').touch()
 

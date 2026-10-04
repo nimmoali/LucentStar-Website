@@ -10,7 +10,7 @@
 <section class="hero" id="top" aria-labelledby="hero-h">
   <div class="wrap opening hero-copy">
     <h1 class="h-title" id="hero-h" tabindex="-1">{{ s.heading | inline }}</h1>
-    <p class="intro">{{ s.lead | inline }}</p>
+    {% if s.lead_paragraphs %}{% for paragraph in s.lead_paragraphs %}<p class="intro">{{ paragraph | inline }}</p>{% endfor %}{% else %}<p class="intro">{{ s.lead | inline }}</p>{% endif %}
     {{ ui.actions(s.actions) }}
   </div>
   <div class="hero-stage" id="hero-stage" data-examples data-default="{{ current }}">

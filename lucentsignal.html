@@ -275,13 +275,14 @@ p{text-wrap:pretty}
    on dark ones; the product half keeps its own colour on both. The two halves are
    inline spans with no space between them, so the accessible name and copied
    text stay the full product name. Ordinary mentions in sentences stay plain
-   text. Colours: Signal #00E676, Albedo #7759B3, other products navy (white on
+   text. Colours: Signal #00E676, Alba #24105E, other products navy (white on
    dark) until they are given a colour. */
 .wm{font-weight:700;white-space:nowrap}
 .wm-light .wm-lead{color:var(--wm-lucent)}
 .wm-dark .wm-lead{color:var(--white)}
 .wm-signal .wm-tail{color:var(--green)}
-.wm-albedo .wm-tail{color:var(--a-3)}
+.wm-albedo .wm-tail{color:var(--a-ink)}
+.wm-albedo.wm-dark .wm-tail{background:var(--white);border-radius:4px;padding:0 .12em}
 .wm-neutral.wm-light .wm-tail{color:var(--navy)}
 .wm-neutral.wm-dark .wm-tail{color:var(--s-muted)}
 
@@ -2066,12 +2067,12 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
           <button class="nav-link nav-btn is-current" type="button" id="prod-btn" aria-expanded="false" aria-controls="prod-menu" data-spy="products">Our products<svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button>
           <div class="prod-menu" id="prod-menu" hidden>
             <a class="pm-item" href="#top"><span class="pm-name"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></span><span class="pm-desc">Turn your expertise into LinkedIn content, in your own voice.</span><span class="pm-go"><span class="ul">See features and pricing</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-            <a class="pm-item" href="/lucentalbedo"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Albedo</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span><span class="pm-go"><span class="ul">See planned features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            <a class="pm-item" href="/lucentalba"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span><span class="pm-go"><span class="ul">See planned features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
             <div class="pm-foot"><span>Already using LucentSignal? <a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in</a></span><a href="/#contact">Not sure which fits? Let’s talk</a></div>
           </div>
         </li>
         <li><a class="nav-link" href="/#approach" data-spy="approach">Our approach</a></li>
-        <li><a class="nav-link" href="/#about" data-spy="about">About</a></li>
+        <li><a class="nav-link" href="/about" data-spy="about">About</a></li>
         <li><a class="nav-link" href="https://blog.lucentstar.ai/" data-spy="blog">Blog</a></li>
       </ul>
     </nav>
@@ -2087,10 +2088,10 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
           <li style="--i:0"><a class="mm-a" href="/#help">How we help<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
           <li style="--i:1"><p class="mm-label">Our products</p>
 <a class="mm-prod" href="#top"><span class="pm-name"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></span><span class="pm-desc">Turn your expertise into LinkedIn content.</span></a>
-<a class="mm-prod" href="/lucentalbedo"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Albedo</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span></a>
+<a class="mm-prod" href="/lucentalba"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span></a>
           </li>
           <li style="--i:2"><a class="mm-a" href="/#approach">Our approach<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-          <li style="--i:3"><a class="mm-a" href="/#about">About<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+          <li style="--i:3"><a class="mm-a" href="/about">About<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
           <li style="--i:4"><a class="mm-a" href="https://blog.lucentstar.ai/">Blog<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         </ul>
       </nav>
@@ -2593,7 +2594,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   <div class="wrap">
     <div class="band" data-reveal="text">
       <h2 class="h2" id="start-h">Take an idea you’ve been sitting on and turn it into something you’d <span class="em">actually post.</span></h2>
-<p class="lead">Write, score and refine your first posts free. No card needed.</p>      <div class="cta-row">
+<p class="lead">Write and score your first posts free, then edit them in your own words. No card needed.</p>      <div class="cta-row">
 <a class="btn btn-primary" href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a>
 <a class="tlink" href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener"><span>Sign in</span><span class="sr"> to LucentSignal</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 </div>
@@ -2612,9 +2613,9 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <nav aria-labelledby="f1"><h2 class="ftr-h" id="f1">How we help</h2><ul class="ftr-list">
 <li><a href="/#workflows">AI workflows</a></li><li><a href="/#bespoke">Bespoke AI projects</a></li><li><a href="/#visibility">AI visibility reporting</a></li>      </ul></nav>
       <nav aria-labelledby="f2"><h2 class="ftr-h" id="f2">Products</h2><ul class="ftr-list">
-<li><a href="#top">LucentSignal</a></li><li><a href="/lucentalbedo">LucentAlbedo</a></li><li><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a></li><li><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to LucentSignal</a></li><li><a href="https://lucentstar.ai/pricing">Pricing</a></li><li><a href="https://lucentstar.ai/help">Help</a></li>      </ul></nav>
+<li><a href="#top">LucentSignal</a></li><li><a href="/lucentalba">LucentAlba</a></li><li><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a></li><li><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to LucentSignal</a></li><li><a href="https://lucentstar.ai/pricing">Pricing</a></li><li><a href="https://lucentstar.ai/help">Help</a></li>      </ul></nav>
       <nav aria-labelledby="f3"><h2 class="ftr-h" id="f3">Company</h2><ul class="ftr-list">
-<li><a href="/#about">About</a></li><li><a href="/#approach">Our approach</a></li><li><a href="https://blog.lucentstar.ai/">Blog</a></li><li><a href="/#contact">Contact</a></li>      </ul></nav>
+<li><a href="/about">About</a></li><li><a href="/#approach">Our approach</a></li><li><a href="https://blog.lucentstar.ai/">Blog</a></li><li><a href="/#contact">Contact</a></li>      </ul></nav>
       <nav aria-labelledby="f4"><h2 class="ftr-h" id="f4">Legal</h2><ul class="ftr-list">
 <li><a href="https://lucentstar.ai/privacy">Privacy Notice</a></li><li><a href="https://lucentstar.ai/terms">Terms of service</a></li><li><a href="https://lucentstar.ai/cookie-policy">Cookie policy</a></li><li><a href="https://lucentstar.ai/cookie-settings">Cookie settings</a></li><li><a href="https://lucentstar.ai/acceptable-use">Acceptable use</a></li><li><a href="https://lucentstar.ai/ai-transparency">AI transparency</a></li><li><a href="https://lucentstar.ai/accessibility">Accessibility</a></li><li><a href="https://lucentstar.ai/subprocessors">Subprocessors</a></li>      </ul></nav>
     </div>
@@ -2692,6 +2693,11 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 (function(){
   'use strict';
   var html=document.documentElement;
+  // Existing homepage bookmarks lead to the full pages after the section move.
+  if(location.pathname==='/' || /\/index\.html$/.test(location.pathname)){
+    var moved={'#about':'/about','#signal':'/lucentsignal','#albedo':'/lucentalba'};
+    if(moved[location.hash]){location.replace(moved[location.hash]);return;}
+  }
   var LS=window.LS={};
   LS.$=function(s,r){return (r||document).querySelector(s)};
   LS.$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};

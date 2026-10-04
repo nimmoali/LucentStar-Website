@@ -1,7 +1,7 @@
-# LucentAlbedo product page. It reuses the shared header, footer, contact
+# LucentAlba product page. It reuses the shared header, footer, contact
 # panel, product showcase, question list and contact form, and adds its own
 # visual story (stories) and two small components (features and ways).
-# Product facts come from content/products/lucentalbedo.yaml, so the
+# Product facts come from content/products/lucentalba.yaml, so the
 # homepage and this page stay in step.
 #
 # The journey (owner's brief, 1 October 2026): the AI visibility problem,
@@ -9,11 +9,11 @@
 # then the two ways to work with us, then the planned online version (the
 # report design and the planned features), kept clearly separate.
 
-slug: lucentalbedo
-url: /lucentalbedo
-title: LucentAlbedo
-seo_title: LucentAlbedo | AI visibility reporting from LucentStar AI
-description: LucentAlbedo, coming soon from LucentStar AI, is being built to show how your business appears in AI answers, with the evidence behind each finding.
+slug: lucentalba
+url: /lucentalba
+title: LucentAlba
+seo_title: LucentAlba | AI visibility reporting from LucentStar AI
+description: LucentAlba, coming soon from LucentStar AI, is being built to show how your business appears in AI answers, with the evidence behind each finding.
 nav_current: products
 theme: albedo          # Albedo purple for heading emphasis, buttons, links and the contact launcher
 extra_icons: true      # the story's picture uses icons from partials/icons-extra.html
@@ -23,7 +23,7 @@ sections:
   - type: page_hero
     product: albedo
     heading: Understand how your business appears in *AI answers.*
-    lead: When people ask AI tools about the kind of products or services you offer, does your business appear, and how is it described? One answer won’t tell you. LucentAlbedo is being built to show you the evidence across the questions that matter, and help you decide what deserves attention.
+    lead: When people ask AI tools about the kind of products or services you offer, does your business appear, and how is it described? One answer won’t tell you. LucentAlba is being built to show you the evidence across the questions that matter, and help you decide what deserves attention.
     actions:
       - {label: Talk about AI visibility, href: "@contact", style: primary, topic: visibility}
       - {label: See how we approach it, href: "#evidence", icon: down}
@@ -140,9 +140,9 @@ sections:
   - type: faq
     id: questions
     spy_as: products
-    heading: Questions about LucentAlbedo
+    heading: Questions about LucentAlba
     items:
-      - q: Is LucentAlbedo available now?
+      - q: Is LucentAlba available now?
         a: Not yet. It’s coming soon, and a limited online version is planned. Contact us to discuss a consulting project and agree its scope and deliverables.
       - q: Which AI assistants will it cover?
         a: Coverage will be announced when the online version is ready. The scope of any consulting project is agreed before work begins.

@@ -1,5 +1,5 @@
 {# Product tiles, built from content/products/. Each tile leads to the
-   product's showcase further down the homepage. #}
+   product's full detail page. #}
 {% import 'macros.html' as ui with context %}
 <section class="sec" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h" style="padding-bottom:48px">
   <div class="wrap">
@@ -9,11 +9,11 @@
     </header>
     <div class="pi-grid" data-reveal="text">
       {% for p in products %}
-      <a class="pi-tile{{ ' pi-a' if p.accent == 'albedo' else '' }}" href="{{ link(p.destinations.section) }}">
+      <a class="pi-tile{{ ' pi-a' if p.accent == 'albedo' else '' }}" href="{{ link(p.destinations.detail_page) }}">
         <span class="pi-name">{{ ui.dot(p.accent) }}{{ wordmark(p) }}{{ ui.status(p) }}</span>
         <span class="pi-h">{{ p.tile_heading }}</span>
         <span class="pi-p">{{ p.tile_text }}</span>
-        <span class="pi-go"><span class="ul">{{ p.tile_link or s.tile_link }}</span>{{ ui.icon('down') }}</span>
+        <span class="pi-go"><span class="ul">{{ p.tile_link or s.tile_link }}</span>{{ ui.icon('arrow') }}</span>
       </a>
       {% endfor %}
     </div>

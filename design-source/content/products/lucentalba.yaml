@@ -1,6 +1,6 @@
 id: albedo
 order: 2
-name: LucentAlbedo
+name: LucentAlba
 accent: albedo
 
 menu_text: Understand how your business appears in AI answers.
@@ -18,8 +18,8 @@ availability:
   label: Coming soon
 
 destinations:
-  section: "index#albedo"
-  detail_page: lucentalbedo
+  section: "lucentalba"
+  detail_page: lucentalba
   menu_link_label: See planned features
   try: ""
   try_label: ""
@@ -67,10 +67,10 @@ ways:
 showcase: albedo
 showcase_content:
   heading: Understand how your business appears in AI answers.
-  lead: When someone asks an AI tool about the kind of products or services you offer, does your business appear? How is it described, and what supports that answer? LucentAlbedo is being built to show you the evidence and help you decide what deserves attention.
+  lead: When someone asks an AI tool about the kind of products or services you offer, does your business appear? How is it described, and what supports that answer? LucentAlba is being built to show you the evidence and help you decide what deserves attention.
   actions:
     - {label: Talk about AI visibility, href: "@contact", style: pill, topic: visibility}
-    - {label: See planned features, href: "lucentalbedo#features", sr: " for LucentAlbedo"}
+    - {label: See planned features, href: "lucentalba#features", sr: " for LucentAlba"}
   steps_label: How a report comes together, in four steps
   # Shown above the report on the homepage: the report is the planned online
   # version's design, not today's consulting deliverable or a live product

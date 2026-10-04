@@ -30,7 +30,7 @@ availability:
 
 # Where visitors go. Leave a field empty when the destination does not exist yet.
 destinations:
-  section: "index#signal"                              # showcase on the homepage
+  section: "lucentsignal"                              # showcase on the homepage
   detail_page: lucentsignal                            # the full product page, /lucentsignal.html
   menu_link_label: See features and pricing
   try: https://signalapp.lucentstar.ai/register

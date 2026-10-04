@@ -47,10 +47,9 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(ROOT, 'dist')
 FONTS = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap'
 BANNED = ['supercharge', 'leverage', 'unlock', 'game-changing', 'game changing', 'revolutionise', 'revolutionize', 'streamline']
-# Whole words the owner has ruled out of everything the site shows (owner decision,
-# 1 October 2026: never "most"). Checked in every built page's visible text, titles
-# and descriptions, and in content and templates; the docs may still discuss them.
-SITE_WORDS = ['most']
+# No additional blanket word bans are confirmed. Keep the approved copy;
+# the prior "most" prohibition was an unconfirmed review interpretation.
+SITE_WORDS = []
 REFERENCE_ONLY_CSS = {'20-reference.css'}
 EXTERNAL = ('http://', 'https://', 'mailto:', 'tel:')
 

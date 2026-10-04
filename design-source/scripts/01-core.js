@@ -7,6 +7,11 @@
 (function(){
   'use strict';
   var html=document.documentElement;
+  // Existing homepage bookmarks lead to the full pages after the section move.
+  if(location.pathname==='/' || /\/index\.html$/.test(location.pathname)){
+    var moved={'#about':'/about','#signal':'/lucentsignal','#albedo':'/lucentalba'};
+    if(moved[location.hash]){location.replace(moved[location.hash]);return;}
+  }
   var LS=window.LS={};
   LS.$=function(s,r){return (r||document).querySelector(s)};
   LS.$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};

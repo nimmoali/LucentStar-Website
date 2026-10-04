@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="LucentStar AI is a practical AI consulting partner for businesses and smaller in-house teams, supported by two focused products, LucentSignal and LucentAlbedo.">
+<meta name="description" content="LucentStar AI is a practical AI consulting partner for businesses and smaller in-house teams, supported by two focused products, LucentSignal and LucentAlba.">
 <title>LucentStar AI | Practical AI, built around your business</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/favicon.ico"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://lucentstar.ai/">
@@ -157,13 +157,14 @@ p{text-wrap:pretty}
    on dark ones; the product half keeps its own colour on both. The two halves are
    inline spans with no space between them, so the accessible name and copied
    text stay the full product name. Ordinary mentions in sentences stay plain
-   text. Colours: Signal #00E676, Albedo #7759B3, other products navy (white on
+   text. Colours: Signal #00E676, Alba #24105E, other products navy (white on
    dark) until they are given a colour. */
 .wm{font-weight:700;white-space:nowrap}
 .wm-light .wm-lead{color:var(--wm-lucent)}
 .wm-dark .wm-lead{color:var(--white)}
 .wm-signal .wm-tail{color:var(--green)}
-.wm-albedo .wm-tail{color:var(--a-3)}
+.wm-albedo .wm-tail{color:var(--a-ink)}
+.wm-albedo.wm-dark .wm-tail{background:var(--white);border-radius:4px;padding:0 .12em}
 .wm-neutral.wm-light .wm-tail{color:var(--navy)}
 .wm-neutral.wm-dark .wm-tail{color:var(--s-muted)}
 
@@ -1948,12 +1949,12 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
           <button class="nav-link nav-btn" type="button" id="prod-btn" aria-expanded="false" aria-controls="prod-menu" data-spy="products">Our products<svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button>
           <div class="prod-menu" id="prod-menu" hidden>
             <a class="pm-item" href="/lucentsignal.html"><span class="pm-name"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></span><span class="pm-desc">Turn your expertise into LinkedIn content, in your own voice.</span><span class="pm-go"><span class="ul">See features and pricing</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-            <a class="pm-item" href="/lucentalbedo"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Albedo</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span><span class="pm-go"><span class="ul">See planned features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            <a class="pm-item" href="/lucentalba"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span><span class="pm-go"><span class="ul">See planned features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
             <div class="pm-foot"><span>Already using LucentSignal? <a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in</a></span><a href="#contact">Not sure which fits? Let’s talk</a></div>
           </div>
         </li>
         <li><a class="nav-link" href="#approach" data-spy="approach">Our approach</a></li>
-        <li><a class="nav-link" href="#about" data-spy="about">About</a></li>
+        <li><a class="nav-link" href="/about" data-spy="about">About</a></li>
         <li><a class="nav-link" href="https://blog.lucentstar.ai/" data-spy="blog">Blog</a></li>
       </ul>
     </nav>
@@ -1969,10 +1970,10 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
           <li style="--i:0"><a class="mm-a" href="#help">How we help<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
           <li style="--i:1"><p class="mm-label">Our products</p>
 <a class="mm-prod" href="/lucentsignal.html"><span class="pm-name"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></span><span class="pm-desc">Turn your expertise into LinkedIn content.</span></a>
-<a class="mm-prod" href="/lucentalbedo"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Albedo</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span></a>
+<a class="mm-prod" href="/lucentalba"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span></a>
           </li>
           <li style="--i:2"><a class="mm-a" href="#approach">Our approach<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-          <li style="--i:3"><a class="mm-a" href="#about">About<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+          <li style="--i:3"><a class="mm-a" href="/about">About<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
           <li style="--i:4"><a class="mm-a" href="https://blog.lucentstar.ai/">Blog<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         </ul>
       </nav>
@@ -1984,8 +1985,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 <section class="hero" id="top" aria-labelledby="hero-h">
   <div class="wrap opening hero-copy">
     <h1 class="h-title" id="hero-h" tabindex="-1">Practical AI, <span class="em">built around your business.</span></h1>
-    <p class="intro">We’re a practical AI consulting partner for businesses and smaller in-house teams, working closely with you from how AI answers describe you to everyday marketing work. Two focused products support that work: LucentSignal, available now, and LucentAlbedo, coming soon.</p>
-    <div class="cta-row">
+<p class="intro">We work alongside businesses and in-house teams to find practical ways to use AI, from individual projects to everyday workflows. We bring the AI expertise, work closely with your team, and build around how your business actually works.</p><p class="intro">We also build focused AI products of our own: LucentSignal, available now, and LucentAlba, coming soon.</p>    <div class="cta-row">
 <a class="btn btn-primary" href="#contact">Let’s talk</a>
 <a class="tlink down" href="#help"><span>See how we can help</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
 </div>
@@ -2044,7 +2044,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     </div>
   </div>
 </div><div class="hx en-ui" data-example="dmc">
-  <div class="en-top"><span class="en-logo" style="background:#1F3A2E">AT</span><span class="en-name">Alba Trails</span><span class="en-tabs"><span class="is-on">Requests</span><span>Itineraries</span><span>Suppliers</span></span><span class="en-av">EM</span></div>
+  <div class="en-top"><span class="en-logo" style="background:#1F3A2E">RT</span><span class="en-name">Rowan Trails</span><span class="en-tabs"><span class="is-on">Requests</span><span>Itineraries</span><span>Suppliers</span></span><span class="en-av">EM</span></div>
   <div class="en-body">
     <div class="en-list">
       <p class="en-k">Today</p>
@@ -2114,7 +2114,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 <div class="hx en-m has-photo" data-example="dmc">
 <div class="enp-photo" style="--tint:#626666"><picture class="en-pic">
   <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/examples/dmc-skye-800.jpg" data-srcset="/assets/examples/dmc-skye-480.jpg 480w, /assets/examples/dmc-skye-800.jpg 800w, /assets/examples/dmc-skye-1200.jpg 1200w, /assets/examples/dmc-skye-1600.jpg 1600w" sizes="(max-width: 760px) 340px, 300px" width="1600" height="1067" alt="" decoding="async" data-example-img style="object-position:62% 46%">
-</picture></div>  <header class="enm-top"><span class="enc-logo" style="background:#1F3A2E">AT</span><div><p class="enm-h">Requests</p><p class="enm-s">Alba Trails · Today</p></div></header>
+</picture></div>  <header class="enm-top"><span class="enc-logo" style="background:#1F3A2E">RT</span><div><p class="enm-h">Requests</p><p class="enm-s">Rowan Trails · Today</p></div></header>
   <div class="enm-card"><span class="en-chip is-ready">Draft ready</span><p class="enm-who">Nordvik Travel</p><p class="enm-sub">Group of 24, Highlands, May</p><p class="enm-ex">Five nights on our Highlands circuit: Inverness, Loch Ness, Speyside and Skye…</p><div class="enm-acts"><span class="en-b2">Review</span><span class="en-b1">Approve</span></div></div>
   <div class="enm-card"><span class="en-chip is-person">Needs a person</span><p class="enm-sub">Harbourline Tours asked for a private whisky tasting. Passed to you.</p></div>
 </div>
@@ -2134,11 +2134,11 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   </div></div></div>
 </div>        <figcaption class="stage-cap hx-cap">
           <div class="hx-head">
-            <p class="hx-for" id="hx-label">Industries we’ve worked with</p>
-<p class="hx-intro" id="hx-intro">Our team brings experience from these industries. Here’s how we could apply AI to their everyday work.</p>          </div>
+            <p class="hx-for" id="hx-label">Ideas for everyday work</p>
+<p class="hx-intro" id="hx-intro">These examples draw on our team’s experience. Choose one to see how AI could support work like yours.</p>          </div>
           <div class="hx-switch" role="group" aria-labelledby="hx-label" aria-describedby="hx-intro">
-<button type="button" class="hx-btn" data-example-btn="marketing" aria-pressed="true">Marketing</button><button type="button" class="hx-btn" data-example-btn="agencies" aria-pressed="false">Agencies</button><button type="button" class="hx-btn" data-example-btn="dmc" aria-pressed="false">Travel DMCs</button><button type="button" class="hx-btn" data-example-btn="holiday-lets" aria-pressed="false">Holiday lets</button>          </div>
-          <p class="hx-text" id="hx-text" aria-live="polite"><span data-example-cap="marketing">A content tool that turns ideas and existing material, such as project notes and past posts, into drafts for someone on your team to review.</span><span data-example-cap="agencies" hidden>A reporting tool that drafts each client’s monthly commentary from the numbers, for an account lead to check before it’s sent.</span><span data-example-cap="dmc" hidden>A request tool that turns a tour operator’s email into a first proposal from a DMC’s own itineraries and rates, for a travel designer to check and price.</span><span data-example-cap="holiday-lets" hidden>A guest messaging assistant that answers routine questions from a holiday let’s own house guide, and passes anything unusual to the owner.</span></p>
+<button type="button" class="hx-btn" data-example-btn="marketing" aria-pressed="true">Marketing content</button><button type="button" class="hx-btn" data-example-btn="agencies" aria-pressed="false">Client reporting</button><button type="button" class="hx-btn" data-example-btn="dmc" aria-pressed="false">Travel proposals</button><button type="button" class="hx-btn" data-example-btn="holiday-lets" aria-pressed="false">Guest questions</button>          </div>
+          <p class="hx-text" id="hx-text" aria-live="polite"><span data-example-cap="marketing">Turn your project notes and past material into drafts, ready for your team to check the facts and wording.</span><span data-example-cap="agencies" hidden>Draft client commentary from report figures, with an account lead checking the interpretation before it goes out.</span><span data-example-cap="dmc" hidden>Build a first travel proposal from your own itineraries and rates, with a travel designer checking prices and availability.</span><span data-example-cap="holiday-lets" hidden>Answer routine guest questions from your house guide, and pass exceptions to a person.</span></p>
         </figcaption>
       </figure>
     </div>
@@ -2150,18 +2150,18 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   <div class="wrap">
     <header class="sec-head center svc-intro">
       <h2 class="h2" id="help-h">How we can help</h2>
-      <p class="lead">Consulting comes first. Here are two problems you might recognise, where our products fit, and bespoke help for anything else.</p>
+      <p class="lead">Bring us the work you want to make easier. We start with your business, the people doing the work and the tools you already use, then work out whether AI could help. These are a few starting points, not the limits of what we can discuss.</p>
     </header>
     <div class="svc-story" data-seq="services">
       <div class="svc-chapters">
         <article class="chap" id="visibility" tabindex="-1" data-step aria-labelledby="c0-h">
           <div class="chap-txt">
             <p class="chap-k"><span class="chap-n">01</span>AI visibility</p>
-            <h3 class="h3" id="c0-h">AI answers are hard to measure.</h3>
-            <p class="chap-body">They shift with the wording, the assistant and the day you ask, and no single score settles it across models. That makes it hard to know what AI is really saying about your business.</p>
-            <p class="ex-h">You might also recognise</p>
-            <ul class="ex star-list"><li>Your business left out of answers, or described inaccurately</li><li>No clear view of the sources the answers rely on</li><li>Not knowing which finding to act on first</li></ul>
-<p class="chap-prod"><span class="dot dot-a" aria-hidden="true"></span><span>Our visibility product, LucentAlbedo, is coming soon. Contact us to discuss a consulting project.</span></p>            <div class="chap-links"><a class="tlink" href="/lucentalbedo"><span>See how we approach it</span><span class="sr"> on the LucentAlbedo page</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="tlink" href="#contact" data-topic="visibility"><span>Talk about AI visibility</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            <h3 class="h3" id="c0-h">Understand what AI answers say about your business.</h3>
+            <p class="chap-body">A single prompt can give a misleading picture. Answers change with the wording, assistant and date. We can agree a useful set of questions and conditions, examine how your business is described and which sources are cited, and discuss what the evidence supports. There is no universal score or promised outcome.</p>
+            <p class="ex-h">For example, we could help with</p>
+            <ul class="ex star-list"><li>Comparing how your services are described across agreed questions</li><li>Checking mentions, recommendations and cited sources separately</li><li>Identifying changes worth considering, with the limits made clear</li></ul>
+            <div class="chap-links"><a class="tlink" href="#contact" data-topic="visibility"><span>Talk through an AI visibility question</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
           </div>
           <div class="chap-vis" data-reveal data-beats aria-hidden="true"><div class="v"><p class="v-title b1">Same question, different answers</p>
 <div class="v-bubble b1">Who are good interior designers in Manchester for small offices?</div>
@@ -2184,11 +2184,11 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         <article class="chap" id="workflows" tabindex="-1" data-step aria-labelledby="c1-h">
           <div class="chap-txt">
             <p class="chap-k"><span class="chap-n">02</span>AI workflows in marketing</p>
-            <h3 class="h3" id="c1-h">Good material, scattered everywhere, and a deadline every week.</h3>
-            <p class="chap-body">Small marketing teams have plenty to say and little time to pull it together. Ideas, notes and past work are spread across the tools you already use, and the drafting never stops.</p>
-            <p class="ex-h">You might also recognise</p>
-            <ul class="ex star-list"><li>Ideas in chat threads, and material nobody can find when it’s needed</li><li>The same newsletter, case study and posts to draft every month</li><li>Review squeezed in just before the deadline</li></ul>
-<p class="chap-prod"><span class="dot dot-s" aria-hidden="true"></span><span>For LinkedIn, LucentSignal is available now: it develops your ideas into drafts with editorial guidance. For wider workflows, we build around your team’s own tools.</span></p>            <div class="chap-links"><a class="tlink" href="/lucentsignal.html"><span>See how LucentSignal helps</span><span class="sr"> on the LucentSignal page</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="tlink" href="#contact" data-topic="workflows"><span>Talk to us about a workflow</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            <h3 class="h3" id="c1-h">Make recurring marketing work easier to manage.</h3>
+            <p class="chap-body">We help businesses and smaller in-house marketing teams design and implement workflows around their own material and tools. That could mean gathering inputs, drafting or coordinating review. We test on real examples, check quality, and agree where people review, approve or take over.</p>
+            <p class="ex-h">For example, we could help with</p>
+            <ul class="ex star-list"><li>Turning notes and existing material into a newsletter draft</li><li>Preparing report commentary for someone to check</li><li>Bringing briefs, drafts and feedback into a clearer review process</li></ul>
+            <div class="chap-links"><a class="tlink" href="#contact" data-topic="workflows"><span>Talk through your marketing work</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
           </div>
           <div class="chap-vis" data-reveal data-beats aria-hidden="true"><div class="v"><p class="v-title b1">Scattered material, one useful draft</p>
 <div class="v-wf-grid">
@@ -2205,11 +2205,11 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         <article class="chap" id="bespoke" tabindex="-1" data-step aria-labelledby="c2-h">
           <div class="chap-txt">
             <p class="chap-k"><span class="chap-n">03</span>Bespoke AI projects</p>
-            <h3 class="h3" id="c2-h">A focused tool for a particular need.</h3>
-            <p class="chap-body">When an existing product isn’t enough, we design and build something around the problem. We agree what it needs to do, and who it’s for, before choosing any technology.</p>
-            <p class="ex-h">For example</p>
-            <ul class="ex star-list"><li>A tool that answers staff questions from your own guidance</li><li>A guided form that turns customer details into a proposal draft</li><li>A checker that reviews documents against your house rules</li></ul>
-            <div class="chap-links"><a class="tlink" href="#contact" data-topic="bespoke"><span>Discuss a project</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            <h3 class="h3" id="c2-h">Build a focused tool around a real need.</h3>
+            <p class="chap-body">Tell us where the work gets difficult. We look at what your existing tools can do before deciding whether to build something bespoke. If a new tool makes sense, we agree who it is for, what it needs to do and how to test it, with clear points for people to check or take over.</p>
+            <p class="ex-h">For example, we could help with</p>
+            <ul class="ex star-list"><li>Helping staff find answers in your own approved guidance</li><li>Turning an enquiry into a proposal draft for review</li><li>Checking a document against your house rules</li></ul>
+            <div class="chap-links"><a class="tlink" href="#contact" data-topic="bespoke"><span>Talk through a project idea</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
           </div>
           <div class="chap-vis" data-reveal data-beats aria-hidden="true"><div class="v"><p class="v-title b1">A focused tool for one need</p>
 <div class="v-card v-win b1">
@@ -2269,7 +2269,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         </div>
       </div>
     </div>
-  </div>
+<p class="svc-foot"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Your starting point may be different. We can talk it through and decide together whether there’s a useful next step.</span></p>  </div>
 </section>
 <section class="sec sec-cloud" id="approach" tabindex="-1" aria-labelledby="approach-h">
   <div class="wrap">
@@ -2344,179 +2344,22 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <p class="lead">Alongside our consulting, we make focused products. Each one is built to support your judgement, not replace it.</p>
     </header>
     <div class="pi-grid" data-reveal="text">
-      <a class="pi-tile" href="#signal">
+      <a class="pi-tile" href="/lucentsignal.html">
         <span class="pi-name"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></span>
         <span class="pi-h">Turn your expertise into LinkedIn content.</span>
         <span class="pi-p">Develop ideas into drafts shaped by your voice, get feedback on each draft and plan what to post.</span>
-        <span class="pi-go"><span class="ul">See it in action</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></span>
+        <span class="pi-go"><span class="ul">See it in action</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>
       </a>
-      <a class="pi-tile pi-a" href="#albedo">
-        <span class="pi-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Albedo</span></span><span class="status status-coming_soon">Coming soon</span></span>
+      <a class="pi-tile pi-a" href="/lucentalba">
+        <span class="pi-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="status status-coming_soon">Coming soon</span></span>
         <span class="pi-h">Understand how your business appears in AI answers.</span>
         <span class="pi-p">Being built to show the questions, the answers and the evidence, so you can decide which next steps deserve attention.</span>
-        <span class="pi-go"><span class="ul">See the planned design</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></span>
+        <span class="pi-go"><span class="ul">See the planned design</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>
       </a>
     </div>
   </div>
 </section>
-<section class="prod-sec" id="signal" data-spy-as="products" tabindex="-1" aria-labelledby="signal-h">
-  <div class="wrap prod-head">
-    <p class="chip-prod"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></p>
-    <h2 class="h2" id="signal-h">Turn your expertise into LinkedIn content.</h2>
-    <p class="lead">LucentSignal helps you develop ideas into posts that sound like you, shows you the reason behind every score, and helps you plan what to publish. You stay in charge of every word.</p>
-    <div class="cta-row">
-<a class="btn btn-secondary" href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a>
-<a class="tlink" href="/lucentsignal.html"><span>See features and pricing</span><span class="sr"> for LucentSignal</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-<a class="tlink" href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener"><span>Sign in</span><span class="sr"> to LucentSignal</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-</div>
-  </div>
-  <div class="sig-track" id="signal-track" data-stage="signal" data-stages="4" data-cuts="0.18,0.5,0.8">
-    <div class="sig-pin">
-      <div class="wrap">
-        <div class="sig-dev" data-stage-push>
-<div class="lp " aria-hidden="true">
-  <div class="lp-lid"><span class="lp-cam"></span>
-    <div class="lp-scr"><div class="lp-ui sg-ui"><div class="sg-canvas" data-zoom>
-            <div class="sg-top"><svg class="sg-logo" viewBox="0 0 56 56"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg><span class="wm wm-dark wm-signal sg-word" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="sg-nav"><span class="is-on">Write</span><span>Content calendar</span><span>Library</span></span><span class="sg-av">JM</span></div>
-            <div class="sg-body">
-              <div class="sg-card sg-idea">
-                <p class="sg-k">Your idea</p>
-                <p class="sg-topic">AI plans often skip the hard question: what should stop?</p>
-                <p class="sg-k">Writing style</p>
-                <div class="sg-seg"><span>Thoughtful</span><span class="is-on">Focused</span><span>Challenging</span></div>
-                <p class="sg-k">Ghostwriter</p>
-                <p class="sg-voice"><i></i>On, using your writing examples</p>
-                <span class="sg-btn">Write the draft</span>
-              </div>
-              <div class="sg-card sg-draft">
-                <p class="sg-k">Your draft</p>
-                <p class="sg-empty">Your draft will appear here once you start writing.</p>
-                <div class="sg-post">
-                  <p class="sg-hook"><span class="sg-old">AI plans often describe everything a business wants to add.</span><span class="sg-new">Plenty of AI plans list what to add. Few say what should stop.</span></p>
-<p>That’s the harder conversation, so it tends to get skipped.</p>
-<p>Roadmaps fill up with new tools and pilots, while the slow processes stay exactly where they were.</p>
-<p>Before the next roadmap, agree one process you’d happily retire.</p>
-                </div>
-                <div class="sg-pop"><p class="sg-pop-k">Hook feedback</p><p class="sg-pop-t">Hook could be sharper. Lead with the tension so readers see the point straight away.</p></div>
-                <p class="sg-edited"><svg class="ic"><use href="#i-check"/></svg>Edited by you</p>
-              </div>
-              <div class="sg-card sg-score">
-                <p class="sg-k">Post scoring</p>
-                <p class="sg-sc-empty">Scoring appears once there’s a draft to review.</p>
-                <div class="sg-sc-in">
-                  <div class="sg-ring"><svg viewBox="0 0 118 118"><circle cx="59" cy="59" r="51" fill="none" stroke="#232B42" stroke-width="8"/><circle cx="59" cy="59" r="51" fill="none" stroke="#00E676" stroke-width="8" stroke-linecap="round" stroke-dasharray="256 320" transform="rotate(-90 59 59)"/></svg><p><b>32</b><em>/40</em></p></div>
-                  <p class="sg-score-t">Your post scored 32/40</p>
-                  <ul class="sg-dims">
-<li><span>Hook</span><b>8/10</b><em>Clear, but the tension arrives late.</em></li>
-<li><span>Insight</span><b>9/10</b><em>Specific and useful.</em></li>
-<li class="is-warn"><span>Clarity</span><b>7/10</b><em>The middle repeats one idea.</em></li>
-<li><span>Closing</span><b>8/10</b><em>Memorable. Could be more concrete.</em></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="sg-bar"><span class="sg-plan"><svg class="ic"><use href="#i-cal"/></svg>Planned for Tuesday 13 October</span><span class="sg-bar-r"><span class="sg-note-s">You publish when you’re ready.</span><span class="sg-btn-o">Export</span></span></div>
-          </div></div></div>
-  </div>
-  <div class="lp-base"></div>
-</div>        </div>
-        <div class="sig-caps" role="group" aria-label="LucentSignal example stages">
-<button type="button" class="sig-cap" data-stage-cap="1"><b>1 · A rough idea</b><span>A sentence is enough. Choose how you want the argument to land.</span></button>
-<button type="button" class="sig-cap" data-stage-cap="2"><b>2 · A draft in your voice</b><span>Shaped by examples of your writing, then scored on hook, insight, clarity and closing.</span></button>
-<button type="button" class="sig-cap" data-stage-cap="3"><b>3 · Your review</b><span>Every score comes with the reason behind it. You decide what to change.</span></button>
-<button type="button" class="sig-cap" data-stage-cap="4"><b>4 · Plan, then publish</b><span>Add it to your calendar and export it. LucentSignal doesn’t post for you.</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="wrap sig-mobile">
-    <div class="sgm-wrap" data-reveal>
-<div class="ph " aria-hidden="true">
-  <div class="ph-frame"><div class="ph-scr"><div class="ph-ui sg-ui sgm">
-    <span class="ph-cam"></span>
-            <div class="sgm-top"><svg class="sg-logo" viewBox="0 0 56 56"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg><span class="wm wm-dark wm-signal sg-word" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></div>
-        <div class="sgm-card"><p class="sg-k">Your draft</p><p class="sgm-hook">Plenty of AI plans list what to add. Few say what should stop.</p><p class="sgm-p">That’s the harder conversation, so it tends to get skipped.</p><p class="sgm-p">Before the next roadmap, agree one process you’d happily retire.</p><span class="sgm-ed"><svg class="ic"><use href="#i-check"/></svg>Edited by you</span></div>
-        <div class="sgm-card"><p class="sg-k">Post scoring</p><p class="sgm-sc"><b>32</b><span>/40</span></p><ul class="sgm-dims"><li>Hook <b>8</b></li><li>Insight <b>9</b></li><li class="is-warn">Clarity <b>7</b></li><li>Closing <b>8</b></li></ul></div>
-        <div class="sgm-plan"><svg class="ic"><use href="#i-cal"/></svg>Planned for Tuesday 13 October</div>
 
-  </div></div></div>
-</div>    </div>
-    <ol class="stage-cards">
-<li class="stage-card" data-reveal="text"><span class="sc-n">1</span><div><b>A rough idea</b><p>A sentence is enough. Choose how you want the argument to land.</p></div></li>
-<li class="stage-card" data-reveal="text"><span class="sc-n">2</span><div><b>A draft in your voice</b><p>Shaped by examples of your writing, then scored on hook, insight, clarity and closing.</p></div></li>
-<li class="stage-card" data-reveal="text"><span class="sc-n">3</span><div><b>Your review</b><p>Every score comes with the reason behind it. You decide what to change.</p></div></li>
-<li class="stage-card" data-reveal="text"><span class="sc-n">4</span><div><b>Plan, then publish</b><p>Add it to your calendar and export it. LucentSignal doesn’t post for you.</p></div></li>
-    </ol>
-  </div>
-</section><section class="prod-sec sec-cloud" id="albedo" data-spy-as="products" tabindex="-1" aria-labelledby="albedo-h" style="background:var(--white)">
-  <div class="wrap prod-head">
-    <p class="chip-prod chip-a"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Albedo</span></span><span class="status status-coming_soon">Coming soon</span></p>
-    <h2 class="h2" id="albedo-h">Understand how your business appears in AI answers.</h2>
-    <p class="lead">When someone asks an AI tool about the kind of products or services you offer, does your business appear? How is it described, and what supports that answer? LucentAlbedo is being built to show you the evidence and help you decide what deserves attention.</p>
-    <div class="cta-row">
-<a class="btn btn-secondary" href="#contact" data-topic="visibility">Talk about AI visibility</a>
-<a class="tlink" href="/lucentalbedo#features"><span>See planned features</span><span class="sr"> for LucentAlbedo</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-</div>
-<p class="prod-note"><b>Coming soon.</b> A limited online version is planned. Contact us to discuss an AI visibility consulting project and agree an appropriate scope and deliverables.</p><p class="alb-planned"><span class="feat-status feat-planned">Planned</span><span>How a report is designed to work in the online version</span></p>  </div>
-  <div id="alb-example">
-    <div class="alb-track" id="albedo-track" data-stage="albedo" data-stages="4" data-cuts="0.25,0.5,0.75">
-      <div class="alb-pin">
-        <div class="wrap">
-          <div class="alb-grid" role="list" aria-label="How a report comes together, in four steps">
-<div class="co co-1" role="listitem" data-stage-cap="1"><span class="co-n">1</span><b>A buyer’s question</b><p>Written the way a real customer might ask it, and recorded exactly.</p></div>
-<div class="co co-2" role="listitem" data-stage-cap="2"><span class="co-n">2</span><b>The saved AI answer</b><p>Saved in full with the date, the tool and how it was asked. Here, Fernhill is named, but for homes rather than offices.</p></div>
-<div class="co co-3" role="listitem" data-stage-cap="3"><span class="co-n">3</span><b>The evidence</b><p>Mentions, recommendations and cited sources are kept separate. Anything we didn’t check stays “not assessed”, never zero.</p></div>
-<div class="co co-4" role="listitem" data-stage-cap="4"><span class="co-n">4</span><b>A clear next step</b><p>A proportionate action tied to the evidence. Next time, the same question would be asked the same way.</p></div>
-            <div class="alb-phone" data-stage-push>
-<div class="ph " aria-hidden="true">
-  <div class="ph-frame"><div class="ph-scr"><div class="ph-ui al-ui">
-    <span class="ph-cam"></span>
-                    <div class="al-top"><svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="13" fill="#7759B3"/><g transform="translate(28,28) scale(0.78) translate(-28,-28)"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#24105E"/></g></svg><span class="wm wm-light wm-albedo al-word" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Albedo</span></span><span class="al-tab">Evidence</span></div>
-                <div class="al-ctx"><span class="al-badge">FS</span><div><p class="al-ctx-k">Report for</p><p class="al-ctx-n">Fernhill Studio</p></div></div>
-                <div class="al-view" data-view><div class="al-stack" data-shift>
-                  <div class="al-layer al-l1"><p class="al-k">The buyer’s question</p><p class="al-q">“Who are good interior designers in Manchester for small office fit-outs?”</p><p class="al-meta">One general-purpose AI assistant · Signed out · UK · 14 September 2026</p></div>
-                  <div class="al-layer al-l2"><p class="al-k">Saved answer, excerpt</p><p class="al-ans">For small office fit-outs, Calder &amp; Moss and Atelier North are often recommended for commercial work. <mark>Fernhill Studio is another Manchester practice, mainly known for residential interiors.</mark></p><p class="al-src">Source cited <span>manchester-design-directory.example</span></p></div>
-                  <div class="al-layer al-l3"><p class="al-k">The evidence</p><dl class="al-ev"><div class="is-count"><dt>Mentioned</dt><dd>Yes</dd></div><div><dt>Recommended</dt><dd>No</dd></div><div><dt>Own website cited</dt><dd>No</dd></div><div class="is-na"><dt>Signed-in answers</dt><dd>Not assessed</dd></div></dl><p class="al-note">The description matches an older directory listing.</p></div>
-                  <div class="al-layer al-l4 al-action"><p class="al-k">Next step</p><p class="al-act">Update the directory listing to include office fit-outs, and make that service easy to find on Fernhill’s own site.</p><p class="al-then">Then ask the same question, the same way, in the next report.</p></div>
-                </div></div>
-
-  </div></div></div>
-</div>            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="wrap alb-static">
-      <div class="alb-panel">
-        <div class="alb-panel-top"><svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="13" fill="#7759B3"/><g transform="translate(28,28) scale(0.78) translate(-28,-28)"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#24105E"/></g></svg><span class="wm wm-light wm-albedo alb-word" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Albedo</span></span><span>Report for Fernhill Studio</span></div>
-        <ol class="alb-steps">
-          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>1</i>A buyer’s question</p><div class="al-layer al-l1"><p class="al-k">The buyer’s question</p><p class="al-q">“Who are good interior designers in Manchester for small office fit-outs?”</p><p class="al-meta">One general-purpose AI assistant · Signed out · UK · 14 September 2026</p></div><p class="alb-step-t">Written the way a real customer might ask it, and recorded exactly.</p></li>
-          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>2</i>The saved AI answer</p><div class="al-layer al-l2"><p class="al-k">Saved answer, excerpt</p><p class="al-ans">For small office fit-outs, Calder &amp; Moss and Atelier North are often recommended for commercial work. <mark>Fernhill Studio is another Manchester practice, mainly known for residential interiors.</mark></p><p class="al-src">Source cited <span>manchester-design-directory.example</span></p></div><p class="alb-step-t">Saved in full with the date, the tool and how it was asked. Fernhill is named, but for homes rather than offices.</p></li>
-          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>3</i>The evidence</p><div class="al-layer al-l3"><p class="al-k">The evidence</p><dl class="al-ev"><div class="is-count"><dt>Mentioned</dt><dd>Yes</dd></div><div><dt>Recommended</dt><dd>No</dd></div><div><dt>Own website cited</dt><dd>No</dd></div><div class="is-na"><dt>Signed-in answers</dt><dd>Not assessed</dd></div></dl><p class="al-note">The description matches an older directory listing.</p></div><p class="alb-step-t">Mentions, recommendations and cited sources are kept separate. Anything we didn’t check stays “not assessed”, never zero.</p></li>
-          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>4</i>A clear next step</p><div class="al-layer al-l4 al-action"><p class="al-k">Next step</p><p class="al-act">Update the directory listing to include office fit-outs, and make that service easy to find on Fernhill’s own site.</p><p class="al-then">Then ask the same question, the same way, in the next report.</p></div><p class="alb-step-t">A proportionate action tied to the evidence.</p></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <div class="wrap">
-    <p class="alb-limits"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span><b>Example using fictional data.</b> It shows one question, one assistant and one day. AI answers vary between accounts, locations and sessions, and change over time, so a report shows what was captured under stated conditions, not what every customer sees.</span></p>
-  </div>
-</section>
-
-<section class="sec sec-cloud" id="about" tabindex="-1" aria-labelledby="about-h">
-  <div class="wrap about">
-    <h2 class="h2" id="about-h">About LucentStar</h2>
-    <div>
-      <p class="lead">LucentStar AI is a small, hands-on AI consultancy. We help businesses and smaller in-house teams with AI visibility, AI workflows and bespoke projects.</p>
-      <ul class="pr-list">
-<li class="pr"><h3>We listen first</h3><p>We ask about the work before we talk about technology.</p></li>
-<li class="pr"><h3>We start with what you have</h3><p>We check what your current tools can already do before suggesting anything new.</p></li>
-<li class="pr"><h3>We think about the people</h3><p>We consider how a change affects the people doing the work, and shape it around them.</p></li>
-<li class="pr"><h3>We’re honest about limits</h3><p>If AI isn’t the answer, we’ll say so. If something wasn’t checked, we’ll say that too.</p></li>
-      </ul>
-    </div>
-  </div>
-</section>
 <section class="sec" id="questions" data-spy-as="about" aria-labelledby="questions-h" style="padding-bottom:40px">
   <div class="wrap">
     <header class="sec-head center"><h2 class="h2" id="questions-h">Questions people ask</h2></header>
@@ -2602,9 +2445,9 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <nav aria-labelledby="f1"><h2 class="ftr-h" id="f1">How we help</h2><ul class="ftr-list">
 <li><a href="#workflows">AI workflows</a></li><li><a href="#bespoke">Bespoke AI projects</a></li><li><a href="#visibility">AI visibility reporting</a></li>      </ul></nav>
       <nav aria-labelledby="f2"><h2 class="ftr-h" id="f2">Products</h2><ul class="ftr-list">
-<li><a href="/lucentsignal.html">LucentSignal</a></li><li><a href="/lucentalbedo">LucentAlbedo</a></li><li><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a></li><li><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to LucentSignal</a></li><li><a href="https://lucentstar.ai/pricing">Pricing</a></li><li><a href="https://lucentstar.ai/help">Help</a></li>      </ul></nav>
+<li><a href="/lucentsignal.html">LucentSignal</a></li><li><a href="/lucentalba">LucentAlba</a></li><li><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a></li><li><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to LucentSignal</a></li><li><a href="https://lucentstar.ai/pricing">Pricing</a></li><li><a href="https://lucentstar.ai/help">Help</a></li>      </ul></nav>
       <nav aria-labelledby="f3"><h2 class="ftr-h" id="f3">Company</h2><ul class="ftr-list">
-<li><a href="#about">About</a></li><li><a href="#approach">Our approach</a></li><li><a href="https://blog.lucentstar.ai/">Blog</a></li><li><a href="#contact">Contact</a></li>      </ul></nav>
+<li><a href="/about">About</a></li><li><a href="#approach">Our approach</a></li><li><a href="https://blog.lucentstar.ai/">Blog</a></li><li><a href="#contact">Contact</a></li>      </ul></nav>
       <nav aria-labelledby="f4"><h2 class="ftr-h" id="f4">Legal</h2><ul class="ftr-list">
 <li><a href="https://lucentstar.ai/privacy">Privacy Notice</a></li><li><a href="https://lucentstar.ai/terms">Terms of service</a></li><li><a href="https://lucentstar.ai/cookie-policy">Cookie policy</a></li><li><a href="https://lucentstar.ai/cookie-settings">Cookie settings</a></li><li><a href="https://lucentstar.ai/acceptable-use">Acceptable use</a></li><li><a href="https://lucentstar.ai/ai-transparency">AI transparency</a></li><li><a href="https://lucentstar.ai/accessibility">Accessibility</a></li><li><a href="https://lucentstar.ai/subprocessors">Subprocessors</a></li>      </ul></nav>
     </div>
@@ -2682,6 +2525,11 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 (function(){
   'use strict';
   var html=document.documentElement;
+  // Existing homepage bookmarks lead to the full pages after the section move.
+  if(location.pathname==='/' || /\/index\.html$/.test(location.pathname)){
+    var moved={'#about':'/about','#signal':'/lucentsignal','#albedo':'/lucentalba'};
+    if(moved[location.hash]){location.replace(moved[location.hash]);return;}
+  }
   var LS=window.LS={};
   LS.$=function(s,r){return (r||document).querySelector(s)};
   LS.$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};

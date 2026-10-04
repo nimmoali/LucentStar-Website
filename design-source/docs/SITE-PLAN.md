@@ -1,3 +1,7 @@
+## Published follow-up, 4 October 2026
+
+Approved homepage introduction, consulting-led services, direct product cards and separate About page. LucentAlba replaces the public LucentAlbedo name, using #24105E for its wordmark. Legacy product pages redirect to /lucentalba. The approved five-step partnership copy is retained. Public forms retain their released disabled configuration and email fallback. Earlier records below describe historical states.
+
 # LucentStar website plan
 
 Version 6, 1 October 2026 (Round 6). This plan covers every public page listed in the lucentstar.ai and blog.lucentstar.ai sitemaps (read again on 28 September 2026), the /pricing address the footer links to, the older copies of the blog articles under lucentstar.ai/blog/, pages the website repository serves outside its sitemap, and the LucentSignal sign-in, welcome, registration and secure access link screens. Existing addresses are kept. The eight pages in the review set don't replace the full-site sweep: every other page below still needs its own design, build and check.

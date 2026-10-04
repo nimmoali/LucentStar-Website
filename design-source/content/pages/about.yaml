@@ -1,0 +1,35 @@
+slug: about
+url: /about
+title: About LucentStar
+seo_title: About LucentStar AI | Practical AI, built around your business
+description: LucentStar AI is a small, hands-on AI consultancy. We help businesses and smaller in-house teams with AI visibility, AI workflows and bespoke projects.
+nav_current: about
+sections:
+- type: page_hero
+  heading: About *LucentStar AI.*
+  lead: LucentStar AI is a small, hands-on AI consultancy. We help businesses and smaller in-house teams with AI visibility, AI workflows and bespoke projects.
+  actions:
+  - label: Let’s talk
+    href: '@contact'
+    style: primary
+- type: about
+  id: about
+  heading: How we work
+  lead: LucentStar AI is a small, hands-on AI consultancy. We help businesses and smaller in-house teams with AI visibility, AI workflows and bespoke projects.
+  principles:
+  - heading: We listen first
+    text: We ask about the work before we talk about technology.
+  - heading: We start with what you have
+    text: We check what your current tools can already do before suggesting anything new.
+  - heading: We think about the people
+    text: We consider how a change affects the people doing the work, and shape it around them.
+  - heading: We’re honest about limits
+    text: If AI isn’t the answer, we’ll say so. If something wasn’t checked, we’ll say that too.
+- type: contact
+  id: contact
+  heading: What would you like to make easier?
+  lead: Tell us what takes too much time, what feels difficult, or what you’re curious about. We can work out a sensible next step together.
+  email_label: Prefer email?
+  next_title: What happens next
+  next_text: We read your message and reply by email. If it helps, we suggest a conversation to understand more.
+  error_preview: true
