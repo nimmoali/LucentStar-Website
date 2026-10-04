@@ -1,0 +1,267 @@
+{
+  "version": "2026-10-04.d526db3c81",
+  "brand": {
+    "name": "LucentStar AI",
+    "home": "https://lucentstar.ai/",
+    "tagline": "Practical AI, built around your business."
+  },
+  "nav": [
+    {
+      "label": "How we help",
+      "href": "https://lucentstar.ai/#help",
+      "new_tab": false,
+      "current_key": "help"
+    },
+    {
+      "label": "Our products",
+      "type": "products",
+      "current_key": "products"
+    },
+    {
+      "label": "Our approach",
+      "href": "https://lucentstar.ai/#approach",
+      "new_tab": false,
+      "current_key": "approach"
+    },
+    {
+      "label": "About",
+      "href": "https://lucentstar.ai/about",
+      "new_tab": false,
+      "current_key": "about"
+    },
+    {
+      "label": "Blog",
+      "href": "https://blog.lucentstar.ai/",
+      "new_tab": false,
+      "current_key": "blog"
+    }
+  ],
+  "products": [
+    {
+      "id": "signal",
+      "name": "LucentSignal",
+      "wordmark": {
+        "lead": "Lucent",
+        "tail": "Signal",
+        "accent": "signal"
+      },
+      "status": "Available now",
+      "menu_text": "Turn your expertise into LinkedIn content, in your own voice.",
+      "mobile_text": "Turn your expertise into LinkedIn content.",
+      "page": {
+        "label": "See features and pricing",
+        "href": "https://lucentstar.ai/lucentsignal.html",
+        "new_tab": false
+      },
+      "try": {
+        "label": "Try LucentSignal",
+        "href": "https://signalapp.lucentstar.ai/register",
+        "new_tab": true
+      },
+      "sign_in": {
+        "label": "Sign in to LucentSignal",
+        "href": "https://signalapp.lucentstar.ai/login",
+        "new_tab": true
+      },
+      "open": {
+        "label": "Open LucentSignal",
+        "href": "https://signalapp.lucentstar.ai/",
+        "new_tab": false
+      }
+    },
+    {
+      "id": "albedo",
+      "name": "LucentAlba",
+      "wordmark": {
+        "lead": "Lucent",
+        "tail": "Alba",
+        "accent": "albedo"
+      },
+      "status": "Coming soon",
+      "menu_text": "Understand how your business appears in AI answers.",
+      "mobile_text": "Understand how your business appears in AI answers.",
+      "page": {
+        "label": "See planned features",
+        "href": "https://lucentstar.ai/lucentalba",
+        "new_tab": false
+      }
+    }
+  ],
+  "products_menu": {
+    "help": {
+      "label": "Not sure which fits? Let’s talk",
+      "href": "https://lucentstar.ai/#contact",
+      "new_tab": false
+    }
+  },
+  "actions": {
+    "sign_in": {
+      "label": "Sign in",
+      "href": "https://signalapp.lucentstar.ai/login",
+      "new_tab": true,
+      "sr": " to LucentSignal"
+    },
+    "cta": {
+      "label": "Let’s talk",
+      "href": "https://lucentstar.ai/#contact",
+      "new_tab": false
+    }
+  },
+  "footer": [
+    {
+      "heading": "How we help",
+      "links": [
+        {
+          "label": "AI workflows",
+          "href": "https://lucentstar.ai/#workflows",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Bespoke AI projects",
+          "href": "https://lucentstar.ai/#bespoke",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "AI visibility reporting",
+          "href": "https://lucentstar.ai/#visibility",
+          "new_tab": false,
+          "kind": "link"
+        }
+      ]
+    },
+    {
+      "heading": "Products",
+      "links": [
+        {
+          "label": "LucentSignal",
+          "href": "https://lucentstar.ai/lucentsignal.html",
+          "new_tab": false,
+          "kind": "product",
+          "product": "signal"
+        },
+        {
+          "label": "LucentAlba",
+          "href": "https://lucentstar.ai/lucentalba",
+          "new_tab": false,
+          "kind": "product",
+          "product": "albedo"
+        },
+        {
+          "label": "Try LucentSignal",
+          "href": "https://signalapp.lucentstar.ai/register",
+          "new_tab": true,
+          "kind": "try",
+          "product": "signal"
+        },
+        {
+          "label": "Sign in to LucentSignal",
+          "href": "https://signalapp.lucentstar.ai/login",
+          "new_tab": true,
+          "kind": "sign_in",
+          "product": "signal"
+        },
+        {
+          "label": "Pricing",
+          "href": "https://lucentstar.ai/pricing",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Help",
+          "href": "https://lucentstar.ai/help",
+          "new_tab": false,
+          "kind": "link"
+        }
+      ]
+    },
+    {
+      "heading": "Company",
+      "links": [
+        {
+          "label": "About",
+          "href": "https://lucentstar.ai/about",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Our approach",
+          "href": "https://lucentstar.ai/#approach",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Blog",
+          "href": "https://blog.lucentstar.ai/",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Contact",
+          "href": "https://lucentstar.ai/#contact",
+          "new_tab": false,
+          "kind": "link"
+        }
+      ]
+    },
+    {
+      "heading": "Legal",
+      "links": [
+        {
+          "label": "Privacy Notice",
+          "href": "https://lucentstar.ai/privacy",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Terms of service",
+          "href": "https://lucentstar.ai/terms",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Cookie policy",
+          "href": "https://lucentstar.ai/cookie-policy",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Cookie settings",
+          "href": "https://lucentstar.ai/cookie-settings",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Acceptable use",
+          "href": "https://lucentstar.ai/acceptable-use",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "AI transparency",
+          "href": "https://lucentstar.ai/ai-transparency",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Accessibility",
+          "href": "https://lucentstar.ai/accessibility",
+          "new_tab": false,
+          "kind": "link"
+        },
+        {
+          "label": "Subprocessors",
+          "href": "https://lucentstar.ai/subprocessors",
+          "new_tab": false,
+          "kind": "link"
+        }
+      ]
+    }
+  ],
+  "footer_base": {
+    "legal_name": "LucentStar AI Ltd",
+    "registered": "Registered in England and Wales",
+    "linkedin": "https://www.linkedin.com/company/lucentstar"
+  }
+}

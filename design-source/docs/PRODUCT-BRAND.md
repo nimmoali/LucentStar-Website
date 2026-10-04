@@ -4,7 +4,7 @@ Current owner-approved rule, 4 October 2026. This is the maintained graphical re
 
 - **Lucent:** dark navy `#0B0F1A`.
 - **Signal:** agreed green `#00E676`.
-- **Alba:** agreed purple ink `#24105E`.
+- **Alba:** the existing Alba headline purple `#7759B3`, using `--a-3`. This supersedes the earlier dark `#24105E` product-name direction. Verified on the live Alba headline emphasis “AI answers.” as `rgb(119, 89, 179)` on 4 October 2026. The shared name uses the same token as that headline; do not introduce a separate shade.
 - Apply the same split-name treatment to wordmarks, product headings, card titles, product navigation and branded inline mentions. Keep the full product name intact for copying and assistive technology. Metadata, URLs, input values and accessible-name attributes remain plain text.
 - Use the shared `wordmark()` / `inline` renderer, not hand-coloured spans or separate styling in copied blog/login shells. Inline names inherit the surrounding font weight.
 - On dark surfaces, give the wordmark a light backing so Lucent can remain dark and Alba remains readable. Keep other purple theme accents as agreed.

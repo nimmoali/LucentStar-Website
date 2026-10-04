@@ -1,3 +1,7 @@
+## Alba headline-purple revision, 4 October 2026
+
+Owner revised the Alba product-name direction to use the exact lighter purple already in the Alba headline. Live heading emphasis “AI answers.” resolves to #7759B3 (`--a-3`, rgb(119, 89, 179)). Shared Alba names now use that existing token, superseding the dark #24105E name rule below. Lucent #0B0F1A, Signal #00E676, readable filled-button labels, copy, popup contacts and enabled enquiry delivery are preserved. See PRODUCT-BRAND.md. Earlier entries remain historical.
+
 ## Product-name colour correction, 4 October 2026
 
 Owner approved the live correction and its graphical direction: dark Lucent, green Signal #00E676, purple Alba #24105E across headings, cards, menus and branded mentions; dark-surface backing and readable filled-button labels. See PRODUCT-BRAND.md. Enabled forms and popup contact behaviour are preserved. Historical entries below remain unchanged.

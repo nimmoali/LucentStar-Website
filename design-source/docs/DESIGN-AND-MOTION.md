@@ -39,7 +39,7 @@ Rules:
 
 ## Product wordmarks
 
-The current authoritative [product-name graphical direction](PRODUCT-BRAND.md) applies to every branded product treatment. Lucent is dark #0B0F1A, Signal is #00E676 and Alba is #24105E. Headings, cards, navigation and branded inline mentions use the shared renderer. Dark surfaces have a white backing. Filled buttons inherit readable labels, never green on green. Product names remain intact for copying and assistive technology. Other theme colours, motion and layout rules are unchanged.
+The current authoritative [product-name graphical direction](PRODUCT-BRAND.md) applies to every branded product treatment. Lucent is dark #0B0F1A, Signal is #00E676 and Alba is the existing headline purple #7759B3 (`--a-3`), superseding the older #24105E name rule. Headings, cards, navigation and branded inline mentions use the shared renderer. Dark surfaces have a white backing. Filled buttons inherit readable labels, never green on green. Product names remain intact for copying and assistive technology. Other theme colours, motion and layout rules are unchanged.
 
 
 ## Four-point star

@@ -1,18 +1,18 @@
 /* Brand marks shared by every LucentStar site (also in the shared export).
 
    Product wordmark: one component, written by build.py (wordmark()) and never
-   by hand. "Lucent" is the brand blue #0B0F1A on light backgrounds and white
-   on dark ones; the product half keeps its own colour on both. The two halves are
+   by hand. "Lucent" is dark #0B0F1A, with a light backing
+   on dark surfaces; the product half keeps its own colour on both. The two halves are
    inline spans with no space between them, so the accessible name and copied
    text stay the full product name. Product names in headings, cards, navigation and inline copy use this
-   treatment. Coloured primary buttons keep their readable inherited label colour. Colours: Signal #00E676, Alba #24105E, other products navy (white on
+   treatment. Coloured primary buttons keep their readable inherited label colour. Colours: Signal #00E676, Alba #7759B3, other products navy (white on
    dark) until they are given a colour. */
 .wm{font-weight:700;white-space:nowrap}
 .wm-light .wm-lead{color:var(--wm-lucent)}
 .wm-dark{background:var(--white);border-radius:4px;padding:0 .12em}
 .wm-dark .wm-lead{color:var(--wm-lucent)}
 .wm-signal .wm-tail{color:var(--green)}
-.wm-albedo .wm-tail{color:var(--a-ink)}
+.wm-albedo .wm-tail{color:var(--a-3)}
 .wm-albedo.wm-dark .wm-tail{background:var(--white);border-radius:4px;padding:0 .12em}
 .wm-neutral.wm-light .wm-tail{color:var(--navy)}
 .wm-neutral.wm-dark .wm-tail{color:var(--s-muted)}
