@@ -44,7 +44,7 @@
   <section class="sec rf-sec" id="wordmarks" aria-labelledby="wordmarks-h">
     <div class="wrap">
       <h2 class="h2" id="wordmarks-h">Product wordmarks</h2>
-      <p class="lead">One component, <code>wordmark(product, 'light' or 'dark')</code>. On light backgrounds Lucent is the brand blue #0B0F1A; on dark ones it is white. The product half keeps its colour on both. Ordinary mentions in sentences stay plain text.</p>
+      <p class="lead">One component, <code>wordmark(product, 'light' or 'dark')</code>. Lucent is dark #0B0F1A; Signal is green #00E676 and Alba is purple #24105E. Dark surfaces use a white backing. Headings, cards, navigation and branded inline mentions share this treatment. Filled buttons keep readable label colours.</p>
       <div class="rf-grid">
         {% for p in products %}
         <figure class="rf-card"><div class="rf-swatch rf-on-white"><span class="rf-wm-l">{{ wordmark(p) }}</span></div><figcaption>{{ p.name }}, light, on white</figcaption></figure>

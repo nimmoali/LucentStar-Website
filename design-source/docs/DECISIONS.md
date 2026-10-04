@@ -1,3 +1,7 @@
+## Product-name colour correction, 4 October 2026
+
+Owner approved the live correction and its graphical direction: dark Lucent, green Signal #00E676, purple Alba #24105E across headings, cards, menus and branded mentions; dark-surface backing and readable filled-button labels. See PRODUCT-BRAND.md. Enabled forms and popup contact behaviour are preserved. Historical entries below remain unchanged.
+
 ## Published follow-up, 4 October 2026
 
 Approved homepage introduction, consulting-led services, direct product cards and separate About page. LucentAlba replaces the public LucentAlbedo name, using #24105E for its wordmark. Legacy product pages redirect to /lucentalba. The approved five-step partnership copy is retained. Public forms retain their released disabled configuration and email fallback. Earlier records below describe historical states.

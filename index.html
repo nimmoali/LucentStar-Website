@@ -156,12 +156,13 @@ p{text-wrap:pretty}
    by hand. "Lucent" is the brand blue #0B0F1A on light backgrounds and white
    on dark ones; the product half keeps its own colour on both. The two halves are
    inline spans with no space between them, so the accessible name and copied
-   text stay the full product name. Ordinary mentions in sentences stay plain
-   text. Colours: Signal #00E676, Alba #24105E, other products navy (white on
+   text stay the full product name. Product names in headings, cards, navigation and inline copy use this
+   treatment. Coloured primary buttons keep their readable inherited label colour. Colours: Signal #00E676, Alba #24105E, other products navy (white on
    dark) until they are given a colour. */
 .wm{font-weight:700;white-space:nowrap}
 .wm-light .wm-lead{color:var(--wm-lucent)}
-.wm-dark .wm-lead{color:var(--white)}
+.wm-dark{background:var(--white);border-radius:4px;padding:0 .12em}
+.wm-dark .wm-lead{color:var(--wm-lucent)}
 .wm-signal .wm-tail{color:var(--green)}
 .wm-albedo .wm-tail{color:var(--a-ink)}
 .wm-albedo.wm-dark .wm-tail{background:var(--white);border-radius:4px;padding:0 .12em}
@@ -196,6 +197,11 @@ p{text-wrap:pretty}
 @media (forced-colors:active){
   .star-list li::before,.star-rule::before{background:CanvasText}
 }
+
+/* Inline branded mentions retain surrounding weight. Primary filled actions
+   inherit their readable label colour: never green on a green button. */
+.wm-copy{font-weight:inherit}
+.btn-primary .wm .wm-lead,.btn-primary .wm .wm-tail{color:inherit}
 /* Header */
 .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.98);border-bottom:1px solid transparent;transition:border-color var(--t-med) var(--ease),box-shadow var(--t-med) var(--ease)}
 .hdr.is-scrolled{border-bottom-color:var(--line);box-shadow:0 8px 24px -22px rgba(11,15,26,.35)}
@@ -1950,7 +1956,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
           <div class="prod-menu" id="prod-menu" hidden>
             <a class="pm-item" href="/lucentsignal.html"><span class="pm-name"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></span><span class="pm-desc">Turn your expertise into LinkedIn content, in your own voice.</span><span class="pm-go"><span class="ul">See features and pricing</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
             <a class="pm-item" href="/lucentalba"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span><span class="pm-go"><span class="ul">See planned features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-            <div class="pm-foot"><span>Already using LucentSignal? <a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in</a></span><a href="#contact">Not sure which fits? Let’s talk</a></div>
+            <div class="pm-foot"><span>Already using <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span>? <a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in</a></span><a href="#contact">Not sure which fits? Let’s talk</a></div>
           </div>
         </li>
         <li><a class="nav-link" href="#approach" data-spy="approach">Our approach</a></li>
@@ -1959,7 +1965,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       </ul>
     </nav>
     <div class="hdr-end">
-<a class="signin" href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in<span class="sr"> to LucentSignal</span></a>      <a class="btn btn-primary btn-sm hdr-talk" href="#contact">Let’s talk</a>
+<a class="signin" href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in<span class="sr"> to <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></span></a>      <a class="btn btn-primary btn-sm hdr-talk" href="#contact">Let’s talk</a>
       <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="m-menu"><span class="mb-ic" aria-hidden="true"><i></i><i></i></span><span class="mb-label">Menu</span></button>
     </div>
   </div>
@@ -1978,14 +1984,14 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         </ul>
       </nav>
       <div class="mm-cta"><a class="btn btn-primary" href="#contact">Let’s talk</a></div>
-<div class="mm-quiet"><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to LucentSignal</a><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a></div>    </div>
+<div class="mm-quiet"><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a></div>    </div>
   </div>
 </header>
 <main id="main" tabindex="-1">
 <section class="hero" id="top" aria-labelledby="hero-h">
   <div class="wrap opening hero-copy">
     <h1 class="h-title" id="hero-h" tabindex="-1">Practical AI, <span class="em">built around your business.</span></h1>
-<p class="intro">We work alongside businesses and in-house teams to find practical ways to use AI, from individual projects to everyday workflows. We bring the AI expertise, work closely with your team, and build around how your business actually works.</p><p class="intro">We also build focused AI products of our own: LucentSignal, available now, and LucentAlba, coming soon.</p>    <div class="cta-row">
+<p class="intro">We work alongside businesses and in-house teams to find practical ways to use AI, from individual projects to everyday workflows. We bring the AI expertise, work closely with your team, and build around how your business actually works.</p><p class="intro">We also build focused AI products of our own: <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span>, available now, and <span class="wm wm-light wm-albedo wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span>, coming soon.</p>    <div class="cta-row">
 <a class="btn btn-primary" href="#contact">Let’s talk</a>
 <a class="tlink down" href="#help"><span>See how we can help</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
 </div>
@@ -2418,7 +2424,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <div class="f-chip"><input type="radio" name="topic" id="f-t-workflows" value="workflows"><label for="f-t-workflows">AI workflows</label></div>
       <div class="f-chip"><input type="radio" name="topic" id="f-t-bespoke" value="bespoke"><label for="f-t-bespoke">A bespoke project</label></div>
       <div class="f-chip"><input type="radio" name="topic" id="f-t-visibility" value="visibility"><label for="f-t-visibility">AI visibility</label></div>
-      <div class="f-chip"><input type="radio" name="topic" id="f-t-signal" value="signal"><label for="f-t-signal">LucentSignal</label></div>
+      <div class="f-chip"><input type="radio" name="topic" id="f-t-signal" value="signal"><label for="f-t-signal"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></label></div>
       <div class="f-chip"><input type="radio" name="topic" id="f-t-unsure" value="unsure"><label for="f-t-unsure">Not sure yet</label></div>
     </div>
   </fieldset>
@@ -2445,7 +2451,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <nav aria-labelledby="f1"><h2 class="ftr-h" id="f1">How we help</h2><ul class="ftr-list">
 <li><a href="#workflows">AI workflows</a></li><li><a href="#bespoke">Bespoke AI projects</a></li><li><a href="#visibility">AI visibility reporting</a></li>      </ul></nav>
       <nav aria-labelledby="f2"><h2 class="ftr-h" id="f2">Products</h2><ul class="ftr-list">
-<li><a href="/lucentsignal.html">LucentSignal</a></li><li><a href="/lucentalba">LucentAlba</a></li><li><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a></li><li><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to LucentSignal</a></li><li><a href="https://lucentstar.ai/pricing">Pricing</a></li><li><a href="https://lucentstar.ai/help">Help</a></li>      </ul></nav>
+<li><a href="/lucentsignal.html"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a></li><li><a href="/lucentalba"><span class="wm wm-light wm-albedo wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span></a></li><li><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a></li><li><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a></li><li><a href="https://lucentstar.ai/pricing">Pricing</a></li><li><a href="https://lucentstar.ai/help">Help</a></li>      </ul></nav>
       <nav aria-labelledby="f3"><h2 class="ftr-h" id="f3">Company</h2><ul class="ftr-list">
 <li><a href="/about">About</a></li><li><a href="#approach">Our approach</a></li><li><a href="https://blog.lucentstar.ai/">Blog</a></li><li><a href="#contact">Contact</a></li>      </ul></nav>
       <nav aria-labelledby="f4"><h2 class="ftr-h" id="f4">Legal</h2><ul class="ftr-list">
@@ -2500,7 +2506,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <div class="f-chip"><input type="radio" name="topic" id="p-t-workflows" value="workflows"><label for="p-t-workflows">AI workflows</label></div>
       <div class="f-chip"><input type="radio" name="topic" id="p-t-bespoke" value="bespoke"><label for="p-t-bespoke">A bespoke project</label></div>
       <div class="f-chip"><input type="radio" name="topic" id="p-t-visibility" value="visibility"><label for="p-t-visibility">AI visibility</label></div>
-      <div class="f-chip"><input type="radio" name="topic" id="p-t-signal" value="signal"><label for="p-t-signal">LucentSignal</label></div>
+      <div class="f-chip"><input type="radio" name="topic" id="p-t-signal" value="signal"><label for="p-t-signal"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></label></div>
       <div class="f-chip"><input type="radio" name="topic" id="p-t-unsure" value="unsure"><label for="p-t-unsure">Not sure yet</label></div>
     </div>
   </fieldset>

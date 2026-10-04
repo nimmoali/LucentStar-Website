@@ -16,7 +16,7 @@
       {% for w in items %}
       <article class="way" data-reveal="text">
         <span class="feat-status feat-{{ w.status }}">{{ labels[w.status] or w.status }}</span>
-        <h3 class="h3">{{ w.title }}</h3>
+        <h3 class="h3">{{ w.title | inline }}</h3>
         <p>{{ w.text | inline }}</p>
         {% if w.cta %}{{ ui.button(w.cta.href, w.cta.label, style=w.cta.style or 'primary', topic=w.cta.topic, cls='btn-sm', sr=w.cta.sr) }}{% endif %}
       </article>

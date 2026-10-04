@@ -274,12 +274,13 @@ p{text-wrap:pretty}
    by hand. "Lucent" is the brand blue #0B0F1A on light backgrounds and white
    on dark ones; the product half keeps its own colour on both. The two halves are
    inline spans with no space between them, so the accessible name and copied
-   text stay the full product name. Ordinary mentions in sentences stay plain
-   text. Colours: Signal #00E676, Alba #24105E, other products navy (white on
+   text stay the full product name. Product names in headings, cards, navigation and inline copy use this
+   treatment. Coloured primary buttons keep their readable inherited label colour. Colours: Signal #00E676, Alba #24105E, other products navy (white on
    dark) until they are given a colour. */
 .wm{font-weight:700;white-space:nowrap}
 .wm-light .wm-lead{color:var(--wm-lucent)}
-.wm-dark .wm-lead{color:var(--white)}
+.wm-dark{background:var(--white);border-radius:4px;padding:0 .12em}
+.wm-dark .wm-lead{color:var(--wm-lucent)}
 .wm-signal .wm-tail{color:var(--green)}
 .wm-albedo .wm-tail{color:var(--a-ink)}
 .wm-albedo.wm-dark .wm-tail{background:var(--white);border-radius:4px;padding:0 .12em}
@@ -314,6 +315,11 @@ p{text-wrap:pretty}
 @media (forced-colors:active){
   .star-list li::before,.star-rule::before{background:CanvasText}
 }
+
+/* Inline branded mentions retain surrounding weight. Primary filled actions
+   inherit their readable label colour: never green on a green button. */
+.wm-copy{font-weight:inherit}
+.btn-primary .wm .wm-lead,.btn-primary .wm .wm-tail{color:inherit}
 /* Header */
 .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.98);border-bottom:1px solid transparent;transition:border-color var(--t-med) var(--ease),box-shadow var(--t-med) var(--ease)}
 .hdr.is-scrolled{border-bottom-color:var(--line);box-shadow:0 8px 24px -22px rgba(11,15,26,.35)}
@@ -2068,7 +2074,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
           <div class="prod-menu" id="prod-menu" hidden>
             <a class="pm-item" href="#top"><span class="pm-name"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></span><span class="pm-desc">Turn your expertise into LinkedIn content, in your own voice.</span><span class="pm-go"><span class="ul">See features and pricing</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
             <a class="pm-item" href="/lucentalba"><span class="pm-name"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="status status-coming_soon">Coming soon</span></span><span class="pm-desc">Understand how your business appears in AI answers.</span><span class="pm-go"><span class="ul">See planned features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-            <div class="pm-foot"><span>Already using LucentSignal? <a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in</a></span><a href="/#contact">Not sure which fits? Let’s talk</a></div>
+            <div class="pm-foot"><span>Already using <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span>? <a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in</a></span><a href="/#contact">Not sure which fits? Let’s talk</a></div>
           </div>
         </li>
         <li><a class="nav-link" href="/#approach" data-spy="approach">Our approach</a></li>
@@ -2077,7 +2083,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       </ul>
     </nav>
     <div class="hdr-end">
-<a class="signin" href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in<span class="sr"> to LucentSignal</span></a>      <a class="btn btn-primary btn-sm hdr-talk" href="/#contact">Let’s talk</a>
+<a class="signin" href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in<span class="sr"> to <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></span></a>      <a class="btn btn-primary btn-sm hdr-talk" href="/#contact">Let’s talk</a>
       <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="m-menu"><span class="mb-ic" aria-hidden="true"><i></i><i></i></span><span class="mb-label">Menu</span></button>
     </div>
   </div>
@@ -2096,7 +2102,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         </ul>
       </nav>
       <div class="mm-cta"><a class="btn btn-primary" href="/#contact">Let’s talk</a></div>
-<div class="mm-quiet"><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to LucentSignal</a><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a></div>    </div>
+<div class="mm-quiet"><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a></div>    </div>
   </div>
 </header>
 <main id="main" tabindex="-1">
@@ -2104,8 +2110,8 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   <div class="wrap opening">
 <p class="chip-prod"><span class="dot dot-s" aria-hidden="true"></span><span class="wm wm-light wm-signal" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="status status-live">Available now</span></p>
     <h1 class="h-title" id="page-h" tabindex="-1">Write LinkedIn posts that actually <span class="em">sound like you.</span></h1>
-<p class="intro">You have ideas worth sharing, but not an hour to shape each one. LucentSignal helps you turn your expertise into LinkedIn drafts shaped by your voice, with editorial guidance on every draft. You review, plan and publish when you’re ready.</p>    <div class="cta-row">
-<a class="btn btn-primary" href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a>
+<p class="intro">You have ideas worth sharing, but not an hour to shape each one. <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> helps you turn your expertise into LinkedIn drafts shaped by your voice, with editorial guidance on every draft. You review, plan and publish when you’re ready.</p>    <div class="cta-row">
+<a class="btn btn-primary" href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a>
 <a class="tlink down" href="#pricing"><span>See pricing</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
 <a class="tlink" href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener"><span>Sign in</span><span class="sr"> to LucentSignal</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 </div>
@@ -2115,7 +2121,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   <div class="wrap">
     <header class="sec-head center st-intro">
       <h2 class="h2" id="workflow-h">From what you know to a post you’d publish</h2>
-<p class="lead">What LucentSignal does, one step at a time, and where you stay in charge.</p>    </header>
+<p class="lead">What <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> does, one step at a time, and where you stay in charge.</p>    </header>
 
     <article class="story" id="workflow-story" tabindex="-1" aria-label="From your expertise to a planned post" data-seq="story">
       <div class="story-grid">
@@ -2356,11 +2362,11 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     <ul class="feat-grid">
       <li class="feat" data-reveal="text">
         <h3 class="feat-h">Individuals</h3>
-        <p class="feat-p">You know what you think. You just don’t always know how to say it clearly. LucentSignal closes that gap without making you sound like a content machine.</p>
+        <p class="feat-p">You know what you think. You just don’t always know how to say it clearly. <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> closes that gap without making you sound like a content machine.</p>
       </li>
       <li class="feat" data-reveal="text">
         <h3 class="feat-h">Founders and consultants</h3>
-        <p class="feat-p">Your expertise is the brief. LucentSignal helps you turn what you know into content that builds authority, without spending your evenings writing and rewriting.</p>
+        <p class="feat-p">Your expertise is the brief. <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> helps you turn what you know into content that builds authority, without spending your evenings writing and rewriting.</p>
       </li>
       <li class="feat" data-reveal="text">
         <h3 class="feat-h">Agencies</h3>
@@ -2372,21 +2378,21 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 <section class="sec" id="fit" tabindex="-1" aria-labelledby="fit-h" data-spy-as="products">
   <div class="wrap">
     <header class="sec-head center">
-      <h2 class="h2" id="fit-h">LucentSignal, or something built around your team?</h2>
-<p class="lead">LucentSignal does one job well. When the work is wider than LinkedIn posts, we build around your team instead.</p>    </header>
+      <h2 class="h2" id="fit-h"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span>, or something built around your team?</h2>
+<p class="lead"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> does one job well. When the work is wider than LinkedIn posts, we build around your team instead.</p>    </header>
     <div class="ways">
       <article class="way" data-reveal="text">
         <span class="feat-status feat-available">Available now</span>
-        <h3 class="h3">LucentSignal</h3>
+        <h3 class="h3"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></h3>
         <p>For LinkedIn posts from your own ideas and expertise: drafts shaped by your voice, editorial guidance on each one, then planning and export. You can start on your own today.</p>
-<a class="btn btn-primary btn-sm" href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a>      </article>
+<a class="btn btn-primary btn-sm" href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a>      </article>
       <article class="way" data-reveal="text">
         <span class="feat-status feat-available">Available now</span>
         <h3 class="h3">Bespoke consulting</h3>
         <p>For wider marketing workflows, such as newsletters, case studies and reports, built around the tools and review steps your team already has, and scoped with you before anything is built.</p>
 <a class="btn btn-secondary btn-sm" href="/#contact" data-topic="workflows">Talk to us about a workflow</a>      </article>
     </div>
-<p class="svc-foot ways-foot"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>LucentSignal doesn’t publish to LinkedIn, and it doesn’t connect to every tool. It exports files, as the plans below describe. Anything more specific is bespoke work.</span></p>  </div>
+<p class="svc-foot ways-foot"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> doesn’t publish to LinkedIn, and it doesn’t connect to every tool. It exports files, as the plans below describe. Anything more specific is bespoke work.</span></p>  </div>
 </section>
 <section class="sec chs-sec" id="how" tabindex="-1" aria-labelledby="how-h">
   <div class="wrap">
@@ -2426,7 +2432,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         <div class="ch-txt">
           <p class="ch-k"><span class="ch-n">02</span>Drafting</p>
           <h3 class="ch-h" id="styles-h">Choose how the argument lands.</h3>
-          <p class="ch-p">Thoughtful, Focused and Challenging don’t just change the tone. They change how the argument is built. Pick the one that fits, and LucentSignal writes the draft. Here is the same topic in all three.</p>
+          <p class="ch-p">Thoughtful, Focused and Challenging don’t just change the tone. They change how the argument is built. Pick the one that fits, and <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> writes the draft. Here is the same topic in all three.</p>
         </div>
         <div class="ch-vis" data-reveal>
 <div class="st" data-tabs>
@@ -2503,7 +2509,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
           <p class="ch-k"><span class="ch-n">05</span>Planning and export</p>
           <h3 class="ch-h" id="plan-h">Plan the month, then export.</h3>
           <p class="ch-p">Schedule posts across the month in the content calendar, then export them as files, in the formats your plan includes.</p>
-<p class="ch-call"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span><b>Planning, not publishing.</b> Scheduling in LucentSignal means planning a date in your calendar. LucentSignal doesn’t post to LinkedIn: you publish when you’re ready, or through the scheduling tool you already use.</span></p>        </div>
+<p class="ch-call"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span><b>Planning, not publishing.</b> Scheduling in <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> means planning a date in your calendar. <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> doesn’t post to LinkedIn: you publish when you’re ready, or through the scheduling tool you already use.</span></p>        </div>
         <div class="ch-vis" data-reveal aria-hidden="true">
 <div class="mini sg-ui">
   <div class="mini-top"><svg class="sg-logo" viewBox="0 0 56 56" aria-hidden="true"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#00E676"/></svg><span class="wm wm-dark wm-signal sg-word" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span><span class="mini-tab">Content calendar</span></div>
@@ -2579,10 +2585,10 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   <div class="wrap">
     <header class="sec-head center"><h2 class="h2" id="faq-h">Questions worth asking</h2></header>
     <div class="faq">
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa1" id="fq1" data-voice="reader">Can I just use ChatGPT?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa1" role="region" aria-labelledby="fq1"><div><p>Yes. But LucentSignal gives you a workflow ChatGPT does not: Ghostwriter, writing styles, quality scoring, calendar scheduling and export-ready files. It’s built to help you go from rough idea to a post you’d publish, not just generate another draft. Comparing tools? Read our <a class="ilink" href="https://blog.lucentstar.ai/taplio-alternatives">guide to the best Taplio alternatives</a>.</p></div></div></div>
+      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa1" id="fq1" data-voice="reader">Can I just use ChatGPT?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa1" role="region" aria-labelledby="fq1"><div><p>Yes. But <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> gives you a workflow ChatGPT does not: Ghostwriter, writing styles, quality scoring, calendar scheduling and export-ready files. It’s built to help you go from rough idea to a post you’d publish, not just generate another draft. Comparing tools? Read our <a class="ilink" href="https://blog.lucentstar.ai/taplio-alternatives">guide to the best Taplio alternatives</a>.</p></div></div></div>
       <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa2" id="fq2" data-voice="reader">Is Ghostwriter included on the free plan?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa2" role="region" aria-labelledby="fq2"><div><p>Yes. Ghostwriter is available on all plans, including Free. You can upload writing examples and voice rules from your first post.</p></div></div></div>
       <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa3" id="fq3" data-voice="reader">What happens after my 3 free posts?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><div><p>Your posts are saved and you keep access to them. When you’re ready to create more, you can upgrade to Creator or Pro at any time. Your three initial Free posts have no time limit and do not renew each month.</p></div></div></div>
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa4" id="fq4" data-voice="reader">Does LucentSignal publish directly to LinkedIn?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><div><p>No. LucentSignal helps you plan, write, score and schedule posts, then export them as files. You publish when you’re ready.</p></div></div></div>
+      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa4" id="fq4" data-voice="reader">Does <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> publish directly to LinkedIn?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><div><p>No. <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span> helps you plan, write, score and schedule posts, then export them as files. You publish when you’re ready.</p></div></div></div>
       <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa5" id="fq5" data-voice="reader">What is the difference between Creator and Pro?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa5" role="region" aria-labelledby="fq5"><div><p>Post volume and export formats. Creator gives you 20 posts per month plus bulk CSV export. Pro gives you 75 posts per month plus platform-ready exports for Hootsuite, Agorapulse, Airtable, Notion and Google Calendar. Both start with 3 free posts, no card required.</p></div></div></div>
       <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa6" id="fq6" data-voice="reader">What are Thoughtful, Focused and Challenging?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa6" role="region" aria-labelledby="fq6"><div><p>They’re writing styles that shape how the argument is built. Thoughtful holds nuance and invites reflection. Focused delivers a clear position without hedging. Challenging pushes harder and questions assumptions. Same topic, three different editorial treatments.</p></div></div></div>
       <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa7" id="fq7" data-voice="reader">How does scoring work?<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa7" role="region" aria-labelledby="fq7"><div><p>Every post is scored across four dimensions, hook, insight, clarity and closing, out of 40. Each score comes with specific feedback on what to improve. The rubric is intentionally strict. A 7 should mean something.</p></div></div></div>
@@ -2595,7 +2601,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     <div class="band" data-reveal="text">
       <h2 class="h2" id="start-h">Take an idea you’ve been sitting on and turn it into something you’d <span class="em">actually post.</span></h2>
 <p class="lead">Write and score your first posts free, then edit them in your own words. No card needed.</p>      <div class="cta-row">
-<a class="btn btn-primary" href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a>
+<a class="btn btn-primary" href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a>
 <a class="tlink" href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener"><span>Sign in</span><span class="sr"> to LucentSignal</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 </div>
     </div>
@@ -2613,7 +2619,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <nav aria-labelledby="f1"><h2 class="ftr-h" id="f1">How we help</h2><ul class="ftr-list">
 <li><a href="/#workflows">AI workflows</a></li><li><a href="/#bespoke">Bespoke AI projects</a></li><li><a href="/#visibility">AI visibility reporting</a></li>      </ul></nav>
       <nav aria-labelledby="f2"><h2 class="ftr-h" id="f2">Products</h2><ul class="ftr-list">
-<li><a href="#top">LucentSignal</a></li><li><a href="/lucentalba">LucentAlba</a></li><li><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try LucentSignal</a></li><li><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to LucentSignal</a></li><li><a href="https://lucentstar.ai/pricing">Pricing</a></li><li><a href="https://lucentstar.ai/help">Help</a></li>      </ul></nav>
+<li><a href="#top"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a></li><li><a href="/lucentalba"><span class="wm wm-light wm-albedo wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span></a></li><li><a href="https://signalapp.lucentstar.ai/register" target="_blank" rel="noopener">Try <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a></li><li><a href="https://signalapp.lucentstar.ai/login" target="_blank" rel="noopener">Sign in to <span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></a></li><li><a href="https://lucentstar.ai/pricing">Pricing</a></li><li><a href="https://lucentstar.ai/help">Help</a></li>      </ul></nav>
       <nav aria-labelledby="f3"><h2 class="ftr-h" id="f3">Company</h2><ul class="ftr-list">
 <li><a href="/about">About</a></li><li><a href="/#approach">Our approach</a></li><li><a href="https://blog.lucentstar.ai/">Blog</a></li><li><a href="/#contact">Contact</a></li>      </ul></nav>
       <nav aria-labelledby="f4"><h2 class="ftr-h" id="f4">Legal</h2><ul class="ftr-list">
@@ -2668,7 +2674,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <div class="f-chip"><input type="radio" name="topic" id="p-t-workflows" value="workflows"><label for="p-t-workflows">AI workflows</label></div>
       <div class="f-chip"><input type="radio" name="topic" id="p-t-bespoke" value="bespoke"><label for="p-t-bespoke">A bespoke project</label></div>
       <div class="f-chip"><input type="radio" name="topic" id="p-t-visibility" value="visibility"><label for="p-t-visibility">AI visibility</label></div>
-      <div class="f-chip"><input type="radio" name="topic" id="p-t-signal" value="signal"><label for="p-t-signal">LucentSignal</label></div>
+      <div class="f-chip"><input type="radio" name="topic" id="p-t-signal" value="signal"><label for="p-t-signal"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></label></div>
       <div class="f-chip"><input type="radio" name="topic" id="p-t-unsure" value="unsure"><label for="p-t-unsure">Not sure yet</label></div>
     </div>
   </fieldset>

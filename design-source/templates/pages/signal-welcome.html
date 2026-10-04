@@ -24,18 +24,18 @@
       <p class="wl-kicker">{{ ui.icon('check') }}<span>{{ W.kicker }}</span></p>
       <h1 class="h-title" id="page-h" tabindex="-1">{{ W.heading | inline }}</h1>
       <p class="intro">{{ W.lead | inline }}</p>
-      <p class="wl-go"><a class="btn btn-primary wl-cta" href="{{ go }}">{{ W.action.label }}</a></p>
+      <p class="wl-go"><a class="btn btn-primary wl-cta" href="{{ go }}">{{ W.action.label | inline }}</a></p>
     </div>
     <div class="wl-visual">{{ sf.flow(pr, W.flow_labels) }}</div>
   </div>
 </section>
 <section class="wl-next" aria-labelledby="next-h">
   <div class="wrap">
-    <h2 class="wl-next-h" id="next-h">{{ W.next_heading }}</h2>
+    <h2 class="wl-next-h" id="next-h">{{ W.next_heading | inline }}</h2>
     <p class="wl-next-lead">{{ W.next_intro | inline }}</p>
     <ol class="wl-steps">
       {% for st in W.steps %}
-      <li class="wl-step"><span class="wl-n" aria-hidden="true">{{ loop.index }}</span><div><h3>{{ st.title }}</h3><p>{{ st.text | inline }}</p></div></li>
+      <li class="wl-step"><span class="wl-n" aria-hidden="true">{{ loop.index }}</span><div><h3>{{ st.title | inline }}</h3><p>{{ st.text | inline }}</p></div></li>
       {% endfor %}
     </ol>
     <p class="wl-help">{{ ui.icon('info') }}<span>{{ W.help | inline }}</span></p>

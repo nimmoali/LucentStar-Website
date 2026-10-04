@@ -24,12 +24,12 @@
    page being built. External addresses open in a new tab unless same_tab. #}
 {% macro tlink(href, label, arrow='arrow', topic=None, cls='', sr=None, same_tab=false) -%}
 {% set url = link(href) %}
-<a class="tlink{{ ' down' if arrow == 'down' else '' }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}><span>{{ label }}</span>{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}{% if arrow %}{{ icon(arrow) }}{% endif %}</a>
+<a class="tlink{{ ' down' if arrow == 'down' else '' }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}><span>{{ label | inline }}</span>{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}{% if arrow %}{{ icon(arrow) }}{% endif %}</a>
 {%- endmacro %}
 
 {% macro button(href, label, style='primary', topic=None, cls='', same_tab=false, sr=None) -%}
 {% set url = link(href) %}
-<a class="btn btn-{{ style }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}>{{ label }}{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}</a>
+<a class="btn btn-{{ style }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}>{{ label | inline }}{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}</a>
 {%- endmacro %}
 
 {# A row of actions from content. Each action is
@@ -50,7 +50,7 @@
 {# Plain link for navigation lists #}
 {% macro navlink(href, label, cls='', same_tab=false, attrs='') -%}
 {% set url = link(href) %}
-<a{% if cls %} class="{{ cls }}"{% endif %} href="{{ url }}"{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}{{ attrs | safe }}>{{ label }}{{ caller() if caller else '' }}</a>
+<a{% if cls %} class="{{ cls }}"{% endif %} href="{{ url }}"{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}{{ attrs | safe }}>{{ label | inline }}{{ caller() if caller else '' }}</a>
 {%- endmacro %}
 
 {# Availability label, shown only when content marks it as verified #}
@@ -119,7 +119,7 @@
     <legend class="f-label">{{ F.topics_label }} <span class="f-opt">{{ F.optional }}</span></legend>
     <div class="f-chips">
       {% for t in topics %}
-      <div class="f-chip"><input type="radio" name="topic" id="{{ prefix }}-t-{{ t.key }}" value="{{ t.key }}"{% if default_topic == t.key %} checked{% endif %}><label for="{{ prefix }}-t-{{ t.key }}">{{ t.label }}</label></div>
+      <div class="f-chip"><input type="radio" name="topic" id="{{ prefix }}-t-{{ t.key }}" value="{{ t.key }}"{% if default_topic == t.key %} checked{% endif %}><label for="{{ prefix }}-t-{{ t.key }}">{{ t.label | inline }}</label></div>
       {% endfor %}
     </div>
   </fieldset>

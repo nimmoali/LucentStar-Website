@@ -562,6 +562,13 @@ def make_env(b):
                 b.problems.append(f'{ctx["page"]["slug"]}: wordmark for unknown product "{m.group(1)}"')
                 return m.group(0)
             return str(wordmark_html(p, m.group(2) or 'light'))
+        # Brand names in copy use the same component as menus and product chips.
+        # Transform text segments only, never URLs or accessible attributes.
+        names = {str(escape(p['name'])): p for p in b.data['products']}
+        pattern = re.compile(r'(?<![\w])(' + '|'.join(re.escape(n) for n in names) + r')(?![\w])')
+        s = ''.join(part if part.startswith('<') else pattern.sub(
+            lambda match: str(wordmark_html(names[match.group(0)], cls='wm-copy')), part)
+            for part in re.split(r'(<[^>]+>)', s))
         s = WORDMARK_RE.sub(wm, s)
         return Markup(s)
 

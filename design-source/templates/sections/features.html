@@ -15,7 +15,7 @@
       {% for f in items %}
       <li class="feat" data-reveal="text">
         {% if f.status %}<span class="feat-status feat-{{ f.status }}">{{ labels[f.status] or f.status }}</span>{% endif %}
-        <h3 class="feat-h">{{ f.title }}</h3>
+        <h3 class="feat-h">{{ f.title | inline }}</h3>
         <p class="feat-p">{{ f.text | inline }}</p>
       </li>
       {% endfor %}

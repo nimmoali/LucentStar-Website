@@ -34,7 +34,7 @@
             {% for p in products %}
             <a class="pm-item" href="{{ link(product_href(p)) }}"><span class="pm-name">{{ ui.dot(p.accent) }}{{ wordmark(p) }}{{ ui.status(p) }}</span><span class="pm-desc">{{ p.menu_text }}</span><span class="pm-go"><span class="ul">{{ p.destinations.menu_link_label or site.products_menu.item_link }}</span>{{ ui.icon('arrow') }}</span></a>
             {% endfor %}
-            <div class="pm-foot">{% if signed_in %}<a href="{{ open_url }}">{{ signin_product.destinations.open_label }}</a>{% elif signin_product %}<span>Already using {{ signin_product.name }}? <a href="{{ signin_url }}"{{ ext(signin_url) }}>Sign in</a></span>{% endif %}<a href="{{ link(site.products_menu.help_href) }}">{{ site.products_menu.help_link }}</a></div>
+            <div class="pm-foot">{% if signed_in %}<a href="{{ open_url }}">{{ signin_product.destinations.open_label | inline }}</a>{% elif signin_product %}<span>Already using {{ signin_product.name | inline }}? <a href="{{ signin_url }}"{{ ext(signin_url) }}>Sign in</a></span>{% endif %}<a href="{{ link(site.products_menu.help_href) }}">{{ site.products_menu.help_link }}</a></div>
           </div>
         </li>
         {% else %}
@@ -44,7 +44,7 @@
       </ul>
     </nav>
     <div class="hdr-end">
-      {% if signed_in %}<a class="signin" href="{{ open_url }}">{{ signin_product.destinations.open_label }}</a>{% elif signin_product %}<a class="signin" href="{{ signin_url }}"{{ ext(signin_url) }}{% if cur == 'signin' %} aria-current="page"{% endif %}>Sign in<span class="sr"> to {{ signin_product.name }}</span></a>{% endif %}
+      {% if signed_in %}<a class="signin" href="{{ open_url }}">{{ signin_product.destinations.open_label | inline }}</a>{% elif signin_product %}<a class="signin" href="{{ signin_url }}"{{ ext(signin_url) }}{% if cur == 'signin' %} aria-current="page"{% endif %}>Sign in<span class="sr"> to {{ signin_product.name | inline }}</span></a>{% endif %}
       <a class="btn btn-primary btn-sm hdr-talk" href="{{ link(site.header.cta_href) }}">{{ site.header.cta_label }}</a>
       <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="m-menu"><span class="mb-ic" aria-hidden="true"><i></i><i></i></span><span class="mb-label">{{ site.header.menu_label }}</span></button>
     </div>
@@ -66,8 +66,8 @@
         </ul>
       </nav>
       <div class="mm-cta"><a class="btn btn-primary" href="{{ link(site.header.cta_href) }}">{{ site.header.cta_label }}</a></div>
-      {% if signed_in %}<div class="mm-quiet"><a href="{{ open_url }}">{{ signin_product.destinations.open_label }}</a></div>
-      {% elif signin_product %}<div class="mm-quiet"><a href="{{ signin_url }}"{{ ext(signin_url) }}{% if cur == 'signin' %} aria-current="page"{% endif %}>Sign in to {{ signin_product.name }}</a>{% if try_url %}<a href="{{ try_url }}"{{ ext(try_url) }}>{{ signin_product.destinations.try_label }}</a>{% endif %}</div>{% endif %}
+      {% if signed_in %}<div class="mm-quiet"><a href="{{ open_url }}">{{ signin_product.destinations.open_label | inline }}</a></div>
+      {% elif signin_product %}<div class="mm-quiet"><a href="{{ signin_url }}"{{ ext(signin_url) }}{% if cur == 'signin' %} aria-current="page"{% endif %}>Sign in to {{ signin_product.name | inline }}</a>{% if try_url %}<a href="{{ try_url }}"{{ ext(try_url) }}>{{ signin_product.destinations.try_label | inline }}</a>{% endif %}</div>{% endif %}
     </div>
   </div>
 </header>

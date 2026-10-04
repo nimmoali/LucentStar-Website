@@ -39,18 +39,8 @@ Rules:
 
 ## Product wordmarks
 
-One component, `wordmark(product, variant)` in `build.py`, writes every branded product name. Never type the coloured spans by hand.
+The current authoritative [product-name graphical direction](PRODUCT-BRAND.md) applies to every branded product treatment. Lucent is dark #0B0F1A, Signal is #00E676 and Alba is #24105E. Headings, cards, navigation and branded inline mentions use the shared renderer. Dark surfaces have a white backing. Filled buttons inherit readable labels, never green on green. Product names remain intact for copying and assistive technology. Other theme colours, motion and layout rules are unchanged.
 
-| Background | Lucent | Signal | Albedo | A product without its own colour |
-| --- | --- | --- | --- | --- |
-| White or light (`light`) | Brand blue #0B0F1A | #00E676 | #7759B3 | Navy |
-| Navy or dark (`dark`) | White | #00E676 | #7759B3 | Grey #94A3B8 |
-
-- **Where:** the header products menu and mobile menu, product tiles, the product label above a showcase or page title, product screens (dark on the LucentSignal app, light on the LucentAlbedo screens), and the sign-in title ("Sign in to LucentSignal."). In copy, `{{wordmark:signal}}` writes it inside a heading.
-- **Not used:** in sentences, footer link lists, form options and button labels. Those stay plain text.
-- **Accessible name:** the two halves are inline, with no space between them, so screen readers and copied text get the full name ("LucentSignal").
-- **Contrast:** Signal green is 1.7:1 on white. WCAG's contrast minimum doesn't apply to text that is part of a logo or brand name, but small sizes are still hard to read, so the wordmark is used at 15px or larger and in bold. Albedo purple is 3.5:1 on navy.
-- The LucentAlbedo screens have white header bars (with a hairline), so they use the light wordmark. This is a proposed change for review; a dark header with the dark wordmark would also work.
 
 ## Four-point star
 

@@ -3,10 +3,10 @@
    export my posts?"), so the first-person check leaves them alone. #}
 <section class="sec" id="{{ s.id }}" data-spy-as="{{ s.spy_as or 'about' }}" aria-labelledby="{{ s.id }}-h" style="padding-bottom:40px">
   <div class="wrap">
-    <header class="sec-head center"><h2 class="h2" id="{{ s.id }}-h">{{ s.heading }}</h2></header>
+    <header class="sec-head center"><h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2></header>
     <div class="faq">
       {% for it in s['items'] %}
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa{{ loop.index }}" id="fq{{ loop.index }}"{% if s.reader_voice %} data-voice="reader"{% endif %}>{{ it.q }}<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa{{ loop.index }}" role="region" aria-labelledby="fq{{ loop.index }}"><div><p>{{ it.a | inline }}</p></div></div></div>
+      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa{{ loop.index }}" id="fq{{ loop.index }}"{% if s.reader_voice %} data-voice="reader"{% endif %}>{{ it.q | inline }}<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa{{ loop.index }}" role="region" aria-labelledby="fq{{ loop.index }}"><div><p>{{ it.a | inline }}</p></div></div></div>
       {% endfor %}
     </div>
   </div>

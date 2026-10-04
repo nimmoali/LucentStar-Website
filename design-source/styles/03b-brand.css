@@ -4,12 +4,13 @@
    by hand. "Lucent" is the brand blue #0B0F1A on light backgrounds and white
    on dark ones; the product half keeps its own colour on both. The two halves are
    inline spans with no space between them, so the accessible name and copied
-   text stay the full product name. Ordinary mentions in sentences stay plain
-   text. Colours: Signal #00E676, Alba #24105E, other products navy (white on
+   text stay the full product name. Product names in headings, cards, navigation and inline copy use this
+   treatment. Coloured primary buttons keep their readable inherited label colour. Colours: Signal #00E676, Alba #24105E, other products navy (white on
    dark) until they are given a colour. */
 .wm{font-weight:700;white-space:nowrap}
 .wm-light .wm-lead{color:var(--wm-lucent)}
-.wm-dark .wm-lead{color:var(--white)}
+.wm-dark{background:var(--white);border-radius:4px;padding:0 .12em}
+.wm-dark .wm-lead{color:var(--wm-lucent)}
 .wm-signal .wm-tail{color:var(--green)}
 .wm-albedo .wm-tail{color:var(--a-ink)}
 .wm-albedo.wm-dark .wm-tail{background:var(--white);border-radius:4px;padding:0 .12em}
@@ -44,3 +45,8 @@
 @media (forced-colors:active){
   .star-list li::before,.star-rule::before{background:CanvasText}
 }
+
+/* Inline branded mentions retain surrounding weight. Primary filled actions
+   inherit their readable label colour: never green on a green button. */
+.wm-copy{font-weight:inherit}
+.btn-primary .wm .wm-lead,.btn-primary .wm .wm-tail{color:inherit}
