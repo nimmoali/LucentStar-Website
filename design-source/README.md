@@ -1,5 +1,7 @@
 # LucentStar website source
 
+Current live status and evidence: [docs/CURRENT-RELEASE.md](docs/CURRENT-RELEASE.md). This maintained source is integrated and published; old review kits are historical.
+
 The site is built from separate kinds of file, so copy, product facts, layout and motion can change independently.
 
 | Folder | What it holds | Who edits it |
@@ -18,9 +20,11 @@ Build with Python 3 (`pip install jinja2 pyyaml`), then run `python3 build.py`. 
 - `dist/shared/`: the header, footer, styles, scripts, navigation data and component reference (`reference.html`) for blog.lucentstar.ai and signalapp.lucentstar.ai, with a `VERSION` made of the date and a content hash (see `docs/SHARED-DESIGN.md`)
 - `dist/designs/` (production builds only): the blog and sign-in designs, with the images they use, kept apart so they are never published on lucentstar.ai
 
+The previous blanket ban on “most” was not confirmed by the owner. Its build prohibition has been removed; approved page and article wording is preserved. Do not infer new blanket bans from review edits.
+
 Every build checks:
 
-- **Copy:** no em dashes, no banned words, never the word "most" (owner decision, 1 October 2026), and no first-person singular in our own copy, including titles and descriptions. Readers' own questions may keep "I" and "my".
+- **Copy:** no em dashes, no confirmed banned words, and no first-person singular in our own copy, including titles and descriptions. Readers' own questions may keep "I" and "my".
 - **Product facts:** every `{{placeholder}}` exists, and no price, allowance, style list, scoring list or export list is typed into page copy by hand.
 - **Example screens:** the selected style and the scores shown match the product's facts.
 - **Markup:** ids, alt text and new-tab links, and no placeholder left in a page.
@@ -38,11 +42,11 @@ Run `python3 build.py --check` to stop on any problem.
 See `docs/DESIGN-AND-MOTION.md` for the full guide. In short:
 
 - **Titles.** The main title of every page uses one style, `.h-title` (Poppins 700, 40 to 80px), inside the shared opening (`.opening`, `.intro`).
-- **Colour.** The main website's accent is the brand green #00E676, including heading emphasis in titles. The owner chose it knowing it is below the WCAG AA text contrast minimum, so it is never used for body text, links or small labels. The Signal half of the LucentSignal wordmark is the one exception: it is a brand name, which WCAG treats as a logotype. The LucentAlbedo page uses the Albedo purple theme (`theme: albedo`).
+- **Colour.** The main website's accent is the brand green #00E676, including heading emphasis in titles. The owner chose it knowing it is below the WCAG AA text contrast minimum, so it is never used for body text, links or small labels. The Signal half of the LucentSignal wordmark is the one exception: it is a brand name, which WCAG treats as a logotype. The LucentAlba page uses the Albedo purple theme (`theme: albedo`).
 - **Links.** Text links are underlined in the page accent. Pill buttons, navigation and heading emphasis are never underlined.
 - **Borders.** Content boxes never have green or faded borders. Borders are crisp grey hairlines, or none.
-- **Honest labels.** The homepage carries no fictional-data notes (owner decision, 29 September 2026): its opening examples are framed by the supporting line, "Here’s how we could apply AI to their everyday work". Don't add replacement disclaimers there. Inner pages keep their notes where they help (the LucentSignal page's example screens and scores), and LucentAlbedo's disclosure and limitations show wherever its story appears. Planned features are labelled "Planned", and a status label only appears once it has been confirmed.
-- **Wordmarks.** Branded product names come from `wordmark()`: Lucent in the brand blue #0B0F1A on light backgrounds (confirmed by the owner) and white on dark, Signal green, Albedo purple. Sentences keep plain text.
+- **Honest labels.** The homepage carries no fictional-data notes (owner decision, 29 September 2026): its opening examples are framed by the supporting line, "Here’s how we could apply AI to their everyday work". Don't add replacement disclaimers there. Inner pages keep their notes where they help (the LucentSignal page's example screens and scores), and LucentAlba's disclosure and limitations show wherever its story appears. Planned features are labelled "Planned", and a status label only appears once it has been confirmed.
+- **Wordmarks.** Use the shared renderer for names in headings, cards, navigation and inline copy: Lucent #0B0F1A, Signal #00E676 and Alba #7759B3 (`--a-3`). Dark surfaces use a light backing; filled buttons retain readable inherited labels. [PRODUCT-BRAND.md](docs/PRODUCT-BRAND.md) is authoritative.
 - **Star.** The four-point star (`star-list`, `star-rule`, `ui.star()`) replaces dash-like marks. It is decorative and hidden from screen readers.
 - **Reference.** `dist/shared/reference.html` shows the shared components; compare new pages with it.
 
@@ -65,7 +69,7 @@ Each file in `content/pages/` is a page. `sections:` lists the components in ord
 | `contact` | The enquiry form |
 | `cta_band` | A closing call to action |
 
-`content/pages/lucentalbedo.yaml` and `content/pages/lucentsignal.yaml` are worked examples of inner pages.
+`content/pages/lucentalba.yaml` and `content/pages/lucentsignal.yaml` are worked examples of inner pages.
 
 Actions are written as a list, and the build turns each one into a button or link:
 
@@ -81,12 +85,12 @@ Write links in content like this:
 | Write | Means |
 | --- | --- |
 | `index#help` | A section on another page (here, the homepage) |
-| `lucentalbedo` | Another page, by its file name |
+| `lucentalba` | Another page, by its file name |
 | `#faq` | A section on the same page |
 | `@contact` | This page's contact form if it has one, otherwise the homepage's |
 | `https://...` | An external address. lucentstar.ai and the blog open in the same tab; the LucentSignal app and other sites open in a new tab |
 
-`url_mode: files` in `content/site.yaml` writes `lucentalbedo.html`-style addresses for review. In review builds, any link to the public address of a page built here (the blog index, each article with a body, the sign-in design) opens the local design automatically, so there is nothing to list. Switch to `clean` for production, which uses each page's `url` and the live addresses.
+`url_mode: files` in `content/site.yaml` writes `lucentalba.html`-style addresses for review. In review builds, any link to the public address of a page built here (the blog index, each article with a body, the sign-in design) opens the local design automatically, so there is nothing to list. Switch to `clean` for production, which uses each page's `url` and the live addresses.
 
 ## Product facts in copy
 
@@ -110,7 +114,7 @@ Each product file also has a `verification:` list saying where every fact came f
 
 ## Adding a page
 
-1. Copy `content/pages/lucentalbedo.yaml` and set `slug`, `url`, `title`, `description` and `nav_current`. Add `theme: albedo` only for LucentAlbedo pages.
+1. Copy `content/pages/lucentalba.yaml` and set `slug`, `url`, `title`, `description` and `nav_current`. Add `theme: albedo` only for LucentAlba pages.
 2. List the sections you need and write the copy. `*text*` gives heading emphasis, `**text**` is bold and `[label](target)` is a link.
 3. If the page needs a component that doesn't exist, add one file to `templates/sections/` and its styles to `styles/`, using the tokens. Don't restyle shared components for one page.
 4. Run `python3 build.py --check`.
@@ -121,7 +125,7 @@ A page file whose name starts with `_` is ignored, which is useful for drafts.
 
 ## Adding a product
 
-1. Copy `content/products/lucentalbedo.yaml` to a new file and change every field. Facts that appear on several pages (status, prices, plans, features, links) belong here, never in page copy. Quote them with placeholders (see above).
+1. Copy `content/products/lucentalba.yaml` to a new file and change every field. Facts that appear on several pages (status, prices, plans, features, links) belong here, never in page copy. Quote them with placeholders (see above).
 2. Set `availability.verified: true` only once the status has been confirmed. Planned features are always labelled "Planned".
 3. Choose a showcase: `signal`, `albedo`, or `generic` (a screen and up to four steps, no new code needed).
 4. The product then appears in the header menu, the mobile menu, the product tiles, the footer, the contact topics and `nav.json`, with its wordmark. `accent: signal` or `albedo` colours the product half; any other value shows it in navy (white on dark) with a neutral dot until the product is given its own colour. The wordmark splits "Lucent" from the rest of the name; set `wordmark: {lead, tail}` if a name splits differently.
@@ -146,9 +150,7 @@ Blog articles are published by the Blog & Content Engine on blog.lucentstar.ai, 
 
 ## Forms
 
-`content/site.yaml` sets `form.delivery.enabled: false` for this release. Bottom and floating forms show sending unavailable and retain a working email link, including without JavaScript. They make no delivery requests. `scripts/06-enquiry.js` fails closed when disabled.
-
-Activation is a separate approved release: connect the existing enquiry endpoint and provider, confirm mailbox/privacy facts, test actual inbox delivery and failure/abuse behaviour, then enable both source delivery and the server's `ENQUIRIES_ENABLED` flag. A local transport fixture does not prove live delivery.
+`content/site.yaml` has `form.delivery.enabled: true`. Both enquiry forms are live and inbox-tested; contact links open the shared popup. Preserve the endpoint and released delivery configuration. Read [FORMS-AND-PRIVACY.md](docs/FORMS-AND-PRIVACY.md) for actual delivery evidence and verification limits. A local fixture or status response alone is not proof of inbox delivery.
 
 ## Search engine data
 
