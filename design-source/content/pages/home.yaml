@@ -115,58 +115,55 @@ sections:
           source: Finance guide, section 4
           chips: [Your documents, Your wording, Your approval rules]
 
-  # How we work together: the five practical steps, shown with a small
-  # marketing team's monthly newsletter (the glimpse of how we help that the
-  # owner asked for). The last step keeps the owner's wording of
-  # 29 September 2026.
   - type: workflow
     id: approach
-    heading: How we work together
-    lead: Five practical steps that keep the work manageable and keep people involved, shown here for a small marketing team’s monthly newsletter.
-    diagram_heading: Five practical steps
-    example_heading: For a monthly newsletter, for example
+    heading: Built with your team. Focused on your business.
+    lead: Whether you need to reduce repetitive work, improve decisions or free your people to focus on customers, we start with the result you want. Then we work alongside your team to define, build and test a practical solution, with clear decisions at every stage.
+    diagram_heading: Five steps, built around you
+    example_heading: 'One example: a monthly newsletter'
     steps:
       - key: work
         icon: need
-        kicker: 1 · The work today
-        node: The work today
-        node_sub: Where ideas and material live
-        heading: Understand the work.
-        text: "We look at how the work happens today: the tools you already use, where ideas and material live, and who signs things off."
-        example: {icon: chat, text: "Ideas in chat, notes in the shared drive"}
+        kicker: 1 · Understand
+        node: Understand
+        node_sub: Agree what success means
+        heading: Understand the challenge
+        text: 'We get close to the work: where time is lost, what gets in the way and what your people need. Together, we define the problem and agree how we will measure success.'
+        example: {icon: chat, text: 'Goal: less last-minute newsletter work'}
       - key: start
         icon: spark
-        kicker: 2 · A useful start
-        node: A useful start
-        node_sub: One workflow, not everything
-        heading: Choose a useful starting point.
-        text: We pick one piece of recurring work where AI would genuinely help, and leave the rest alone for now.
-        example: {icon: spark, text: The newsletter comes first}
+        kicker: 2 · Define
+        node: Define
+        node_sub: Focus on business value
+        heading: Agree the right first move
+        text: We choose a focused opportunity with clear business value. We agree the scope, where AI can help and where human judgement matters, so everyone knows what we are building and why.
+        example: {icon: spark, text: Start with one newsletter workflow}
       - key: build
         icon: plug
-        kicker: 3 · Your tools
-        node: Your tools
-        node_sub: Built around what you use
-        heading: Build around what you already use.
-        text: We build or connect a small working version around your current tools, so drafts arrive where your team already works.
-        example: {icon: folder, text: Drafts land in the shared drive}
+        kicker: 3 · Build
+        node: Build
+        node_sub: Shape it with your team
+        heading: Build with your people
+        text: We create an early working version using real tasks and relevant business material. Your team tries it, challenges it and helps shape it around the way they work.
+        example: {icon: folder, text: Your team tries the first draft workflow}
       - key: test
         icon: loop
-        kicker: 4 · Tested
-        node: Tested
-        node_sub: On your own recent work
-        heading: Test it with real examples.
-        text: We try it on examples from your own recent work, and adjust it before anyone relies on it.
-        example: {icon: loop, text: Tried on the last three newsletters}
+        kicker: 4 · Test
+        node: Test
+        node_sub: Assess the results together
+        heading: Test the value
+        text: We test on everyday work and assess the results against our agreed measures. We improve what falls short, establish where human review is needed and decide together whether it is ready for wider use.
+        example: {icon: loop, text: Check draft quality and time saved}
       - key: review
         icon: review
-        kicker: 5 · People involved
-        node: People involved
-        node_sub: In review and decisions
-        heading: Keep people in review and decisions.
-        text: We agree what AI can handle and where a person needs to review, approve or take over. Routine answers can use your approved guidance; sensitive questions and important decisions stay with your team.
-        human: People approve, edit or take over.
-        example: {icon: review, text: "Priya approves, edits or takes over"}
+        kicker: 5 · Adopt
+        node: Adopt
+        node_sub: Clear ownership and support
+        heading: Put it into practice
+        text: We work with your team to bring the solution into everyday use, with clear responsibilities, practical guidance and agreed support. Together, we review how it performs and identify what to improve next.
+        example: {icon: review, text: "Priya owns review, with agreed support"}
+    foot: You help set the direction and shape the solution throughout. Each stage builds the evidence and confidence needed to take the next step.
+    action_label: Let’s talk about the challenge you want to solve.
 
   - type: products
     id: products

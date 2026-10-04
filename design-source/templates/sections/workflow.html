@@ -39,5 +39,11 @@
         {% endfor %}
       </ol>
     </div>
+    {% if s.foot or s.action_label %}
+    <div class="sec-head center">
+      {% if s.foot %}<p class="lead">{{ s.foot | inline }}</p>{% endif %}
+      {% if s.action_label %}<p><a href="#contact">{{ s.action_label }}</a></p>{% endif %}
+    </div>
+    {% endif %}
   </div>
 </section>
