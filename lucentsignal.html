@@ -3044,8 +3044,19 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   }
   LS.goTo=goTo;
   document.addEventListener('click',function(e){
-    var a=e.target.closest('a[href^="#"]');
-    if(!a)return;
+    var a=e.target.closest('a[href]');
+    if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.hasAttribute('download')||(a.target&&a.target!=='_self'))return;
+    var url=new URL(a.href,location.href);
+    var contact=url.hash==='#contact'&&(url.origin===location.origin||url.origin==='https://lucentstar.ai')&&
+      (url.pathname===location.pathname||/^\/(?:index(?:\.html)?)?$/.test(url.pathname));
+    if(contact&&LS.enquiry&&LS.enquiry.open){
+      e.preventDefault();
+      if(a.dataset.topic&&LS.enquiry.forms.p)LS.enquiry.forms.p.setTopic(a.dataset.topic);
+      closeProd(!!(pMenu&&pMenu.contains(a)));closeMenu(!!(mMenu&&mMenu.contains(a)));
+      LS.enquiry.open();
+      return;
+    }
+    if(a.getAttribute('href').charAt(0)!=='#')return;
     var id=a.getAttribute('href').slice(1);
     var t=id?document.getElementById(id):null;
     if(!t)return;
@@ -3468,6 +3479,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   function open(){
     if(state==='open'||state==='opening')return;
     if(state==='closing'&&anims.length){state='opening';turnBack(opened);return}
+    restore=true;
     opener=document.activeElement;
     dlg.showModal();
     if(small.matches)html.classList.add('enq-lock');
