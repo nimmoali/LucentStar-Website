@@ -103,7 +103,7 @@ footer:
   prototype_note: ''
 form:
   delivery:
-    enabled: false
+    enabled: true
     to: hello@lucentstar.ai
     endpoint: https://signalapp.lucentstar.ai/api/enquiries
     simulated: false
@@ -136,8 +136,8 @@ form:
     message: Tell us a little about what you’d like help with
   summary_one: Please check 1 answer
   summary_many: Please check {n} answers
-  fail_title: Sorry, your message didn’t send.
-  fail_text: Everything you wrote is still here. Please try again, or email hello@lucentstar.ai.
+  fail_title: We couldn’t confirm your message was sent.
+  fail_text: Everything you wrote is still here. Please try again with the same message, or email hello@lucentstar.ai.
   done_title: Thank you, {name}. Your message was accepted for email delivery.
   done_text: We’ll reply by email to {email}.
   done_again: Send another message

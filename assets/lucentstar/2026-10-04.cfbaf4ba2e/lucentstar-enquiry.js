@@ -1,3 +1,5 @@
+/* LucentStar enquiry forms and Contact us panel, version 2026-10-04.cfbaf4ba2e. Load after lucentstar-shell.js. */
+window.LS_TEXT={"errors": {"name": "Enter your name", "email_missing": "Enter your email address", "email_format": "Enter an email address in the correct format, like name@example.com", "message": "Tell us a little about what you’d like help with"}, "summary_one": "Please check 1 answer", "summary_many": "Please check {n} answers", "done_title": "Thank you, {name}. Your message was accepted for email delivery.", "done_text": "We’ll reply by email to {email}.", "send": "Send message", "sending": "Sending…", "sending_status": "Sending your message", "retry": "Try again", "error_preview": "Preview the error state", "error_preview_on": "Error preview on", "close": "Close", "delivery": {"to": "hello@lucentstar.ai", "endpoint": "https://signalapp.lucentstar.ai/api/enquiries", "enabled": true, "simulated": false}};
 /* Both enquiry forms share validation and the real transactional endpoint.
    Delivery remains disabled until operational facts and inbox tests pass. */
 (function(){
@@ -218,3 +220,4 @@
   dlg.addEventListener('close',function(){if(!dlg.open&&state!=='closed'){gen++;stop();state='closing';closed()}});
   $$('[data-enquiry-close]',dlg).forEach(function(b){b.addEventListener('click',function(){close()})});
 })();
+(function(){window.LS.remeasure()})();

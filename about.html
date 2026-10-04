@@ -2047,10 +2047,10 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <div class="f-chip"><input type="radio" name="topic" id="f-t-unsure" value="unsure"><label for="f-t-unsure">Not sure yet</label></div>
     </div>
   </fieldset>
-  <div class="f-fail" id="f-fail" role="alert" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><p><strong>Sorry, your message didn’t send.</strong>Everything you wrote is still here. Please try again, or email hello@lucentstar.ai.</p></div>
+  <div class="f-fail" id="f-fail" role="alert" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><p><strong>We couldn’t confirm your message was sent.</strong>Everything you wrote is still here. Please try again with the same message, or email hello@lucentstar.ai.</p></div>
   <div class="f-actions">
     <p class="f-privacy" id="f-privacy">LucentStar AI will use your details to respond to your enquiry and manage any related conversation. Sending this form won’t subscribe you to marketing emails. Read our <a href="https://lucentstar.ai/privacy" target="_blank" rel="noopener">Privacy Notice<span class="sr"> (opens in a new tab)</span></a>.</p>
-    <button class="btn btn-primary f-send" type="submit" disabled id="f-send"><span id="f-send-label">Sending unavailable</span><span class="f-bar" aria-hidden="true"></span></button>
+    <button class="btn btn-primary f-send" type="submit" disabled id="f-send"><span id="f-send-label">Checking delivery…</span><span class="f-bar" aria-hidden="true"></span></button>
     <p class="f-hint" id="f-availability" role="status">Website forms are unavailable. Please <a href="mailto:hello@lucentstar.ai">email hello@lucentstar.ai</a>. Your enquiry will not subscribe you to marketing.</p>
   </div>
   <p class="sr" role="status" aria-live="polite" id="f-live"></p>
@@ -2129,10 +2129,10 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       <div class="f-chip"><input type="radio" name="topic" id="p-t-unsure" value="unsure"><label for="p-t-unsure">Not sure yet</label></div>
     </div>
   </fieldset>
-  <div class="f-fail" id="p-fail" role="alert" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><p><strong>Sorry, your message didn’t send.</strong>Everything you wrote is still here. Please try again, or email hello@lucentstar.ai.</p></div>
+  <div class="f-fail" id="p-fail" role="alert" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><p><strong>We couldn’t confirm your message was sent.</strong>Everything you wrote is still here. Please try again with the same message, or email hello@lucentstar.ai.</p></div>
   <div class="f-actions">
     <p class="f-privacy" id="p-privacy">LucentStar AI will use your details to respond to your enquiry and manage any related conversation. Sending this form won’t subscribe you to marketing emails. Read our <a href="https://lucentstar.ai/privacy" target="_blank" rel="noopener">Privacy Notice<span class="sr"> (opens in a new tab)</span></a>.</p>
-    <button class="btn btn-primary f-send" type="submit" disabled id="p-send"><span id="p-send-label">Sending unavailable</span><span class="f-bar" aria-hidden="true"></span></button>
+    <button class="btn btn-primary f-send" type="submit" disabled id="p-send"><span id="p-send-label">Checking delivery…</span><span class="f-bar" aria-hidden="true"></span></button>
     <p class="f-hint" id="p-availability" role="status">Website forms are unavailable. Please <a href="mailto:hello@lucentstar.ai">email hello@lucentstar.ai</a>. Your enquiry will not subscribe you to marketing.</p>
   </div>
   <p class="sr" role="status" aria-live="polite" id="p-live"></p>
@@ -2140,7 +2140,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     </div>
   </div>
 </dialog>
-<script>window.LS_TEXT={"errors": {"name": "Enter your name", "email_missing": "Enter your email address", "email_format": "Enter an email address in the correct format, like name@example.com", "message": "Tell us a little about what you’d like help with"}, "summary_one": "Please check 1 answer", "summary_many": "Please check {n} answers", "done_title": "Thank you, {name}. Your message was accepted for email delivery.", "done_text": "We’ll reply by email to {email}.", "send": "Send message", "sending": "Sending…", "sending_status": "Sending your message", "retry": "Try again", "error_preview": "Preview the error state", "error_preview_on": "Error preview on", "close": "Close", "delivery": {"to": "hello@lucentstar.ai", "endpoint": "https://signalapp.lucentstar.ai/api/enquiries", "enabled": false, "simulated": false}};
+<script>window.LS_TEXT={"errors": {"name": "Enter your name", "email_missing": "Enter your email address", "email_format": "Enter an email address in the correct format, like name@example.com", "message": "Tell us a little about what you’d like help with"}, "summary_one": "Please check 1 answer", "summary_many": "Please check {n} answers", "done_title": "Thank you, {name}. Your message was accepted for email delivery.", "done_text": "We’ll reply by email to {email}.", "send": "Send message", "sending": "Sending…", "sending_status": "Sending your message", "retry": "Try again", "error_preview": "Preview the error state", "error_preview_on": "Error preview on", "close": "Close", "delivery": {"to": "hello@lucentstar.ai", "endpoint": "https://signalapp.lucentstar.ai/api/enquiries", "enabled": true, "simulated": false}};
 /* Core: small helpers, cached page geometry and a single scroll loop.
    Components register:
      LS.on('measure', fn)  read sizes and positions (after load, resize, font or content changes)
@@ -2727,30 +2727,33 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     if(h)show(h[1],true);
   });
 })();
-/* Enquiries. Every form with data-enquiry shares the same validation and
-   the same send() below, so the contact section and the floating panel
-   behave identically. Connect send() to the real delivery service once it
-   is chosen; nothing else needs to change. */
+/* Both enquiry forms share validation and the real transactional endpoint.
+   Delivery remains disabled until operational facts and inbox tests pass. */
 (function(){
   'use strict';
   var LS=window.LS,$=LS.$,$$=LS.$$,html=document.documentElement;
   var T=window.LS_TEXT||{};
   var E=LS.enquiry={simulateFailure:false,forms:{}};
 
-  /* Delivery. Both forms send here, to the address in content/site.yaml
-     (form.delivery.to). While delivery.simulated is true, sending is
-     simulated and every form says so. With simulated: false the endpoint
-     must be set (the build refuses otherwise); if it is missing anyway,
-     sending fails visibly instead of pretending to succeed. */
+  /* The recipient is fixed server-side. A provider receipt means accepted
+     for delivery, not confirmed inbox arrival. Failure preserves the input
+     and retries the same payload with the same idempotency key. */
   var D=T.delivery||{}, challenge=null, challengeAt=0;
-  function status(){
-    return fetch(D.endpoint+'/status',{headers:{Accept:'application/json'},signal:AbortSignal.timeout(10000)})
-      .then(function(r){if(!r.ok)throw new Error('Unavailable');return r.json()})
-      .then(function(r){if(!r.ready||!r.token)throw new Error('Unavailable');challenge=r.token;challengeAt=Date.now();return r});
+  async function status(){
+    var ctl=new AbortController(), timer=setTimeout(function(){ctl.abort()},10000);
+    try {
+      var r=await fetch(D.endpoint+'/status',{headers:{Accept:'application/json'},signal:ctl.signal});
+      if(!r.ok)throw new Error('Unavailable');
+      var result=await r.json();
+      if(result.ready!==true||typeof result.token!=='string'||!result.token)throw new Error('Unavailable');
+      challenge=result.token;challengeAt=Date.now();return result;
+    } finally {clearTimeout(timer)}
   }
   E.send=async function(data){
     if(D.enabled!==true)throw new Error('Enquiry delivery is unavailable');
-    if(!challenge||Date.now()-challengeAt>25*60*1000){await status();await new Promise(function(resolve){setTimeout(resolve,1600)})}
+    if(!challenge||Date.now()-challengeAt>25*60*1000)await status();
+    var wait=1600-(Date.now()-challengeAt);
+    if(wait>0)await new Promise(function(resolve){setTimeout(resolve,wait)});
     var body=Object.assign({},data,{token:challenge});
     var ctl=new AbortController(), timer=setTimeout(function(){ctl.abort()},15000);
     try {
@@ -2829,6 +2832,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     });
     function reset(){
       form.reset();['name','email','message'].forEach(function(k){showErr(k,'')});
+      requestId=null;previousPayload=null;
       done.hidden=true;form.hidden=false;fail.hidden=true;sum.hidden=true;label.textContent=T.send;
     }
     if(again)again.addEventListener('click',function(){reset();fields.name.focus()});
@@ -2940,7 +2944,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   fab.addEventListener('click',open);
   dlg.addEventListener('cancel',function(e){e.preventDefault();close()});
   /* If the browser closes the dialog itself (a second Escape, say), tidy up */
-  dlg.addEventListener('close',function(){if(state!=='closed'){gen++;stop();state='closing';closed()}});
+  dlg.addEventListener('close',function(){if(!dlg.open&&state!=='closed'){gen++;stop();state='closing';closed()}});
   $$('[data-enquiry-close]',dlg).forEach(function(b){b.addEventListener('click',function(){close()})});
 })();
 /* Start: reveal observers first, then measure the page and draw the first frame. */
