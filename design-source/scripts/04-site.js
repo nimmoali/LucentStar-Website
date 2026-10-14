@@ -23,7 +23,7 @@
       (url.pathname===location.pathname||/^\/(?:index(?:\.html)?)?$/.test(url.pathname));
     if(contact&&LS.enquiry&&LS.enquiry.open){
       e.preventDefault();
-      if(a.dataset.topic&&LS.enquiry.forms.p)LS.enquiry.forms.p.setTopic(a.dataset.topic);
+      if(LS.enquiry.forms.p){LS.enquiry.forms.p.setTrigger(a.textContent,a.dataset.topic);if(a.dataset.topic)LS.enquiry.forms.p.setTopic(a.dataset.topic)}
       closeProd(!!(pMenu&&pMenu.contains(a)));closeMenu(!!(mMenu&&mMenu.contains(a)));
       LS.enquiry.open();
       return;

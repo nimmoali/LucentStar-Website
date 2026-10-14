@@ -2646,7 +2646,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   <button class="f-link" type="button" data-enquiry-close>Close<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
 </div>
 <form class="f" id="p" data-enquiry="p" novalidate>
-  <div class="enquiry-honeypot" aria-hidden="true"><label for="p-website">Leave this empty</label><input id="p-website" name="website" tabindex="-1" autocomplete="off"></div>
+  <div class="enquiry-honeypot" aria-hidden="true" inert><label for="p-contact-reference">Leave this empty</label><input type="text" id="p-contact-reference" name="contact_reference" tabindex="-1" autocomplete="off" spellcheck="false"></div>
   <div class="f-summary" id="p-summary" role="alert" tabindex="-1" hidden><h3 id="p-summary-h">Please check these answers</h3><ul id="p-summary-list"></ul></div>
   <div>
     <label class="f-label" for="p-name">Your name</label>
@@ -3057,7 +3057,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       (url.pathname===location.pathname||/^\/(?:index(?:\.html)?)?$/.test(url.pathname));
     if(contact&&LS.enquiry&&LS.enquiry.open){
       e.preventDefault();
-      if(a.dataset.topic&&LS.enquiry.forms.p)LS.enquiry.forms.p.setTopic(a.dataset.topic);
+      if(LS.enquiry.forms.p){LS.enquiry.forms.p.setTrigger(a.textContent,a.dataset.topic);if(a.dataset.topic)LS.enquiry.forms.p.setTopic(a.dataset.topic)}
       closeProd(!!(pMenu&&pMenu.contains(a)));closeMenu(!!(mMenu&&mMenu.contains(a)));
       LS.enquiry.open();
       return;
@@ -3288,7 +3288,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   });
 })();
 /* Both enquiry forms share validation and the real transactional endpoint.
-   Delivery remains disabled until operational facts and inbox tests pass. */
+   Delivery is enabled in the released source after inbox verification. */
 (function(){
   'use strict';
   var LS=window.LS,$=LS.$,$$=LS.$$,html=document.documentElement;
@@ -3335,7 +3335,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     function q(s){return document.getElementById(px+'-'+s)}
     var done=q('done'),send=q('send'),label=q('send-label'),fail=q('fail'),sum=q('summary'),sumList=q('summary-list'),sumH=q('summary-h'),live=q('live'),again=q('again');
     var fields={name:q('name'),email:q('email'),message:q('message')};
-    var sending=false, requestId=null, previousPayload=null;
+    var sending=false, requestId=null, previousPayload=null, trigger={label:'',topic:''};
     function validate(){
       var e={};
       if(!fields.name.value.trim())e.name=T.errors.name;
@@ -3376,7 +3376,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       }
       sum.hidden=true;sending=true;
       send.setAttribute('aria-disabled','true');send.classList.add('is-sending');label.textContent=T.sending;live.textContent=T.sending_status;
-      var data={name:fields.name.value.trim(),email:fields.email.value.trim(),company:(q('company')||{}).value||'',message:fields.message.value.trim(),topic:(form.querySelector('input[name="topic"]:checked')||{}).value||'',source:px,website:(q('website')||{}).value||''};
+      var data={name:fields.name.value.trim(),email:fields.email.value.trim(),company:(q('company')||{}).value||'',message:fields.message.value.trim(),topic:(form.querySelector('input[name="topic"]:checked')||{}).value||'',source:px,website:(q('contact-reference')||{}).value||'',pageTitle:document.title,pageUrl:location.origin+location.pathname,triggerLabel:trigger.label,triggerTopic:trigger.topic};
       var payload=JSON.stringify(data);if(payload!==previousPayload){requestId=crypto.randomUUID();previousPayload=payload}data.requestId=requestId;
       E.send(data).then(function(){
         sending=false;send.removeAttribute('aria-disabled');send.classList.remove('is-sending');
@@ -3392,10 +3392,11 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     });
     function reset(){
       form.reset();['name','email','message'].forEach(function(k){showErr(k,'')});
-      requestId=null;previousPayload=null;
+      requestId=null;previousPayload=null;trigger={label:'',topic:''};
       done.hidden=true;form.hidden=false;fail.hidden=true;sum.hidden=true;label.textContent=T.send;
     }
     if(again)again.addEventListener('click',function(){reset();fields.name.focus()});
+    this.setTrigger=function(label,topic){trigger={label:String(label||'').replace(/\s+/g,' ').trim().slice(0,160),topic:String(topic||'').trim().slice(0,80)}};
     this.setTopic=function(t){var r=q('t-'+t);if(r)r.checked=true};
     this.reset=reset;
     this.isDone=function(){return !done.hidden};
@@ -3502,7 +3503,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     play('out',closed);
   }
   E.open=open;E.close=close;E.isOpen=function(){return state==='open'||state==='opening'};E.state=function(){return state};
-  fab.addEventListener('click',open);
+  fab.addEventListener('click',function(){if(E.forms.p)E.forms.p.setTrigger(fab.textContent,'');open()});
   dlg.addEventListener('cancel',function(e){e.preventDefault();close()});
   /* If the browser closes the dialog itself (a second Escape, say), tidy up */
   dlg.addEventListener('close',function(){if(!dlg.open&&state!=='closed'){gen++;stop();state='closing';closed()}});

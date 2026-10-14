@@ -93,7 +93,8 @@
   {% endif %}
 </div>
 <form class="f" id="{{ prefix }}" data-enquiry="{{ prefix }}" novalidate>
-  <div class="enquiry-honeypot" aria-hidden="true"><label for="{{ prefix }}-website">Leave this empty</label><input id="{{ prefix }}-website" name="website" tabindex="-1" autocomplete="off"></div>
+  {# Inert decoy stays outside keyboard/assistive flow. Use a non-personal field name to discourage autofill; the server still validates the website payload for compatibility. #}
+  <div class="enquiry-honeypot" aria-hidden="true" inert><label for="{{ prefix }}-contact-reference">Leave this empty</label><input type="text" id="{{ prefix }}-contact-reference" name="contact_reference" tabindex="-1" autocomplete="off" spellcheck="false"></div>
   <div class="f-summary" id="{{ prefix }}-summary" role="alert" tabindex="-1" hidden><h3 id="{{ prefix }}-summary-h">Please check these answers</h3><ul id="{{ prefix }}-summary-list"></ul></div>
   <div>
     <label class="f-label" for="{{ prefix }}-name">{{ F.name_label }}</label>

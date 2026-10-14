@@ -1,3 +1,7 @@
+## Enquiry bot protection and source identity, 14 October 2026
+
+Owner authorised implementation across public enquiry forms and publication. Reuse the existing server honeypot, signed timing, origin, rate and idempotency checks. Strengthen the shared decoy's keyboard/autofill isolation; show page/form identity and optional triggering CTA in plain-text emails, without URL query/fragment data or changes to recipient, authentication or tracking. Preserve topic choices and retries. See FORMS-AND-PRIVACY.md and the scoped release evidence.
+
 ## Alba headline-purple revision, 4 October 2026
 
 Owner revised the Alba product-name direction to use the exact lighter purple already in the Alba headline. Live heading emphasis “AI answers.” resolves to #7759B3 (`--a-3`, rgb(119, 89, 179)). Shared Alba names now use that existing token, superseding the dark #24105E name rule below. Lucent #0B0F1A, Signal #00E676, readable filled-button labels, copy, popup contacts and enabled enquiry delivery are preserved. See PRODUCT-BRAND.md. Earlier entries remain historical.
