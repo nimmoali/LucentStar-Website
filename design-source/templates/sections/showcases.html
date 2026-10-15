@@ -1,7 +1,7 @@
 {# One showcase per product, in product order. Each product names the
    showcase component that tells its story (content/products/*.yaml).
    notes: false leaves out each story's discreet note (sc.note); a product's
-   disclosure and limitations (sc.limits, as on LucentAlbedo) always show. #}
+   disclosure and limitations (sc.limits, as on LucentAlba) always show. #}
 {% set hide_note = s.notes is sameas false %}
 {% for p in products %}
 {% set sc = p.showcase_content %}
