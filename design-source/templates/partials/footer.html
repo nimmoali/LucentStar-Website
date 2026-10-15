@@ -21,7 +21,7 @@
       {% endfor %}
     </div>
     <div class="ftr-base">
-      <p>© {{ year }} {{ site.brand.legal_name }} · {{ site.brand.registered }} · <a href="{{ site.brand.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></p>
+      <p>© {{ year }} {{ site.brand.legal_name }} · {{ site.brand.registered }} · Company number {{ site.brand.company_number }}<br>Registered office: {{ site.brand.registered_office }} · <a href="{{ site.brand.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
     {% if site.footer.prototype_note %}<p class="proto-note">{{ site.footer.prototype_note }}</p>{% endif %}
   </div>
