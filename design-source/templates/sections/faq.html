@@ -6,7 +6,7 @@
     <header class="sec-head center"><h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2></header>
     <div class="faq">
       {% for it in s['items'] %}
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa{{ loop.index }}" id="fq{{ loop.index }}"{% if s.reader_voice %} data-voice="reader"{% endif %}>{{ it.q | inline }}<span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa{{ loop.index }}" role="region" aria-labelledby="fq{{ loop.index }}"><div><p>{{ it.a | inline }}</p></div></div></div>
+      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa{{ loop.index }}" id="fq{{ loop.index }}"{% if s.reader_voice %} data-voice="reader"{% endif %}><span class="faq-q-text">{{ it.q | inline }}</span><span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa{{ loop.index }}" role="region" aria-labelledby="fq{{ loop.index }}"><div><p>{{ it.a | inline }}</p></div></div></div>
       {% endfor %}
     </div>
   </div>

@@ -88,7 +88,7 @@ showcase_content:
     - title: A clear next step
       text: A proportionate action tied to the evidence. Next time, the same question would be asked the same way.
       static_text: A proportionate action tied to the evidence.
-  limits: "**Example using fictional data.** It shows one question, one assistant and one day. AI answers vary between accounts, locations and sessions, and change over time, so a report shows what was captured under stated conditions, not what every customer sees."
+  limits: "Fernhill Studio is fictional. AI answers vary between accounts, locations and sessions, and change over time. A report shows what was captured under stated conditions, not what every customer sees."
   # Example report screen (fictional business, question and answer)
   app:
     tab: Evidence

@@ -13,7 +13,7 @@ slug: lucentalba
 url: /lucentalba
 title: LucentAlba
 seo_title: LucentAlba | AI visibility reporting from LucentStar AI
-description: LucentAlba, coming soon from LucentStar AI, is being built to show how your business appears in AI answers, with the evidence behind each finding.
+description: LucentAlba, coming soon from LucentStar AI, is being built to show how your business appears in AI answers, whether you’re recommended and which sources those answers rely on. AI visibility consulting is available now.
 nav_current: products
 theme: albedo          # Albedo purple for heading emphasis, buttons, links and the contact launcher
 extra_icons: true      # the story's picture uses icons from partials/icons-extra.html
@@ -22,44 +22,58 @@ sections:
 
   - type: page_hero
     product: albedo
-    heading: Understand how your business appears in *AI answers.*
-    lead: When people ask AI tools about the kind of products or services you offer, does your business appear, and how is it described? One answer won’t tell you. LucentAlba is being built to show you the evidence across the questions that matter, and help you decide what deserves attention.
+    heading: See what AI tells *your buyers.*
+    lead: When buyers ask AI tools about the products or services you offer, are you part of the answer? LucentAlba is being built to show how your business is described, whether you’re recommended and which sources the answers rely on, so you can decide what to improve first.
     actions:
       - {label: Talk about AI visibility, href: "@contact", style: primary, topic: visibility}
-      - {label: See how we approach it, href: "#evidence", icon: down}
+      - {label: See how it works, href: "#evidence", icon: down}
+
+  # Why it matters now: the business case, straight after the opening.
+  # Content-only addition using the existing card grid (features).
+  - type: features
+    id: why-now
+    tone: cloud
+    heading: Your buyers are already asking AI. *Are you part of the answer?*
+    lead: "94% of business buyers now use AI in their buying process ([Forrester, Buyers’ Journey Survey 2025 (opens in a new tab)](https://www.forrester.com/blogs/b2b_buyers_make_zero_click_buying_number_one/)). The businesses that understand what AI says about them can act first. The rest leave the answer to someone else."
+    items:
+      - title: Be there at every stage of the buying journey
+        text: From first research to the final shortlist, LucentAlba is being built to show where AI names and recommends you, and where it doesn’t.
+      - title: Be described the way you want to be known
+        text: Spot outdated or narrow descriptions, and the sources behind them, before buyers rely on them.
+      - title: See what needs attention first
+        text: Bring the answers and their sources together, then decide which gaps or inaccurate descriptions deserve attention.
 
   # The visual story. Consulting, available now. The business, its question,
   # the answers and the sources are invented to show the method (see note).
   - type: stories
     id: evidence
     spy_as: products
-    label: {status: planned, text: Illustrative approach}
-    heading: Why one answer isn’t enough
-    lead: The questions and evidence to consider when discussing an AI visibility project.
+    heading: One answer won’t tell you *where you stand.*
+    lead: Follow one buyer’s question from a single AI answer to a short list of practical priorities.
     stories:
       - id: evidence-story
         label: From one answer to a short list of priorities
-        note: "**Example using fictional data.** Fernhill Studio, its competitors, the answers and the sources are invented to illustrate the approach. This is not a delivered client report."
+        note: "Fernhill Studio is fictional."
         steps:
           - rail: One answer
-            heading: One check can give the wrong impression.
-            text: "Ask an AI assistant about your kind of business and you get one answer: one prompt, one model, one run. It’s easy to screenshot, and easy to read too much into."
+            heading: A single answer is easy to misread.
+            text: Ask an AI assistant about your kind of business and you get one answer, from one prompt, one assistant and one moment. It’s a useful starting point, and a risky basis for a decision.
           - rail: Different answers
             heading: Ask again, and the answer can change.
-            text: Change the wording, ask another assistant or come back a few weeks later, and the answer can be different. There’s no universal score that settles this across models, and a single number can look more certain than the evidence behind it.
+            text: Reword the question, ask another assistant or come back a few weeks later, and a different picture can emerge. A single visibility score hides that variation and looks more certain than the evidence behind it.
           - rail: A sensible scope
-            heading: First, we agree a sensible scope.
-            text: For a proposed project, the questions, assistants, conditions, deliverables and timing should be agreed before work begins. A later comparison needs the same scope and conditions.
+            heading: Start with the questions your buyers ask.
+            text: Before any work begins, we agree the buyer questions, assistants, conditions and timing with you. Recording them means a later check can be compared like for like.
           - rail: The evidence
-            heading: Then we examine the evidence.
-            text: An evidence-led review distinguishes what an answer says from what it supports. This fictional example separates three different findings; the scope of any consulting deliverable is agreed for the project.
+            heading: Separate being named from being recommended.
+            text: Each answer is kept with its sources, and three findings are recorded separately. Anything that wasn’t checked is marked “not assessed”, never counted as zero.
             terms:
               - {term: Mentioned, text: The answer names your business.}
               - {term: Recommended, text: The answer suggests you as a good choice.}
               - {term: Cited, text: "The answer points to a source, such as your own website or a directory."}
           - rail: Priorities
-            heading: And help you decide what to do.
-            text: Discuss the practical decisions the evidence could inform, and agree the deliverables before starting work. No one can promise how AI tools will answer, so we don’t promise rankings or results.
+            heading: Turn the evidence into practical priorities.
+            text: You get a short list of actions, each tied to the answers behind it, such as correcting a directory listing or making a service easier to find on your own website. No one can promise how AI tools will answer, so we don’t promise rankings or results.
             links:
               - {label: Talk about AI visibility, topic: visibility}
         visual:
@@ -117,7 +131,7 @@ sections:
     id: ways
     product: albedo
     heading: Two ways to work with us
-    lead: You can discuss a consulting project with us today. A limited online version is planned.
+    lead: Start with a consulting project today. A limited online version is coming soon.
 
   # The planned online version: how a report is designed to work, with the
   # product's disclosure and limitations (kept from Round 5)
@@ -126,16 +140,15 @@ sections:
     id: example
     head: false
     label: {status: planned, text: Planned for the online version}
-    heading: How a report is designed to work
-    lead: Follow one question from a buyer’s search to a clear next step.
+    heading: How the online report is designed to work
+    lead: Follow one buyer question from the saved answer to the evidence and a clear next step.
 
   - type: features
     id: features
     product: albedo
     tone: cloud
-    heading: Planned features
-    lead: What we plan to include in the online version. None of it is confirmed yet, and details may change before release.
-    foot: Every feature in this list is planned for the online version, not yet available. Consulting, available now, is described above. We’ll update this list as each feature is confirmed.
+    heading: Planned for the online version
+    lead: What we plan to include when the limited online version launches. None of it is confirmed yet, and details may change before release.
 
   - type: faq
     id: questions
@@ -143,13 +156,15 @@ sections:
     heading: Questions about LucentAlba
     items:
       - q: Is LucentAlba available now?
-        a: Not yet. It’s coming soon, and a limited online version is planned. Contact us to discuss a consulting project and agree its scope and deliverables.
+        a: The limited online version is coming soon. You can start today with a consulting project, and we’ll agree its scope and deliverables with you before work begins.
+      - q: What does a consulting project include?
+        a: We agree the buyer questions, assistants and conditions with you, capture and review the answers and their sources, and give you a short list of practical priorities tied to the evidence. Anything we didn’t check is marked as not assessed.
       - q: Which AI assistants will it cover?
         a: Coverage will be announced when the online version is ready. The scope of any consulting project is agreed before work begins.
       - q: Will it give our business a visibility score?
         a: No. We don’t reduce visibility to a single number. We show what was asked, what was answered and what supports it, and anything we didn’t check stays marked as not assessed.
       - q: Can you guarantee we’ll be recommended?
-        a: No one can guarantee how AI tools answer. We help you understand the evidence and choose sensible next steps.
+        a: No one can guarantee how AI tools answer. We show you the evidence and help you choose the next steps worth taking.
 
   - type: contact
     id: contact
