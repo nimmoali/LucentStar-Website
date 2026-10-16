@@ -1,5 +1,21 @@
 # Current LucentStar release
 
+## Latest: LucentAlba copy and FAQ alignment, live 16 October 2026
+
+Website revision `d39bb906ecbf099ee5c035cf1eac60c4c8b93ccf` is published. It adds the reviewed LucentAlba copy and buyer context section, removes the extra planned-features footnote, and keeps one short factual notice that Fernhill Studio is fictional beside each invented screen. The shared FAQ template keeps styled product names together, so the homepage and LucentSignal FAQs were rebuilt as well. The existing shared export `2026-10-14.e3eb79d8d1` remains in use; the blog and app were not changed.
+
+The source build and static checks passed. The live LucentAlba clean route returned HTTP 200 and matched the released HTML byte for byte. The live homepage and LucentSignal page returned HTTP 200 with the FAQ fix, Google Analytics tag and configured enquiry endpoint still present. Form delivery, screen readers and a fresh visual browser pass were not retested for this copy release.
+
+## Latest: company identity and registered office, live 15 October 2026
+
+Approved legal-page and shared-footer update published: website `fa96e55afbca1f3598cf7a2d3ad477ea9985355c`, app/blog `b9f4f0c885c945f130c59387b873f9484f83eb42`, export `2026-10-14.e3eb79d8d1`. Eight legal/settings pages identify LucentStar AI Ltd, company 17492207, registered office 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ. Shared website/blog/app footers include those details. The old Hanbury address is removed from Terms/Privacy. Build and 16 local checks passed; all deployments and 24 live checks passed. Form/consent behavior and unrelated work preserved. [Release evidence](/Users/ali/.codex/.chatgpt-projects/g-p-6ac130360d00819186f620d0cc712321/legal-entity-update/REVIEW-RESULTS.md). This status pointer was updated locally after publication.
+
+## Latest: shared enquiry protection and source identity, 14 October 2026
+
+Website runtime revision `37e675cd0bf0e5f632a8977ed1b705581ab5443e`, app/blog `4be06fc1c359d50c9958c9e93e0acdc39cc1e367`, shared `2026-10-14.e1f04922f6`: published and verified. Every public enquiry uses the inert shared decoy and existing server bot controls. Emails identify the containing page and popup/bottom form, with optional CTA context and no URL query/fragment values. 29 fake-provider tests, 16 local and 20 live desktop/phone form cases passed; filled decoys rejected by production. No new inbox messages sent. [Release evidence](/Users/ali/.codex/.chatgpt-projects/g-p-6ac130360d00819186f620d0cc712321/bot-protection-review/RELEASE-RESULTS.md). See [forms documentation](FORMS-AND-PRIVACY.md). This local status record was updated after verification and is separate from the deployed runtime revision.
+
+## Earlier launch snapshot, 4 October 2026
+
 Verified release state, 4 October 2026. This snapshot supersedes older preview/not-published statements. Documentation housekeeping does not itself publish or authorise a new release.
 
 - Website published revision: `fcbeaff520e5828d6cde1ad09791f4319d2ed3d9`.
