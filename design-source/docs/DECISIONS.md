@@ -34,7 +34,7 @@
 
 ### Live state
 
-Nothing has been committed, released or published. The live LucentAlba page is unchanged.
+The redesign was published on 17 October 2026 in website revision `4808320`. The owner approved publishing the reviewed waitlist, countdown and joined counter as supplied. The counter remains simulated after its recorded starting value of 564, waitlist requests use the enquiry inbox, and the privacy wording and launch-email promise still need reconciliation. See CURRENT-RELEASE.md for verification and limits.
 
 ## Enquiry bot protection and source identity, 14 October 2026
 
