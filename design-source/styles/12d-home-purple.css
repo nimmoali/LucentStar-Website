@@ -1,0 +1,36 @@
+/* Homepage-only purple direction. Keep the LucentStar logo, product wordmarks,
+   LucentSignal interface and semantic success states in their own colours. */
+.theme-home-purple{
+  --accent:var(--a-ink);
+  --accent-hover:var(--a-2);
+  --accent-on:var(--white);
+  --accent-glow:rgba(36,16,94,.55);
+  --em:var(--a-3);
+  --link-line:var(--a-ink);
+  --launcher:var(--a-ink);
+  --launcher-hover:var(--a-2);
+  --launcher-ic:var(--a-hl);
+  --chip-on:var(--a-ink);
+}
+
+/* Keep the shared LucentStar wordmark unchanged. The homepage mark is a
+   standalone ink-purple star; the dark square would hide that colour. */
+.theme-home-purple .brand svg rect{fill:transparent}
+.theme-home-purple .brand svg{width:40px;height:40px}
+.theme-home-purple .brand svg path{fill:var(--a-ink)}
+
+/* The homepage illustrations should feel related to Alba without changing
+   the meaning of green in LucentSignal or the example screens. */
+.theme-home-purple .v-lines circle{fill:var(--a-3)}
+.theme-home-purple .av{background:var(--a-3)}
+.theme-home-purple .v-chips span,
+.theme-home-purple .wf-human{background:var(--a-lav)}
+.theme-home-purple .wf-step.is-in .wf-dot,
+.theme-home-purple .wf-node.is-reached .wf-nd,
+html.still .theme-home-purple .wf-dot,
+html.still .theme-home-purple .wf-nd{
+  background:var(--a-ink);
+  color:var(--a-yellow);
+  box-shadow:0 0 0 1.5px var(--a-ink);
+}
+html.motion .theme-home-purple .chap.is-active .chap-n{background:var(--a-lav)}

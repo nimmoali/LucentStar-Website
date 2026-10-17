@@ -1,6 +1,6 @@
 # LucentStar design and motion guide
 
-Version 1.7, 17 October 2026 (LucentAlba page redesign, owner-locked design). Version 1.6, 1 October 2026 (Round 6). This guide is for everyone who changes the website, the blog or the LucentSignal sign-in and welcome screens, including Claude and Codex. The source kit applies these rules, and `build.py` checks the ones that can be automated. `dist/shared/reference.html` shows the shared components, built only from the shared export, so any page can be compared with it.
+Version 1.8, 17 October 2026 (homepage purple theme). Version 1.7, 17 October 2026 (LucentAlba page redesign, owner-locked design). Version 1.6, 1 October 2026 (Round 6). This guide is for everyone who changes the website, the blog or the LucentSignal sign-in and welcome screens, including Claude and Codex. The source kit applies these rules, and `build.py` checks the ones that can be automated. `dist/shared/reference.html` shows the shared components, built only from the shared export, so any page can be compared with it.
 
 ## Principles
 
@@ -19,15 +19,15 @@ Version 1.7, 17 October 2026 (LucentAlba page redesign, owner-locked design). Ve
 | Muted | #5B6475 | Secondary copy, navigation items, captions (6.0:1 on white) |
 | Line | #E4E7EC | Hairline borders and dividers |
 | Cloud | #F5F6F8 | Alternate section background |
-| Brand green | #00E676 | The main website's accent: filled buttons, product dots, text link underlines, and heading emphasis in titles (see the decision record) |
+| Brand green | #00E676 | The default page accent and LucentSignal brand colour. It remains in product wordmarks and semantic success states on the homepage |
 | Albedo purple | #7759B3 (`--a-3`), hover #50398C (`--a-2`), ink #24105E (`--a-ink`), lavender #F2EFFC (`--a-lav`), light lavender #E4DBFA (`--a-hl`), muted #656379 (`--a-muted`) | The LucentAlba page theme, LucentAlba screens, "Planned" labels and "Alba" in the wordmark (#7759B3). On the LucentAlba page, the ink is the accent (see Page themes) |
-| Alba yellow | #F2CF35 (`--a-yellow`) | LucentAlba page only, as a small text treatment: never a background or fill larger than a text marker (see LucentAlba page) |
+| Alba yellow | #F2CF35 (`--a-yellow`) | Small text treatments on LucentAlba and active icons in the homepage approach diagram. Never a large background |
 | Brand blue (Lucent) | #0B0F1A | "Lucent" in product wordmarks on light backgrounds (owner decision, 28 September 2026). The same value as the navy, 19.1:1 on white. On dark backgrounds Lucent is white |
 | Signal dark | #0B0F1A, #151B2E, #232B42 | LucentSignal product screens |
 
 Components use accent roles (`--accent`, `--em`, `--link-line`, `--launcher`) rather than raw colours, so a page theme can change them in one place.
 
-**Page themes.** A page file can set `theme: albedo`. The LucentAlba page then uses the dark Alba purple, ink #24105E, as its accent (owner decision, 17 October 2026): filled buttons with white labels (16:1, hover #50398C at 9.1:1), text link underlines, emphasis below the opening, the chosen topic in the enquiry form and the Contact us launcher (hover #50398C). The opening title's emphasis ("AI recommends.") keeps the lighter Alba purple #7759B3 (5.4:1 on white), matching the Alba wordmark. The theme's accent roles are set in `styles/12c-alba-page.css`. Every other page uses the brand green.
+**Page themes.** The homepage sets `theme: home-purple`. It uses Alba ink #24105E for filled buttons, text link underlines and the Contact us launcher, and #7759B3 for title emphasis. The LucentStar mark is a standalone dark-purple star in the homepage header and footer. Active approach icons are yellow inside ink-purple circles. Product wordmarks and semantic success states keep their own colours. These homepage-only rules live in `styles/12d-home-purple.css`; layout and motion are unchanged. The LucentAlba page sets `theme: albedo` and uses the dark Alba purple, ink #24105E, as its accent (owner decision, 17 October 2026): filled buttons with white labels (16:1, hover #50398C at 9.1:1), text link underlines, emphasis below the opening, the chosen topic in the enquiry form and the Contact us launcher (hover #50398C). The opening title's emphasis ("AI recommends.") keeps the lighter Alba purple #7759B3 (5.4:1 on white), matching the Alba wordmark. Its accent roles are set in `styles/12c-alba-page.css`. Other pages retain the default brand green.
 
 Rules:
 
@@ -36,7 +36,7 @@ Rules:
 - The header shows the current section or page by colour: items are grey and the current one is navy.
 - Status labels are filled pills with no border. "Available now" has a green dot, and "Coming soon" and "Planned" use neutral or lavender fills.
 
-**Decision record.** On 28 September 2026 the owner explicitly chose to keep #00E676 for heading emphasis on the main website, knowing that bright green text is 1.67:1 on white, below the WCAG AA minimum for text. The proposed darker text green (#009E51) was withdrawn. To keep the impact small, #00E676 is only used as text for emphasised words inside display-size titles, never for body text, links, labels or small text. The one other place it appears as text is the Signal half of the LucentSignal wordmark (owner decision, Round 4), which is a brand name and so counts as a logotype (see Product wordmarks). Any statement of accessibility conformance must list the heading emphasis as a known exception.
+**Decision record.** On 28 September 2026 the owner chose #00E676 for heading emphasis on default-theme pages, knowing that bright green text is 1.67:1 on white, below the WCAG AA minimum for text. The proposed darker text green (#009E51) was withdrawn. On 17 October 2026 the homepage changed to purple; its #7759B3 title emphasis is 5.4:1 on white. Any remaining default-theme bright-green heading emphasis is a known accessibility exception. Bright green is not used for body text, links, labels or small text, apart from the Signal half of the LucentSignal wordmark, which is a logotype (see Product wordmarks).
 
 ## Product wordmarks
 

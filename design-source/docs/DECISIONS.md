@@ -1,3 +1,11 @@
+## Homepage purple theme, approved 17 October 2026
+
+- Replace the homepage's general green accents with purple to bring it closer to the LucentAlba page while keeping the white, spacious layout and existing motion.
+- Use #7759B3 for the homepage title emphasis and dark purple #24105E for filled actions, link underlines and the Contact us launcher.
+- In the five-step approach, active icon circles become dark purple with small yellow icons. Supporting service illustrations use restrained purple and lavender.
+- The LucentStar mark in the homepage header and footer is a standalone dark-purple star without the dark square. The wordmark is unchanged. LucentSignal branding and semantic success states remain green.
+- Scope these rules to the homepage with `theme: home-purple` and `styles/12d-home-purple.css`. The shared blog and app export, other page themes, copy and motion do not change.
+
 ## LucentAlba page redesign, locked 17 October 2026
 
 ### Owner decisions
