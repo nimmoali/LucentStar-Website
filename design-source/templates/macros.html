@@ -27,9 +27,9 @@
 <a class="tlink{{ ' down' if arrow == 'down' else '' }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}><span>{{ label | inline }}</span>{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}{% if arrow %}{{ icon(arrow) }}{% endif %}</a>
 {%- endmacro %}
 
-{% macro button(href, label, style='primary', topic=None, cls='', same_tab=false, sr=None) -%}
+{% macro button(href, label, style='primary', topic=None, cls='', same_tab=false, sr=None, ic=None) -%}
 {% set url = link(href) %}
-<a class="btn btn-{{ style }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}>{{ label | inline }}{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}</a>
+<a class="btn btn-{{ style }}{{ ' ' ~ cls if cls else '' }}" href="{{ url }}"{% if topic %} data-topic="{{ topic }}"{% endif %}{% if url is newtab and not same_tab %} target="_blank" rel="noopener"{% endif %}>{{ label | inline }}{% if sr %}<span class="sr">{{ sr }}</span>{% endif %}{% if ic %}{{ icon(ic) }}{% endif %}</a>
 {%- endmacro %}
 
 {# A row of actions from content. Each action is
@@ -39,8 +39,8 @@
 {% macro actions(list, cls='') -%}
 {% if list %}<div class="cta-row{{ ' ' ~ cls if cls else '' }}">
 {% for a in list %}
-{% if a.style == 'primary' %}{{ button(a.href, a.label, style='primary', topic=a.topic, same_tab=a.same_tab, sr=a.sr) }}
-{% elif a.style == 'pill' %}{{ button(a.href, a.label, style='secondary', topic=a.topic, same_tab=a.same_tab, sr=a.sr) }}
+{% if a.style == 'primary' %}{{ button(a.href, a.label, style='primary', topic=a.topic, same_tab=a.same_tab, sr=a.sr, ic=a.icon) }}
+{% elif a.style == 'pill' %}{{ button(a.href, a.label, style='secondary', topic=a.topic, same_tab=a.same_tab, sr=a.sr, ic=a.icon) }}
 {% else %}{{ tlink(a.href, a.label, arrow=a.icon or 'arrow', topic=a.topic, sr=a.sr, same_tab=a.same_tab) }}
 {% endif %}
 {% endfor %}

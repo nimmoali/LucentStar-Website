@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="LucentAlba, coming soon from LucentStar AI, is being built to show how your business appears in AI answers, whether you’re recommended and which sources those answers rely on. AI visibility consulting is available now.">
-<title>LucentAlba | AI visibility reporting from LucentStar AI</title>
+<meta name="description" content="We find where your business can grow through AI, show you what will make the difference, and help you make it happen. LucentAlba from LucentStar AI.">
+<title>LucentAlba | Be the business AI recommends</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/favicon.ico"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://lucentstar.ai/lucentalba">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap">
@@ -1095,6 +1095,151 @@ html.motion .alb-track.s3 .al-ev div:nth-child(4){transition-delay:270ms}
 .gs-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
 .gs-empty{font-size:.875em;color:var(--muted)}
 .gs-steps{margin-top:0;width:100%}
+/* LucentAlba product page (content/pages/lucentalba.yaml).
+   Colour: white and Cloud carry the page. The dark Alba purple (--a-ink)
+   is the page's accent for buttons, links, the launcher and emphasis below
+   the opening (owner decision, 17 October 2026); the opening title's
+   emphasis keeps --a-3, and the closing band is the
+   one large dark surface. The Alba wordmark keeps --a-3 (Product Brand
+   guide). The Alba yellow appears only as text treatment: "Be chosen." and
+   the marker under "Your next action". No glows and no decorative borders.
+   Motion uses the shared reveal (data-reveal="text"): text stays readable
+   and usable, nothing pins, and with reduced motion every element shows
+   complete and still. */
+
+.theme-albedo{
+  --accent:var(--a-ink);--accent-hover:var(--a-2);--accent-glow:rgba(36,16,94,.55);
+  --em:var(--a-ink);--link-line:var(--a-ink);
+  --launcher:var(--a-ink);--launcher-hover:var(--a-2);--chip-on:var(--a-ink);
+}
+
+/* Opening: the title's emphasis ("AI recommends.") keeps the lighter Alba
+   purple, matching the Alba wordmark (owner decision, 17 October 2026) */
+.theme-albedo .page-hero .em{color:var(--a-3)}
+
+/* Opening tagline */
+.h-tagline{margin:22px auto 0;font-weight:600;font-size:clamp(22px,2.1vw,30px);line-height:1.25;letter-spacing:-.015em;color:var(--navy)}
+
+/* Statement */
+.stm-sec{padding-block:152px 144px}
+.stm{max-width:860px;margin-inline:auto;text-align:center}
+.stm-p{max-width:32em;margin:26px auto 0;font-size:clamp(19px,1.6vw,22px);line-height:1.55;color:var(--text);text-wrap:pretty}
+.stm-key{margin-top:16px;font-weight:600;color:var(--a-ink)}
+
+/* Waitlist panel: copy and action on the left, the countdown on the right */
+.wlx{max-width:1000px;margin:88px auto 0;padding:56px 60px;border-radius:28px;background:var(--a-lav);display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"copy count" "act count";gap:28px 56px;align-items:center}
+.wlx-copy{grid-area:copy}
+.wlx-count{grid-area:count}
+.wlx-act{grid-area:act;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.wlx-h{font-weight:600;font-size:clamp(26px,2.4vw,34px);line-height:1.15;letter-spacing:-.025em;color:var(--navy)}
+.wlx-p{margin-top:10px;font-size:18px;line-height:1.55;color:var(--text)}
+.wlx-cd{display:flex;align-items:flex-start;gap:8px}
+.wlx-unit{display:flex;flex-direction:column;align-items:center;min-width:2.1ch}
+.wlx-n{display:block;font-weight:700;font-size:clamp(44px,4.6vw,66px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--a-ink)}
+.wlx-sep{font-weight:600;font-size:clamp(36px,3.8vw,54px);line-height:1.05;color:var(--a-muted)}
+.wlx-l{margin-top:10px;font-weight:500;font-size:13px;line-height:1;color:var(--a-muted)}
+.wlx-joined{font-size:16px;color:var(--a-muted)}
+.wlx-num{font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+.wlx.is-launched .wlx-count{display:none}
+
+/* Buyer journey: four rising steps */
+.jr-sec{padding-block:160px}
+.jr{margin-top:88px;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:0 20px;align-items:end}
+.jr-st{display:flex;flex-direction:column;gap:22px}
+.jr-q{font-weight:600;font-size:clamp(20px,1.8vw,26px);line-height:1.3;letter-spacing:-.015em;color:var(--navy);text-wrap:balance}
+.jr-step{display:flex;align-items:flex-end;height:calc(112px + var(--i) * 64px);padding:20px 22px;border-radius:18px}
+.jr-label{font-weight:600;font-size:16px;line-height:1.3}
+.jr-s1 .jr-step{background:var(--a-hl)}
+.jr-s1 .jr-label{color:var(--a-ink)}
+.jr-s2 .jr-step{background:var(--a-3)}
+.jr-s3 .jr-step{background:var(--a-2)}
+.jr-s4 .jr-step{background:var(--a-ink)}
+.jr-s2 .jr-label,.jr-s3 .jr-label,.jr-s4 .jr-label{color:var(--white)}
+.jr-q .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.1em;margin-bottom:-.1em}
+.jr-q .w>span{display:inline-block}
+html.motion .jr-step{transform:scaleY(0);transform-origin:center bottom;transition:transform 1000ms var(--ease)}
+html.motion .jr-label{opacity:0;transform:translateY(10px);transition:opacity 500ms var(--ease),transform 700ms var(--ease)}
+html.motion .jr-q .w>span{transform:translateY(105%);transition:transform 800ms var(--ease)}
+html.motion .jr-st.is-in .jr-step,html.motion .jr-st.is-in .jr-label,html.motion .jr-st.is-in .jr-q .w>span{transform:none;opacity:1}
+@media (min-width:761px){
+  html.motion .jr-step{transition-delay:calc(var(--i) * 160ms)}
+  html.motion .jr-label{transition-delay:calc(var(--i) * 160ms + 520ms)}
+  html.motion .jr-q .w>span{transition-delay:calc(var(--i) * 160ms + 260ms + var(--w) * 55ms)}
+}
+
+/* Example: one large typographic line */
+.exf-sec{padding-block:160px}
+.exf-flow{margin-top:64px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 24px;font-weight:600;font-size:clamp(28px,3.2vw,46px);line-height:1.25;letter-spacing:-.025em;color:var(--navy);text-align:center}
+.exf-w{display:inline-block;overflow:hidden;padding:.04em .08em .16em;margin-bottom:-.12em}
+.exf-t{display:inline-block}
+.exf-arrow{display:inline-flex;color:var(--a-ink)}
+.exf-arrow .ic{width:.9em;height:.9em;stroke-width:2}
+.exf-key{padding:0 .14em;background:linear-gradient(var(--a-yellow),var(--a-yellow)) no-repeat 0 86%/100% .36em}
+html.motion .exf-t{transform:translateY(110%);transition:transform 850ms var(--ease) calc(var(--i) * 380ms)}
+html.motion .exf-arrow{opacity:0;clip-path:inset(0 100% 0 0);transition:opacity 300ms var(--ease) calc(var(--i) * 380ms + 280ms),clip-path 600ms var(--ease) calc(var(--i) * 380ms + 280ms)}
+html.motion .exf-key{background-size:0% .36em;transition:transform 850ms var(--ease) calc(var(--i) * 380ms),background-size 800ms var(--ease) 1300ms}
+html.motion .exf-flow.is-in .exf-t{transform:none}
+html.motion .exf-flow.is-in .exf-arrow{opacity:1;clip-path:inset(0)}
+html.motion .exf-flow.is-in .exf-key{background-size:100% .36em}
+
+/* Process: Find, Fix, Track */
+.ffx-sec{padding-block:160px}
+.ffx{margin-top:88px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 56px}
+.ffx-ic{display:inline-flex;color:var(--a-ink)}
+.ffx-ic .ic{width:36px;height:36px;stroke-width:1.6}
+.ffx-w{margin-top:18px;font-weight:700;font-size:clamp(44px,4.4vw,68px);line-height:1.02;letter-spacing:-.045em;color:var(--a-ink)}
+.ffx-t{margin-top:16px;max-width:21em;font-size:17px;line-height:1.6;color:var(--text)}
+html.motion .ffx-ic .ic{stroke-dasharray:90;stroke-dashoffset:90;transition:stroke-dashoffset 1300ms var(--ease-io)}
+html.motion .ffx-w span{color:transparent;background:linear-gradient(90deg,var(--a-ink) 50%,var(--a-hl) 50%) 100% 0/200% 100%;-webkit-background-clip:text;background-clip:text;transition:background-position 1100ms var(--ease)}
+html.motion .ffx-t{opacity:.35;transition:opacity 700ms var(--ease)}
+html.motion .ffx-st.is-in .ffx-ic .ic{stroke-dashoffset:0}
+html.motion .ffx-st.is-in .ffx-w span{background-position:0 0}
+html.motion .ffx-st.is-in .ffx-t{opacity:1}
+@media (min-width:761px){
+  html.motion .ffx-st{transition-delay:calc(var(--i) * 180ms)}
+  html.motion .ffx-ic .ic{transition-delay:calc(var(--i) * 180ms + 100ms)}
+  html.motion .ffx-w span{transition-delay:calc(var(--i) * 180ms + 250ms)}
+  html.motion .ffx-t{transition-delay:calc(var(--i) * 180ms + 450ms)}
+}
+
+/* Closing band: the page's one dark moment, in dark Alba purple */
+.theme-albedo .cta-sec{padding-block:72px 128px}
+.theme-albedo .cta-sec .band{background:var(--a-ink);padding:64px 64px 68px}
+.theme-albedo .cta-sec .band .h2{font-weight:700;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-.035em;max-width:16em}
+.theme-albedo .cta-sec .band .h2 .em{color:var(--a-yellow)}
+.theme-albedo .cta-sec .band .lead{color:var(--a-hl);font-size:clamp(19px,1.6vw,23px)}
+.theme-albedo .cta-sec .band .btn-secondary{border-color:var(--white);color:var(--a-ink)}
+.theme-albedo .cta-sec .band .btn-secondary:hover{background:var(--a-hl);border-color:var(--a-hl);color:var(--a-ink)}
+.theme-albedo .cta-sec .band :focus-visible{outline-color:var(--a-yellow)}
+
+/* Tablets: the waitlist panel stacks */
+@media (max-width:900px){
+  .wlx{grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "count" "act";justify-items:center;text-align:center;padding:48px 32px}
+  .wlx-act{justify-content:center}
+}
+
+/* Phones: natural vertical lists, nothing pinned */
+@media (max-width:760px){
+  .stm-sec{padding-block:104px 96px}
+  .jr-sec,.exf-sec,.ffx-sec{padding-block:104px}
+  .wlx{margin-top:56px;padding:40px 18px;border-radius:22px;gap:26px}
+  .wlx-cd{gap:4px}
+  .wlx-n{font-size:clamp(34px,11vw,46px)}
+  .wlx-sep{font-size:clamp(28px,9vw,38px)}
+  .wlx-l{font-size:12px}
+  .wlx-act{flex-direction:column;width:100%}
+  .wlx-act .btn{width:100%;justify-content:center}
+  .jr,.ffx{grid-template-columns:minmax(0,1fr);gap:32px;margin-top:56px}
+  .jr-st{gap:12px}
+  .jr-step{height:58px;width:calc(46% + var(--i) * 18%);padding:0 18px;align-items:center;border-radius:14px}
+  html.motion .jr-step{transform:scaleX(0);transform-origin:left center}
+  .ffx{gap:44px}
+  .ffx-w{margin-top:12px}
+  .exf-flow{flex-direction:column;gap:4px}
+  .exf-arrow{transform:rotate(90deg)}
+  .theme-albedo .cta-sec{padding-block:48px 88px}
+  .theme-albedo .cta-sec .band{padding:48px 22px 52px}
+}
 /* People */
 .people{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:80px;align-items:start}
 .portrait{aspect-ratio:4/5;border-radius:28px;background:var(--white);border:1.5px dashed #C3C9D2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:28px;color:var(--muted);font-size:15px;line-height:1.5}
@@ -1991,562 +2136,96 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 <section class="page-hero" id="top" aria-labelledby="page-h">
   <div class="wrap opening">
 <p class="chip-prod chip-a"><span class="dot dot-a" aria-hidden="true"></span><span class="wm wm-light wm-albedo" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="status status-coming_soon">Coming soon</span></p>
-    <h1 class="h-title" id="page-h" tabindex="-1">See what AI tells <span class="em">your buyers.</span></h1>
-<p class="intro">When buyers ask AI tools about the products or services you offer, are you part of the answer? <span class="wm wm-light wm-albedo wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span> is being built to show how your business is described, whether you’re recommended and which sources the answers rely on, so you can decide what to improve first.</p>    <div class="cta-row">
-<a class="btn btn-primary" href="#contact" data-topic="visibility">Talk about AI visibility</a>
-<a class="tlink down" href="#evidence"><span>See how it works</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
+    <h1 class="h-title" id="page-h" tabindex="-1">Be the business <span class="em">AI recommends.</span></h1>
+<p class="h-tagline">Be found. Be chosen. Grow.</p><p class="intro">We find where your business can grow through AI, show you what will make the difference, and help you make it happen.</p>    <div class="cta-row">
+<a class="btn btn-primary" href="#contact" data-topic="visibility">Get started<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 </div>
-<p class="prod-note"><b>Coming soon.</b> A limited online version is planned. Contact us to discuss an AI visibility consulting project and agree an appropriate scope and deliverables.</p>  </div>
+  </div>
 </section>
-<section class="sec sec-cloud" id="why-now" tabindex="-1" aria-labelledby="why-now-h">
+<section class="sec stm-sec" id="asking" tabindex="-1" aria-labelledby="asking-h">
+  <div class="wrap">
+    <div class="stm" data-reveal="text">
+      <h2 class="h2 stm-h" id="asking-h">Your next customer is asking AI.</h2>
+<p class="stm-p">They’re looking for recommendations, comparing businesses and deciding who to choose.</p><p class="stm-p stm-key">We help put your business on their shortlist.</p>    </div>
+    <div class="wlx" data-reveal="text" data-waitlist='{&#34;done_text&#34;: &#34;We\u2019ll email {email} before the public launch.&#34;, &#34;done_title&#34;: &#34;Thank you, {name}. Your waitlist request was received.&#34;, &#34;heading&#34;: &#34;Join the waitlist&#34;, &#34;lead&#34;: &#34;Get access before the public launch.&#34;, &#34;message&#34;: &#34;Please add me to the LucentAlba waitlist.&#34;, &#34;send&#34;: &#34;Join the waiting list&#34;}' data-waitlist-also="#contact .band a.btn">
+      <div class="wlx-copy">
+        <h3 class="wlx-h">Join the waitlist.</h3>
+        <p class="wlx-p">Get access before the public launch.</p>
+      </div>
+      <div class="wlx-count">
+        <p class="sr">The public launch is on 7 November 2026.</p>
+        <div class="wlx-cd" data-countdown="2026-11-07T09:00:00Z" aria-hidden="true">
+<span class="wlx-unit"><span class="wlx-n" data-u="d">21</span><span class="wlx-l">Days</span></span><span class="wlx-sep">:</span><span class="wlx-unit"><span class="wlx-n" data-u="h">00</span><span class="wlx-l">Hours</span></span><span class="wlx-sep">:</span><span class="wlx-unit"><span class="wlx-n" data-u="m">00</span><span class="wlx-l">Minutes</span></span><span class="wlx-sep">:</span><span class="wlx-unit"><span class="wlx-n" data-u="s">00</span><span class="wlx-l">Seconds</span></span>        </div>
+      </div>
+      <div class="wlx-act" data-waitlist-open>
+        <a class="btn btn-primary" href="#contact" data-topic="visibility">Join the waiting list<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="wlx-joined"><span class="wlx-num" data-joined='{&#34;base&#34;: 564, &#34;base_date&#34;: &#34;2026-10-17&#34;, &#34;daily_max&#34;: 11, &#34;daily_min&#34;: 3, &#34;suffix&#34;: &#34;+ already joined&#34;}'>564</span>+ already joined</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec jr-sec sec-cloud" id="journey" tabindex="-1" aria-labelledby="journey-h">
   <div class="wrap">
     <header class="sec-head center">
-      <h2 class="h2" id="why-now-h">Your buyers are already asking AI. <span class="em">Are you part of the answer?</span></h2>
-<p class="lead">94% of business buyers now use AI in their buying process (<a class="ilink" href="https://www.forrester.com/blogs/b2b_buyers_make_zero_click_buying_number_one/" target="_blank" rel="noopener">Forrester, Buyers’ Journey Survey 2025 (opens in a new tab)</a>). The businesses that understand what AI says about them can act first. The rest leave the answer to someone else.</p>    </header>
-    <ul class="feat-grid">
-      <li class="feat" data-reveal="text">
-        <h3 class="feat-h">Be there at every stage of the buying journey</h3>
-        <p class="feat-p">From first research to the final shortlist, <span class="wm wm-light wm-albedo wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span> is being built to show where AI names and recommends you, and where it doesn’t.</p>
+      <h2 class="h2" id="journey-h">Be there from the first question to the final decision.</h2>
+<p class="lead">Getting mentioned is one thing. Getting recommended when someone is ready to buy is another.</p>    </header>
+    <ol class="jr" style="--n:4">
+      <li class="jr-st jr-s1" data-reveal="text" style="--i:0">
+        <p class="jr-q" data-voice="reader"><span class="w"><span style="--w:0">“What</span></span> <span class="w"><span style="--w:1">are</span></span> <span class="w"><span style="--w:2">my</span></span> <span class="w"><span style="--w:3">options?”</span></span></p>
+        <div class="jr-step"><h3 class="jr-label">Get discovered</h3></div>
       </li>
-      <li class="feat" data-reveal="text">
-        <h3 class="feat-h">Be described the way you want to be known</h3>
-        <p class="feat-p">Spot outdated or narrow descriptions, and the sources behind them, before buyers rely on them.</p>
+      <li class="jr-st jr-s2" data-reveal="text" style="--i:1">
+        <p class="jr-q" data-voice="reader"><span class="w"><span style="--w:0">“Who</span></span> <span class="w"><span style="--w:1">should</span></span> <span class="w"><span style="--w:2">I</span></span> <span class="w"><span style="--w:3">consider?”</span></span></p>
+        <div class="jr-step"><h3 class="jr-label">Make the shortlist</h3></div>
       </li>
-      <li class="feat" data-reveal="text">
-        <h3 class="feat-h">See what needs attention first</h3>
-        <p class="feat-p">Bring the answers and their sources together, then decide which gaps or inaccurate descriptions deserve attention.</p>
+      <li class="jr-st jr-s3" data-reveal="text" style="--i:2">
+        <p class="jr-q" data-voice="reader"><span class="w"><span style="--w:0">“How</span></span> <span class="w"><span style="--w:1">do</span></span> <span class="w"><span style="--w:2">they</span></span> <span class="w"><span style="--w:3">compare?”</span></span></p>
+        <div class="jr-step"><h3 class="jr-label">Stand out</h3></div>
       </li>
-    </ul>
+      <li class="jr-st jr-s4" data-reveal="text" style="--i:3">
+        <p class="jr-q" data-voice="reader"><span class="w"><span style="--w:0">“Who</span></span> <span class="w"><span style="--w:1">should</span></span> <span class="w"><span style="--w:2">I</span></span> <span class="w"><span style="--w:3">go</span></span> <span class="w"><span style="--w:4">with?”</span></span></p>
+        <div class="jr-step"><h3 class="jr-label">Get chosen</h3></div>
+      </li>
+    </ol>
   </div>
 </section>
-<section class="sec st-sec" id="evidence" tabindex="-1" aria-labelledby="evidence-h" data-spy-as="products">
-  <div class="wrap">
-    <header class="sec-head center st-intro">
-      <h2 class="h2" id="evidence-h">One answer won’t tell you <span class="em">where you stand.</span></h2>
-<p class="lead">Follow one buyer’s question from a single AI answer to a short list of practical priorities.</p>    </header>
-
-    <article class="story" id="evidence-story" tabindex="-1" aria-label="From one answer to a short list of priorities" data-seq="story">
-      <div class="story-grid">
-        <ol class="story-steps">
-          <li class="sstep" data-step>
-            <div class="sstep-txt">
-              <p class="sstep-k"><span>1</span>One answer</p>
-<h3 class="h3 sstep-h">A single answer is easy to misread.</h3>              <p class="sstep-t">Ask an AI assistant about your kind of business and you get one answer, from one prompt, one assistant and one moment. It’s a useful starting point, and a risky basis for a decision.</p>
-            </div>
-            <div class="sstep-vis" data-reveal aria-hidden="true"><div class="sv sv-vis s1 is-still" data-sv>
-  <p class="vz-q"><span class="vz-q-k">The buyer’s question</span>Who are good interior designers in Manchester for small office fit-outs?</p>
-  <div class="vz-cards">
-    <div class="vz-card vz-c1">
-      <p class="vz-k"><span class="vz-n">1</span><b>As asked</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">Calder &amp; Moss and Atelier North are often recommended. <mark>Fernhill Studio is known mainly for homes.</mark></p>
-    </div>
-    <div class="vz-card vz-c2">
-      <p class="vz-k"><span class="vz-n">2</span><b>Reworded</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">For office fit-outs, Calder &amp; Moss and Atelier North are the names that come up.</p>
-    </div>
-    <div class="vz-card vz-c3">
-      <p class="vz-k"><span class="vz-n">3</span><b>Another assistant</b><span class="vz-meta">Assistant B · 14 Sep</span></p>
-      <p class="vz-t"><mark>Fernhill Studio is worth a look for small offices,</mark> alongside Atelier North.</p>
-    </div>
-    <div class="vz-card vz-c4">
-      <p class="vz-k"><span class="vz-n">4</span><b>Two weeks later</b><span class="vz-meta">Assistant A · 28 Sep</span></p>
-      <p class="vz-t">Atelier North is often recommended. <mark>Fernhill Studio mainly designs homes.</mark></p>
-    </div>
-  </div>
-  <div class="vz-scope">
-    <p class="vz-sk">The questions tested</p>
-    <ol class="vz-qs"><li class="is-shown"><span class="vz-n">1</span><span>Who are good interior designers in Manchester for small office fit-outs?</span><em>Shown here</em></li><li><span class="vz-n">2</span><span>Office fit-out designers in Manchester</span></li><li><span class="vz-n">3</span><span>Which Manchester studios design small offices?</span></li><li><span class="vz-n">4</span><span>Interior designers for a 20-person office in Manchester</span></li><li><span class="vz-n">5</span><span>Who can redesign a small office in Manchester city centre?</span></li></ol>
-    <p class="vz-chips"><span>Two assistants</span><span>Signed out</span><span>UK</span><span>14 and 28 September</span></p>
-  </div>
-  <div class="vz-ev">
-    <div class="vz-row vz-head"><span>Answer</span><span>Mentioned</span><span>Recommended</span><span>Cited</span></div>
-    <div class="vz-row vz-r1">
-      <span class="vz-ra"><span class="vz-n">1</span><span>As asked</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <div class="vz-row vz-r2">
-      <span class="vz-ra"><span class="vz-n">2</span><span>Reworded</span></span>
-<span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Mentioned:</span> No</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite is-none"><span class="vz-l">Cited:</span> <span>None shown</span></span>
-    </div>
-    <div class="vz-row vz-r3">
-      <span class="vz-ra"><span class="vz-n">3</span><span>Another assistant</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Recommended:</span> Yes</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>Fernhill’s website</span></span>
-    </div>
-    <div class="vz-row vz-r4">
-      <span class="vz-ra"><span class="vz-n">4</span><span>Two weeks later</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <p class="vz-na"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Signed-in answers not assessed</span></p>
-    <p class="vz-lim">Four answers to one of the five questions. A wider set could look different.</p>
-  </div>
-  <div class="vz-next">
-    <p class="vz-next-k">Practical priorities</p>
-    <ol><li><span class="vz-nn">1</span><span><b>Update the directory listing that describes Fernhill as mainly residential.</b><em>From answers 1 and 4</em></span></li><li><span class="vz-nn">2</span><span><b>Make office fit-outs easy to find on Fernhill’s own website.</b><em>From answer 3</em></span></li><li><span class="vz-nn">3</span><span><b>Ask the same questions the same way next month.</b><em>To see what changes</em></span></li></ol>
-  </div>
-</div></div>
-          </li>
-          <li class="sstep" data-step>
-            <div class="sstep-txt">
-              <p class="sstep-k"><span>2</span>Different answers</p>
-<h3 class="h3 sstep-h">Ask again, and the answer can change.</h3>              <p class="sstep-t">Reword the question, ask another assistant or come back a few weeks later, and a different picture can emerge. A single visibility score hides that variation and looks more certain than the evidence behind it.</p>
-            </div>
-            <div class="sstep-vis" data-reveal aria-hidden="true"><div class="sv sv-vis s1 s2 is-still" data-sv>
-  <p class="vz-q"><span class="vz-q-k">The buyer’s question</span>Who are good interior designers in Manchester for small office fit-outs?</p>
-  <div class="vz-cards">
-    <div class="vz-card vz-c1">
-      <p class="vz-k"><span class="vz-n">1</span><b>As asked</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">Calder &amp; Moss and Atelier North are often recommended. <mark>Fernhill Studio is known mainly for homes.</mark></p>
-    </div>
-    <div class="vz-card vz-c2">
-      <p class="vz-k"><span class="vz-n">2</span><b>Reworded</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">For office fit-outs, Calder &amp; Moss and Atelier North are the names that come up.</p>
-    </div>
-    <div class="vz-card vz-c3">
-      <p class="vz-k"><span class="vz-n">3</span><b>Another assistant</b><span class="vz-meta">Assistant B · 14 Sep</span></p>
-      <p class="vz-t"><mark>Fernhill Studio is worth a look for small offices,</mark> alongside Atelier North.</p>
-    </div>
-    <div class="vz-card vz-c4">
-      <p class="vz-k"><span class="vz-n">4</span><b>Two weeks later</b><span class="vz-meta">Assistant A · 28 Sep</span></p>
-      <p class="vz-t">Atelier North is often recommended. <mark>Fernhill Studio mainly designs homes.</mark></p>
-    </div>
-  </div>
-  <div class="vz-scope">
-    <p class="vz-sk">The questions tested</p>
-    <ol class="vz-qs"><li class="is-shown"><span class="vz-n">1</span><span>Who are good interior designers in Manchester for small office fit-outs?</span><em>Shown here</em></li><li><span class="vz-n">2</span><span>Office fit-out designers in Manchester</span></li><li><span class="vz-n">3</span><span>Which Manchester studios design small offices?</span></li><li><span class="vz-n">4</span><span>Interior designers for a 20-person office in Manchester</span></li><li><span class="vz-n">5</span><span>Who can redesign a small office in Manchester city centre?</span></li></ol>
-    <p class="vz-chips"><span>Two assistants</span><span>Signed out</span><span>UK</span><span>14 and 28 September</span></p>
-  </div>
-  <div class="vz-ev">
-    <div class="vz-row vz-head"><span>Answer</span><span>Mentioned</span><span>Recommended</span><span>Cited</span></div>
-    <div class="vz-row vz-r1">
-      <span class="vz-ra"><span class="vz-n">1</span><span>As asked</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <div class="vz-row vz-r2">
-      <span class="vz-ra"><span class="vz-n">2</span><span>Reworded</span></span>
-<span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Mentioned:</span> No</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite is-none"><span class="vz-l">Cited:</span> <span>None shown</span></span>
-    </div>
-    <div class="vz-row vz-r3">
-      <span class="vz-ra"><span class="vz-n">3</span><span>Another assistant</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Recommended:</span> Yes</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>Fernhill’s website</span></span>
-    </div>
-    <div class="vz-row vz-r4">
-      <span class="vz-ra"><span class="vz-n">4</span><span>Two weeks later</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <p class="vz-na"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Signed-in answers not assessed</span></p>
-    <p class="vz-lim">Four answers to one of the five questions. A wider set could look different.</p>
-  </div>
-  <div class="vz-next">
-    <p class="vz-next-k">Practical priorities</p>
-    <ol><li><span class="vz-nn">1</span><span><b>Update the directory listing that describes Fernhill as mainly residential.</b><em>From answers 1 and 4</em></span></li><li><span class="vz-nn">2</span><span><b>Make office fit-outs easy to find on Fernhill’s own website.</b><em>From answer 3</em></span></li><li><span class="vz-nn">3</span><span><b>Ask the same questions the same way next month.</b><em>To see what changes</em></span></li></ol>
-  </div>
-</div></div>
-          </li>
-          <li class="sstep" data-step>
-            <div class="sstep-txt">
-              <p class="sstep-k"><span>3</span>A sensible scope</p>
-<h3 class="h3 sstep-h">Start with the questions your buyers ask.</h3>              <p class="sstep-t">Before any work begins, we agree the buyer questions, assistants, conditions and timing with you. Recording them means a later check can be compared like for like.</p>
-            </div>
-            <div class="sstep-vis" data-reveal aria-hidden="true"><div class="sv sv-vis s1 s2 s3 is-still" data-sv>
-  <p class="vz-q"><span class="vz-q-k">The buyer’s question</span>Who are good interior designers in Manchester for small office fit-outs?</p>
-  <div class="vz-cards">
-    <div class="vz-card vz-c1">
-      <p class="vz-k"><span class="vz-n">1</span><b>As asked</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">Calder &amp; Moss and Atelier North are often recommended. <mark>Fernhill Studio is known mainly for homes.</mark></p>
-    </div>
-    <div class="vz-card vz-c2">
-      <p class="vz-k"><span class="vz-n">2</span><b>Reworded</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">For office fit-outs, Calder &amp; Moss and Atelier North are the names that come up.</p>
-    </div>
-    <div class="vz-card vz-c3">
-      <p class="vz-k"><span class="vz-n">3</span><b>Another assistant</b><span class="vz-meta">Assistant B · 14 Sep</span></p>
-      <p class="vz-t"><mark>Fernhill Studio is worth a look for small offices,</mark> alongside Atelier North.</p>
-    </div>
-    <div class="vz-card vz-c4">
-      <p class="vz-k"><span class="vz-n">4</span><b>Two weeks later</b><span class="vz-meta">Assistant A · 28 Sep</span></p>
-      <p class="vz-t">Atelier North is often recommended. <mark>Fernhill Studio mainly designs homes.</mark></p>
-    </div>
-  </div>
-  <div class="vz-scope">
-    <p class="vz-sk">The questions tested</p>
-    <ol class="vz-qs"><li class="is-shown"><span class="vz-n">1</span><span>Who are good interior designers in Manchester for small office fit-outs?</span><em>Shown here</em></li><li><span class="vz-n">2</span><span>Office fit-out designers in Manchester</span></li><li><span class="vz-n">3</span><span>Which Manchester studios design small offices?</span></li><li><span class="vz-n">4</span><span>Interior designers for a 20-person office in Manchester</span></li><li><span class="vz-n">5</span><span>Who can redesign a small office in Manchester city centre?</span></li></ol>
-    <p class="vz-chips"><span>Two assistants</span><span>Signed out</span><span>UK</span><span>14 and 28 September</span></p>
-  </div>
-  <div class="vz-ev">
-    <div class="vz-row vz-head"><span>Answer</span><span>Mentioned</span><span>Recommended</span><span>Cited</span></div>
-    <div class="vz-row vz-r1">
-      <span class="vz-ra"><span class="vz-n">1</span><span>As asked</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <div class="vz-row vz-r2">
-      <span class="vz-ra"><span class="vz-n">2</span><span>Reworded</span></span>
-<span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Mentioned:</span> No</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite is-none"><span class="vz-l">Cited:</span> <span>None shown</span></span>
-    </div>
-    <div class="vz-row vz-r3">
-      <span class="vz-ra"><span class="vz-n">3</span><span>Another assistant</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Recommended:</span> Yes</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>Fernhill’s website</span></span>
-    </div>
-    <div class="vz-row vz-r4">
-      <span class="vz-ra"><span class="vz-n">4</span><span>Two weeks later</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <p class="vz-na"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Signed-in answers not assessed</span></p>
-    <p class="vz-lim">Four answers to one of the five questions. A wider set could look different.</p>
-  </div>
-  <div class="vz-next">
-    <p class="vz-next-k">Practical priorities</p>
-    <ol><li><span class="vz-nn">1</span><span><b>Update the directory listing that describes Fernhill as mainly residential.</b><em>From answers 1 and 4</em></span></li><li><span class="vz-nn">2</span><span><b>Make office fit-outs easy to find on Fernhill’s own website.</b><em>From answer 3</em></span></li><li><span class="vz-nn">3</span><span><b>Ask the same questions the same way next month.</b><em>To see what changes</em></span></li></ol>
-  </div>
-</div></div>
-          </li>
-          <li class="sstep" data-step>
-            <div class="sstep-txt">
-              <p class="sstep-k"><span>4</span>The evidence</p>
-<h3 class="h3 sstep-h">Separate being named from being recommended.</h3>              <p class="sstep-t">Each answer is kept with its sources, and three findings are recorded separately. Anything that wasn’t checked is marked “not assessed”, never counted as zero.</p>
-              <dl class="terms"><div><dt>Mentioned</dt><dd>The answer names your business.</dd></div><div><dt>Recommended</dt><dd>The answer suggests you as a good choice.</dd></div><div><dt>Cited</dt><dd>The answer points to a source, such as your own website or a directory.</dd></div></dl>
-            </div>
-            <div class="sstep-vis" data-reveal aria-hidden="true"><div class="sv sv-vis s1 s2 s3 s4 is-still" data-sv>
-  <p class="vz-q"><span class="vz-q-k">The buyer’s question</span>Who are good interior designers in Manchester for small office fit-outs?</p>
-  <div class="vz-cards">
-    <div class="vz-card vz-c1">
-      <p class="vz-k"><span class="vz-n">1</span><b>As asked</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">Calder &amp; Moss and Atelier North are often recommended. <mark>Fernhill Studio is known mainly for homes.</mark></p>
-    </div>
-    <div class="vz-card vz-c2">
-      <p class="vz-k"><span class="vz-n">2</span><b>Reworded</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">For office fit-outs, Calder &amp; Moss and Atelier North are the names that come up.</p>
-    </div>
-    <div class="vz-card vz-c3">
-      <p class="vz-k"><span class="vz-n">3</span><b>Another assistant</b><span class="vz-meta">Assistant B · 14 Sep</span></p>
-      <p class="vz-t"><mark>Fernhill Studio is worth a look for small offices,</mark> alongside Atelier North.</p>
-    </div>
-    <div class="vz-card vz-c4">
-      <p class="vz-k"><span class="vz-n">4</span><b>Two weeks later</b><span class="vz-meta">Assistant A · 28 Sep</span></p>
-      <p class="vz-t">Atelier North is often recommended. <mark>Fernhill Studio mainly designs homes.</mark></p>
-    </div>
-  </div>
-  <div class="vz-scope">
-    <p class="vz-sk">The questions tested</p>
-    <ol class="vz-qs"><li class="is-shown"><span class="vz-n">1</span><span>Who are good interior designers in Manchester for small office fit-outs?</span><em>Shown here</em></li><li><span class="vz-n">2</span><span>Office fit-out designers in Manchester</span></li><li><span class="vz-n">3</span><span>Which Manchester studios design small offices?</span></li><li><span class="vz-n">4</span><span>Interior designers for a 20-person office in Manchester</span></li><li><span class="vz-n">5</span><span>Who can redesign a small office in Manchester city centre?</span></li></ol>
-    <p class="vz-chips"><span>Two assistants</span><span>Signed out</span><span>UK</span><span>14 and 28 September</span></p>
-  </div>
-  <div class="vz-ev">
-    <div class="vz-row vz-head"><span>Answer</span><span>Mentioned</span><span>Recommended</span><span>Cited</span></div>
-    <div class="vz-row vz-r1">
-      <span class="vz-ra"><span class="vz-n">1</span><span>As asked</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <div class="vz-row vz-r2">
-      <span class="vz-ra"><span class="vz-n">2</span><span>Reworded</span></span>
-<span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Mentioned:</span> No</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite is-none"><span class="vz-l">Cited:</span> <span>None shown</span></span>
-    </div>
-    <div class="vz-row vz-r3">
-      <span class="vz-ra"><span class="vz-n">3</span><span>Another assistant</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Recommended:</span> Yes</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>Fernhill’s website</span></span>
-    </div>
-    <div class="vz-row vz-r4">
-      <span class="vz-ra"><span class="vz-n">4</span><span>Two weeks later</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <p class="vz-na"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Signed-in answers not assessed</span></p>
-    <p class="vz-lim">Four answers to one of the five questions. A wider set could look different.</p>
-  </div>
-  <div class="vz-next">
-    <p class="vz-next-k">Practical priorities</p>
-    <ol><li><span class="vz-nn">1</span><span><b>Update the directory listing that describes Fernhill as mainly residential.</b><em>From answers 1 and 4</em></span></li><li><span class="vz-nn">2</span><span><b>Make office fit-outs easy to find on Fernhill’s own website.</b><em>From answer 3</em></span></li><li><span class="vz-nn">3</span><span><b>Ask the same questions the same way next month.</b><em>To see what changes</em></span></li></ol>
-  </div>
-</div></div>
-          </li>
-          <li class="sstep" data-step>
-            <div class="sstep-txt">
-              <p class="sstep-k"><span>5</span>Priorities</p>
-<h3 class="h3 sstep-h">Turn the evidence into practical priorities.</h3>              <p class="sstep-t">You get a short list of actions, each tied to the answers behind it, such as correcting a directory listing or making a service easier to find on your own website. No one can promise how AI tools will answer, so we don’t promise rankings or results.</p>
-<div class="chap-links sstep-links"><a class="tlink" href="#contact" data-topic="visibility"><span>Talk about AI visibility</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>            </div>
-            <div class="sstep-vis" data-reveal aria-hidden="true"><div class="sv sv-vis s1 s2 s3 s4 s5 is-still" data-sv>
-  <p class="vz-q"><span class="vz-q-k">The buyer’s question</span>Who are good interior designers in Manchester for small office fit-outs?</p>
-  <div class="vz-cards">
-    <div class="vz-card vz-c1">
-      <p class="vz-k"><span class="vz-n">1</span><b>As asked</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">Calder &amp; Moss and Atelier North are often recommended. <mark>Fernhill Studio is known mainly for homes.</mark></p>
-    </div>
-    <div class="vz-card vz-c2">
-      <p class="vz-k"><span class="vz-n">2</span><b>Reworded</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">For office fit-outs, Calder &amp; Moss and Atelier North are the names that come up.</p>
-    </div>
-    <div class="vz-card vz-c3">
-      <p class="vz-k"><span class="vz-n">3</span><b>Another assistant</b><span class="vz-meta">Assistant B · 14 Sep</span></p>
-      <p class="vz-t"><mark>Fernhill Studio is worth a look for small offices,</mark> alongside Atelier North.</p>
-    </div>
-    <div class="vz-card vz-c4">
-      <p class="vz-k"><span class="vz-n">4</span><b>Two weeks later</b><span class="vz-meta">Assistant A · 28 Sep</span></p>
-      <p class="vz-t">Atelier North is often recommended. <mark>Fernhill Studio mainly designs homes.</mark></p>
-    </div>
-  </div>
-  <div class="vz-scope">
-    <p class="vz-sk">The questions tested</p>
-    <ol class="vz-qs"><li class="is-shown"><span class="vz-n">1</span><span>Who are good interior designers in Manchester for small office fit-outs?</span><em>Shown here</em></li><li><span class="vz-n">2</span><span>Office fit-out designers in Manchester</span></li><li><span class="vz-n">3</span><span>Which Manchester studios design small offices?</span></li><li><span class="vz-n">4</span><span>Interior designers for a 20-person office in Manchester</span></li><li><span class="vz-n">5</span><span>Who can redesign a small office in Manchester city centre?</span></li></ol>
-    <p class="vz-chips"><span>Two assistants</span><span>Signed out</span><span>UK</span><span>14 and 28 September</span></p>
-  </div>
-  <div class="vz-ev">
-    <div class="vz-row vz-head"><span>Answer</span><span>Mentioned</span><span>Recommended</span><span>Cited</span></div>
-    <div class="vz-row vz-r1">
-      <span class="vz-ra"><span class="vz-n">1</span><span>As asked</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <div class="vz-row vz-r2">
-      <span class="vz-ra"><span class="vz-n">2</span><span>Reworded</span></span>
-<span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Mentioned:</span> No</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite is-none"><span class="vz-l">Cited:</span> <span>None shown</span></span>
-    </div>
-    <div class="vz-row vz-r3">
-      <span class="vz-ra"><span class="vz-n">3</span><span>Another assistant</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Recommended:</span> Yes</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>Fernhill’s website</span></span>
-    </div>
-    <div class="vz-row vz-r4">
-      <span class="vz-ra"><span class="vz-n">4</span><span>Two weeks later</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <p class="vz-na"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Signed-in answers not assessed</span></p>
-    <p class="vz-lim">Four answers to one of the five questions. A wider set could look different.</p>
-  </div>
-  <div class="vz-next">
-    <p class="vz-next-k">Practical priorities</p>
-    <ol><li><span class="vz-nn">1</span><span><b>Update the directory listing that describes Fernhill as mainly residential.</b><em>From answers 1 and 4</em></span></li><li><span class="vz-nn">2</span><span><b>Make office fit-outs easy to find on Fernhill’s own website.</b><em>From answer 3</em></span></li><li><span class="vz-nn">3</span><span><b>Ask the same questions the same way next month.</b><em>To see what changes</em></span></li></ol>
-  </div>
-</div></div>
-          </li>
-        </ol>
-        <div class="story-aside" aria-hidden="true">
-          <div class="story-pin">
-            <div class="story-stage">
-              <div class="story-rail" style="--n:5"><span class="srail" data-rail>One answer<b><i></i></b></span><span class="srail" data-rail>Different answers<b><i></i></b></span><span class="srail" data-rail>A sensible scope<b><i></i></b></span><span class="srail" data-rail>The evidence<b><i></i></b></span><span class="srail" data-rail>Priorities<b><i></i></b></span></div>
-              <div class="story-live"><div class="sv sv-vis s1 is-live" data-sv>
-  <p class="vz-q"><span class="vz-q-k">The buyer’s question</span>Who are good interior designers in Manchester for small office fit-outs?</p>
-  <div class="vz-cards">
-    <div class="vz-card vz-c1">
-      <p class="vz-k"><span class="vz-n">1</span><b>As asked</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">Calder &amp; Moss and Atelier North are often recommended. <mark>Fernhill Studio is known mainly for homes.</mark></p>
-    </div>
-    <div class="vz-card vz-c2">
-      <p class="vz-k"><span class="vz-n">2</span><b>Reworded</b><span class="vz-meta">Assistant A · 14 Sep</span></p>
-      <p class="vz-t">For office fit-outs, Calder &amp; Moss and Atelier North are the names that come up.</p>
-    </div>
-    <div class="vz-card vz-c3">
-      <p class="vz-k"><span class="vz-n">3</span><b>Another assistant</b><span class="vz-meta">Assistant B · 14 Sep</span></p>
-      <p class="vz-t"><mark>Fernhill Studio is worth a look for small offices,</mark> alongside Atelier North.</p>
-    </div>
-    <div class="vz-card vz-c4">
-      <p class="vz-k"><span class="vz-n">4</span><b>Two weeks later</b><span class="vz-meta">Assistant A · 28 Sep</span></p>
-      <p class="vz-t">Atelier North is often recommended. <mark>Fernhill Studio mainly designs homes.</mark></p>
-    </div>
-  </div>
-  <div class="vz-scope">
-    <p class="vz-sk">The questions tested</p>
-    <ol class="vz-qs"><li class="is-shown"><span class="vz-n">1</span><span>Who are good interior designers in Manchester for small office fit-outs?</span><em>Shown here</em></li><li><span class="vz-n">2</span><span>Office fit-out designers in Manchester</span></li><li><span class="vz-n">3</span><span>Which Manchester studios design small offices?</span></li><li><span class="vz-n">4</span><span>Interior designers for a 20-person office in Manchester</span></li><li><span class="vz-n">5</span><span>Who can redesign a small office in Manchester city centre?</span></li></ol>
-    <p class="vz-chips"><span>Two assistants</span><span>Signed out</span><span>UK</span><span>14 and 28 September</span></p>
-  </div>
-  <div class="vz-ev">
-    <div class="vz-row vz-head"><span>Answer</span><span>Mentioned</span><span>Recommended</span><span>Cited</span></div>
-    <div class="vz-row vz-r1">
-      <span class="vz-ra"><span class="vz-n">1</span><span>As asked</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <div class="vz-row vz-r2">
-      <span class="vz-ra"><span class="vz-n">2</span><span>Reworded</span></span>
-<span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Mentioned:</span> No</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite is-none"><span class="vz-l">Cited:</span> <span>None shown</span></span>
-    </div>
-    <div class="vz-row vz-r3">
-      <span class="vz-ra"><span class="vz-n">3</span><span>Another assistant</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Recommended:</span> Yes</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>Fernhill’s website</span></span>
-    </div>
-    <div class="vz-row vz-r4">
-      <span class="vz-ra"><span class="vz-n">4</span><span>Two weeks later</span></span>
-<span class="vz-yn is-yes"><i><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></i><span class="vz-l">Mentioned:</span> Yes</span><span class="vz-yn is-no"><i><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></i><span class="vz-l">Recommended:</span> No</span>      <span class="vz-cite"><span class="vz-l">Cited:</span> <svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>A directory</span></span>
-    </div>
-    <p class="vz-na"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Signed-in answers not assessed</span></p>
-    <p class="vz-lim">Four answers to one of the five questions. A wider set could look different.</p>
-  </div>
-  <div class="vz-next">
-    <p class="vz-next-k">Practical priorities</p>
-    <ol><li><span class="vz-nn">1</span><span><b>Update the directory listing that describes Fernhill as mainly residential.</b><em>From answers 1 and 4</em></span></li><li><span class="vz-nn">2</span><span><b>Make office fit-outs easy to find on Fernhill’s own website.</b><em>From answer 3</em></span></li><li><span class="vz-nn">3</span><span><b>Ask the same questions the same way next month.</b><em>To see what changes</em></span></li></ol>
-  </div>
-</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-<p class="story-note"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Fernhill Studio is fictional.</span></p>    </article>
-  </div>
-</section>
-<section class="sec" id="ways" tabindex="-1" aria-labelledby="ways-h">
+<section class="sec exf-sec" id="example" tabindex="-1" aria-labelledby="example-h">
   <div class="wrap">
     <header class="sec-head center">
-      <h2 class="h2" id="ways-h">Two ways to work with us</h2>
-<p class="lead">Start with a consulting project today. A limited online version is coming soon.</p>    </header>
-    <div class="ways">
-      <article class="way" data-reveal="text">
-        <span class="feat-status feat-available">Available now</span>
-        <h3 class="h3">Consulting</h3>
-        <p>Talk to us about your business and the AI visibility questions you want to understand. We agree the scope, deliverables and timing before starting a project.</p>
-<a class="btn btn-primary btn-sm" href="#contact" data-topic="visibility">Talk about AI visibility</a>      </article>
-      <article class="way" data-reveal="text">
-        <span class="feat-status feat-planned">Planned</span>
-        <h3 class="h3">A limited online version</h3>
-        <p>We’ll confirm what it includes, and when it will be available, before it launches.</p>
-      </article>
-    </div>
+      <h2 class="h2" id="example-h">Less reporting. More doing.</h2>
+<p class="lead">No dashboards to decode. Just the question, what AI said, and what to do about it.</p>    </header>
+    <p class="exf-flow" data-reveal="text"><span class="exf-w" style="--i:0"><span class="exf-t">Buyer question</span></span><span class="exf-arrow" style="--i:0" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="exf-w" style="--i:1"><span class="exf-t">AI answer</span></span><span class="exf-arrow" style="--i:1" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="exf-w" style="--i:2"><span class="exf-t exf-key">Your next action</span></span></p>
   </div>
 </section>
-<section class="prod-sec sec-cloud prod-sec-tight" id="example" data-spy-as="products" tabindex="-1" aria-labelledby="example-h" style="background:var(--white)">
-  <div class="wrap sec-head center">
-<p class="st-label"><span class="feat-status feat-planned">Planned for the online version</span></p>    <h2 class="h2" id="example-h">How the online report is designed to work</h2>
-<p class="lead">Follow one buyer question from the saved answer to the evidence and a clear next step.</p>  </div>
-  <div id="alb-example">
-    <div class="alb-track" id="example-track" data-stage="albedo" data-stages="4" data-cuts="0.25,0.5,0.75">
-      <div class="alb-pin">
-        <div class="wrap">
-          <div class="alb-grid" role="list" aria-label="How a report comes together, in four steps">
-<div class="co co-1" role="listitem" data-stage-cap="1"><span class="co-n">1</span><b>A buyer’s question</b><p>Written the way a real customer might ask it, and recorded exactly.</p></div>
-<div class="co co-2" role="listitem" data-stage-cap="2"><span class="co-n">2</span><b>The saved AI answer</b><p>Saved in full with the date, the tool and how it was asked. Here, Fernhill is named, but for homes rather than offices.</p></div>
-<div class="co co-3" role="listitem" data-stage-cap="3"><span class="co-n">3</span><b>The evidence</b><p>Mentions, recommendations and cited sources are kept separate. Anything we didn’t check stays “not assessed”, never zero.</p></div>
-<div class="co co-4" role="listitem" data-stage-cap="4"><span class="co-n">4</span><b>A clear next step</b><p>A proportionate action tied to the evidence. Next time, the same question would be asked the same way.</p></div>
-            <div class="alb-phone" data-stage-push>
-<div class="ph " aria-hidden="true">
-  <div class="ph-frame"><div class="ph-scr"><div class="ph-ui al-ui">
-    <span class="ph-cam"></span>
-                    <div class="al-top"><svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="13" fill="#7759B3"/><g transform="translate(28,28) scale(0.78) translate(-28,-28)"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#24105E"/></g></svg><span class="wm wm-light wm-albedo al-word" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span class="al-tab">Evidence</span></div>
-                <div class="al-ctx"><span class="al-badge">FS</span><div><p class="al-ctx-k">Report for</p><p class="al-ctx-n">Fernhill Studio</p></div></div>
-                <div class="al-view" data-view><div class="al-stack" data-shift>
-                  <div class="al-layer al-l1"><p class="al-k">The buyer’s question</p><p class="al-q">“Who are good interior designers in Manchester for small office fit-outs?”</p><p class="al-meta">One general-purpose AI assistant · Signed out · UK · 14 September 2026</p></div>
-                  <div class="al-layer al-l2"><p class="al-k">Saved answer, excerpt</p><p class="al-ans">For small office fit-outs, Calder &amp; Moss and Atelier North are often recommended for commercial work. <mark>Fernhill Studio is another Manchester practice, mainly known for residential interiors.</mark></p><p class="al-src">Source cited <span>manchester-design-directory.example</span></p></div>
-                  <div class="al-layer al-l3"><p class="al-k">The evidence</p><dl class="al-ev"><div class="is-count"><dt>Mentioned</dt><dd>Yes</dd></div><div><dt>Recommended</dt><dd>No</dd></div><div><dt>Own website cited</dt><dd>No</dd></div><div class="is-na"><dt>Signed-in answers</dt><dd>Not assessed</dd></div></dl><p class="al-note">The description matches an older directory listing.</p></div>
-                  <div class="al-layer al-l4 al-action"><p class="al-k">Next step</p><p class="al-act">Update the directory listing to include office fit-outs, and make that service easy to find on Fernhill’s own site.</p><p class="al-then">Then ask the same question, the same way, in the next report.</p></div>
-                </div></div>
-
-  </div></div></div>
-</div>            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="wrap alb-static">
-      <div class="alb-panel">
-        <div class="alb-panel-top"><svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="13" fill="#7759B3"/><g transform="translate(28,28) scale(0.78) translate(-28,-28)"><path d="M28 4.5 L29.4 24.3 L44.3 14 L31.7 26.6 L51.5 28 L31.7 29.4 L44.3 42 L29.4 31.7 L28 51.5 L26.6 31.7 L13.7 42 L26.3 29.4 L4.5 28 L26.3 26.6 L13.7 14 L26.6 24.3 Z" fill="#24105E"/></g></svg><span class="wm wm-light wm-albedo alb-word" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span><span>Report for Fernhill Studio</span></div>
-        <ol class="alb-steps">
-          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>1</i>A buyer’s question</p><div class="al-layer al-l1"><p class="al-k">The buyer’s question</p><p class="al-q">“Who are good interior designers in Manchester for small office fit-outs?”</p><p class="al-meta">One general-purpose AI assistant · Signed out · UK · 14 September 2026</p></div><p class="alb-step-t">Written the way a real customer might ask it, and recorded exactly.</p></li>
-          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>2</i>The saved AI answer</p><div class="al-layer al-l2"><p class="al-k">Saved answer, excerpt</p><p class="al-ans">For small office fit-outs, Calder &amp; Moss and Atelier North are often recommended for commercial work. <mark>Fernhill Studio is another Manchester practice, mainly known for residential interiors.</mark></p><p class="al-src">Source cited <span>manchester-design-directory.example</span></p></div><p class="alb-step-t">Saved in full with the date, the tool and how it was asked. Fernhill is named, but for homes rather than offices.</p></li>
-          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>3</i>The evidence</p><div class="al-layer al-l3"><p class="al-k">The evidence</p><dl class="al-ev"><div class="is-count"><dt>Mentioned</dt><dd>Yes</dd></div><div><dt>Recommended</dt><dd>No</dd></div><div><dt>Own website cited</dt><dd>No</dd></div><div class="is-na"><dt>Signed-in answers</dt><dd>Not assessed</dd></div></dl><p class="al-note">The description matches an older directory listing.</p></div><p class="alb-step-t">Mentions, recommendations and cited sources are kept separate. Anything we didn’t check stays “not assessed”, never zero.</p></li>
-          <li class="alb-step" data-reveal="text"><p class="alb-step-lbl"><i>4</i>A clear next step</p><div class="al-layer al-l4 al-action"><p class="al-k">Next step</p><p class="al-act">Update the directory listing to include office fit-outs, and make that service easy to find on Fernhill’s own site.</p><p class="al-then">Then ask the same question, the same way, in the next report.</p></div><p class="alb-step-t">A proportionate action tied to the evidence.</p></li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<section class="sec ffx-sec sec-cloud" id="how" tabindex="-1" aria-labelledby="how-h">
   <div class="wrap">
-    <p class="alb-limits"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Fernhill Studio is fictional. AI answers vary between accounts, locations and sessions, and change over time. A report shows what was captured under stated conditions, not what every customer sees.</span></p>
+    <header class="sec-head center"><h2 class="h2" id="how-h">We find it. You fix it. We track it.</h2></header>
+    <ol class="ffx">
+      <li class="ffx-st" data-reveal="text" style="--i:0">
+        <span class="ffx-ic" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span>
+        <p class="ffx-w"><span>Find.</span></p>
+        <p class="ffx-t">We discover where your business can reach more buyers.</p>
+      </li>
+      <li class="ffx-st" data-reveal="text" style="--i:1">
+        <span class="ffx-ic" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <p class="ffx-w"><span>Fix.</span></p>
+        <p class="ffx-t">You get clear, prioritised actions to make the improvements that matter.</p>
+      </li>
+      <li class="ffx-st" data-reveal="text" style="--i:2">
+        <span class="ffx-ic" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-loop"/></svg></span>
+        <p class="ffx-w"><span>Track.</span></p>
+        <p class="ffx-t">We measure what’s changing and where you’re making progress.</p>
+      </li>
+    </ol>
   </div>
 </section>
-<section class="sec sec-cloud" id="features" tabindex="-1" aria-labelledby="features-h">
+<section class="sec cta-sec" id="contact" tabindex="-1" aria-labelledby="contact-h">
   <div class="wrap">
-    <header class="sec-head center">
-      <h2 class="h2" id="features-h">Planned for the online version</h2>
-<p class="lead">What we plan to include when the limited online version launches. None of it is confirmed yet, and details may change before release.</p>    </header>
-    <ul class="feat-grid">
-      <li class="feat" data-reveal="text">
-<span class="feat-status feat-planned">Planned</span>        <h3 class="feat-h">Questions based on how your customers choose</h3>
-        <p class="feat-p">Questions researched from your business, services, customers and markets. You confirm them before anything is asked.</p>
-      </li>
-      <li class="feat" data-reveal="text">
-<span class="feat-status feat-planned">Planned</span>        <h3 class="feat-h">Answers saved with their conditions</h3>
-        <p class="feat-p">Each answer is kept in full, with the assistant, date and settings used, so you can see exactly what was captured.</p>
-      </li>
-      <li class="feat" data-reveal="text">
-<span class="feat-status feat-planned">Planned</span>        <h3 class="feat-h">How your business is described</h3>
-        <p class="feat-p">Whether you’re mentioned or recommended, and how your services are described. Mentions, recommendations and cited sources stay separate.</p>
-      </li>
-      <li class="feat" data-reveal="text">
-<span class="feat-status feat-planned">Planned</span>        <h3 class="feat-h">Who else is named</h3>
-        <p class="feat-p">The other businesses that appear for the same questions, and how they’re described.</p>
-      </li>
-      <li class="feat" data-reveal="text">
-<span class="feat-status feat-planned">Planned</span>        <h3 class="feat-h">The websites behind the answers</h3>
-        <p class="feat-p">The sources AI answers draw on, including your own website and the directories and articles that mention you.</p>
-      </li>
-      <li class="feat" data-reveal="text">
-<span class="feat-status feat-planned">Planned</span>        <h3 class="feat-h">Next steps and progress</h3>
-        <p class="feat-p">Proportionate actions tied to the evidence, and a like-for-like comparison when the same questions are asked again.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-<section class="sec" id="questions" data-spy-as="products" aria-labelledby="questions-h" style="padding-bottom:40px">
-  <div class="wrap">
-    <header class="sec-head center"><h2 class="h2" id="questions-h">Questions about <span class="wm wm-light wm-albedo wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span></h2></header>
-    <div class="faq">
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa1" id="fq1"><span class="faq-q-text">Is <span class="wm wm-light wm-albedo wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Alba</span></span> available now?</span><span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa1" role="region" aria-labelledby="fq1"><div><p>The limited online version is coming soon. You can start today with a consulting project, and we’ll agree its scope and deliverables with you before work begins.</p></div></div></div>
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa2" id="fq2"><span class="faq-q-text">What does a consulting project include?</span><span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa2" role="region" aria-labelledby="fq2"><div><p>We agree the buyer questions, assistants and conditions with you, capture and review the answers and their sources, and give you a short list of practical priorities tied to the evidence. Anything we didn’t check is marked as not assessed.</p></div></div></div>
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa3" id="fq3"><span class="faq-q-text">Which AI assistants will it cover?</span><span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><div><p>Coverage will be announced when the online version is ready. The scope of any consulting project is agreed before work begins.</p></div></div></div>
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa4" id="fq4"><span class="faq-q-text">Will it give our business a visibility score?</span><span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><div><p>No. We don’t reduce visibility to a single number. We show what was asked, what was answered and what supports it, and anything we didn’t check stays marked as not assessed.</p></div></div></div>
-      <div class="faq-i"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="fa5" id="fq5"><span class="faq-q-text">Can you guarantee we’ll be recommended?</span><span class="pm" aria-hidden="true"></span></button></h3><div class="faq-a" id="fa5" role="region" aria-labelledby="fq5"><div><p>No one can guarantee how AI tools answer. We show you the evidence and help you choose the next steps worth taking.</p></div></div></div>
-    </div>
-  </div>
-</section>
-<section class="sec" id="contact" tabindex="-1" aria-labelledby="contact-h">
-  <div class="wrap talk">
-    <div>
-      <h2 class="h2" id="contact-h">Talk about AI visibility</h2>
-      <p class="lead">Tell us about your business and the questions your customers ask. We’ll reply by email and suggest a sensible next step.</p>
-      <div class="talk-alt">
-        <div class="talk-row"><span class="talk-ic"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span><div><p><strong>Prefer email?</strong></p><p class="email-row"><span class="email" id="email-text">hello@lucentstar.ai</span><button class="copy" type="button" id="copy-btn" data-copy="hello@lucentstar.ai"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button></p></div></div>
-        <div class="talk-row"><span class="talk-ic"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span><p><strong>What happens next</strong>We read your message and reply by email. If it helps, we suggest a conversation to understand more.</p></div>
-      </div>
-    </div>
-    <div class="form-card" id="form-card">
-      <div class="f-done" id="f-done" hidden>
-  <span class="f-done-ic" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
-  <h3 tabindex="-1" id="f-done-h">Thank you. Your message was accepted for email delivery.</h3>
-  <p id="f-done-p">We’ll reply by email.</p>
-  <button class="f-link" type="button" id="f-again">Send another message<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <div class="band" data-reveal="text">
+      <h2 class="h2" id="contact-h">Don’t just be seen. <span class="em">Be chosen.</span></h2>
+<p class="lead">Make AI a new opportunity for your business.</p>      <div class="cta-row">
+<a class="btn btn-secondary" href="#contact" data-topic="visibility">Join the waiting list<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 </div>
-<form class="f" id="f" data-enquiry="f" novalidate>
-  <div class="enquiry-honeypot" aria-hidden="true" inert><label for="f-contact-reference">Leave this empty</label><input type="text" id="f-contact-reference" name="contact_reference" tabindex="-1" autocomplete="off" spellcheck="false"></div>
-  <div class="f-summary" id="f-summary" role="alert" tabindex="-1" hidden><h3 id="f-summary-h">Please check these answers</h3><ul id="f-summary-list"></ul></div>
-  <div>
-    <label class="f-label" for="f-name">Your name</label>
-    <p class="f-err" id="f-name-err" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
-    <input class="f-input" id="f-name" name="name" maxlength="120" type="text" autocomplete="name" aria-required="true">
-  </div>
-  <div>
-    <label class="f-label" for="f-email">Email address</label>
-    <p class="f-err" id="f-email-err" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
-    <input class="f-input" id="f-email" name="email" maxlength="254" type="email" autocomplete="email" spellcheck="false" aria-required="true">
-  </div>
-  <div>
-    <label class="f-label" for="f-company">Company <span class="f-opt">(optional)</span></label>
-    <input class="f-input" id="f-company" name="company" maxlength="200" type="text" autocomplete="organization">
-  </div>
-  <div>
-    <label class="f-label" for="f-message">What would you like help with?</label>
-    <p class="f-hint" id="f-message-hint">A sentence or two is plenty. You don’t need to know the answer, or the technology.</p>
-    <p class="f-err" id="f-message-err" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
-    <textarea class="f-input" id="f-message" name="message" maxlength="5000" rows="5" aria-required="true" aria-describedby="f-message-hint"></textarea>
-  </div>
-  <fieldset class="f-topics">
-    <legend class="f-label">What’s it about? <span class="f-opt">(optional)</span></legend>
-    <div class="f-chips">
-      <div class="f-chip"><input type="radio" name="topic" id="f-t-workflows" value="workflows"><label for="f-t-workflows">AI workflows</label></div>
-      <div class="f-chip"><input type="radio" name="topic" id="f-t-bespoke" value="bespoke"><label for="f-t-bespoke">A bespoke project</label></div>
-      <div class="f-chip"><input type="radio" name="topic" id="f-t-visibility" value="visibility" checked><label for="f-t-visibility">AI visibility</label></div>
-      <div class="f-chip"><input type="radio" name="topic" id="f-t-signal" value="signal"><label for="f-t-signal"><span class="wm wm-light wm-signal wm-copy" translate="no"><span class="wm-lead">Lucent</span><span class="wm-tail">Signal</span></span></label></div>
-      <div class="f-chip"><input type="radio" name="topic" id="f-t-unsure" value="unsure"><label for="f-t-unsure">Not sure yet</label></div>
-    </div>
-  </fieldset>
-  <div class="f-fail" id="f-fail" role="alert" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><p><strong>We couldn’t confirm your message was sent.</strong>Everything you wrote is still here. Please try again with the same message, or email hello@lucentstar.ai.</p></div>
-  <div class="f-actions">
-    <p class="f-privacy" id="f-privacy">LucentStar AI will use your details to respond to your enquiry and manage any related conversation. Sending this form won’t subscribe you to marketing emails. Read our <a href="https://lucentstar.ai/privacy" target="_blank" rel="noopener">Privacy Notice<span class="sr"> (opens in a new tab)</span></a>.</p>
-    <button class="btn btn-primary f-send" type="submit" disabled id="f-send"><span id="f-send-label">Checking delivery…</span><span class="f-bar" aria-hidden="true"></span></button>
-    <p class="f-hint" id="f-availability" role="status">Website forms are unavailable. Please <a href="mailto:hello@lucentstar.ai">email hello@lucentstar.ai</a>. Your enquiry will not subscribe you to marketing.</p>
-  </div>
-  <p class="sr" role="status" aria-live="polite" id="f-live"></p>
-</form>
     </div>
   </div>
 </section>
@@ -3451,6 +3130,118 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
   /* If the browser closes the dialog itself (a second Escape, say), tidy up */
   dlg.addEventListener('close',function(){if(!dlg.open&&state!=='closed'){gen++;stop();state='closing';closed()}});
   $$('[data-enquiry-close]',dlg).forEach(function(b){b.addEventListener('click',function(){close()})});
+})();
+/* LucentAlba page: the launch countdown, the joined counter and the
+   waitlist mode of the shared Contact us panel. Runs only on a page with a
+   waitlist panel ([data-waitlist], templates/sections/statement.html).
+   The joined figure is simulated from the page file (base, base_date and a
+   different daily amount between daily_min and daily_max); it does not read
+   the sign-up database. */
+(function(){
+  'use strict';
+  var LS=window.LS,$=LS.$,$$=LS.$$;
+  var box=$('[data-waitlist]');
+  if(!box)return;
+  var P={};try{P=JSON.parse(box.getAttribute('data-waitlist'))||{}}catch(e){}
+  function pad(n){return (n<10?'0':'')+n}
+
+  /* Countdown: days, hours, minutes and seconds to launch_at. Changed
+     digits slide up into place (not with reduced motion). At zero the
+     countdown is hidden. */
+  var cd=$('[data-countdown]',box);
+  if(cd){
+    var end=Date.parse(cd.getAttribute('data-countdown')),cells=$$('[data-u]',cd),first=true;
+    (function tick(){
+      var s=Math.max(0,Math.floor((end-Date.now())/1000));
+      var v={d:Math.floor(s/86400),h:Math.floor(s%86400/3600),m:Math.floor(s%3600/60),s:s%60};
+      cells.forEach(function(c){
+        var t=pad(v[c.getAttribute('data-u')]);
+        if(c.textContent===t)return;
+        c.textContent=t;
+        if(!first&&LS.motion&&c.animate)c.animate([{transform:'translateY(45%)',opacity:0},{transform:'none',opacity:1}],{duration:420,easing:'cubic-bezier(.16,1,.3,1)'});
+      });
+      first=false;
+      if(s===0){box.classList.add('is-launched');return}
+      setTimeout(tick,1000-Date.now()%1000+10);
+    })();
+  }
+
+  /* Replay: on this page the journey, example and process animations play
+     again each time they come back into view. Once a block has left the
+     screen completely it is reset, so the reset is never seen. With reduced
+     motion nothing is reset and everything stays complete. */
+  var replay=$$('.jr-st,.exf-flow,.ffx-st');
+  if(replay.length&&'IntersectionObserver' in window){
+    var inIo=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting)en.target.classList.add('is-in')})},{rootMargin:'0px 0px -10% 0px',threshold:0.12});
+    var outIo=new IntersectionObserver(function(ents){ents.forEach(function(en){if(!en.isIntersecting&&LS.motion)en.target.classList.remove('is-in')})},{threshold:0});
+    replay.forEach(function(el){inIo.observe(el);outIo.observe(el)});
+    LS.on('mode',function(on){if(!on)replay.forEach(function(el){el.classList.add('is-in')})});
+  }
+
+  /* Joined counter: simulated daily growth by unequal amounts. Counts up
+     once when it comes into view (not with reduced motion). */
+  var num=$('[data-joined]',box);
+  if(num){
+    var J={};try{J=JSON.parse(num.getAttribute('data-joined'))||{}}catch(e){}
+    var b=String(J.base_date||'').split('-'),start=Date.UTC(+b[0],+b[1]-1,+b[2]);
+    var days=Math.max(0,Math.floor((Date.now()-start)/86400000)),lo=J.daily_min|0,hi=Math.max(lo,J.daily_max|0);
+    var n=J.base|0;
+    for(var d=1;d<=days;d++)n+=lo+((Math.imul(d+7,2654435761)>>>0)>>>8)%(hi-lo+1);
+    var fmt=function(x){return x.toLocaleString('en-GB')};
+    num.textContent=fmt(n);
+    if(LS.motion&&'IntersectionObserver' in window){
+      var from=Math.max(0,n-60);num.textContent=fmt(from);
+      var io=new IntersectionObserver(function(ents){
+        if(!ents[0].isIntersecting){if(LS.motion)num.textContent=fmt(from);return}
+        var t0=performance.now(),dur=1400;
+        (function step(now){
+          var p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);
+          num.textContent=fmt(Math.round(from+(n-from)*e));
+          if(p<1&&LS.motion)requestAnimationFrame(step);else num.textContent=fmt(n);
+        })(t0);
+      },{threshold:0.6});
+      io.observe(num);
+      LS.on('mode',function(on){if(!on){io.disconnect();num.textContent=fmt(n)}});
+    }
+  }
+
+  /* Waitlist mode: the button opens the shared Contact us panel with a
+     waitlist heading and lead, without the message box and topics. The
+     message is filled in for the visitor and the topic is AI visibility.
+     Any other way of opening the panel, or closing it, restores it. */
+  var E=LS.enquiry,dlg=$('#enquiry'),T=window.LS_TEXT||{};
+  if(!E||!dlg)return;
+  var h=$('#enq-h'),lead=$('#enq-lead'),form=$('form[data-enquiry="p"]'),msg=$('#p-message'),label=$('#p-send-label');
+  if(!h||!form||!msg)return;
+  var also=box.getAttribute('data-waitlist-also')||'';
+  var msgWrap=msg.closest('div'),topics=$('.f-topics',form),saved=null;
+  function enter(){
+    if(saved)return;
+    saved={h:h.textContent,lead:lead?lead.textContent:'',msg:msg.value,send:T.send,dt:T.done_title,dd:T.done_text};
+    h.textContent=P.heading;if(lead)lead.textContent=P.lead;
+    msg.value=P.message;msgWrap.hidden=true;if(topics)topics.hidden=true;
+    T.send=P.send;T.done_title=P.done_title;T.done_text=P.done_text;
+    if(label&&label.textContent===saved.send)label.textContent=P.send;
+    dlg.classList.add('is-waitlist');
+  }
+  function leave(){
+    if(!saved)return;
+    h.textContent=saved.h;if(lead)lead.textContent=saved.lead;
+    msg.value=msg.value===P.message?saved.msg:msg.value;msgWrap.hidden=false;if(topics)topics.hidden=false;
+    if(label&&label.textContent===P.send)label.textContent=saved.send;
+    T.send=saved.send;T.done_title=saved.dt;T.done_text=saved.dd;
+    dlg.classList.remove('is-waitlist');saved=null;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a,button'):null;
+    if(!a)return;
+    if(a.closest('[data-waitlist-open]')||(also&&a.matches(also)))enter();
+    else if(a.id==='fab'||/#contact$/.test(a.getAttribute('href')||''))leave();
+  },true);
+  dlg.addEventListener('close',function(){if(!dlg.open)leave()});
+  /* "Send another" clears the form: keep the waitlist message in place */
+  var again=$('#p-again');
+  if(again)again.addEventListener('click',function(){if(saved)msg.value=P.message});
 })();
 /* Start: reveal observers first, then measure the page and draw the first frame. */
 (function(){

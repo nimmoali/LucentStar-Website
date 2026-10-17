@@ -1,0 +1,19 @@
+{# A short repeating process (Find, Fix, Track): a drawn icon, a large word
+   and a line per step. Motion: the steps rise in order, each icon draws and
+   each word fills with colour from left to right. With reduced motion every
+   step shows complete. #}
+{% import 'macros.html' as ui with context %}
+<section class="sec ffx-sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center"><h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>{% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}</header>
+    <ol class="ffx">
+      {% for st in s.steps %}
+      <li class="ffx-st" data-reveal="text" style="--i:{{ loop.index0 }}">
+        <span class="ffx-ic" aria-hidden="true">{{ ui.icon(st.icon) }}</span>
+        <p class="ffx-w"><span>{{ st.word }}</span></p>
+        <p class="ffx-t">{{ st.text | inline }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

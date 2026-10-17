@@ -1,176 +1,99 @@
-# LucentAlba product page. It reuses the shared header, footer, contact
-# panel, product showcase, question list and contact form, and adds its own
-# visual story (stories) and two small components (features and ways).
-# Product facts come from content/products/lucentalba.yaml, so the
-# homepage and this page stay in step.
-#
-# The journey (owner's brief, 1 October 2026): the AI visibility problem,
-# starting with unreliable measurement, then how consulting helps today,
-# then the two ways to work with us, then the planned online version (the
-# report design and the planned features), kept clearly separate.
+# LucentAlba product page. Approved copy, 17 October 2026: preserve the
+# wording and sequence. The online version is coming soon and consulting is
+# available now. The opening "Get started" opens the AI visibility enquiry;
+# "Join the waiting list" (waitlist panel and closing band) opens the
+# waitlist form.
+# Sections: opening, statement, buyer journey, example, process, closing band
+# (id: contact, so @contact links open the shared contact panel in place).
 
 slug: lucentalba
 url: /lucentalba
 title: LucentAlba
-seo_title: LucentAlba | AI visibility reporting from LucentStar AI
-description: LucentAlba, coming soon from LucentStar AI, is being built to show how your business appears in AI answers, whether you’re recommended and which sources those answers rely on. AI visibility consulting is available now.
+seo_title: LucentAlba | Be the business AI recommends
+description: We find where your business can grow through AI, show you what will make the difference, and help you make it happen. LucentAlba from LucentStar AI.
 nav_current: products
-theme: albedo          # Albedo purple for heading emphasis, buttons, links and the contact launcher
-extra_icons: true      # the story's picture uses icons from partials/icons-extra.html
+theme: albedo
+extra_icons: true
 
 sections:
 
   - type: page_hero
     product: albedo
-    heading: See what AI tells *your buyers.*
-    lead: When buyers ask AI tools about the products or services you offer, are you part of the answer? LucentAlba is being built to show how your business is described, whether you’re recommended and which sources the answers rely on, so you can decide what to improve first.
+    heading: Be the business *AI recommends.*
+    tagline: Be found. Be chosen. Grow.
+    lead: We find where your business can grow through AI, show you what will make the difference, and help you make it happen.
     actions:
-      - {label: Talk about AI visibility, href: "@contact", style: primary, topic: visibility}
-      - {label: See how it works, href: "#evidence", icon: down}
+      - {label: Get started, href: "@contact", style: primary, topic: visibility, icon: arrow}
+    note: false
 
-  # Why it matters now: the business case, straight after the opening.
-  # Content-only addition using the existing card grid (features).
-  - type: features
-    id: why-now
+  - type: statement
+    id: asking
+    heading: Your next customer is asking AI.
+    key_last: true
+    lines:
+      - They’re looking for recommendations, comparing businesses and deciding who to choose.
+      - We help put your business on their shortlist.
+    # Waitlist panel. The countdown runs to launch_at. The button opens the
+    # shared Contact us panel in its waitlist mode (scripts/07-alba.js), which
+    # sends through the existing enquiry route with the AI visibility topic.
+    # The joined figure starts at base on base_date and is SIMULATED: each
+    # day after base_date it adds a different amount between daily_min and
+    # daily_max. It does not read the sign-up database. Owner decision needed
+    # before release (see HANDOFF.md).
+    waitlist:
+      heading: Join the waitlist.
+      text: Get access before the public launch.
+      launch_at: "2026-11-07T09:00:00Z"
+      countdown_sr: The public launch is on 7 November 2026.
+      units:
+        - {key: d, label: Days, start: 21}
+        - {key: h, label: Hours, start: 0}
+        - {key: m, label: Minutes, start: 0}
+        - {key: s, label: Seconds, start: 0}
+      action: {label: Join the waiting list, href: "@contact", topic: visibility, icon: arrow}
+      joined: {base: 564, base_date: "2026-10-17", daily_min: 3, daily_max: 11, suffix: "+ already joined"}
+      # Other buttons that open the waitlist form (the closing band's button)
+      also_opens: "#contact .band a.btn"
+      panel:
+        heading: Join the waitlist
+        lead: Get access before the public launch.
+        send: Join the waiting list
+        message: Please add me to the LucentAlba waitlist.
+        done_title: Thank you, {name}. Your waitlist request was received.
+        done_text: We’ll email {email} before the public launch.
+
+  - type: journey
+    id: journey
     tone: cloud
-    heading: Your buyers are already asking AI. *Are you part of the answer?*
-    lead: "94% of business buyers now use AI in their buying process ([Forrester, Buyers’ Journey Survey 2025 (opens in a new tab)](https://www.forrester.com/blogs/b2b_buyers_make_zero_click_buying_number_one/)). The businesses that understand what AI says about them can act first. The rest leave the answer to someone else."
-    items:
-      - title: Be there at every stage of the buying journey
-        text: From first research to the final shortlist, LucentAlba is being built to show where AI names and recommends you, and where it doesn’t.
-      - title: Be described the way you want to be known
-        text: Spot outdated or narrow descriptions, and the sources behind them, before buyers rely on them.
-      - title: See what needs attention first
-        text: Bring the answers and their sources together, then decide which gaps or inaccurate descriptions deserve attention.
+    heading: Be there from the first question to the final decision.
+    lead: Getting mentioned is one thing. Getting recommended when someone is ready to buy is another.
+    stages:
+      - {label: Get discovered, question: "“What are my options?”"}
+      - {label: Make the shortlist, question: "“Who should I consider?”"}
+      - {label: Stand out, question: "“How do they compare?”"}
+      - {label: Get chosen, question: "“Who should I go with?”"}
 
-  # The visual story. Consulting, available now. The business, its question,
-  # the answers and the sources are invented to show the method (see note).
-  - type: stories
-    id: evidence
-    spy_as: products
-    heading: One answer won’t tell you *where you stand.*
-    lead: Follow one buyer’s question from a single AI answer to a short list of practical priorities.
-    stories:
-      - id: evidence-story
-        label: From one answer to a short list of priorities
-        note: "Fernhill Studio is fictional."
-        steps:
-          - rail: One answer
-            heading: A single answer is easy to misread.
-            text: Ask an AI assistant about your kind of business and you get one answer, from one prompt, one assistant and one moment. It’s a useful starting point, and a risky basis for a decision.
-          - rail: Different answers
-            heading: Ask again, and the answer can change.
-            text: Reword the question, ask another assistant or come back a few weeks later, and a different picture can emerge. A single visibility score hides that variation and looks more certain than the evidence behind it.
-          - rail: A sensible scope
-            heading: Start with the questions your buyers ask.
-            text: Before any work begins, we agree the buyer questions, assistants, conditions and timing with you. Recording them means a later check can be compared like for like.
-          - rail: The evidence
-            heading: Separate being named from being recommended.
-            text: Each answer is kept with its sources, and three findings are recorded separately. Anything that wasn’t checked is marked “not assessed”, never counted as zero.
-            terms:
-              - {term: Mentioned, text: The answer names your business.}
-              - {term: Recommended, text: The answer suggests you as a good choice.}
-              - {term: Cited, text: "The answer points to a source, such as your own website or a directory."}
-          - rail: Priorities
-            heading: Turn the evidence into practical priorities.
-            text: You get a short list of actions, each tied to the answers behind it, such as correcting a directory listing or making a service easier to find on your own website. No one can promise how AI tools will answer, so we don’t promise rankings or results.
-            links:
-              - {label: Talk about AI visibility, topic: visibility}
-        visual:
-          kind: visibility
-          question_label: The buyer’s question
-          question: Who are good interior designers in Manchester for small office fit-outs?
-          labels: {answer: Answer, mentioned: Mentioned, recommended: Recommended, cited: Cited, "yes": "Yes", "no": "No", none: None shown}
-          answers:
-            - label: As asked
-              meta: Assistant A · 14 Sep
-              before: Calder & Moss and Atelier North are often recommended.
-              mark: Fernhill Studio is known mainly for homes.
-              mentioned: true
-              recommended: false
-              cited: A directory
-            - label: Reworded
-              meta: Assistant A · 14 Sep
-              before: For office fit-outs, Calder & Moss and Atelier North are the names that come up.
-              mentioned: false
-              recommended: false
-              cited: ""
-            - label: Another assistant
-              meta: Assistant B · 14 Sep
-              mark: Fernhill Studio is worth a look for small offices,
-              after: alongside Atelier North.
-              mentioned: true
-              recommended: true
-              cited: Fernhill’s website
-            - label: Two weeks later
-              meta: Assistant A · 28 Sep
-              before: Atelier North is often recommended.
-              mark: Fernhill Studio mainly designs homes.
-              mentioned: true
-              recommended: false
-              cited: A directory
-          scope_label: The questions tested
-          shown_label: Shown here
-          questions:
-            - Who are good interior designers in Manchester for small office fit-outs?
-            - Office fit-out designers in Manchester
-            - Which Manchester studios design small offices?
-            - Interior designers for a 20-person office in Manchester
-            - Who can redesign a small office in Manchester city centre?
-          conditions: [Two assistants, Signed out, UK, 14 and 28 September]
-          not_assessed: Signed-in answers not assessed
-          limits: Four answers to one of the five questions. A wider set could look different.
-          next_label: Practical priorities
-          next:
-            - {text: Update the directory listing that describes Fernhill as mainly residential., from: From answers 1 and 4}
-            - {text: Make office fit-outs easy to find on Fernhill’s own website., from: From answer 3}
-            - {text: Ask the same questions the same way next month., from: To see what changes}
-
-  # Consulting now, the online version later: the hinge between the two
-  - type: ways
-    id: ways
-    product: albedo
-    heading: Two ways to work with us
-    lead: Start with a consulting project today. A limited online version is coming soon.
-
-  # The planned online version: how a report is designed to work, with the
-  # product's disclosure and limitations (kept from Round 5)
-  - type: showcase
-    product: albedo
+  # The real example (question, answer, next action) is added here once
+  # approved material exists. Until then only the line below is shown.
+  - type: example_flow
     id: example
-    head: false
-    label: {status: planned, text: Planned for the online version}
-    heading: How the online report is designed to work
-    lead: Follow one buyer question from the saved answer to the evidence and a clear next step.
+    heading: Less reporting. More doing.
+    lead: No dashboards to decode. Just the question, what AI said, and what to do about it.
+    key_last: true
+    flow: [Buyer question, AI answer, Your next action]
 
-  - type: features
-    id: features
-    product: albedo
+  - type: process
+    id: how
     tone: cloud
-    heading: Planned for the online version
-    lead: What we plan to include when the limited online version launches. None of it is confirmed yet, and details may change before release.
+    heading: We find it. You fix it. We track it.
+    steps:
+      - {icon: search, word: Find., text: We discover where your business can reach more buyers.}
+      - {icon: check, word: Fix., text: "You get clear, prioritised actions to make the improvements that matter."}
+      - {icon: loop, word: Track., text: We measure what’s changing and where you’re making progress.}
 
-  - type: faq
-    id: questions
-    spy_as: products
-    heading: Questions about LucentAlba
-    items:
-      - q: Is LucentAlba available now?
-        a: The limited online version is coming soon. You can start today with a consulting project, and we’ll agree its scope and deliverables with you before work begins.
-      - q: What does a consulting project include?
-        a: We agree the buyer questions, assistants and conditions with you, capture and review the answers and their sources, and give you a short list of practical priorities tied to the evidence. Anything we didn’t check is marked as not assessed.
-      - q: Which AI assistants will it cover?
-        a: Coverage will be announced when the online version is ready. The scope of any consulting project is agreed before work begins.
-      - q: Will it give our business a visibility score?
-        a: No. We don’t reduce visibility to a single number. We show what was asked, what was answered and what supports it, and anything we didn’t check stays marked as not assessed.
-      - q: Can you guarantee we’ll be recommended?
-        a: No one can guarantee how AI tools answer. We show you the evidence and help you choose the next steps worth taking.
-
-  - type: contact
+  - type: cta_band
     id: contact
-    heading: Talk about AI visibility
-    lead: Tell us about your business and the questions your customers ask. We’ll reply by email and suggest a sensible next step.
-    email_label: Prefer email?
-    next_title: What happens next
-    next_text: We read your message and reply by email. If it helps, we suggest a conversation to understand more.
-    default_topic: visibility
+    heading: Don’t just be seen. *Be chosen.*
+    lead: Make AI a new opportunity for your business.
+    actions:
+      - {label: Join the waiting list, href: "@contact", style: pill, topic: visibility, icon: arrow}

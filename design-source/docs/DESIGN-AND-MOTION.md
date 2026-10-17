@@ -1,6 +1,6 @@
 # LucentStar design and motion guide
 
-Version 1.6, 1 October 2026 (Round 6). This guide is for everyone who changes the website, the blog or the LucentSignal sign-in and welcome screens, including Claude and Codex. The source kit applies these rules, and `build.py` checks the ones that can be automated. `dist/shared/reference.html` shows the shared components, built only from the shared export, so any page can be compared with it.
+Version 1.7, 17 October 2026 (LucentAlba page redesign, owner-locked design). Version 1.6, 1 October 2026 (Round 6). This guide is for everyone who changes the website, the blog or the LucentSignal sign-in and welcome screens, including Claude and Codex. The source kit applies these rules, and `build.py` checks the ones that can be automated. `dist/shared/reference.html` shows the shared components, built only from the shared export, so any page can be compared with it.
 
 ## Principles
 
@@ -20,17 +20,18 @@ Version 1.6, 1 October 2026 (Round 6). This guide is for everyone who changes th
 | Line | #E4E7EC | Hairline borders and dividers |
 | Cloud | #F5F6F8 | Alternate section background |
 | Brand green | #00E676 | The main website's accent: filled buttons, product dots, text link underlines, and heading emphasis in titles (see the decision record) |
-| Albedo purple | #7759B3, hover #50398C, ink #24105E, lavender #F2EFFC | The LucentAlbedo page theme, LucentAlbedo screens, "Planned" labels and "Albedo" in the wordmark |
+| Albedo purple | #7759B3 (`--a-3`), hover #50398C (`--a-2`), ink #24105E (`--a-ink`), lavender #F2EFFC (`--a-lav`), light lavender #E4DBFA (`--a-hl`), muted #656379 (`--a-muted`) | The LucentAlba page theme, LucentAlba screens, "Planned" labels and "Alba" in the wordmark (#7759B3). On the LucentAlba page, the ink is the accent (see Page themes) |
+| Alba yellow | #F2CF35 (`--a-yellow`) | LucentAlba page only, as a small text treatment: never a background or fill larger than a text marker (see LucentAlba page) |
 | Brand blue (Lucent) | #0B0F1A | "Lucent" in product wordmarks on light backgrounds (owner decision, 28 September 2026). The same value as the navy, 19.1:1 on white. On dark backgrounds Lucent is white |
 | Signal dark | #0B0F1A, #151B2E, #232B42 | LucentSignal product screens |
 
 Components use accent roles (`--accent`, `--em`, `--link-line`, `--launcher`) rather than raw colours, so a page theme can change them in one place.
 
-**Page themes.** A page file can set `theme: albedo`. The LucentAlbedo page then uses the Albedo purple for heading emphasis (#7759B3, 5.4:1 on white), filled buttons with white labels (5.4:1, and 9.1:1 on hover), text link underlines, the chosen topic in the enquiry form and the Contact us launcher (#50398C). Every other page uses the brand green.
+**Page themes.** A page file can set `theme: albedo`. The LucentAlba page then uses the dark Alba purple, ink #24105E, as its accent (owner decision, 17 October 2026): filled buttons with white labels (16:1, hover #50398C at 9.1:1), text link underlines, emphasis below the opening, the chosen topic in the enquiry form and the Contact us launcher (hover #50398C). The opening title's emphasis ("AI recommends.") keeps the lighter Alba purple #7759B3 (5.4:1 on white), matching the Alba wordmark. The theme's accent roles are set in `styles/12c-alba-page.css`. Every other page uses the brand green.
 
 Rules:
 
-- Heading emphasis is a text colour only. It is never underlined and never has a highlight bar.
+- Heading emphasis is a text colour only. It is never underlined and never has a highlight bar. The one marker on the site is the Alba yellow marker under the last phrase of the LucentAlba example line, which is a line of type, not a heading (see LucentAlba page).
 - Content boxes of any kind never have green borders. Borders are Line hairlines, or none, and never tinted or semi-transparent.
 - The header shows the current section or page by colour: items are grey and the current one is navy.
 - Status labels are filled pills with no border. "Available now" has a green dot, and "Coming soon" and "Planned" use neutral or lavender fills.
@@ -80,7 +81,7 @@ Every page starts with the shared opening (`.opening`): the page title, the intr
 ## Layout and spacing
 
 - The content width is 1264px, with side gutters of 32px, 20px under 760px and 16px under 600px.
-- Section padding is 144px, falling to 104px on tablets and 80px on phones.
+- Section padding is 144px, falling to 104px on tablets and 80px on phones. The LucentAlba page uses 160px (152px for the statement) for more breathing room, falling to 104px on phones.
 - Cards use a 24 to 28px radius and a Line hairline. Buttons are 52px tall (44px for small buttons), and controls give at least 44px touch targets.
 - Grids stack to one column on phones. No page scrolls sideways at 320px.
 
@@ -99,6 +100,7 @@ Each component has one template in `templates/` and takes its copy from `content
 - **App screens look like the app** (owner decision, 29 September 2026): wherever a page shows LucentSignal itself, as a showcase or a screen grab, it uses the app's own dark blue interface (the `--s-*` surfaces, borders and labels, and the dark wordmark), placed on the page's own background, which stays white.
 - **Conversation:** one enquiry form used by the contact section and the floating panel. Both show the enquiry notice just above the send button (see `docs/FORMS-AND-PRIVACY.md`). There are no consent or marketing checkboxes.
 - **Clients:** hidden until it is switched on with approved material.
+- **LucentAlba page sections** (17 October 2026): statement with an optional waitlist panel, buyer journey, example line and process (Find, Fix, Track), plus an opening tagline. They are reusable, take their copy from the page file and are described in LucentAlba page.
 
 ## Example photos
 
@@ -136,6 +138,7 @@ Tokens: 180ms for control feedback, 320ms for small state changes and 680ms for 
 | Sticky aside | `data-seq` | The text scrolls normally while one visual stays in view and follows it. |
 | Pinned stages | `data-stage` | A short pinned sequence with captions that fill as you scroll. |
 | Story | `data-seq="story"` | Product page stories: the steps scroll normally while the picture stays in view and takes the state of the step being read; a rail above it fills as you read. Never pinned. |
+| Replay (LucentAlba page) | `scripts/07-alba.js` | The journey steps, the example line, Find, Fix, Track and the joined counter play again each time they come back into view. A block is reset only once it has left the screen completely, so the reset is never seen. |
 
 **Contact us panel.** The panel slides up from the launcher with a light fade (on phones, up from the bottom edge), and the backdrop fades with it, using the same duration and easing.
 
@@ -151,6 +154,8 @@ Rules:
 - Every scroll movement changes something on screen. There is no dead scrolling.
 - A pinned sequence lasts no more than 0.9 screen heights.
 - On phones there is no pinning. Sequences become stacked content with light reveals.
+- Reveals play once, except on the LucentAlba page, where the owner chose replaying animations (17 October 2026; see the Replay pattern).
+- Animated text is never held back until the middle of the screen: it starts when the block comes into view and settles within about 1.5 seconds.
 - Motion follows the device's reduced-motion setting, and there is no switch on the site. With reduced motion on, every pattern shows its finished state and the panel opens and closes instantly.
 - The scroll loop reads only the scroll position and cached sizes, so scrolling never forces layout work.
 - Articles, the blog index and policy pages use restrained motion: the article heading fades in once on load and index cards reveal once, with no pinning or scroll-linked effects.
@@ -158,7 +163,8 @@ Rules:
 ## Accessibility (WCAG 2.2 AA)
 
 - Text contrast is at least 4.5:1, or 3:1 for large text, with one known exception: the owner's choice of #00E676 for heading emphasis (see the decision record). Product wordmarks count as logotypes, which WCAG exempts from the contrast minimum; they keep the full product name for screen readers.
-- Decorative marks (the star, product dots) are hidden from assistive technology.
+- Decorative marks (the star, product dots, the LucentAlba journey steps and example arrows) are hidden from assistive technology.
+- A countdown's ticking digits are hidden from assistive technology; screen readers hear the date it counts down to instead.
 - Every control shows a visible focus outline (3px navy, white on dark panels), and a skip link leads to the main content.
 - Reading order matches visual order. The LucentAlbedo notes, for example, are a list in the order 1, 2, 3, 4.
 - Collapsed answers to questions are hidden from screen readers and the Tab key until they are opened.
@@ -223,6 +229,28 @@ Each product page tells its own visual story, so the homepage's product stories 
 - **Pictures** are decorative and hidden from screen readers, with nothing focusable inside; the steps say the same in text. The LucentSignal picture uses the app's own dark blue for the app's parts, on the white page.
 - **AI visibility (LucentAlbedo):** one buyer question and one answer; four captured answers that differ by wording, assistant and date; the questions tested and the conditions; the evidence, with mentioned, recommended and cited kept separate, what wasn't assessed and what the set can't show; then a short list of priorities tied to the evidence. No score.
 - **LucentSignal:** what you know, scattered, with the week's rhythm; one idea in the app; a draft in your voice; the editorial guidance; then your review and plan, with a reminder that you publish.
+
+## LucentAlba page
+
+The owner locked this design on 17 October 2026. The page file is `content/pages/lucentalba.yaml`, the section templates are `statement`, `journey`, `example_flow` and `process` (plus the opening's `tagline`), the styles are `styles/12c-alba-page.css`, and the behaviour is `scripts/07-alba.js`.
+
+**Colour balance.** White and Cloud carry the page. The ink #24105E is the accent; the lighter #7759B3 appears in the opening title's emphasis, the wordmark and one journey step. The closing band is the page's one large dark surface. The Alba yellow appears in only two places: "Be chosen." in the closing band (10.5:1 on the ink) and the marker under "Your next action" (navy text on yellow, 12.5:1). No glows, no decorative borders, and no near-black content panels.
+
+| Element | Design | Motion (reduced motion: shown complete) |
+| --- | --- | --- |
+| Opening | Shared page opening, plus a tagline (Poppins 600, 22 to 30px, navy) under the title. No availability line | Shared |
+| Statement | Centred: a section heading (`.h2`, the same size as other section headings), a supporting line, and a closing line in Poppins 600 in the ink | Rises a little once (`data-reveal="text"`) |
+| Waitlist panel | Inside the statement section: a lavender (#F2EFFC) panel, 28px radius, no border. On desktop, the heading, line, button and joined counter are on the left and the countdown on the right; on tablets and phones they stack, centred, with a full-width button | Changed countdown digits slide up; the counter counts up as it comes into view |
+| Countdown | Days, hours, minutes and seconds to `launch_at`, as two-digit numbers in Poppins 700 in the ink (44 to 66px, 34 to 46px on phones), with muted colons and 13px labels. Hidden once it reaches zero | Digits slide up as they change |
+| Joined counter | "564+ already joined": the number in navy bold, the rest muted | Counts up from about 60 below the figure, over 1.4 seconds |
+| Buyer journey | Four rising steps that grow taller and deeper from light lavender to #7759B3, #50398C and the ink, with each buyer question (Poppins 600, 20 to 26px) above its step and the stage name inside it. Phones: one under another, growing wider instead of taller | Steps grow from the baseline in order (160ms apart) and each question's words rise into place; on phones each step grows sideways as it comes into view |
+| Example line | "Buyer question → AI answer → Your next action" in Poppins 600 (28 to 46px), with ink arrows and the Alba yellow marker under the last phrase. Phones: stacked with downward arrows | Each phrase rises in turn (380ms apart), the arrows draw between them, then the marker sweeps under the last phrase |
+| Process | Find, Fix, Track: a 36px outline icon in the ink, the word in Poppins 700 (44 to 68px) in the ink and a short line. No circles, tracks or loop marks | The icon draws itself, the word fills with the ink from left to right and the line comes up to full strength |
+| Closing band | The shared closing band in the ink, about 340px tall, with white type, "Be chosen." in the Alba yellow, the lead in light lavender and a white pill "Join the waiting list" | Shared |
+
+**Waitlist form.** "Join the waiting list" (waitlist panel and closing band) opens the shared Contact us panel in its waitlist mode: a waitlist heading and lead; name, email and company; no message box or topics; the AI visibility topic and a filled-in message; and its own send label and confirmation. Any other way of opening the panel restores the normal form. The opening "Get started" opens the normal AI visibility enquiry.
+
+**Honesty.** The joined counter must show the real number of sign-ups when the page is released. The preview simulates it: it starts at 564, the owner's database figure on 17 October 2026, and adds a different amount each day. Connecting it to the real count is an open decision in the decision record. The example section shows no invented question, answer, action or business; a real example is added only from approved material.
 
 ## Component reference
 

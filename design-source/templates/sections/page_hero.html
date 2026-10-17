@@ -11,6 +11,7 @@
     {% if pr %}<p class="chip-prod{{ ' chip-a' if pr.accent == 'albedo' else '' }}">{{ ui.dot(pr.accent) }}{{ wordmark(pr) }}{{ ui.status(pr) }}</p>
     {% elif s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}
     <h1 class="h-title" id="page-h" tabindex="-1">{{ s.heading | inline }}</h1>
+    {% if s.tagline %}<p class="h-tagline">{{ s.tagline | inline }}</p>{% endif %}
     {% if s.lead %}<p class="intro">{{ s.lead | inline }}</p>{% endif %}
     {{ ui.actions(s.actions) }}
     {% if note %}<p class="prod-note">{{ note | inline }}</p>{% endif %}

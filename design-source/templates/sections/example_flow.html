@@ -1,0 +1,15 @@
+{# "Question, answer, next action" as one large typographic line. Motion:
+   each phrase rises into place in turn, the arrows draw between them and a
+   yellow marker sweeps under the last phrase. With reduced motion the line
+   shows complete. A real example can be added below the line later, once
+   approved material exists. #}
+{% import 'macros.html' as ui with context %}
+<section class="sec exf-sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+    </header>
+    <p class="exf-flow" data-reveal="text">{% for w in s.flow %}<span class="exf-w" style="--i:{{ loop.index0 }}"><span class="exf-t{{ ' exf-key' if loop.last and s.key_last else '' }}">{{ w }}</span></span>{% if not loop.last %}<span class="exf-arrow" style="--i:{{ loop.index0 }}" aria-hidden="true">{{ ui.icon('arrow') }}</span>{% endif %}{% endfor %}</p>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+{# The buyer journey: four stages climbing towards the decision. Each stage
+   is the buyer's question above a step that grows taller and deeper in
+   colour, from the first question to the final decision. Desktop: one row
+   of rising steps. Phones: steps grow sideways, one under another.
+   Motion: as the steps come into view they grow from the baseline in order
+   and each question's words rise into place. Nothing pins. With reduced
+   motion everything shows complete. The steps are decorative; the labels
+   and questions carry the meaning. #}
+<section class="sec jr-sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center">
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+    </header>
+    <ol class="jr" style="--n:{{ s.stages | length }}">
+      {% for st in s.stages %}
+      <li class="jr-st jr-s{{ loop.index }}" data-reveal="text" style="--i:{{ loop.index0 }}">
+        <p class="jr-q" data-voice="reader">{% for w in st.question.split(' ') %}<span class="w"><span style="--w:{{ loop.index0 }}">{{ w }}</span></span>{{ ' ' if not loop.last }}{% endfor %}</p>
+        <div class="jr-step"><h3 class="jr-label">{{ st.label }}</h3></div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

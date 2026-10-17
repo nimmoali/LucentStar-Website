@@ -1,3 +1,41 @@
+## LucentAlba page redesign, locked 17 October 2026
+
+### Owner decisions
+
+- The approved copy and section order: opening, statement, buyer journey, example line, Find, Fix, Track, and the closing band.
+- Tagline changed to "Be found. Be chosen. Grow." The availability line under the opening was removed.
+- A waitlist panel in the statement section, with a countdown, "Join the waiting list" and a joined counter starting from the owner's 564 sign-ups. The closing band's button is also "Join the waiting list". Both open the waitlist form.
+- The dark Alba purple #24105E is the page accent for buttons, links, the launcher and emphasis below the opening. The opening title's "AI recommends." keeps the lighter #7759B3.
+- A small Alba yellow text treatment is allowed: "Be chosen." and the marker under "Your next action". There are no yellow backgrounds.
+- Richer motion: rising journey steps, the example line building phrase by phrase, and Find, Fix, Track drawing and filling in. Animations replay each time they come back into view, an exception to "reveals play once".
+- Design locked. New elements and rules are recorded in DESIGN-AND-MOTION.md (version 1.7, LucentAlba page).
+
+### Preview implements
+
+- New section templates `statement` (with `waitlist`), `journey`, `example_flow` and `process`. `page_hero` gains an optional `tagline`. `macros.button()` takes an icon, and `actions()` passes it to filled and pill buttons.
+- `styles/12c-alba-page.css` and `scripts/07-alba.js` (countdown, counter, waitlist mode, replay). No other shared style or script changed.
+
+### Tested in the preview
+
+- No sideways scrolling at 1440, 768, 390 and 320px, and no dead scrolling or pinning at 1440 and 390px.
+- Animations replay after leaving and returning. Reduced motion shows everything complete.
+- Get started opens the AI visibility enquiry. Both "Join the waiting list" buttons open the waitlist form, and the normal form comes back afterwards.
+- No script errors, and `build.py --check` passes.
+- Not tested: screen readers, Safari and Firefox, or real delivery (sending was off in the preview).
+
+### Open decisions
+
+1. The joined counter is simulated in the preview. Before release, connect it to the real sign-up count.
+2. The launch date for the countdown: 7 November 2026, 09:00 UK, to confirm.
+3. Where waitlist sign-ups go (enquiry email now, or the sign-up database), and whether the form's privacy wording covers a launch email.
+4. The products menu label "See planned features".
+5. The real example material.
+6. Removing the FAQ also removes the explicit statement that no one can guarantee recommendations.
+
+### Live state
+
+Nothing has been committed, released or published. The live LucentAlba page is unchanged.
+
 ## Enquiry bot protection and source identity, 14 October 2026
 
 Owner authorised implementation across public enquiry forms and publication. Reuse the existing server honeypot, signed timing, origin, rate and idempotency checks. Strengthen the shared decoy's keyboard/autofill isolation; show page/form identity and optional triggering CTA in plain-text emails, without URL query/fragment data or changes to recipient, authentication or tracking. Preserve topic choices and retries. See FORMS-AND-PRIVACY.md and the scoped release evidence.

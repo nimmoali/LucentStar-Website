@@ -1,0 +1,32 @@
+{# A short statement: a section-size heading, a supporting line and a closing
+   line set in the page accent. Rises in once (data-reveal="text").
+   Optional waitlist panel (s.waitlist): a heading and line, a countdown to
+   the public launch, a button that opens the shared Contact us panel in its
+   waitlist mode, and a joined counter (scripts/07-alba.js). #}
+{% import 'macros.html' as ui with context %}
+<section class="sec stm-sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <div class="stm" data-reveal="text">
+      <h2 class="h2 stm-h" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% for t in s.lines %}<p class="stm-p{{ ' stm-key' if loop.last and s.key_last else '' }}">{{ t | inline }}</p>{% endfor %}
+    </div>
+    {% if s.waitlist %}{% set w = s.waitlist %}
+    <div class="wlx" data-reveal="text" data-waitlist='{{ w.panel | tojson | forceescape }}'{% if w.also_opens %} data-waitlist-also="{{ w.also_opens }}"{% endif %}>
+      <div class="wlx-copy">
+        <h3 class="wlx-h">{{ w.heading | inline }}</h3>
+        <p class="wlx-p">{{ w.text | inline }}</p>
+      </div>
+      <div class="wlx-count">
+        <p class="sr">{{ w.countdown_sr }}</p>
+        <div class="wlx-cd" data-countdown="{{ w.launch_at }}" aria-hidden="true">
+          {% for u in w.units %}{% if not loop.first %}<span class="wlx-sep">:</span>{% endif %}<span class="wlx-unit"><span class="wlx-n" data-u="{{ u.key }}">{{ '%02d' % u.start }}</span><span class="wlx-l">{{ u.label }}</span></span>{% endfor %}
+        </div>
+      </div>
+      <div class="wlx-act" data-waitlist-open>
+        {{ ui.button(w.action.href, w.action.label, style='primary', topic=w.action.topic, ic=w.action.icon) }}
+        <p class="wlx-joined"><span class="wlx-num" data-joined='{{ w.joined | tojson | forceescape }}'>{{ w.joined.base }}</span>{{ w.joined.suffix }}</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
