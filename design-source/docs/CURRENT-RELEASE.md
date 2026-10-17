@@ -6,6 +6,8 @@ Website revision `4808320` is published at `/lucentalba/`. The live clean route 
 
 The owner explicitly chose to release the reviewed waitlist, countdown to 7 November 2026 at 09:00 UK, and displayed joined count as supplied. The joined count starts at the recorded 564 on 17 October and the page script adds simulated daily increases. This is not connected to a live sign-up source. Waitlist requests currently go to the existing enquiry inbox rather than a sign-up database. Its privacy wording and launch-email promise remain to reconcile. The products menu still says “See planned features” although that section was removed.
 
+The preview was checked at 1440, 768, 390 and 320px, including reduced motion, replayed scroll animation and both form modes. The live release was checked for the built page, consent tag and accepted form submissions. Screen readers, Safari, Firefox, 200% zoom, a real phone and inbox arrival were not verified for this release.
+
 ## Latest: LucentAlba copy and FAQ alignment, live 16 October 2026
 
 Website revision `d39bb906ecbf099ee5c035cf1eac60c4c8b93ccf` is published. It adds the reviewed LucentAlba copy and buyer context section, removes the extra planned-features footnote, and keeps one short factual notice that Fernhill Studio is fictional beside each invented screen. The shared FAQ template keeps styled product names together, so the homepage and LucentSignal FAQs were rebuilt as well. The existing shared export `2026-10-14.e3eb79d8d1` remains in use; the blog and app were not changed.

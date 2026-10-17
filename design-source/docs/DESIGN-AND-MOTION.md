@@ -227,7 +227,7 @@ Each product page tells its own visual story, so the homepage's product stories 
 - **Tablets:** each step, then its picture.
 - **Phones:** each step, then a compact picture of just that state (for example only the new card in the app, or only the evidence rows).
 - **Pictures** are decorative and hidden from screen readers, with nothing focusable inside; the steps say the same in text. The LucentSignal picture uses the app's own dark blue for the app's parts, on the white page.
-- **AI visibility (LucentAlbedo):** one buyer question and one answer; four captured answers that differ by wording, assistant and date; the questions tested and the conditions; the evidence, with mentioned, recommended and cited kept separate, what wasn't assessed and what the set can't show; then a short list of priorities tied to the evidence. No score.
+- **Historical AI visibility story (LucentAlbedo, not the current LucentAlba page):** one buyer question and one answer; four captured answers that differ by wording, assistant and date; the questions tested and the conditions; the evidence, with mentioned, recommended and cited kept separate, what wasn't assessed and what the set can't show; then a short list of priorities tied to the evidence. No score. The live design is specified in the LucentAlba section below.
 - **LucentSignal:** what you know, scattered, with the week's rhythm; one idea in the app; a draft in your voice; the editorial guidance; then your review and plan, with a reminder that you publish.
 
 ## LucentAlba page
@@ -250,7 +250,7 @@ The owner locked this design on 17 October 2026. The page file is `content/pages
 
 **Waitlist form.** "Join the waiting list" (waitlist panel and closing band) opens the shared Contact us panel in its waitlist mode: a waitlist heading and lead; name, email and company; no message box or topics; the AI visibility topic and a filled-in message; and its own send label and confirmation. Any other way of opening the panel restores the normal form. The opening "Get started" opens the normal AI visibility enquiry.
 
-**Honesty.** The joined counter must show the real number of sign-ups when the page is released. The preview simulates it: it starts at 564, the owner's database figure on 17 October 2026, and adds a different amount each day. Connecting it to the real count is an open decision in the decision record. The example section shows no invented question, answer, action or business; a real example is added only from approved material.
+**Honesty.** The owner approved releasing the joined counter as supplied on 17 October 2026. It starts at the owner's recorded 564 sign-ups and adds simulated daily increases; it is not a live database count. Connecting it to the real count remains a follow-up and this behaviour must not be reused as evidence of actual sign-ups. The example section shows no invented question, answer, action or business; a real example is added only from approved material.
 
 ## Component reference
 

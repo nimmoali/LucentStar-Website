@@ -23,11 +23,11 @@
 - No script errors, and `build.py --check` passes.
 - Not tested: screen readers, Safari and Firefox, or real delivery (sending was off in the preview).
 
-### Open decisions
+### Follow-up after release
 
-1. The joined counter is simulated in the preview. Before release, connect it to the real sign-up count.
-2. The launch date for the countdown: 7 November 2026, 09:00 UK, to confirm.
-3. Where waitlist sign-ups go (enquiry email now, or the sign-up database), and whether the form's privacy wording covers a launch email.
+1. The owner approved publishing the simulated joined counter. Replace its daily increases with a real sign-up count when that source is available.
+2. The published countdown targets 7 November 2026, 09:00 UK. Confirm the operational launch plan before that date or update the countdown.
+3. Waitlist requests currently go to the enquiry inbox. Decide whether they should also enter a sign-up database, and reconcile the form's privacy wording with any launch email.
 4. The products menu label "See planned features".
 5. The real example material.
 6. Removing the FAQ also removes the explicit statement that no one can guarantee recommendations.
