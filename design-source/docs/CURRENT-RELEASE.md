@@ -1,5 +1,11 @@
 # Current LucentStar release
 
+## Latest: purple homepage theme, live 17 October 2026
+
+Website revision `1b8f8d1` is published at `/`. The public homepage matched the committed HTML byte for byte after the Pages deployment completed. The homepage now uses purple title emphasis, dark-purple actions with white text, a standalone dark-purple star in the header and footer, and yellow icons inside the active approach steps. Its copy, layout and motion remain unchanged. The shared LucentSignal and LucentAlba product colours remain distinct.
+
+The source build and static checks passed. The live page retained the consent-gated Google Analytics ID `G-LF5E1LE400`, the configured enquiry endpoint and both form honeypots. This release did not resubmit a form, retest inbox arrival or deploy the blog or app. The shared export content hash remained `e3eb79d8d1`.
+
 ## Latest: LucentAlba redesign, live 17 October 2026
 
 Website revision `4808320` is published at `/lucentalba/`. The live clean route matched the committed HTML byte for byte. The redesigned page retains consent-gated Google Analytics `G-LF5E1LE400`, the shared enquiry endpoint and its honeypot. A live waitlist submission and a normal AI visibility enquiry both received provider acceptance; inbox arrival was not checked. The form route and server honeypot also passed the existing 29 local tests before release.
