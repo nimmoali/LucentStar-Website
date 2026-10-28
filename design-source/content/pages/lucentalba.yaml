@@ -73,6 +73,33 @@ sections:
       - {label: Stand out, question: "“How do they compare?”"}
       - {label: Get chosen, question: "“Who should I go with?”"}
 
+  # Approved by Ali, 28 October 2026, including Claude's animation. One customer
+  # question, up to six AI experiences, a broader view. Future-facing: "up
+  # to six", no claim of public availability, identical collection methods,
+  # complete coverage or results. The copy never says every experience is
+  # captured from its consumer app (some routes use APIs or public search).
+  # Marks: assets/platforms/, sources recorded in the preview README.
+  - type: platforms
+    id: platforms
+    eyebrow: A broader view
+    heading: Your customers ask different AI platforms. We’ll track across them.
+    lead: Go beyond a single answer. We’ll track your business across up to six AI platforms and search experiences, so you can see where you appear, how you’re described and where opportunities may lie.
+    question_label: One customer question
+    question: "“Who should I choose?”"
+    list_label: Up to six AI platforms and search experiences
+    platforms:
+      - {mark: chatgpt, name: ChatGPT}
+      - {mark: gemini, name: Gemini}
+      - {mark: google, by: Google, name: AI Mode}
+      - {mark: google, by: Google, name: AI Overviews}
+      - {mark: claude, name: Claude}
+      - {mark: perplexity, name: Perplexity}
+    outcome_label: What you’ll understand
+    outcomes:
+      - {icon: search, text: Where you appear}
+      - {icon: chat, text: How you’re described}
+      - {icon: spark, text: Where opportunities may lie}
+
   # The real example (question, answer, next action) is added here once
   # approved material exists. Until then only the line below is shown.
   - type: example_flow

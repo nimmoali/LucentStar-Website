@@ -37,7 +37,7 @@
      again each time they come back into view. Once a block has left the
      screen completely it is reset, so the reset is never seen. With reduced
      motion nothing is reset and everything stays complete. */
-  var replay=$$('.jr-st,.exf-flow,.ffx-st');
+  var replay=$$('.jr-st,.pf,.exf-flow,.ffx-st');
   if(replay.length&&'IntersectionObserver' in window){
     var inIo=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting)en.target.classList.add('is-in')})},{rootMargin:'0px 0px -10% 0px',threshold:0.12});
     var outIo=new IntersectionObserver(function(ents){ents.forEach(function(en){if(!en.isIntersecting&&LS.motion)en.target.classList.remove('is-in')})},{threshold:0});

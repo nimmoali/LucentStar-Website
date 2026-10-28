@@ -163,7 +163,7 @@ Rules:
 ## Accessibility (WCAG 2.2 AA)
 
 - Text contrast is at least 4.5:1, or 3:1 for large text, with one known exception: the owner's choice of #00E676 for heading emphasis (see the decision record). Product wordmarks count as logotypes, which WCAG exempts from the contrast minimum; they keep the full product name for screen readers.
-- Decorative marks (the star, product dots, the LucentAlba journey steps and example arrows) are hidden from assistive technology.
+- Decorative marks (the star, product dots, platform marks and connecting paths, the LucentAlba journey steps and example arrows) are hidden from assistive technology.
 - A countdown's ticking digits are hidden from assistive technology; screen readers hear the date it counts down to instead.
 - Every control shows a visible focus outline (3px navy, white on dark panels), and a skip link leads to the main content.
 - Reading order matches visual order. The LucentAlbedo notes, for example, are a list in the order 1, 2, 3, 4.
@@ -232,7 +232,7 @@ Each product page tells its own visual story, so the homepage's product stories 
 
 ## LucentAlba page
 
-The owner locked this design on 17 October 2026. The page file is `content/pages/lucentalba.yaml`, the section templates are `statement`, `journey`, `example_flow` and `process` (plus the opening's `tagline`), the styles are `styles/12c-alba-page.css`, and the behaviour is `scripts/07-alba.js`.
+The owner locked this design on 17 October 2026. The additive Platforms section and its specified animation were approved on 28 October 2026. The page file is `content/pages/lucentalba.yaml`, the section templates are `statement`, `journey`, `example_flow` and `process` (plus the opening's `tagline`), the styles are `styles/12c-alba-page.css`, and the behaviour is `scripts/07-alba.js`.
 
 **Colour balance.** White and Cloud carry the page. The ink #24105E is the accent; the lighter #7759B3 appears in the opening title's emphasis, the wordmark and one journey step. The closing band is the page's one large dark surface. The Alba yellow appears in only two places: "Be chosen." in the closing band (10.5:1 on the ink) and the marker under "Your next action" (navy text on yellow, 12.5:1). No glows, no decorative borders, and no near-black content panels.
 
@@ -244,6 +244,7 @@ The owner locked this design on 17 October 2026. The page file is `content/pages
 | Countdown | Days, hours, minutes and seconds to `launch_at`, as two-digit numbers in Poppins 700 in the ink (44 to 66px, 34 to 46px on phones), with muted colons and 13px labels. Hidden once it reaches zero | Digits slide up as they change |
 | Joined counter | "564+ already joined": the number in navy bold, the rest muted | Counts up from about 60 below the figure, over 1.4 seconds |
 | Buyer journey | Four rising steps that grow taller and deeper from light lavender to #7759B3, #50398C and the ink, with each buyer question (Poppins 600, 20 to 26px) above its step and the stage name inside it. Phones: one under another, growing wider instead of taller | Steps grow from the baseline in order (160ms apart) and each question's words rise into place; on phones each step grows sideways as it comes into view |
+| Platforms | One customer question, six equal platform marks with text labels, then three business takeaways. Desktop: ink fan paths connect the question, six Cloud-backed marks and outcomes. Tablet: 3 by 2 marks; phone: 2 by 3 marks with short stems | Approved replay: question rises, marks stagger 70ms apart, paths draw out and back, outcomes settle by about 1.8 seconds. No pinning or looping; reduced motion shows the complete state immediately |
 | Example line | "Buyer question → AI answer → Your next action" in Poppins 600 (28 to 46px), with ink arrows and the Alba yellow marker under the last phrase. Phones: stacked with downward arrows | Each phrase rises in turn (380ms apart), the arrows draw between them, then the marker sweeps under the last phrase |
 | Process | Find, Fix, Track: a 36px outline icon in the ink, the word in Poppins 700 (44 to 68px) in the ink and a short line. No circles, tracks or loop marks | The icon draws itself, the word fills with the ink from left to right and the line comes up to full strength |
 | Closing band | The shared closing band in the ink, about 340px tall, with white type, "Be chosen." in the Alba yellow, the lead in light lavender and a white pill "Join the waiting list" | Shared |
@@ -263,3 +264,8 @@ The owner locked this design on 17 October 2026. The page file is `content/pages
 3. Review the page on desktop, on a phone at 390px and 320px, with reduced motion on, and with the keyboard only, and compare it with the component reference.
 4. If the header, footer, colours or type changed, update the blog and the app from `dist/shared/` (see `docs/SHARED-DESIGN.md`).
 5. Keep proposed designs, owner decisions, implemented previews, tested behaviour and production changes clearly separate in the decision record.
+
+
+### Platforms replay addendum, approved 28 October 2026
+
+The replay selector in `scripts/07-alba.js` includes `.pf` alongside `.jr-st`, `.exf-flow` and `.ffx-st`. The complete Platforms sequence resets only after leaving the viewport and plays again on return. Reuse the approved 70ms mark stagger and existing easing; show everything complete with reduced motion. Source and ownership references are in the 28 October entry of DECISIONS.md.

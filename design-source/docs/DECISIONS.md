@@ -1,3 +1,13 @@
+## LucentAlba Platforms section, approved 28 October 2026
+
+Ali explicitly approved Claude's completed design and specified animation, and authorised implementation and public release in this Codex chat on 28 October 2026. The six named experiences are ChatGPT, Gemini, Google AI Mode, Google AI Overviews, Claude and Perplexity. This is an additive section after Buyer journey and before the example, preserving the existing page and forms. The independent Resources candidate remains outside this release.
+
+The current product scope in `LUCENTALBA-CURRENT-STATUS.md` includes all six collection services; the proposal's older concern that AI Mode might be outside scope is superseded. Future-facing wording and “up to six” remain as approved. No identical consumer-method, guaranteed outcome or platform endorsement is claimed.
+
+The five SVG files are copied byte-for-byte from the approved Claude handover. Sources retrieved by Claude on 28 October: ChatGPT `https://chatgpt.com/unauth-mweb/images/favicon.svg`; Gemini `https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg`; Google G for both labelled search experiences `https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg`; Claude `https://claude.ai/favicon.svg`; Perplexity's inline header mark from `https://www.perplexity.ai/`. The handover's already-applied light-background adjustments are preserved; no further recolouring, redrawing or optimisation is performed. The owner approved the visual marks with the complete design and requested release.
+
+The approved motion is retained: the question rises, marks arrive 70ms apart, outbound and inbound paths draw, then outcomes settle by about 1.8 seconds. Replay resets only outside the viewport; reduced motion is complete immediately. No pinning, endless animation or scroll interception.
+
 ## Homepage purple theme, approved 17 October 2026
 
 - Replace the homepage's general green accents with purple to bring it closer to the LucentAlba page while keeping the white, spacious layout and existing motion.

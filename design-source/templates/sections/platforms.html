@@ -1,0 +1,43 @@
+{# One customer question, up to six AI experiences, a broader view. Desktop:
+   the question sits above the six marks, ink paths fan out to each and gather
+   again into what the business learns. Tablets and phones: the same order,
+   stacked, with short ink stems instead of the fans. Motion: the question
+   rises, the marks appear in turn, the paths draw out and back in, then the
+   outcomes come up to full strength. Nothing pins. With reduced motion
+   everything shows complete. The marks are the platforms' own artwork
+   (assets/platforms/, sources in the preview README); each name is real text
+   and the images are decorative. The fans, dots and stems are decorative. #}
+{% import 'macros.html' as ui with context %}
+<section class="sec pf-sec{{ ' sec-cloud' if s.tone == 'cloud' else '' }}" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h">
+  <div class="wrap">
+    <header class="sec-head center">
+      {% if s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}
+      <h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2>
+      {% if s.lead %}<p class="lead">{{ s.lead | inline }}</p>{% endif %}
+    </header>
+    <div class="pf" style="--n:{{ s.platforms | length }}">
+      <p class="pf-q"><span class="pf-k">{{ s.question_label }}</span><span class="pf-qt" data-voice="reader">{{ s.question }}</span></p>
+      <span class="pf-node" aria-hidden="true"></span>
+      <span class="pf-stem" aria-hidden="true"></span>
+      <svg class="pf-fan pf-fan-out" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        {% for p in s.platforms %}{% set x = (loop.index0 + 0.5) * 1200 / (s.platforms | length) %}<path pathLength="1" style="--i:{{ loop.index0 }}" d="M600 0V16C600 72 {{ x }} 52 {{ x }} 120"/>{% endfor %}
+      </svg>
+      <ul class="pf-list" aria-label="{{ s.list_label }}">
+        {% for p in s.platforms %}
+        <li class="pf-it" style="--i:{{ loop.index0 }}"><span class="pf-chip"><img class="pf-mark pf-mark-{{ p.mark }}" src="{{ asset('assets/platforms/' ~ p.mark ~ '.svg') }}" alt="" width="36" height="36"><span class="pf-name">{% if p.by %}<span class="pf-by">{{ p.by }}</span> <span class="pf-nb">{{ p.name }}</span>{% else %}{{ p.name }}{% endif %}</span></span></li>
+        {% endfor %}
+      </ul>
+      <svg class="pf-fan pf-fan-in" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        {% for p in s.platforms %}{% set x = (loop.index0 + 0.5) * 1200 / (s.platforms | length) %}<path pathLength="1" style="--i:{{ loop.index0 }}" d="M{{ x }} 0C{{ x }} 68 600 48 600 104V120"/>{% endfor %}
+      </svg>
+      <span class="pf-stem pf-stem-in" aria-hidden="true"></span>
+      <span class="pf-node pf-node-in" aria-hidden="true"></span>
+      <div class="pf-res">
+        <p class="pf-k">{{ s.outcome_label }}</p>
+        <ul class="pf-outs">
+          {% for o in s.outcomes %}<li class="pf-out" style="--i:{{ loop.index0 }}"><span class="pf-oic" aria-hidden="true">{{ ui.icon(o.icon) }}</span><span>{{ o.text }}</span></li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
