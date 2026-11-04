@@ -64,8 +64,8 @@ FACT_RE = re.compile(r'\{\{\s*([a-z][\w-]*(?:\.[\w-]+)+)\s*\}\}')
 WORDMARK_RE = re.compile(r'\{\{\s*wordmark:([\w-]+)(?::(light|dark))?\s*\}\}')
 NUMBER_WORDS = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten'}
 SHARED_EXTRA_CSS = {'lucentstar-blog.css': ['17a-blog.css'], 'lucentstar-auth.css': ['17b-auth.css'],
-                    'lucentstar-welcome.css': ['17c-welcome.css']}
-SHARED_JS = ['01-core.js', '04-site.js', '09-consent.js']
+                    'lucentstar-welcome.css': ['17c-welcome.css'], 'registration-consent.css': ['23-registration.css']}
+SHARED_JS = ['01-core.js', '04-site.js', '09-consent.js', '09-registration.js']
 
 
 def load(path):
@@ -1023,6 +1023,7 @@ def export_shared(data):
                                     + read_all('scripts/*.js', only=SHARED_JS) + '\n(function(){window.LS.start()})();\n')
     files['analytics-consent.js'] = read_all('scripts/*.js', only=['09-consent.js'])
     files['welcome-events.js'] = read_all('scripts/*.js', only=['10-welcome-events.js'])
+    files['registration-events.js'] = read_all('scripts/*.js', only=['09-registration.js'])
     nav = nav_data(data, b, V)
     files['nav.json'] = json.dumps(nav, ensure_ascii=False, indent=2) + '\n'
     files['login-main.html'] = e_app.get_template('pages/signal-login.html').render(page=data['pages']['signal-login'], **app_data)

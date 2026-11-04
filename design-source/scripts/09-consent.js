@@ -15,7 +15,13 @@
     value=v; window['ga-disable-'+id]=v!=='accepted';
     window.gtag('consent','update',{analytics_storage:v==='accepted'?'granted':'denied'});
     if(v==='accepted'&&!loaded){
-      loaded=true; window.gtag('js',new Date());window.gtag('config',id);
+      loaded=true; window.gtag('js',new Date());
+      var config={};
+      if(document.body.hasAttribute('data-analytics-clean-url')){
+        config.page_location=location.origin+location.pathname;
+        try{config.page_referrer=document.referrer?new URL(document.referrer).origin:''}catch(_){config.page_referrer=''}
+      }
+      window.gtag('config',id,config);
       var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);
       window.dispatchEvent(new Event('lucentstar:analytics-enabled'));
     }

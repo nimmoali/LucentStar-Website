@@ -52,6 +52,7 @@ if signal.is_dir():
     shutil.copytree(shared,export,dirs_exist_ok=True)
     for name in ['favicon.svg','apple-touch-icon.png']:
         shutil.copy2(ROOT/'assets'/name,export/name)
-    shutil.copy2(shared/'analytics-consent.js',export.parent/'analytics-consent.js')
+    for name in ['analytics-consent.js', 'registration-events.js', 'registration-consent.css']:
+        shutil.copy2(shared/name,export.parent/name)
     (export.parent/'VERSION').write_text(version+'\n')
 print('Complete website and Signal/blog shared export:',version)

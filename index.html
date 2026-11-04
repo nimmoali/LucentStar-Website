@@ -2142,6 +2142,15 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 .prose-page{max-width:900px;margin:0 auto;padding:calc(var(--hdr) + 64px) 32px 96px;color:var(--text);font:18px/1.7 var(--f)}.prose-header{margin:24px 0 40px}.prose-page h1{font-size:clamp(36px,5vw,64px);line-height:1.1;letter-spacing:-.035em;color:var(--navy)}.prose-meta{font-size:14px;color:var(--muted);margin-top:16px}.prose-page h2{margin:40px 0 16px;font-size:28px;line-height:1.3;color:var(--navy)}.prose-page h3{margin:24px 0 12px;font-size:21px}.prose-page p{margin:16px 0}.prose-page ul,.prose-page ol{padding-left:24px;list-style:revert;margin:20px 0}.prose-page a{color:var(--navy);text-decoration:underline;text-underline-offset:4px}.prose-page dt{font-weight:600;margin-top:16px}.prose-page dd{margin-bottom:12px}.prose-page .green{color:var(--navy)}.prose-page table{width:100%;border-collapse:collapse}.prose-page th,.prose-page td{padding:12px;border-bottom:1px solid var(--line);text-align:left}.cookie-group{padding:24px 0;border-bottom:1px solid var(--line);display:flex;gap:24px;align-items:center;justify-content:space-between}.cookie-group input{width:28px;height:28px;accent-color:var(--navy)}.cookie-save-btn{border:0;padding:16px 24px;border-radius:99px;font:600 16px var(--f);background:var(--navy);color:white;margin-top:24px;cursor:pointer}.enquiry-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .blog-shell{max-width:1200px;margin:auto;padding:calc(var(--hdr) + 64px) 32px 80px;color:var(--text)}.blog-measure{max-width:850px}.blog-index-title,.blog-article-title{font-size:clamp(36px,5vw,64px);font-weight:600;line-height:1.12;color:var(--navy);letter-spacing:-.03em}.blog-index-sub{margin:24px 0 48px;font-size:20px}.blog-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.blog-card{display:block;background:var(--cloud);padding:28px;border-radius:28px;color:var(--navy);text-decoration:none}.blog-card-title{font-size:26px;line-height:1.3;margin:20px 0 12px}.blog-card-thumb{width:100%;border-radius:18px}.blog-meta-row{display:flex;flex-wrap:wrap;gap:16px;margin:24px 0;color:var(--muted);font-size:14px}.blog-p{margin:20px 0;font-size:18px;line-height:1.7}.blog-h2{margin:48px 0 20px;font-size:30px}.blog-h3{margin:32px 0 16px;font-size:24px}.blog-list{list-style:revert;margin:20px 0;padding-left:24px}.blog-list li{margin:8px 0}.blog-table-wrap{overflow:auto;margin:28px 0;border:1px solid var(--line);border-radius:18px}.blog-table{min-width:640px;border-collapse:collapse;width:100%}.blog-table th,.blog-table td{padding:16px;text-align:left;border-bottom:1px solid var(--line)}.blog-table th{background:var(--cloud)}.blog-quote{margin:32px 0;border-left:3px solid var(--navy);padding-left:24px;font-size:22px}.blog-callout,.blog-checklist,.blog-tool-card{margin:28px 0;padding:28px;border-radius:24px;background:var(--cloud)}.blog-checklist ol,.blog-checklist ul,.blog-pros-cons ul{list-style:revert;padding-left:24px}.blog-pros-cons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:20px 0}.blog-image,.blog-video{margin:32px 0}.blog-image img,.blog-hero{width:100%;height:auto;border-radius:24px}.blog-image figcaption{margin-top:12px;font-size:14px}.blog-video iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:20px}.blog-cta-band{background:var(--navy);color:white;padding:40px;border-radius:28px;margin:40px 0}.blog-cta-band h3{color:white;font-size:28px}.blog-cta-band a{color:white}.blog-faq-item{margin:28px 0}.blog-related-heading{font-size:24px;margin:48px 0 24px}.blog-risk-high{color:var(--err)}.blog-risk-low{color:#05603a}.blog-tool-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}.blog-tool-rank{margin-right:10px}.blog-tag{font-size:14px}.blog-shell a:not(.blog-card){text-decoration:underline;text-underline-offset:4px}
 @media(max-width:600px){.prose-page,.blog-shell{padding-left:20px;padding-right:20px}.blog-card-grid,.blog-pros-cons{grid-template-columns:1fr}.consent-banner{padding:12px}.blog-cta-band{padding:24px}}
+/* The existing consent control, scoped to the standalone registration page. */
+[data-registration-page] .consent-banner{position:fixed;bottom:12px;left:12px;z-index:10000;box-sizing:border-box;width:440px;max-width:calc(100vw - 24px);padding:18px;background:#fff;color:#172b29;border:1px solid #ddd;border-radius:16px;font:14px/1.5 system-ui}
+[data-registration-page] #analytics-settings{box-sizing:border-box;margin:auto;padding:24px;width:min(600px,calc(100% - 32px));border:1px solid #ddd;border-radius:16px;background:#fff;color:#172b29;font:16px/1.5 system-ui}
+[data-registration-page] #analytics-settings::backdrop{background:#0008}
+[data-registration-page] #analytics-settings h2{margin:0;font-size:24px;line-height:1.25;color:#172b29}
+[data-registration-page] #analytics-settings p,[data-registration-page] .consent-banner p{margin:12px 0;color:#172b29}
+[data-registration-page] #analytics-settings .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+[data-registration-page] #analytics-settings button,[data-registration-page] .consent-banner button{width:auto;margin:0;padding:12px;border:1px solid #146547;border-radius:8px;background:#fff;color:#146547;font:inherit;cursor:pointer;min-height:44px}
+[data-registration-page] #analytics-settings button:focus-visible,[data-registration-page] .consent-banner button:focus-visible{outline:3px solid #146547;outline-offset:3px}
 </style>
 <script>/* Runs in the page head, before anything is drawn.
    Motion follows the device's reduced-motion setting only. The old
@@ -3774,7 +3783,13 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     value=v; window['ga-disable-'+id]=v!=='accepted';
     window.gtag('consent','update',{analytics_storage:v==='accepted'?'granted':'denied'});
     if(v==='accepted'&&!loaded){
-      loaded=true; window.gtag('js',new Date());window.gtag('config',id);
+      loaded=true; window.gtag('js',new Date());
+      var config={};
+      if(document.body.hasAttribute('data-analytics-clean-url')){
+        config.page_location=location.origin+location.pathname;
+        try{config.page_referrer=document.referrer?new URL(document.referrer).origin:''}catch(_){config.page_referrer=''}
+      }
+      window.gtag('config',id,config);
       var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);
       window.dispatchEvent(new Event('lucentstar:analytics-enabled'));
     }
@@ -3803,6 +3818,95 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     dialog.addEventListener('close',function(){if(value)banner.remove()});
   }
 })();
+/* Registration attribution contains fixed public labels only, never form values. */
+(function(root,factory){
+  'use strict';
+  var api=factory();
+  if(typeof module==='object' && module.exports)module.exports=api;
+  if(root && root.document)api.init(root);
+})(typeof window==='undefined'?null:window,function(){
+  'use strict';
+  var pages={home:'Homepage',signal:'LucentSignal page',alba:'LucentAlba page',about:'About page',help:'Help page',ghostwriter:'Ghostwriter help',blog:'Blog index',taplio:'Taplio alternatives article',safe_tools:'Safe LinkedIn tools article',article:'Blog article',login:'Sign-in page',welcome:'Welcome page',other:'Other public page'};
+  var zones={header:'Header',footer:'Footer',hero:'Opening section',fit:'Product comparison',pricing:'Pricing',end:'Closing section',article:'Article',page:'Page'};
+  var actions={try_signal:'Try LucentSignal',free:'Start free',creator:'Start with Creator',pro:'Start with Pro',register:'Register'};
+  function validEntry(value){
+    if(typeof value!=='string' || value.length>80)return 'direct';
+    var parts=value.split('.');
+    return parts.length===3 && Object.prototype.hasOwnProperty.call(pages,parts[0]) && Object.prototype.hasOwnProperty.call(zones,parts[1]) && Object.prototype.hasOwnProperty.call(actions,parts[2])?value:'direct';
+  }
+  function fields(entry){
+    entry=validEntry(entry);var parts=entry.split('.');
+    return {page_path:'/register',page_location:'https://signalapp.lucentstar.ai/register',site_area:'app',form_id:'signal_account_registration',form_name:'LucentSignal account registration',form_type:'registration',form_placement:'page',
+      cta_id:entry==='direct'?'direct_registration':entry.replace(/\./g,'_'),
+      cta_label:entry==='direct'?'Direct registration visit':actions[parts[2]],
+      cta_location:entry==='direct'?'Registration page':pages[parts[0]]+' / '+zones[parts[1]]};
+  }
+  function pageKey(w){
+    var p=w.location.pathname.replace(/\.html$/,'').replace(/\/$/,'')||'/';
+    if(w.location.hostname==='blog.lucentstar.ai')return {'/':'blog','/taplio-alternatives':'taplio','/safe-linkedin-tools':'safe_tools'}[p]||'article';
+    return {'/':'home','/index':'home','/lucentsignal':'signal','/lucentalba':'alba','/about':'about','/help':'help','/help/ghostwriter':'ghostwriter','/login':'login','/welcome':'welcome'}[p]||'other';
+  }
+  function linkEntry(w,a){
+    var zone='page',section=a.closest('section[id]');
+    if(a.closest('header'))zone='header';
+    else if(a.closest('footer'))zone='footer';
+    else if(section)zone={top:'hero',fit:'fit',pricing:'pricing',start:'end',contact:'end'}[section.id]||'page';
+    else if(w.location.hostname==='blog.lucentstar.ai')zone='article';
+    var text=String(a.textContent||'').replace(/\s+/g,' ').trim().toLowerCase(),action='register';
+    if(/^start with creator\b/.test(text))action='creator';
+    else if(/^start with pro\b/.test(text))action='pro';
+    else if(/^start free\b/.test(text))action='free';
+    else if(/^try\b/.test(text))action='try_signal';
+    return pageKey(w)+'.'+zone+'.'+action;
+  }
+  function init(w){
+    var d=w.document;
+    function ready(){
+      if(d.documentElement.hasAttribute('data-registration-tracking-ready'))return;
+      d.documentElement.setAttribute('data-registration-tracking-ready','');
+      function accepted(){return !!(w.lucentstarConsent && w.lucentstarConsent.accepted())}
+      function decorate(ev){
+        var a=ev.target.closest && ev.target.closest('a[href]');if(!a)return;
+        var url;try{url=new URL(a.href,w.location.href)}catch(_){return}
+        if(url.origin!=='https://signalapp.lucentstar.ai' || url.pathname!=='/register')return;
+        if(accepted())url.searchParams.set('ls_entry',linkEntry(w,a));else url.searchParams.delete('ls_entry');
+        a.href=url.href;
+      }
+      ['click','auxclick','contextmenu'].forEach(function(name){d.addEventListener(name,decorate,true)});
+      var form=d.querySelector('form[data-registration-form]'),opened=false,started=false,validationReported=false,confirmationRequested=false;
+      var entry=validEntry(new URL(w.location.href).searchParams.get('ls_entry'));
+      function track(event,context,extra){
+        if(!accepted() || typeof w.gtag!=='function')return false;
+        w.gtag('event',event,Object.assign(fields(context),extra||{}));return true;
+      }
+      function open(){if(form&&!opened&&track('ls_form_open',entry))opened=true}
+      function confirm(){
+        if(form || !d.body.hasAttribute('data-registration-result') || !accepted() || confirmationRequested)return;
+        confirmationRequested=true;
+        w.fetch('/api/analytics/registration-complete',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({analyticsConsent:'accepted'})})
+          .then(function(r){if(r.status===204)return null;if(!r.ok)throw new Error('registration confirmation unavailable');return r.json()})
+          .then(function(result){if(result&&result.created===true)track('sign_up',validEntry(result.entry),{method:'email'})})
+          .catch(function(){/* Analytics must never interrupt the product. */});
+      }
+      if(form){
+        form.addEventListener('input',function(ev){
+          if(!ev.target.matches('input:not([name="website"]):not([type="hidden"]),textarea,select'))return;
+          validationReported=false;open();if(!started&&track('ls_form_start',entry))started=true;
+        });
+        form.addEventListener('invalid',function(){open();if(!validationReported&&track('ls_form_error',entry,{error_type:'validation'}))validationReported=true},true);
+        form.addEventListener('submit',function(){
+          form.elements.analytics_consent.value=accepted()?'accepted':'';
+          form.elements.analytics_entry.value=accepted()?entry:'direct';
+        });
+        if(form.hasAttribute('data-registration-error')){open();track('ls_form_error',entry,{error_type:'validation'})}
+      }
+      w.addEventListener('lucentstar:analytics-enabled',function(){open();confirm()});
+      open();confirm();
+    }
+    if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',ready,{once:true});else ready();
+  }
+  return {validEntry:validEntry,fields:fields,init:init};
+});
 </script>
 </body>
 </html>
