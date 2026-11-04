@@ -1213,6 +1213,250 @@ html.motion .alb-track.s3 .al-ev div:nth-child(4){transition-delay:270ms}
 .gs-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
 .gs-empty{font-size:.875em;color:var(--muted)}
 .gs-steps{margin-top:0;width:100%}
+/* LucentAlba product page (content/pages/lucentalba.yaml).
+   Colour: white and Cloud carry the page. The dark Alba purple (--a-ink)
+   is the page's accent for buttons, links, the launcher and emphasis below
+   the opening (owner decision, 17 October 2026); the opening title's
+   emphasis keeps --a-3, and the closing band is the
+   one large dark surface. The Alba wordmark keeps --a-3 (Product Brand
+   guide). The Alba yellow appears only as text treatment: "Be chosen." and
+   the marker under "Your next action". No glows and no decorative borders.
+   Motion uses the shared reveal (data-reveal="text"): text stays readable
+   and usable, nothing pins, and with reduced motion every element shows
+   complete and still. */
+
+.theme-albedo{
+  --accent:var(--a-ink);--accent-hover:var(--a-2);--accent-glow:rgba(36,16,94,.55);
+  --em:var(--a-ink);--link-line:var(--a-ink);
+  --launcher:var(--a-ink);--launcher-hover:var(--a-2);--chip-on:var(--a-ink);
+}
+
+/* Opening: the title's emphasis ("AI recommends.") keeps the lighter Alba
+   purple, matching the Alba wordmark (owner decision, 17 October 2026) */
+.theme-albedo .page-hero .em{color:var(--a-3)}
+
+/* Opening tagline */
+.h-tagline{margin:22px auto 0;font-weight:600;font-size:clamp(22px,2.1vw,30px);line-height:1.25;letter-spacing:-.015em;color:var(--navy)}
+
+/* Statement */
+.stm-sec{padding-block:152px 144px}
+.stm{max-width:860px;margin-inline:auto;text-align:center}
+.stm-p{max-width:32em;margin:26px auto 0;font-size:clamp(19px,1.6vw,22px);line-height:1.55;color:var(--text);text-wrap:pretty}
+.stm-key{margin-top:16px;font-weight:600;color:var(--a-ink)}
+
+/* Waitlist panel: copy and action on the left, the countdown on the right */
+.wlx{max-width:1000px;margin:88px auto 0;padding:56px 60px;border-radius:28px;background:var(--a-lav);display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"copy count" "act count";gap:28px 56px;align-items:center}
+.wlx-copy{grid-area:copy}
+.wlx-count{grid-area:count}
+.wlx-act{grid-area:act;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.wlx-h{font-weight:600;font-size:clamp(26px,2.4vw,34px);line-height:1.15;letter-spacing:-.025em;color:var(--navy)}
+.wlx-p{margin-top:10px;font-size:18px;line-height:1.55;color:var(--text)}
+.wlx-cd{display:flex;align-items:flex-start;gap:8px}
+.wlx-unit{display:flex;flex-direction:column;align-items:center;min-width:2.1ch}
+.wlx-n{display:block;font-weight:700;font-size:clamp(44px,4.6vw,66px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--a-ink)}
+.wlx-sep{font-weight:600;font-size:clamp(36px,3.8vw,54px);line-height:1.05;color:var(--a-muted)}
+.wlx-l{margin-top:10px;font-weight:500;font-size:13px;line-height:1;color:var(--a-muted)}
+.wlx-joined{font-size:16px;color:var(--a-muted)}
+.wlx-num{font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+.wlx.is-launched .wlx-count{display:none}
+
+/* Buyer journey: four rising steps */
+.jr-sec{padding-block:160px}
+.jr{margin-top:88px;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:0 20px;align-items:end}
+.jr-st{display:flex;flex-direction:column;gap:22px}
+.jr-q{font-weight:600;font-size:clamp(20px,1.8vw,26px);line-height:1.3;letter-spacing:-.015em;color:var(--navy);text-wrap:balance}
+.jr-step{display:flex;align-items:flex-end;height:calc(112px + var(--i) * 64px);padding:20px 22px;border-radius:18px}
+.jr-label{font-weight:600;font-size:16px;line-height:1.3}
+.jr-s1 .jr-step{background:var(--a-hl)}
+.jr-s1 .jr-label{color:var(--a-ink)}
+.jr-s2 .jr-step{background:var(--a-3)}
+.jr-s3 .jr-step{background:var(--a-2)}
+.jr-s4 .jr-step{background:var(--a-ink)}
+.jr-s2 .jr-label,.jr-s3 .jr-label,.jr-s4 .jr-label{color:var(--white)}
+.jr-q .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.1em;margin-bottom:-.1em}
+.jr-q .w>span{display:inline-block}
+html.motion .jr-step{transform:scaleY(0);transform-origin:center bottom;transition:transform 1000ms var(--ease)}
+html.motion .jr-label{opacity:0;transform:translateY(10px);transition:opacity 500ms var(--ease),transform 700ms var(--ease)}
+html.motion .jr-q .w>span{transform:translateY(105%);transition:transform 800ms var(--ease)}
+html.motion .jr-st.is-in .jr-step,html.motion .jr-st.is-in .jr-label,html.motion .jr-st.is-in .jr-q .w>span{transform:none;opacity:1}
+@media (min-width:761px){
+  html.motion .jr-step{transition-delay:calc(var(--i) * 160ms)}
+  html.motion .jr-label{transition-delay:calc(var(--i) * 160ms + 520ms)}
+  html.motion .jr-q .w>span{transition-delay:calc(var(--i) * 160ms + 260ms + var(--w) * 55ms)}
+}
+
+/* Platforms: one customer question fans out to up to six AI experiences
+   and gathers into a broader view. White carries the section, the marks sit
+   on Cloud and the ink draws the connections. The fans are one SVG each,
+   stretched to the row (the stroke keeps its weight); each path ends on the
+   centre of its column, so the list has no column gap. Tablets and phones
+   swap the fans for short stems. Motion (replays, see 07-alba.js): the
+   question rises, the marks follow in turn, the paths draw out and back,
+   then the outcomes come up to full strength, settled in about 1.6s. */
+.pf-sec{padding-block:160px}
+.pf{margin-top:80px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.pf-k{display:block;font-weight:500;font-size:15px;line-height:1.4;color:var(--muted)}
+.pf-qt{display:block;margin-top:10px;font-weight:600;font-size:clamp(26px,2.4vw,34px);line-height:1.2;letter-spacing:-.02em;color:var(--navy)}
+.pf-node{display:block;width:10px;height:10px;margin-top:22px;border-radius:50%;background:var(--a-ink)}
+.pf-node-in{margin:0 0 22px}
+.pf-stem{display:none}
+.pf-fan{display:block;width:100%;max-width:1120px;height:96px;overflow:visible}
+.pf-fan path{fill:none;stroke:var(--a-ink);stroke-width:1.5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.pf-list{width:100%;max-width:1120px;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+.pf-it{display:flex;padding-inline:8px}
+.pf-chip{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:26px 10px 24px;border-radius:20px;background:var(--cloud)}
+.pf-mark{display:block;width:38px;height:38px;object-fit:contain}
+/* Optical balance: the G and the Perplexity mark fill their artwork edge to edge */
+.pf-mark-google,.pf-mark-perplexity{padding:3px}
+.pf-name{font-weight:600;font-size:17px;line-height:1.3;letter-spacing:-.01em;color:var(--navy)}
+.pf-by{display:block}
+.pf-nb{white-space:nowrap}
+.pf-outs{margin-top:16px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px 56px}
+.pf-out{display:flex;align-items:center;gap:12px;font-weight:600;font-size:clamp(19px,1.7vw,23px);line-height:1.3;letter-spacing:-.015em;color:var(--navy)}
+.pf-out>span:last-child{text-wrap:balance}
+.pf-oic{display:inline-flex;flex:none;color:var(--a-ink)}
+.pf-oic .ic{width:26px;height:26px;stroke-width:1.8}
+html.motion .pf-q{opacity:.3;transform:translateY(14px);transition:opacity 600ms var(--ease),transform 800ms var(--ease)}
+html.motion .pf-node{transform:scale(0);transition:transform 320ms var(--ease) 260ms}
+html.motion .pf-node-in{transition-delay:1200ms}
+html.motion .pf-chip{opacity:.25;transform:translateY(16px);transition:opacity 500ms var(--ease) calc(160ms + var(--i) * 70ms),transform 700ms var(--ease) calc(160ms + var(--i) * 70ms)}
+html.motion .pf-fan path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 650ms var(--ease-io) calc(380ms + var(--i) * 40ms)}
+html.motion .pf-fan-in path{transition-duration:550ms;transition-delay:calc(800ms + var(--i) * 30ms)}
+html.motion .pf-stem{transform:scaleY(0);transform-origin:center top;transition:transform 500ms var(--ease-io) 340ms}
+html.motion .pf-stem-in{transition-delay:820ms}
+html.motion .pf-res .pf-k,html.motion .pf-out{opacity:.3;transform:translateY(12px);transition:opacity 500ms var(--ease) 1050ms,transform 700ms var(--ease) 1050ms}
+html.motion .pf-out{transition-delay:calc(1120ms + var(--i) * 90ms)}
+html.motion .pf.is-in .pf-q,html.motion .pf.is-in .pf-node,html.motion .pf.is-in .pf-chip,html.motion .pf.is-in .pf-stem,html.motion .pf.is-in .pf-res .pf-k,html.motion .pf.is-in .pf-out{opacity:1;transform:none}
+html.motion .pf.is-in .pf-fan path{stroke-dashoffset:0}
+@media (max-width:1023px){
+  .pf-fan{display:none}
+  .pf-stem{display:block;width:1.5px;height:44px;background:var(--a-ink)}
+  .pf-list{max-width:620px;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}
+  .pf-it{padding-inline:6px}
+  .pf-outs{flex-direction:column;align-items:flex-start;width:fit-content;max-width:100%;margin-inline:auto;gap:14px;text-align:left}
+}
+@media (max-width:760px){
+  .pf-sec{padding-block:104px}
+  .pf{margin-top:56px}
+  .pf-qt{font-size:clamp(24px,7vw,28px)}
+  .pf-stem{height:36px}
+  .pf-list{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:10px}
+  .pf-it{padding-inline:5px}
+  .pf-chip{gap:12px;padding:20px 8px 18px;border-radius:18px}
+  .pf-mark{width:34px;height:34px}
+  .pf-name{font-size:16px}
+  .pf-out{font-size:19px}
+}
+
+/* Example: one large typographic line */
+.exf-sec{padding-block:160px}
+.exf-flow{margin-top:64px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 24px;font-weight:600;font-size:clamp(28px,3.2vw,46px);line-height:1.25;letter-spacing:-.025em;color:var(--navy);text-align:center}
+.exf-w{display:inline-block;overflow:hidden;padding:.04em .08em .16em;margin-bottom:-.12em}
+.exf-t{display:inline-block}
+.exf-arrow{display:inline-flex;color:var(--a-ink)}
+.exf-arrow .ic{width:.9em;height:.9em;stroke-width:2}
+.exf-key{padding:0 .14em;background:linear-gradient(var(--a-yellow),var(--a-yellow)) no-repeat 0 86%/100% .36em}
+html.motion .exf-t{transform:translateY(110%);transition:transform 850ms var(--ease) calc(var(--i) * 380ms)}
+html.motion .exf-arrow{opacity:0;clip-path:inset(0 100% 0 0);transition:opacity 300ms var(--ease) calc(var(--i) * 380ms + 280ms),clip-path 600ms var(--ease) calc(var(--i) * 380ms + 280ms)}
+html.motion .exf-key{background-size:0% .36em;transition:transform 850ms var(--ease) calc(var(--i) * 380ms),background-size 800ms var(--ease) 1300ms}
+html.motion .exf-flow.is-in .exf-t{transform:none}
+html.motion .exf-flow.is-in .exf-arrow{opacity:1;clip-path:inset(0)}
+html.motion .exf-flow.is-in .exf-key{background-size:100% .36em}
+
+/* Process: Find, Fix, Track */
+.ffx-sec{padding-block:160px}
+.ffx{margin-top:88px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 56px}
+.ffx-ic{display:inline-flex;color:var(--a-ink)}
+.ffx-ic .ic{width:36px;height:36px;stroke-width:1.6}
+.ffx-w{margin-top:18px;font-weight:700;font-size:clamp(44px,4.4vw,68px);line-height:1.02;letter-spacing:-.045em;color:var(--a-ink)}
+.ffx-t{margin-top:16px;max-width:21em;font-size:17px;line-height:1.6;color:var(--text)}
+html.motion .ffx-ic .ic{stroke-dasharray:90;stroke-dashoffset:90;transition:stroke-dashoffset 1300ms var(--ease-io)}
+html.motion .ffx-w span{color:transparent;background:linear-gradient(90deg,var(--a-ink) 50%,var(--a-hl) 50%) 100% 0/200% 100%;-webkit-background-clip:text;background-clip:text;transition:background-position 1100ms var(--ease)}
+html.motion .ffx-t{opacity:.35;transition:opacity 700ms var(--ease)}
+html.motion .ffx-st.is-in .ffx-ic .ic{stroke-dashoffset:0}
+html.motion .ffx-st.is-in .ffx-w span{background-position:0 0}
+html.motion .ffx-st.is-in .ffx-t{opacity:1}
+@media (min-width:761px){
+  html.motion .ffx-st{transition-delay:calc(var(--i) * 180ms)}
+  html.motion .ffx-ic .ic{transition-delay:calc(var(--i) * 180ms + 100ms)}
+  html.motion .ffx-w span{transition-delay:calc(var(--i) * 180ms + 250ms)}
+  html.motion .ffx-t{transition-delay:calc(var(--i) * 180ms + 450ms)}
+}
+
+/* Closing band: the page's one dark moment, in dark Alba purple */
+.theme-albedo .cta-sec{padding-block:72px 128px}
+.theme-albedo .cta-sec .band{background:var(--a-ink);padding:64px 64px 68px}
+.theme-albedo .cta-sec .band .h2{font-weight:700;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-.035em;max-width:16em}
+.theme-albedo .cta-sec .band .h2 .em{color:var(--a-yellow)}
+.theme-albedo .cta-sec .band .lead{color:var(--a-hl);font-size:clamp(19px,1.6vw,23px)}
+.theme-albedo .cta-sec .band .btn-secondary{border-color:var(--white);color:var(--a-ink)}
+.theme-albedo .cta-sec .band .btn-secondary:hover{background:var(--a-hl);border-color:var(--a-hl);color:var(--a-ink)}
+.theme-albedo .cta-sec .band :focus-visible{outline-color:var(--a-yellow)}
+
+/* Tablets: the waitlist panel stacks */
+@media (max-width:900px){
+  .wlx{grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "count" "act";justify-items:center;text-align:center;padding:48px 32px}
+  .wlx-act{justify-content:center}
+}
+
+/* Phones: natural vertical lists, nothing pinned */
+@media (max-width:760px){
+  .stm-sec{padding-block:104px 96px}
+  .jr-sec,.exf-sec,.ffx-sec{padding-block:104px}
+  .wlx{margin-top:56px;padding:40px 18px;border-radius:22px;gap:26px}
+  .wlx-cd{gap:4px}
+  .wlx-n{font-size:clamp(34px,11vw,46px)}
+  .wlx-sep{font-size:clamp(28px,9vw,38px)}
+  .wlx-l{font-size:12px}
+  .wlx-act{flex-direction:column;width:100%}
+  .wlx-act .btn{width:100%;justify-content:center}
+  .jr,.ffx{grid-template-columns:minmax(0,1fr);gap:32px;margin-top:56px}
+  .jr-st{gap:12px}
+  .jr-step{height:58px;width:calc(46% + var(--i) * 18%);padding:0 18px;align-items:center;border-radius:14px}
+  html.motion .jr-step{transform:scaleX(0);transform-origin:left center}
+  .ffx{gap:44px}
+  .ffx-w{margin-top:12px}
+  .exf-flow{flex-direction:column;gap:4px}
+  .exf-arrow{transform:rotate(90deg)}
+  .theme-albedo .cta-sec{padding-block:48px 88px}
+  .theme-albedo .cta-sec .band{padding:48px 22px 52px}
+}
+/* Homepage-only purple direction. Keep the LucentStar logo, product wordmarks,
+   LucentSignal interface and semantic success states in their own colours. */
+.theme-home-purple{
+  --accent:var(--a-ink);
+  --accent-hover:var(--a-2);
+  --accent-on:var(--white);
+  --accent-glow:rgba(36,16,94,.55);
+  --em:var(--a-3);
+  --link-line:var(--a-ink);
+  --launcher:var(--a-ink);
+  --launcher-hover:var(--a-2);
+  --launcher-ic:var(--a-hl);
+  --chip-on:var(--a-ink);
+}
+
+/* Keep the shared LucentStar wordmark unchanged. The homepage mark is a
+   standalone ink-purple star; the dark square would hide that colour. */
+.theme-home-purple .brand svg rect{fill:transparent}
+.theme-home-purple .brand svg{width:40px;height:40px}
+.theme-home-purple .brand svg path{fill:var(--a-ink)}
+
+/* The homepage illustrations should feel related to Alba without changing
+   the meaning of green in LucentSignal or the example screens. */
+.theme-home-purple .v-lines circle{fill:var(--a-3)}
+.theme-home-purple .av{background:var(--a-3)}
+.theme-home-purple .v-chips span,
+.theme-home-purple .wf-human{background:var(--a-lav)}
+.theme-home-purple .wf-step.is-in .wf-dot,
+.theme-home-purple .wf-node.is-reached .wf-nd,
+html.still .theme-home-purple .wf-dot,
+html.still .theme-home-purple .wf-nd{
+  background:var(--a-ink);
+  color:var(--a-yellow);
+  box-shadow:0 0 0 1.5px var(--a-ink);
+}
+html.motion .theme-home-purple .chap.is-active .chap-n{background:var(--a-lav)}
 /* People */
 .people{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:80px;align-items:start}
 .portrait{aspect-ratio:4/5;border-radius:28px;background:var(--white);border:1.5px dashed #C3C9D2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:28px;color:var(--muted);font-size:15px;line-height:1.5}
@@ -3057,7 +3301,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       (url.pathname===location.pathname||/^\/(?:index(?:\.html)?)?$/.test(url.pathname));
     if(contact&&LS.enquiry&&LS.enquiry.open){
       e.preventDefault();
-      if(LS.enquiry.forms.p){LS.enquiry.forms.p.setTrigger(a.textContent,a.dataset.topic);if(a.dataset.topic)LS.enquiry.forms.p.setTopic(a.dataset.topic)}
+      if(LS.enquiry.forms.p){LS.enquiry.forms.p.setTrigger(a.textContent,a.dataset.topic,a);if(a.dataset.topic)LS.enquiry.forms.p.setTopic(a.dataset.topic)}
       closeProd(!!(pMenu&&pMenu.contains(a)));closeMenu(!!(mMenu&&mMenu.contains(a)));
       LS.enquiry.open();
       return;
@@ -3330,12 +3574,59 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 
   function fill(t,vals){return String(t).replace(/\{(\w+)\}/g,function(_,k){return vals[k]!=null?vals[k]:''})}
 
+  /* Only fixed page/form/button metadata reaches Analytics. Never pass the
+     enquiry payload, entered values, request IDs or URL query/fragment. */
+  var pageKey=location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  if(pageKey==='/index')pageKey='/';
+  var pageNames={'/':'Homepage','/about':'About','/lucentalba':'LucentAlba','/lucentsignal':'LucentSignal','/help':'Help','/help/ghostwriter':'Ghostwriter help'};
+  var pageName=pageNames[pageKey] || pageKey.split('/').filter(Boolean).join(' / ');
+  var pageId=pageKey==='/'?'home':pageKey.slice(1).replace(/[^a-z0-9]+/gi,'_').toLowerCase();
+  if(location.hostname==='blog.lucentstar.ai'){pageId='blog_'+pageId;pageName=pageKey==='/'?'Blog index':'Blog '+pageName;}
+  function track(name,fields){
+    if(!window.lucentstarConsent || !window.lucentstarConsent.accepted() || typeof window.gtag!=='function')return false;
+    window.gtag('event',name,Object.assign({page_path:pageKey,site_area:location.hostname==='blog.lucentstar.ai'?'blog':'website'},fields));
+    return true;
+  }
+  function buttonContext(el){
+    if(!el)return {cta_id:'direct',cta_label:'Direct form interaction',cta_location:'inline_form'};
+    var zone=el.closest('header,footer,section,[role="navigation"]');
+    var place=el.id==='fab'?'floating_contact':zone?(zone.id||zone.tagName.toLowerCase()):'page';
+    var peers=Array.prototype.slice.call((zone||document).querySelectorAll('a,button'));
+    return {cta_id:el.getAttribute('data-analytics-id')||pageId+'_'+place+'_'+String(el.textContent||'contact').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'').slice(0,60),
+      cta_label:String(el.textContent||'').replace(/\s+/g,' ').trim().slice(0,100),cta_location:place};
+  }
+
   function Form(form){
     var px=form.getAttribute('data-enquiry');
     function q(s){return document.getElementById(px+'-'+s)}
     var done=q('done'),send=q('send'),label=q('send-label'),fail=q('fail'),sum=q('summary'),sumList=q('summary-list'),sumH=q('summary-h'),live=q('live'),again=q('again');
     var fields={name:q('name'),email:q('email'),message:q('message')};
     var sending=false, requestId=null, previousPayload=null, trigger={label:'',topic:''};
+    var cta=buttonContext(null),started=false,successIds={};
+    var seen=false,visible=false,observer=null;
+    function metadata(){
+      var waitlist=px==='p' && document.getElementById('enquiry').classList.contains('is-waitlist');
+      return Object.assign({form_id:waitlist?'lucentalba_waitlist':pageId+'_'+(px==='p'?'popup_enquiry':'inline_enquiry'),
+        form_name:waitlist?'LucentAlba waiting list':pageName+(px==='p'?' enquiry popup':' contact form'),
+        form_type:waitlist?'waitlist':'enquiry',form_placement:px==='p'?'popup':'inline'},cta);
+    }
+    form.setAttribute('data-tracking-form',pageId+'_'+(px==='p'?'popup_enquiry':'inline_enquiry'));
+    form.addEventListener('input',function(ev){
+      if(!ev.target.matches('input:not([name="contact_reference"]),textarea,select'))return;
+      if(px!=='p' && !seen && track('ls_form_view',metadata())){seen=true;if(observer)observer.disconnect()}
+      if(!started && track('ls_form_start',metadata()))started=true;
+    });
+    this.trackOpen=function(){started=false;track('ls_form_open',metadata())};
+    if(px!=='p' && 'IntersectionObserver' in window){
+      observer=new IntersectionObserver(function(entries){
+        visible=entries.some(function(entry){return entry.isIntersecting});
+        if(visible&&!seen&&track('ls_form_view',metadata())){seen=true;observer.disconnect()}
+      },{threshold:0.25});
+      observer.observe(form);
+      window.addEventListener('lucentstar:analytics-enabled',function(){
+        if(visible&&!seen&&track('ls_form_view',metadata())){seen=true;observer.disconnect()}
+      });
+    }
     function validate(){
       var e={};
       if(!fields.name.value.trim())e.name=T.errors.name;
@@ -3363,6 +3654,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       var e=validate(),keys=Object.keys(e);
       ['name','email','message'].forEach(function(k){showErr(k,e[k]||'')});
       if(keys.length){
+        track('ls_form_error',Object.assign(metadata(),{error_type:'validation'}));
         sumList.innerHTML='';
         keys.forEach(function(k){
           var li=document.createElement('li'),a=document.createElement('a');
@@ -3378,7 +3670,9 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       send.setAttribute('aria-disabled','true');send.classList.add('is-sending');label.textContent=T.sending;live.textContent=T.sending_status;
       var data={name:fields.name.value.trim(),email:fields.email.value.trim(),company:(q('company')||{}).value||'',message:fields.message.value.trim(),topic:(form.querySelector('input[name="topic"]:checked')||{}).value||'',source:px,website:(q('contact-reference')||{}).value||'',pageTitle:document.title,pageUrl:location.origin+location.pathname,triggerLabel:trigger.label,triggerTopic:trigger.topic};
       var payload=JSON.stringify(data);if(payload!==previousPayload){requestId=crypto.randomUUID();previousPayload=payload}data.requestId=requestId;
+      var analyticsContext=metadata();
       E.send(data).then(function(){
+        if(!successIds[data.requestId]){successIds[data.requestId]=true;track('generate_lead',analyticsContext);}
         sending=false;send.removeAttribute('aria-disabled');send.classList.remove('is-sending');
         var first=data.name.split(/\s+/)[0];
         q('done-h').textContent=fill(T.done_title,{name:first});
@@ -3387,16 +3681,18 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         label.textContent=T.send;
       },function(){
         sending=false;send.removeAttribute('aria-disabled');send.classList.remove('is-sending');
+        track('ls_form_error',Object.assign(analyticsContext,{error_type:'delivery'}));
         label.textContent=T.retry;fail.hidden=false;live.textContent='';fail.setAttribute('tabindex','-1');fail.focus();
       });
     });
     function reset(){
+      started=false;cta=buttonContext(null);
       form.reset();['name','email','message'].forEach(function(k){showErr(k,'')});
       requestId=null;previousPayload=null;trigger={label:'',topic:''};
       done.hidden=true;form.hidden=false;fail.hidden=true;sum.hidden=true;label.textContent=T.send;
     }
     if(again)again.addEventListener('click',function(){reset();fields.name.focus()});
-    this.setTrigger=function(label,topic){trigger={label:String(label||'').replace(/\s+/g,' ').trim().slice(0,160),topic:String(topic||'').trim().slice(0,80)}};
+    this.setTrigger=function(label,topic,element){cta=buttonContext(element);trigger={label:String(label||'').replace(/\s+/g,' ').trim().slice(0,160),topic:String(topic||'').trim().slice(0,80)}};
     this.setTopic=function(t){var r=q('t-'+t);if(r)r.checked=true};
     this.reset=reset;
     this.isDone=function(){return !done.hidden};
@@ -3489,6 +3785,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     restore=true;
     opener=document.activeElement;
     dlg.showModal();
+    if(E.forms.p)E.forms.p.trackOpen();
     if(small.matches)html.classList.add('enq-lock');
     state='opening';
     update();
@@ -3503,11 +3800,123 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     play('out',closed);
   }
   E.open=open;E.close=close;E.isOpen=function(){return state==='open'||state==='opening'};E.state=function(){return state};
-  fab.addEventListener('click',function(){if(E.forms.p)E.forms.p.setTrigger(fab.textContent,'');open()});
+  fab.addEventListener('click',function(){if(E.forms.p)E.forms.p.setTrigger(fab.textContent,'',fab);open()});
   dlg.addEventListener('cancel',function(e){e.preventDefault();close()});
   /* If the browser closes the dialog itself (a second Escape, say), tidy up */
   dlg.addEventListener('close',function(){if(!dlg.open&&state!=='closed'){gen++;stop();state='closing';closed()}});
   $$('[data-enquiry-close]',dlg).forEach(function(b){b.addEventListener('click',function(){close()})});
+})();
+/* LucentAlba page: the launch countdown, the joined counter and the
+   waitlist mode of the shared Contact us panel. Runs only on a page with a
+   waitlist panel ([data-waitlist], templates/sections/statement.html).
+   The joined figure is simulated from the page file (base, base_date and a
+   different daily amount between daily_min and daily_max); it does not read
+   the sign-up database. */
+(function(){
+  'use strict';
+  var LS=window.LS,$=LS.$,$$=LS.$$;
+  var box=$('[data-waitlist]');
+  if(!box)return;
+  var P={};try{P=JSON.parse(box.getAttribute('data-waitlist'))||{}}catch(e){}
+  function pad(n){return (n<10?'0':'')+n}
+
+  /* Countdown: days, hours, minutes and seconds to launch_at. Changed
+     digits slide up into place (not with reduced motion). At zero the
+     countdown is hidden. */
+  var cd=$('[data-countdown]',box);
+  if(cd){
+    var end=Date.parse(cd.getAttribute('data-countdown')),cells=$$('[data-u]',cd),first=true;
+    (function tick(){
+      var s=Math.max(0,Math.floor((end-Date.now())/1000));
+      var v={d:Math.floor(s/86400),h:Math.floor(s%86400/3600),m:Math.floor(s%3600/60),s:s%60};
+      cells.forEach(function(c){
+        var t=pad(v[c.getAttribute('data-u')]);
+        if(c.textContent===t)return;
+        c.textContent=t;
+        if(!first&&LS.motion&&c.animate)c.animate([{transform:'translateY(45%)',opacity:0},{transform:'none',opacity:1}],{duration:420,easing:'cubic-bezier(.16,1,.3,1)'});
+      });
+      first=false;
+      if(s===0){box.classList.add('is-launched');return}
+      setTimeout(tick,1000-Date.now()%1000+10);
+    })();
+  }
+
+  /* Replay: on this page the journey, example and process animations play
+     again each time they come back into view. Once a block has left the
+     screen completely it is reset, so the reset is never seen. With reduced
+     motion nothing is reset and everything stays complete. */
+  var replay=$$('.jr-st,.pf,.exf-flow,.ffx-st');
+  if(replay.length&&'IntersectionObserver' in window){
+    var inIo=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting)en.target.classList.add('is-in')})},{rootMargin:'0px 0px -10% 0px',threshold:0.12});
+    var outIo=new IntersectionObserver(function(ents){ents.forEach(function(en){if(!en.isIntersecting&&LS.motion)en.target.classList.remove('is-in')})},{threshold:0});
+    replay.forEach(function(el){inIo.observe(el);outIo.observe(el)});
+    LS.on('mode',function(on){if(!on)replay.forEach(function(el){el.classList.add('is-in')})});
+  }
+
+  /* Joined counter: simulated daily growth by unequal amounts. Counts up
+     once when it comes into view (not with reduced motion). */
+  var num=$('[data-joined]',box);
+  if(num){
+    var J={};try{J=JSON.parse(num.getAttribute('data-joined'))||{}}catch(e){}
+    var b=String(J.base_date||'').split('-'),start=Date.UTC(+b[0],+b[1]-1,+b[2]);
+    var days=Math.max(0,Math.floor((Date.now()-start)/86400000)),lo=J.daily_min|0,hi=Math.max(lo,J.daily_max|0);
+    var n=J.base|0;
+    for(var d=1;d<=days;d++)n+=lo+((Math.imul(d+7,2654435761)>>>0)>>>8)%(hi-lo+1);
+    var fmt=function(x){return x.toLocaleString('en-GB')};
+    num.textContent=fmt(n);
+    if(LS.motion&&'IntersectionObserver' in window){
+      var from=Math.max(0,n-60);num.textContent=fmt(from);
+      var io=new IntersectionObserver(function(ents){
+        if(!ents[0].isIntersecting){if(LS.motion)num.textContent=fmt(from);return}
+        var t0=performance.now(),dur=1400;
+        (function step(now){
+          var p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);
+          num.textContent=fmt(Math.round(from+(n-from)*e));
+          if(p<1&&LS.motion)requestAnimationFrame(step);else num.textContent=fmt(n);
+        })(t0);
+      },{threshold:0.6});
+      io.observe(num);
+      LS.on('mode',function(on){if(!on){io.disconnect();num.textContent=fmt(n)}});
+    }
+  }
+
+  /* Waitlist mode: the button opens the shared Contact us panel with a
+     waitlist heading and lead, without the message box and topics. The
+     message is filled in for the visitor and the topic is AI visibility.
+     Any other way of opening the panel, or closing it, restores it. */
+  var E=LS.enquiry,dlg=$('#enquiry'),T=window.LS_TEXT||{};
+  if(!E||!dlg)return;
+  var h=$('#enq-h'),lead=$('#enq-lead'),form=$('form[data-enquiry="p"]'),msg=$('#p-message'),label=$('#p-send-label');
+  if(!h||!form||!msg)return;
+  var also=box.getAttribute('data-waitlist-also')||'';
+  var msgWrap=msg.closest('div'),topics=$('.f-topics',form),saved=null;
+  function enter(){
+    if(saved)return;
+    saved={h:h.textContent,lead:lead?lead.textContent:'',msg:msg.value,send:T.send,dt:T.done_title,dd:T.done_text};
+    h.textContent=P.heading;if(lead)lead.textContent=P.lead;
+    msg.value=P.message;msgWrap.hidden=true;if(topics)topics.hidden=true;
+    T.send=P.send;T.done_title=P.done_title;T.done_text=P.done_text;
+    if(label&&label.textContent===saved.send)label.textContent=P.send;
+    dlg.classList.add('is-waitlist');
+  }
+  function leave(){
+    if(!saved)return;
+    h.textContent=saved.h;if(lead)lead.textContent=saved.lead;
+    msg.value=msg.value===P.message?saved.msg:msg.value;msgWrap.hidden=false;if(topics)topics.hidden=false;
+    if(label&&label.textContent===P.send)label.textContent=saved.send;
+    T.send=saved.send;T.done_title=saved.dt;T.done_text=saved.dd;
+    dlg.classList.remove('is-waitlist');saved=null;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a,button'):null;
+    if(!a)return;
+    if(a.closest('[data-waitlist-open]')||(also&&a.matches(also)))enter();
+    else if(a.id==='fab'||/#contact$/.test(a.getAttribute('href')||''))leave();
+  },true);
+  dlg.addEventListener('close',function(){if(!dlg.open)leave()});
+  /* "Send another" clears the form: keep the waitlist message in place */
+  var again=$('#p-again');
+  if(again)again.addEventListener('click',function(){if(saved)msg.value=P.message});
 })();
 /* Start: reveal observers first, then measure the page and draw the first frame. */
 (function(){

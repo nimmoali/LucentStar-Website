@@ -1167,6 +1167,69 @@ html.motion .jr-st.is-in .jr-step,html.motion .jr-st.is-in .jr-label,html.motion
   html.motion .jr-q .w>span{transition-delay:calc(var(--i) * 160ms + 260ms + var(--w) * 55ms)}
 }
 
+/* Platforms: one customer question fans out to up to six AI experiences
+   and gathers into a broader view. White carries the section, the marks sit
+   on Cloud and the ink draws the connections. The fans are one SVG each,
+   stretched to the row (the stroke keeps its weight); each path ends on the
+   centre of its column, so the list has no column gap. Tablets and phones
+   swap the fans for short stems. Motion (replays, see 07-alba.js): the
+   question rises, the marks follow in turn, the paths draw out and back,
+   then the outcomes come up to full strength, settled in about 1.6s. */
+.pf-sec{padding-block:160px}
+.pf{margin-top:80px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.pf-k{display:block;font-weight:500;font-size:15px;line-height:1.4;color:var(--muted)}
+.pf-qt{display:block;margin-top:10px;font-weight:600;font-size:clamp(26px,2.4vw,34px);line-height:1.2;letter-spacing:-.02em;color:var(--navy)}
+.pf-node{display:block;width:10px;height:10px;margin-top:22px;border-radius:50%;background:var(--a-ink)}
+.pf-node-in{margin:0 0 22px}
+.pf-stem{display:none}
+.pf-fan{display:block;width:100%;max-width:1120px;height:96px;overflow:visible}
+.pf-fan path{fill:none;stroke:var(--a-ink);stroke-width:1.5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.pf-list{width:100%;max-width:1120px;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+.pf-it{display:flex;padding-inline:8px}
+.pf-chip{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:26px 10px 24px;border-radius:20px;background:var(--cloud)}
+.pf-mark{display:block;width:38px;height:38px;object-fit:contain}
+/* Optical balance: the G and the Perplexity mark fill their artwork edge to edge */
+.pf-mark-google,.pf-mark-perplexity{padding:3px}
+.pf-name{font-weight:600;font-size:17px;line-height:1.3;letter-spacing:-.01em;color:var(--navy)}
+.pf-by{display:block}
+.pf-nb{white-space:nowrap}
+.pf-outs{margin-top:16px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px 56px}
+.pf-out{display:flex;align-items:center;gap:12px;font-weight:600;font-size:clamp(19px,1.7vw,23px);line-height:1.3;letter-spacing:-.015em;color:var(--navy)}
+.pf-out>span:last-child{text-wrap:balance}
+.pf-oic{display:inline-flex;flex:none;color:var(--a-ink)}
+.pf-oic .ic{width:26px;height:26px;stroke-width:1.8}
+html.motion .pf-q{opacity:.3;transform:translateY(14px);transition:opacity 600ms var(--ease),transform 800ms var(--ease)}
+html.motion .pf-node{transform:scale(0);transition:transform 320ms var(--ease) 260ms}
+html.motion .pf-node-in{transition-delay:1200ms}
+html.motion .pf-chip{opacity:.25;transform:translateY(16px);transition:opacity 500ms var(--ease) calc(160ms + var(--i) * 70ms),transform 700ms var(--ease) calc(160ms + var(--i) * 70ms)}
+html.motion .pf-fan path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 650ms var(--ease-io) calc(380ms + var(--i) * 40ms)}
+html.motion .pf-fan-in path{transition-duration:550ms;transition-delay:calc(800ms + var(--i) * 30ms)}
+html.motion .pf-stem{transform:scaleY(0);transform-origin:center top;transition:transform 500ms var(--ease-io) 340ms}
+html.motion .pf-stem-in{transition-delay:820ms}
+html.motion .pf-res .pf-k,html.motion .pf-out{opacity:.3;transform:translateY(12px);transition:opacity 500ms var(--ease) 1050ms,transform 700ms var(--ease) 1050ms}
+html.motion .pf-out{transition-delay:calc(1120ms + var(--i) * 90ms)}
+html.motion .pf.is-in .pf-q,html.motion .pf.is-in .pf-node,html.motion .pf.is-in .pf-chip,html.motion .pf.is-in .pf-stem,html.motion .pf.is-in .pf-res .pf-k,html.motion .pf.is-in .pf-out{opacity:1;transform:none}
+html.motion .pf.is-in .pf-fan path{stroke-dashoffset:0}
+@media (max-width:1023px){
+  .pf-fan{display:none}
+  .pf-stem{display:block;width:1.5px;height:44px;background:var(--a-ink)}
+  .pf-list{max-width:620px;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}
+  .pf-it{padding-inline:6px}
+  .pf-outs{flex-direction:column;align-items:flex-start;width:fit-content;max-width:100%;margin-inline:auto;gap:14px;text-align:left}
+}
+@media (max-width:760px){
+  .pf-sec{padding-block:104px}
+  .pf{margin-top:56px}
+  .pf-qt{font-size:clamp(24px,7vw,28px)}
+  .pf-stem{height:36px}
+  .pf-list{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:10px}
+  .pf-it{padding-inline:5px}
+  .pf-chip{gap:12px;padding:20px 8px 18px;border-radius:18px}
+  .pf-mark{width:34px;height:34px}
+  .pf-name{font-size:16px}
+  .pf-out{font-size:19px}
+}
+
 /* Example: one large typographic line */
 .exf-sec{padding-block:160px}
 .exf-flow{margin-top:64px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 24px;font-weight:600;font-size:clamp(28px,3.2vw,46px);line-height:1.25;letter-spacing:-.025em;color:var(--navy);text-align:center}
@@ -3070,7 +3133,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       (url.pathname===location.pathname||/^\/(?:index(?:\.html)?)?$/.test(url.pathname));
     if(contact&&LS.enquiry&&LS.enquiry.open){
       e.preventDefault();
-      if(LS.enquiry.forms.p){LS.enquiry.forms.p.setTrigger(a.textContent,a.dataset.topic);if(a.dataset.topic)LS.enquiry.forms.p.setTopic(a.dataset.topic)}
+      if(LS.enquiry.forms.p){LS.enquiry.forms.p.setTrigger(a.textContent,a.dataset.topic,a);if(a.dataset.topic)LS.enquiry.forms.p.setTopic(a.dataset.topic)}
       closeProd(!!(pMenu&&pMenu.contains(a)));closeMenu(!!(mMenu&&mMenu.contains(a)));
       LS.enquiry.open();
       return;
@@ -3343,12 +3406,59 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 
   function fill(t,vals){return String(t).replace(/\{(\w+)\}/g,function(_,k){return vals[k]!=null?vals[k]:''})}
 
+  /* Only fixed page/form/button metadata reaches Analytics. Never pass the
+     enquiry payload, entered values, request IDs or URL query/fragment. */
+  var pageKey=location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  if(pageKey==='/index')pageKey='/';
+  var pageNames={'/':'Homepage','/about':'About','/lucentalba':'LucentAlba','/lucentsignal':'LucentSignal','/help':'Help','/help/ghostwriter':'Ghostwriter help'};
+  var pageName=pageNames[pageKey] || pageKey.split('/').filter(Boolean).join(' / ');
+  var pageId=pageKey==='/'?'home':pageKey.slice(1).replace(/[^a-z0-9]+/gi,'_').toLowerCase();
+  if(location.hostname==='blog.lucentstar.ai'){pageId='blog_'+pageId;pageName=pageKey==='/'?'Blog index':'Blog '+pageName;}
+  function track(name,fields){
+    if(!window.lucentstarConsent || !window.lucentstarConsent.accepted() || typeof window.gtag!=='function')return false;
+    window.gtag('event',name,Object.assign({page_path:pageKey,site_area:location.hostname==='blog.lucentstar.ai'?'blog':'website'},fields));
+    return true;
+  }
+  function buttonContext(el){
+    if(!el)return {cta_id:'direct',cta_label:'Direct form interaction',cta_location:'inline_form'};
+    var zone=el.closest('header,footer,section,[role="navigation"]');
+    var place=el.id==='fab'?'floating_contact':zone?(zone.id||zone.tagName.toLowerCase()):'page';
+    var peers=Array.prototype.slice.call((zone||document).querySelectorAll('a,button'));
+    return {cta_id:el.getAttribute('data-analytics-id')||pageId+'_'+place+'_'+String(el.textContent||'contact').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'').slice(0,60),
+      cta_label:String(el.textContent||'').replace(/\s+/g,' ').trim().slice(0,100),cta_location:place};
+  }
+
   function Form(form){
     var px=form.getAttribute('data-enquiry');
     function q(s){return document.getElementById(px+'-'+s)}
     var done=q('done'),send=q('send'),label=q('send-label'),fail=q('fail'),sum=q('summary'),sumList=q('summary-list'),sumH=q('summary-h'),live=q('live'),again=q('again');
     var fields={name:q('name'),email:q('email'),message:q('message')};
     var sending=false, requestId=null, previousPayload=null, trigger={label:'',topic:''};
+    var cta=buttonContext(null),started=false,successIds={};
+    var seen=false,visible=false,observer=null;
+    function metadata(){
+      var waitlist=px==='p' && document.getElementById('enquiry').classList.contains('is-waitlist');
+      return Object.assign({form_id:waitlist?'lucentalba_waitlist':pageId+'_'+(px==='p'?'popup_enquiry':'inline_enquiry'),
+        form_name:waitlist?'LucentAlba waiting list':pageName+(px==='p'?' enquiry popup':' contact form'),
+        form_type:waitlist?'waitlist':'enquiry',form_placement:px==='p'?'popup':'inline'},cta);
+    }
+    form.setAttribute('data-tracking-form',pageId+'_'+(px==='p'?'popup_enquiry':'inline_enquiry'));
+    form.addEventListener('input',function(ev){
+      if(!ev.target.matches('input:not([name="contact_reference"]),textarea,select'))return;
+      if(px!=='p' && !seen && track('ls_form_view',metadata())){seen=true;if(observer)observer.disconnect()}
+      if(!started && track('ls_form_start',metadata()))started=true;
+    });
+    this.trackOpen=function(){started=false;track('ls_form_open',metadata())};
+    if(px!=='p' && 'IntersectionObserver' in window){
+      observer=new IntersectionObserver(function(entries){
+        visible=entries.some(function(entry){return entry.isIntersecting});
+        if(visible&&!seen&&track('ls_form_view',metadata())){seen=true;observer.disconnect()}
+      },{threshold:0.25});
+      observer.observe(form);
+      window.addEventListener('lucentstar:analytics-enabled',function(){
+        if(visible&&!seen&&track('ls_form_view',metadata())){seen=true;observer.disconnect()}
+      });
+    }
     function validate(){
       var e={};
       if(!fields.name.value.trim())e.name=T.errors.name;
@@ -3376,6 +3486,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       var e=validate(),keys=Object.keys(e);
       ['name','email','message'].forEach(function(k){showErr(k,e[k]||'')});
       if(keys.length){
+        track('ls_form_error',Object.assign(metadata(),{error_type:'validation'}));
         sumList.innerHTML='';
         keys.forEach(function(k){
           var li=document.createElement('li'),a=document.createElement('a');
@@ -3391,7 +3502,9 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       send.setAttribute('aria-disabled','true');send.classList.add('is-sending');label.textContent=T.sending;live.textContent=T.sending_status;
       var data={name:fields.name.value.trim(),email:fields.email.value.trim(),company:(q('company')||{}).value||'',message:fields.message.value.trim(),topic:(form.querySelector('input[name="topic"]:checked')||{}).value||'',source:px,website:(q('contact-reference')||{}).value||'',pageTitle:document.title,pageUrl:location.origin+location.pathname,triggerLabel:trigger.label,triggerTopic:trigger.topic};
       var payload=JSON.stringify(data);if(payload!==previousPayload){requestId=crypto.randomUUID();previousPayload=payload}data.requestId=requestId;
+      var analyticsContext=metadata();
       E.send(data).then(function(){
+        if(!successIds[data.requestId]){successIds[data.requestId]=true;track('generate_lead',analyticsContext);}
         sending=false;send.removeAttribute('aria-disabled');send.classList.remove('is-sending');
         var first=data.name.split(/\s+/)[0];
         q('done-h').textContent=fill(T.done_title,{name:first});
@@ -3400,16 +3513,18 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         label.textContent=T.send;
       },function(){
         sending=false;send.removeAttribute('aria-disabled');send.classList.remove('is-sending');
+        track('ls_form_error',Object.assign(analyticsContext,{error_type:'delivery'}));
         label.textContent=T.retry;fail.hidden=false;live.textContent='';fail.setAttribute('tabindex','-1');fail.focus();
       });
     });
     function reset(){
+      started=false;cta=buttonContext(null);
       form.reset();['name','email','message'].forEach(function(k){showErr(k,'')});
       requestId=null;previousPayload=null;trigger={label:'',topic:''};
       done.hidden=true;form.hidden=false;fail.hidden=true;sum.hidden=true;label.textContent=T.send;
     }
     if(again)again.addEventListener('click',function(){reset();fields.name.focus()});
-    this.setTrigger=function(label,topic){trigger={label:String(label||'').replace(/\s+/g,' ').trim().slice(0,160),topic:String(topic||'').trim().slice(0,80)}};
+    this.setTrigger=function(label,topic,element){cta=buttonContext(element);trigger={label:String(label||'').replace(/\s+/g,' ').trim().slice(0,160),topic:String(topic||'').trim().slice(0,80)}};
     this.setTopic=function(t){var r=q('t-'+t);if(r)r.checked=true};
     this.reset=reset;
     this.isDone=function(){return !done.hidden};
@@ -3502,6 +3617,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     restore=true;
     opener=document.activeElement;
     dlg.showModal();
+    if(E.forms.p)E.forms.p.trackOpen();
     if(small.matches)html.classList.add('enq-lock');
     state='opening';
     update();
@@ -3516,7 +3632,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     play('out',closed);
   }
   E.open=open;E.close=close;E.isOpen=function(){return state==='open'||state==='opening'};E.state=function(){return state};
-  fab.addEventListener('click',function(){if(E.forms.p)E.forms.p.setTrigger(fab.textContent,'');open()});
+  fab.addEventListener('click',function(){if(E.forms.p)E.forms.p.setTrigger(fab.textContent,'',fab);open()});
   dlg.addEventListener('cancel',function(e){e.preventDefault();close()});
   /* If the browser closes the dialog itself (a second Escape, say), tidy up */
   dlg.addEventListener('close',function(){if(!dlg.open&&state!=='closed'){gen++;stop();state='closing';closed()}});
@@ -3561,7 +3677,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
      again each time they come back into view. Once a block has left the
      screen completely it is reset, so the reset is never seen. With reduced
      motion nothing is reset and everything stays complete. */
-  var replay=$$('.jr-st,.exf-flow,.ffx-st');
+  var replay=$$('.jr-st,.pf,.exf-flow,.ffx-st');
   if(replay.length&&'IntersectionObserver' in window){
     var inIo=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting)en.target.classList.add('is-in')})},{rootMargin:'0px 0px -10% 0px',threshold:0.12});
     var outIo=new IntersectionObserver(function(ents){ents.forEach(function(en){if(!en.isIntersecting&&LS.motion)en.target.classList.remove('is-in')})},{threshold:0});

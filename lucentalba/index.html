@@ -2809,7 +2809,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       (url.pathname===location.pathname||/^\/(?:index(?:\.html)?)?$/.test(url.pathname));
     if(contact&&LS.enquiry&&LS.enquiry.open){
       e.preventDefault();
-      if(LS.enquiry.forms.p){LS.enquiry.forms.p.setTrigger(a.textContent,a.dataset.topic);if(a.dataset.topic)LS.enquiry.forms.p.setTopic(a.dataset.topic)}
+      if(LS.enquiry.forms.p){LS.enquiry.forms.p.setTrigger(a.textContent,a.dataset.topic,a);if(a.dataset.topic)LS.enquiry.forms.p.setTopic(a.dataset.topic)}
       closeProd(!!(pMenu&&pMenu.contains(a)));closeMenu(!!(mMenu&&mMenu.contains(a)));
       LS.enquiry.open();
       return;
@@ -3082,12 +3082,59 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
 
   function fill(t,vals){return String(t).replace(/\{(\w+)\}/g,function(_,k){return vals[k]!=null?vals[k]:''})}
 
+  /* Only fixed page/form/button metadata reaches Analytics. Never pass the
+     enquiry payload, entered values, request IDs or URL query/fragment. */
+  var pageKey=location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  if(pageKey==='/index')pageKey='/';
+  var pageNames={'/':'Homepage','/about':'About','/lucentalba':'LucentAlba','/lucentsignal':'LucentSignal','/help':'Help','/help/ghostwriter':'Ghostwriter help'};
+  var pageName=pageNames[pageKey] || pageKey.split('/').filter(Boolean).join(' / ');
+  var pageId=pageKey==='/'?'home':pageKey.slice(1).replace(/[^a-z0-9]+/gi,'_').toLowerCase();
+  if(location.hostname==='blog.lucentstar.ai'){pageId='blog_'+pageId;pageName=pageKey==='/'?'Blog index':'Blog '+pageName;}
+  function track(name,fields){
+    if(!window.lucentstarConsent || !window.lucentstarConsent.accepted() || typeof window.gtag!=='function')return false;
+    window.gtag('event',name,Object.assign({page_path:pageKey,site_area:location.hostname==='blog.lucentstar.ai'?'blog':'website'},fields));
+    return true;
+  }
+  function buttonContext(el){
+    if(!el)return {cta_id:'direct',cta_label:'Direct form interaction',cta_location:'inline_form'};
+    var zone=el.closest('header,footer,section,[role="navigation"]');
+    var place=el.id==='fab'?'floating_contact':zone?(zone.id||zone.tagName.toLowerCase()):'page';
+    var peers=Array.prototype.slice.call((zone||document).querySelectorAll('a,button'));
+    return {cta_id:el.getAttribute('data-analytics-id')||pageId+'_'+place+'_'+String(el.textContent||'contact').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'').slice(0,60),
+      cta_label:String(el.textContent||'').replace(/\s+/g,' ').trim().slice(0,100),cta_location:place};
+  }
+
   function Form(form){
     var px=form.getAttribute('data-enquiry');
     function q(s){return document.getElementById(px+'-'+s)}
     var done=q('done'),send=q('send'),label=q('send-label'),fail=q('fail'),sum=q('summary'),sumList=q('summary-list'),sumH=q('summary-h'),live=q('live'),again=q('again');
     var fields={name:q('name'),email:q('email'),message:q('message')};
     var sending=false, requestId=null, previousPayload=null, trigger={label:'',topic:''};
+    var cta=buttonContext(null),started=false,successIds={};
+    var seen=false,visible=false,observer=null;
+    function metadata(){
+      var waitlist=px==='p' && document.getElementById('enquiry').classList.contains('is-waitlist');
+      return Object.assign({form_id:waitlist?'lucentalba_waitlist':pageId+'_'+(px==='p'?'popup_enquiry':'inline_enquiry'),
+        form_name:waitlist?'LucentAlba waiting list':pageName+(px==='p'?' enquiry popup':' contact form'),
+        form_type:waitlist?'waitlist':'enquiry',form_placement:px==='p'?'popup':'inline'},cta);
+    }
+    form.setAttribute('data-tracking-form',pageId+'_'+(px==='p'?'popup_enquiry':'inline_enquiry'));
+    form.addEventListener('input',function(ev){
+      if(!ev.target.matches('input:not([name="contact_reference"]),textarea,select'))return;
+      if(px!=='p' && !seen && track('ls_form_view',metadata())){seen=true;if(observer)observer.disconnect()}
+      if(!started && track('ls_form_start',metadata()))started=true;
+    });
+    this.trackOpen=function(){started=false;track('ls_form_open',metadata())};
+    if(px!=='p' && 'IntersectionObserver' in window){
+      observer=new IntersectionObserver(function(entries){
+        visible=entries.some(function(entry){return entry.isIntersecting});
+        if(visible&&!seen&&track('ls_form_view',metadata())){seen=true;observer.disconnect()}
+      },{threshold:0.25});
+      observer.observe(form);
+      window.addEventListener('lucentstar:analytics-enabled',function(){
+        if(visible&&!seen&&track('ls_form_view',metadata())){seen=true;observer.disconnect()}
+      });
+    }
     function validate(){
       var e={};
       if(!fields.name.value.trim())e.name=T.errors.name;
@@ -3115,6 +3162,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       var e=validate(),keys=Object.keys(e);
       ['name','email','message'].forEach(function(k){showErr(k,e[k]||'')});
       if(keys.length){
+        track('ls_form_error',Object.assign(metadata(),{error_type:'validation'}));
         sumList.innerHTML='';
         keys.forEach(function(k){
           var li=document.createElement('li'),a=document.createElement('a');
@@ -3130,7 +3178,9 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
       send.setAttribute('aria-disabled','true');send.classList.add('is-sending');label.textContent=T.sending;live.textContent=T.sending_status;
       var data={name:fields.name.value.trim(),email:fields.email.value.trim(),company:(q('company')||{}).value||'',message:fields.message.value.trim(),topic:(form.querySelector('input[name="topic"]:checked')||{}).value||'',source:px,website:(q('contact-reference')||{}).value||'',pageTitle:document.title,pageUrl:location.origin+location.pathname,triggerLabel:trigger.label,triggerTopic:trigger.topic};
       var payload=JSON.stringify(data);if(payload!==previousPayload){requestId=crypto.randomUUID();previousPayload=payload}data.requestId=requestId;
+      var analyticsContext=metadata();
       E.send(data).then(function(){
+        if(!successIds[data.requestId]){successIds[data.requestId]=true;track('generate_lead',analyticsContext);}
         sending=false;send.removeAttribute('aria-disabled');send.classList.remove('is-sending');
         var first=data.name.split(/\s+/)[0];
         q('done-h').textContent=fill(T.done_title,{name:first});
@@ -3139,16 +3189,18 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
         label.textContent=T.send;
       },function(){
         sending=false;send.removeAttribute('aria-disabled');send.classList.remove('is-sending');
+        track('ls_form_error',Object.assign(analyticsContext,{error_type:'delivery'}));
         label.textContent=T.retry;fail.hidden=false;live.textContent='';fail.setAttribute('tabindex','-1');fail.focus();
       });
     });
     function reset(){
+      started=false;cta=buttonContext(null);
       form.reset();['name','email','message'].forEach(function(k){showErr(k,'')});
       requestId=null;previousPayload=null;trigger={label:'',topic:''};
       done.hidden=true;form.hidden=false;fail.hidden=true;sum.hidden=true;label.textContent=T.send;
     }
     if(again)again.addEventListener('click',function(){reset();fields.name.focus()});
-    this.setTrigger=function(label,topic){trigger={label:String(label||'').replace(/\s+/g,' ').trim().slice(0,160),topic:String(topic||'').trim().slice(0,80)}};
+    this.setTrigger=function(label,topic,element){cta=buttonContext(element);trigger={label:String(label||'').replace(/\s+/g,' ').trim().slice(0,160),topic:String(topic||'').trim().slice(0,80)}};
     this.setTopic=function(t){var r=q('t-'+t);if(r)r.checked=true};
     this.reset=reset;
     this.isDone=function(){return !done.hidden};
@@ -3241,6 +3293,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     restore=true;
     opener=document.activeElement;
     dlg.showModal();
+    if(E.forms.p)E.forms.p.trackOpen();
     if(small.matches)html.classList.add('enq-lock');
     state='opening';
     update();
@@ -3255,7 +3308,7 @@ html.still *,html.still *::before,html.still *::after{transition-duration:0s !im
     play('out',closed);
   }
   E.open=open;E.close=close;E.isOpen=function(){return state==='open'||state==='opening'};E.state=function(){return state};
-  fab.addEventListener('click',function(){if(E.forms.p)E.forms.p.setTrigger(fab.textContent,'');open()});
+  fab.addEventListener('click',function(){if(E.forms.p)E.forms.p.setTrigger(fab.textContent,'',fab);open()});
   dlg.addEventListener('cancel',function(e){e.preventDefault();close()});
   /* If the browser closes the dialog itself (a second Escape, say), tidy up */
   dlg.addEventListener('close',function(){if(!dlg.open&&state!=='closed'){gen++;stop();state='closing';closed()}});
