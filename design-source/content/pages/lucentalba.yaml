@@ -43,8 +43,8 @@ sections:
     waitlist:
       heading: Join the waitlist.
       text: Get access before the public launch.
-      launch_at: "2026-11-13T23:00:00Z"
-      countdown_sr: The public launch is on 13 November 2026 at 11pm UK time.
+      launch_at: "2026-11-22T23:00:00Z"
+      countdown_sr: The public launch is on 22 November 2026 at 11pm UK time.
       units:
         - {key: d, label: Days, start: 9}
         - {key: h, label: Hours, start: 0}
