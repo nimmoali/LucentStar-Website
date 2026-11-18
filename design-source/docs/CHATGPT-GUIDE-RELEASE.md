@@ -2,7 +2,7 @@
 
 Ali approved the reviewed page for publication and requested a short URL and download tracking in this chat on 18 November 2026.
 
-Scope: /chatgpt-business-guide/ landing page; /chatgpt/ branded short redirect; five-page PDF; homepage guide band; source templates and build mapping; sitemap entry. Dark purple #24105E and yellow #F2CF35 match the owner-approved LucentAlba box. No Resources/Studio candidate work, shared design changes, blog/app deployment, advertising, or email automation is included.
+Scope: /chatgpt-business-guide/ landing page; /chatgpt/ branded short redirect; five-page PDF; source templates and build mapping; sitemap entry. Dark purple #24105E and yellow #F2CF35 match the owner-approved LucentAlba box. No Resources/Studio candidate work, shared design changes, blog/app deployment, advertising, or email automation is included.
 
 Download measurement, using existing GA4 G-LF5E1LE400 and existing analytics consent:
 - guide_cta_click: homepage link to the guide landing page.
@@ -19,3 +19,8 @@ The PDF links work without JavaScript. Supported browsers fetch and validate the
 Validation: full source build/check passed; ten focused delivery/consent scenarios passed (full file, rejected consent, network error, corrupt/truncated file, HTTP error, concurrent buttons, withdrawal, unsupported native fallback, blocked analytics and homepage CTA). Prior desktop, 390px and 320px layout, keyboard, FAQ and actual browser download checks passed. Browser status confirmed the new verified-PDF path. Live checks and GA receipt are recorded separately after deployment. No live form was submitted.
 
 Public source references: https://developers.google.com/analytics/devguides/collection/ga4/events and https://developer.mozilla.org/en-US/docs/Web/API/Response/arrayBuffer.
+
+
+## Homepage placement removed, 18 November 2026
+
+After the first publication, Ali requested removal of the homepage guide banner and will link directly to https://lucentstar.ai/chatgpt. Homepage HTML and source return exactly to their prior published state; the standalone landing page, short redirect, PDF and consent-based download tracking remain. The homepage CTA event is no longer used.
