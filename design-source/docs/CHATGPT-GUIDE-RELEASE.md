@@ -24,3 +24,8 @@ Public source references: https://developers.google.com/analytics/devguides/coll
 ## Homepage placement removed, 18 November 2026
 
 After the first publication, Ali requested removal of the homepage guide banner and will link directly to https://lucentstar.ai/chatgpt. Homepage HTML and source return exactly to their prior published state; the standalone landing page, short redirect, PDF and consent-based download tracking remain. The homepage CTA event is no longer used.
+
+
+## LinkedIn attribution, 18 November 2026
+
+The owner asked where to place the link and wants click tracking. The recommended placement is the post itself. The /chatgpt short route is this LinkedIn campaign link and redirects with utm_source=linkedin, utm_medium=organic_social, utm_campaign=chatgpt_business_guide and utm_content=post. Use the untagged canonical /chatgpt-business-guide/ page for other channels. These tags identify traffic using the campaign link; they do not prove every visit originated on LinkedIn if someone shares it elsewhere. LinkedIn post link clicks, consented GA campaign visits and verified complete PDF transfers are separate metrics.

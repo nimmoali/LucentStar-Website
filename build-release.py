@@ -47,8 +47,8 @@ shutil.copy2(ROOT/'assets/favicon.ico', ROOT/'favicon.ico')
 (ROOT/'.nojekyll').touch()
 
 # Short campaign link generated alongside the canonical guide page.
-short_target='/chatgpt-business-guide/'
-short_html='<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url='+short_target+'"><link rel="canonical" href="https://lucentstar.ai'+short_target+'"><title>ChatGPT Business Hub guide | LucentStar AI</title></head><body><p><a href="'+short_target+'">Open the free ChatGPT Business Hub guide</a>.</p></body></html>'
+short_target='/chatgpt-business-guide/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=chatgpt_business_guide&utm_content=post'
+short_html='<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url='+short_target+'"><link rel="canonical" href="https://lucentstar.ai'+short_target.split('?')[0]+'"><title>ChatGPT Business Hub guide | LucentStar AI</title></head><body><p><a href="'+short_target+'">Open the free ChatGPT Business Hub guide</a>.</p></body></html>'
 (ROOT/'chatgpt').mkdir(exist_ok=True)
 (ROOT/'chatgpt/index.html').write_text(short_html)
 
