@@ -1,0 +1,4 @@
+{# The existing LucentAlba closing band, scoped to this resource. #}
+{% import 'macros.html' as ui with context %}
+<div class="theme-albedo"><section class="sec cta-sec" id="{{ s.id }}" tabindex="-1" aria-labelledby="{{ s.id }}-h"><div class="wrap"><div class="band" data-reveal="text"><h2 class="h2" id="{{ s.id }}-h">{{ s.heading | inline }}</h2><p class="lead">{{ s.lead | inline }}</p><div class="cta-row"><a class="btn btn-secondary" href="{{ link('chatgpt-business-guide') }}" data-guide-open="chatgpt-business-hub" data-guide-location="Homepage guide band">Get the free guide</a></div></div></div></section></div>
+<script src="{{ asset('assets/guides/guide-download.js') }}" defer></script>

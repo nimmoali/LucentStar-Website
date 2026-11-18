@@ -1,0 +1,12 @@
+{% set pdf = asset_integrity(s.file) %}
+{# Dedicated PDF resource, using the shared opening, buttons and typography. #}
+<section class="page-hero" id="top" aria-labelledby="page-h">
+  <div class="wrap opening">
+    <p class="eyebrow">{{ s.eyebrow }}</p>
+    <h1 class="h-title" id="page-h" tabindex="-1">{{ s.heading | inline }}</h1>
+    <p class="intro">{{ s.lead | inline }}</p>
+    <div class="cta-row"><a class="btn btn-primary" href="{{ asset(s.file) }}" download="LucentStar-AI-ChatGPT-Business-Hub-Guide.pdf" data-guide-download="chatgpt-business-hub" data-guide-location="Opening section" data-guide-bytes="{{ pdf.bytes }}" data-guide-sha256="{{ pdf.sha256 }}">{{ s.download_label }}</a><a class="tlink" href="#inside"><span>What’s inside</span></a></div>
+    <p class="prod-note">{{ s.detail }}</p>
+    <p class="prod-note">{{ s.note }}</p>
+  </div>
+</section>

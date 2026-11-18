@@ -597,7 +597,14 @@ def make_env(b):
         except ValueError:
             return str(value)
 
-    e.globals.update(link=link, asset=asset, wordmark=wordmark)
+    @pass_context
+    def asset_integrity(ctx, path):
+        """Metadata from the exact downloadable asset; never count partial/stale PDFs."""
+        b.asset(path, ctx['page']['slug'])
+        payload = open(os.path.join(ROOT, str(path).lstrip('/')), 'rb').read()
+        return {'bytes': len(payload), 'sha256': hashlib.sha256(payload).hexdigest()}
+
+    e.globals.update(link=link, asset=asset, asset_integrity=asset_integrity, wordmark=wordmark)
     e.filters.update(inline=inline, nl2br=nl2br, slugify=slugify, date_long=date_long)
     e.tests['external'] = is_external
     e.tests['newtab'] = is_newtab

@@ -1,5 +1,9 @@
 # Current LucentStar release
 
+## Approved guide release, 18 November 2026
+
+Ali approved publication of the reviewed ChatGPT Business Hub guide page and requested a short link and separate completed-download measurement. Prepared on the published bb5f277 baseline, excluding unrelated pending work. Short URL: https://lucentstar.ai/chatgpt. The complete-transfer event verifies PDF bytes and SHA-256 and respects existing analytics consent. It does not establish a saved/read file. See CHATGPT-GUIDE-RELEASE.md for scope, measurement semantics and checks; final deployment verification is recorded after release.
+
 ## Latest: purple homepage theme, live 17 October 2026
 
 Website revision `1b8f8d1` is published at `/`. The public homepage matched the committed HTML byte for byte after the Pages deployment completed. The homepage now uses purple title emphasis, dark-purple actions with white text, a standalone dark-purple star in the header and footer, and yellow icons inside the active approach steps. Its copy, layout and motion remain unchanged. The shared LucentSignal and LucentAlba product colours remain distinct.

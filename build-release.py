@@ -34,7 +34,7 @@ for p in (SOURCE/'content/retained').rglob('*.html'):
 (ROOT/'help/index.html').write_text((ROOT/'help.html').read_text())
 
 # Clean routes plus explicit static page redirects for legacy product addresses.
-for slug in ['lucentalba', 'about']:
+for slug in ['lucentalba', 'about', 'chatgpt-business-guide']:
     (ROOT/slug).mkdir(exist_ok=True)
     (ROOT/slug/'index.html').write_text((ROOT/(slug+'.html')).read_text())
 redirect='<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/lucentalba"><link rel="canonical" href="https://lucentstar.ai/lucentalba"><title>LucentAlba</title></head><body><p>This product is now LucentAlba. <a href="/lucentalba">Visit LucentAlba</a>.</p></body></html>'
@@ -45,6 +45,13 @@ sitemap=(ROOT/'sitemap.xml').read_text().replace('https://lucentstar.ai/lucental
 (ROOT/'sitemap.xml').write_text(sitemap)
 shutil.copy2(ROOT/'assets/favicon.ico', ROOT/'favicon.ico')
 (ROOT/'.nojekyll').touch()
+
+# Short campaign link generated alongside the canonical guide page.
+short_target='/chatgpt-business-guide/'
+short_html='<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url='+short_target+'"><link rel="canonical" href="https://lucentstar.ai'+short_target+'"><title>ChatGPT Business Hub guide | LucentStar AI</title></head><body><p><a href="'+short_target+'">Open the free ChatGPT Business Hub guide</a>.</p></body></html>'
+(ROOT/'chatgpt').mkdir(exist_ok=True)
+(ROOT/'chatgpt/index.html').write_text(short_html)
+
 
 signal=Path(os.environ.get('LUCENTSTAR_SIGNAL_REPO', str(ROOT.parent/('signal' if (ROOT.parent/'signal').is_dir() else 'linkedin-generator'))))
 if signal.is_dir():

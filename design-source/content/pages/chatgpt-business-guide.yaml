@@ -1,0 +1,55 @@
+slug: chatgpt-business-guide
+url: /chatgpt-business-guide/
+title: ChatGPT Business Hub guide
+seo_title: Claim your business in ChatGPT | Free guide | LucentStar AI
+description: Download the free LucentStar AI guide to claiming your business in ChatGPT
+  Business Hub, completing verification and setting up your profile.
+nav_current: ''
+theme: home-purple
+sections:
+- type: guide_download
+  eyebrow: Free practical guide
+  heading: Claim your business *in ChatGPT.*
+  lead: A clear, step-by-step guide to finding your business in ChatGPT Business Hub,
+    completing verification and setting up an accurate profile.
+  file: assets/guides/chatgpt-business-hub-guide.pdf
+  download_label: Download the free guide
+  detail: PDF · 5 pages · No sign-up needed
+  note: Official OpenAI instructions checked on 18 November 2026. An independent guide
+    from LucentStar AI.
+- type: features
+  id: inside
+  heading: Know what to do at each step
+  tone: cloud
+  items:
+  - title: Claim and verify
+    text: Find the right listing, choose an offered verification method and understand
+      the separate Persona identity check.
+  - title: Build your profile
+    text: Use a practical business-description example and a checklist for your website,
+      logo and business details.
+  - title: Understand the limits
+    text: See the eligibility notes, publishing caveats and optional tools, with links
+      to current official instructions.
+- type: faq
+  id: questions
+  heading: Before you get started
+  reader_voice: true
+  items:
+  - q: Will claiming a profile make ChatGPT recommend my business?
+    a: Claiming lets you contribute current business information. It does not guarantee
+      recommendations, higher placement, traffic or sales.
+  - q: Can every business use Business Hub?
+    a: You must own the business or be authorized to represent it. Availability depends
+      on location, business type and verification support. Business Agents have separate
+      eligibility requirements.
+  - q: Is this an official OpenAI guide?
+    a: No. LucentStar AI prepared this independent guide using official OpenAI documentation.
+      The PDF includes source links. Check those instructions if the interface or
+      requirements have changed.
+- type: guide_download_cta
+  id: next
+  heading: Get your *step-by-step guide.*
+  lead: Keep the PDF handy while you claim and set up your business profile.
+  file: assets/guides/chatgpt-business-hub-guide.pdf
+template: pages/guide-download-page.html

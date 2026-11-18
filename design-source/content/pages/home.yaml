@@ -183,6 +183,14 @@ sections:
   lead: Alongside our consulting, we make focused products. Each one is built to support your judgement, not replace it.
   tile_link: See it in action
 - type: clients
+- type: guide_teaser
+  id: chatgpt-guide
+  heading: Get the *step-by-step guide.*
+  lead: Our free step-by-step PDF explains Business Hub, verification and profile setup, with practical examples and eligibility notes.
+  actions:
+  - label: Get the free guide
+    href: chatgpt-business-guide
+    style: pill
 - type: faq
   id: questions
   heading: Questions people ask
